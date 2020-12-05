@@ -1,0 +1,14 @@
+template:
+  params:
+    bootswatch: flatly
+
+
+navbar:
+  title: "healthyR.data"
+  left:
+    - icon: "fa-home"
+      href: index.html
+    - text: "Data"
+      href: reference/index.html
+    - text: "News"
+      href: news/index.html

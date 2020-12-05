@@ -1,4 +1,5 @@
-^healthyR\.ts\.Rproj$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$
-^README\.Rmd$

@@ -1,13 +1,10 @@
 Package: healthyR.ts
-Title: What the Package Does (One Line, Title Case)
+Title: The time series modeling companion to 'healthyR'
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
+    person("Steven Sanderson", role = "cph"))
+Description: Fill this in later.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -15,3 +12,19 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://github.com/spsanderson/healthyR.ts
 BugReports: https://github.com/spsanderson/healthyR.ts/issues
+Suggests: 
+    knitr,
+    rmarkdown,
+    roxygen2
+VignetteBuilder: knitr
+Imports: 
+    magrittr,
+    rlang (>= 0.1.2),
+    tibble,
+    timetk,
+    modeltime,
+    modeltime.ensemble,
+    modeltime.resample,
+    dplyr,
+    purrr,
+    ggplot2
