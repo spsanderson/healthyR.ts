@@ -3,7 +3,6 @@ template:
     bootswatch: flatly
     ganalytics: G-HKLXBY9V6J
 
-
 navbar:
   title: "healthyR.data"
   left:
