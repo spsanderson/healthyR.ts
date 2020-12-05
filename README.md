@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# healthyR.ts
+# healthyR.ts <img src="man/figures/healthyR_ts6.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -29,7 +29,7 @@ devtools::install_github("spsanderson/healthyR.ts")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-#library(healthyR.ts)
+library(healthyR.ts)
 ## basic example code
 ```
 
