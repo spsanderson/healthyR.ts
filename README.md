@@ -4,6 +4,9 @@
 # healthyR.ts <img src="man/figures/healthyR_ts6.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 The goal of `healthyR.ts` is to …

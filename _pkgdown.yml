@@ -8,7 +8,20 @@ navbar:
   left:
     - icon: "fa-home"
       href: index.html
+    - text: "Documentation"
+      href: articles/index.html
+      menu:
+        -  text: "Getting Started"
+        -  text: "Getting Started with healthyR.ts"
+           href: articles/getting-started.html
     - text: "Data"
       href: reference/index.html
     - text: "News"
       href: news/index.html
+
+reference:
+  -  title: Data Generating Functions
+     desc: healthyR.ts functions that generate data
+  -  subtitle: Random Data
+     contents:
+     -  matches("ts_random_walk")
