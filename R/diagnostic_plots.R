@@ -7,7 +7,9 @@
 #'
 #' @details
 #' - Set the intercept of the initial value from the random walk
-#' - Set the max and min of the cumulative sum of teh random walks
+#' - Set the max and min of the cumulative sum of the random walks
+#'
+#' @param .data The data passed to the function.
 #'
 #' @examples
 #' library(ggplot2)
@@ -24,7 +26,7 @@
 #'    )
 #'  ) +
 #'  geom_line(alpha = 0.8) +
-#'  get_gg_layers(df)
+#'  ts_random_walk_ggplot_layers(df)
 #'
 #' @return
 #' A `ggplot2` layers object
@@ -33,7 +35,15 @@
 #'
 
 # Function for obtaining ggplot layers to commonly apply to subsequent plots
-get_gg_layers <- function(df) {
+ts_random_walk_ggplot_layers <- function(.data) {
+
+    # Check
+    if(!is.data.frame(.data)){
+        stop(call. = FALSE,"(.data) was not provided. Please supply.")
+    }
+
+    df <- dplyr::as_tibble(.data)
+
     gg_layers <- list(
         ggplot2::geom_hline(
             yintercept = attr(df, ".initial_value"),

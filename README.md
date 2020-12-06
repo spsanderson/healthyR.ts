@@ -40,15 +40,19 @@ df <- ts_random_walk()
 
 head(df)
 #> # A tibble: 6 x 4
-#>     run     x       y cum_y
-#>   <dbl> <dbl>   <dbl> <dbl>
-#> 1     1     1 -0.0311  969.
-#> 2     1     2  0.0238  992.
-#> 3     1     3 -0.104   889.
-#> 4     1     4 -0.0612  835.
-#> 5     1     5  0.0942  913.
-#> 6     1     6 -0.127   797.
+#>     run     x        y cum_y
+#>   <dbl> <dbl>    <dbl> <dbl>
+#> 1     1     1 -0.135    865.
+#> 2     1     2 -0.00989  857.
+#> 3     1     3 -0.110    762.
+#> 4     1     4  0.165    888.
+#> 5     1     5  0.0564   938.
+#> 6     1     6  0.0581   993.
+```
 
+Now that the data hs been generated, lets take a look at it.
+
+``` r
 df %>%
    ggplot(
        mapping = aes(
@@ -59,10 +63,10 @@ df %>%
         )
     ) +
     geom_line(alpha = 0.8) +
-    get_gg_layers(df)
+    ts_random_walk_ggplot_layers(df)
 #> Registered S3 method overwritten by 'quantmod':
 #>   method            from
 #>   as.zoo.data.frame zoo
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-ts_random_walk_ggplot_layers-1.png" width="100%" />

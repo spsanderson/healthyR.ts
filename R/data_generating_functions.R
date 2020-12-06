@@ -49,12 +49,12 @@ ts_random_walk <- function(
 ) {
     # Build data frame of first random walk
     x <- seq(1, .periods, 1)
-    y <- rnorm(.periods, .mean, .sd)
+    y <- stats::rnorm(.periods, .mean, .sd)
     df <- data.frame(run = 1, x = x, y = y)
     # Add on additional random walks
     for (i in 2:.num_walks) {
         x <- seq(1, .periods, 1)
-        y <- rnorm(.periods, .mean, .sd)
+        y <- stats::rnorm(.periods, .mean, .sd)
         tmp <- data.frame(run = i, x = x, y = y)
         df <- rbind(df, tmp)
     }

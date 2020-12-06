@@ -28,4 +28,4 @@ reference:
   -  title: Plotting Functions
      desc: healthyR.ts plotting functions
   -  contents:
-     -  contains("get_gg_layers")
+     -  contains("ts_random_walk_ggplot_layers")

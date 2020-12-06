@@ -41,14 +41,18 @@ devtools::install_github("spsanderson/healthyR.ts")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r ts_random_walk}
 library(healthyR.ts)
 library(ggplot2)
 
 df <- ts_random_walk()
 
 head(df)
+```
 
+Now that the data hs been generated, lets take a look at it.
+
+```{r ts_random_walk_ggplot_layers}
 df %>%
    ggplot(
        mapping = aes(
@@ -59,6 +63,6 @@ df %>%
         )
     ) +
     geom_line(alpha = 0.8) +
-    get_gg_layers(df)
+    ts_random_walk_ggplot_layers(df)
 ```
 
