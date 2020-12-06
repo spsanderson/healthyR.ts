@@ -47,6 +47,8 @@ library(ggplot2)
 
 df <- ts_random_walk()
 
+head(df)
+
 df %>%
    ggplot(
        mapping = aes(

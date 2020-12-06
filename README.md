@@ -38,6 +38,17 @@ library(ggplot2)
 
 df <- ts_random_walk()
 
+head(df)
+#> # A tibble: 6 x 4
+#>     run     x       y cum_y
+#>   <dbl> <dbl>   <dbl> <dbl>
+#> 1     1     1 -0.0311  969.
+#> 2     1     2  0.0238  992.
+#> 3     1     3 -0.104   889.
+#> 4     1     4 -0.0612  835.
+#> 5     1     5  0.0942  913.
+#> 6     1     6 -0.127   797.
+
 df %>%
    ggplot(
        mapping = aes(
