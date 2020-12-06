@@ -19,7 +19,8 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-The goal of `healthyR.ts` is to ...
+The goal of `healthyR.ts` is to provide a consistent verb framework for performing
+time-series analysis and forecasting.
 
 ## Installation
 
@@ -35,27 +36,27 @@ And the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("spsanderson/healthyR.ts")
 ```
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(healthyR.ts)
-## basic example code
+library(ggplot2)
+
+df <- ts_random_walk()
+
+df %>%
+   ggplot(
+       mapping = aes(
+           x = x
+           , y = cum_y
+           , color = factor(run)
+           , group = factor(run)
+        )
+    ) +
+    geom_line(alpha = 0.8) +
+    get_gg_layers(df)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!

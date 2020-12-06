@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • healthyR.ts</title>
+<title>Get Random Walk ggplot2 layers — get_gg_layers • healthyR.ts</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Get Random Walk ggplot2 layers — get_gg_layers" />
+<meta property="og:description" content="Get layers to add to a ggplot graph from the ts_random_walk() function." />
 
 
 
@@ -68,7 +69,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -133,40 +134,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Get Random Walk <code>ggplot2</code> layers</h1>
+    <small class="dont-index">Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/R/diagnostic_plots.R'><code>R/diagnostic_plots.R</code></a></small>
+    <div class="hidden name"><code>get_gg_layers.Rd</code></div>
     </div>
 
-    <div id="healthyrts-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#healthyrts-development-version" class="anchor"></a>healthyR.ts (development version)</h1>
-</div>
-    <div id="healthyrts-0009001" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.0.9001">
-<a href="#healthyrts-0009001" class="anchor"></a>healthyR.ts 0.0.0.9001</h1>
-<ul>
-<li>Added fuctions</li>
-</ul>
-<ol>
-<li>ts_random_walk</li>
-<li>ts_get_gg_layers</li>
-</ol>
-<div id="healthyrts-0009000" class="section level2">
-<h2 class="hasAnchor">
-<a href="#healthyrts-0009000" class="anchor"></a>healthyR.ts 0.0.0.9000</h2>
-<ul>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-</ul>
-</div>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Get layers to add to a <code>ggplot</code> graph from the <code><a href='ts_random_walk.html'>ts_random_walk()</a></code> function.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>get_gg_layers</span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span></pre>
+
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code>ggplot2</code> layers object</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
+<ul>
+<li><p>Set the intercept of the initial value from the random walk</p></li>
+<li><p>Set the max and min of the cumulative sum of teh random walks</p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Steven P. Sanderson II, MPH</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ts_random_walk.html'>ts_random_walk</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>df</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>
+    mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>
+      x <span class='op'>=</span> <span class='va'>x</span>
+      , y <span class='op'>=</span> <span class='va'>cum_y</span>
+      , color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>run</span><span class='op'>)</span>
+      , group <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>run</span><span class='op'>)</span>
+   <span class='op'>)</span>
+ <span class='op'>)</span> <span class='op'>+</span>
+ <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span> <span class='op'>+</span>
+ <span class='fu'>get_gg_layers</span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Registered S3 method overwritten by 'quantmod':</span>
+#&gt; <span class='message'>  method            from</span>
+#&gt; <span class='message'>  as.zoo.data.frame zoo </span></div><div class='img'><img src='get_gg_layers-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 

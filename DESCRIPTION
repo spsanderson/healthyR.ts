@@ -27,4 +27,5 @@ Imports:
     modeltime.resample,
     dplyr,
     purrr,
-    ggplot2
+    ggplot2,
+    tidyquant
