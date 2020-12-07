@@ -9,7 +9,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  message = FALSE,
+  warning = FALSE
 )
 ```
 
@@ -39,7 +41,7 @@ devtools::install_github("spsanderson/healthyR.ts")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to generate random walk data.
 
 ```{r ts_random_walk}
 library(healthyR.ts)
@@ -50,7 +52,7 @@ df <- ts_random_walk()
 head(df)
 ```
 
-Now that the data hs been generated, lets take a look at it.
+Now that the data has been generated, lets take a look at it.
 
 ```{r ts_random_walk_ggplot_layers}
 df %>%
@@ -66,3 +68,24 @@ df %>%
     ts_random_walk_ggplot_layers(df)
 ```
 
+That is still pretty noisy, so lets see this in a different way. Lets clear this up a bit 
+to make it easier to see the full range of the possible volatility of the random walks.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+df %>%
+    group_by(x) %>%
+    summarise(
+        min_y = min(cum_y),
+        max_y = max(cum_y)
+    ) %>%
+    ggplot(
+        aes(x = x)
+    ) +
+    geom_line(aes(y = max_y), color = "steelblue") +
+    geom_line(aes(y = min_y), color = "firebrick") +
+    geom_ribbon(aes(ymin = min_y, ymax = max_y), alpha = 0.2) +
+    ts_random_walk_ggplot_layers(df)
+```

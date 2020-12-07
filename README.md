@@ -30,7 +30,8 @@ devtools::install_github("spsanderson/healthyR.ts")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to generate random walk
+data.
 
 ``` r
 library(healthyR.ts)
@@ -40,17 +41,17 @@ df <- ts_random_walk()
 
 head(df)
 #> # A tibble: 6 x 4
-#>     run     x        y cum_y
-#>   <dbl> <dbl>    <dbl> <dbl>
-#> 1     1     1 -0.135    865.
-#> 2     1     2 -0.00989  857.
-#> 3     1     3 -0.110    762.
-#> 4     1     4  0.165    888.
-#> 5     1     5  0.0564   938.
-#> 6     1     6  0.0581   993.
+#>     run     x       y cum_y
+#>   <dbl> <dbl>   <dbl> <dbl>
+#> 1     1     1 -0.0747  925.
+#> 2     1     2 -0.107   826.
+#> 3     1     3  0.0267  848.
+#> 4     1     4 -0.0332  820.
+#> 5     1     5  0.0106  829.
+#> 6     1     6  0.0199  845.
 ```
 
-Now that the data hs been generated, lets take a look at it.
+Now that the data has been generated, lets take a look at it.
 
 ``` r
 df %>%
@@ -64,9 +65,31 @@ df %>%
     ) +
     geom_line(alpha = 0.8) +
     ts_random_walk_ggplot_layers(df)
-#> Registered S3 method overwritten by 'quantmod':
-#>   method            from
-#>   as.zoo.data.frame zoo
 ```
 
 <img src="man/figures/README-ts_random_walk_ggplot_layers-1.png" width="100%" />
+
+That is still pretty noisy, so lets see this in a different way. Lets
+clear this up a bit to make it easier to see the full range of the
+possible volatility of the random walks.
+
+``` r
+library(dplyr)
+library(ggplot2)
+
+df %>%
+    group_by(x) %>%
+    summarise(
+        min_y = min(cum_y),
+        max_y = max(cum_y)
+    ) %>%
+    ggplot(
+        aes(x = x)
+    ) +
+    geom_line(aes(y = max_y), color = "steelblue") +
+    geom_line(aes(y = min_y), color = "firebrick") +
+    geom_ribbon(aes(ymin = min_y, ymax = max_y), alpha = 0.2) +
+    ts_random_walk_ggplot_layers(df)
+```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />

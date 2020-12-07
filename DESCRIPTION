@@ -15,7 +15,8 @@ BugReports: https://github.com/spsanderson/healthyR.ts/issues
 Suggests: 
     knitr,
     rmarkdown,
-    roxygen2
+    roxygen2,
+    scales
 VignetteBuilder: knitr
 Imports: 
     magrittr,
