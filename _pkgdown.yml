@@ -24,8 +24,8 @@ reference:
      desc: healthyR.ts functions that generate data
   -  subtitle: Random Data
      contents:
-     -  contains("ts_random_walk")
+     -  "ts_random_walk"
   -  title: Plotting Functions
      desc: healthyR.ts plotting functions
   -  contents:
-     -  contains("ts_random_walk_ggplot_layers")
+     -  matches("_ggplot_layers")
