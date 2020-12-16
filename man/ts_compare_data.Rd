@@ -33,6 +33,9 @@ are collapsed using \code{lubridate::floor_date()}. The value can be:
 
 Arbitrary unique English abbreviations as in the \code{lubridate::period()} constructor are allowed.}
 }
+\value{
+A tibble.
+}
 \description{
 Given a tibble/data.frame, you can get date from two different but comparative
 date ranges. Lets say you want to compare visits in one year to visits from 2

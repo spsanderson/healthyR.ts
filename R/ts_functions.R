@@ -33,6 +33,9 @@
 #'
 #' Arbitrary unique English abbreviations as in the `lubridate::period()` constructor are allowed.
 #'
+#' @return
+#' A tibble.
+#'
 #' @examples
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(dplyr))
