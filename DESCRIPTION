@@ -29,4 +29,6 @@ Imports:
     dplyr,
     purrr,
     ggplot2,
-    tidyquant
+    tidyquant,
+    healthyR.data,
+    lubridate
