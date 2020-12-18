@@ -1,6 +1,6 @@
 Package: healthyR.ts
 Title: The time series modeling companion to 'healthyR'
-Version: 0.0.0.9001
+Version: 0.1.0
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
     person("Steven Sanderson", role = "cph"))

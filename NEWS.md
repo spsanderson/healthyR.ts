@@ -1,4 +1,4 @@
-# healthyR.ts (development version)
+# healthyR.ts 0.1.0
 
 # healthyR.ts 0.0.0.9001
 * Added fuctions
