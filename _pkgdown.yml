@@ -22,13 +22,13 @@ navbar:
 reference:
   -  title: Data Generating Functions
      desc: healthyR.ts functions that generate data
-  -  subtitle: Random Data
      contents:
      -  "ts_random_walk"
   -  title: Plotting Functions
      desc: healthyR.ts plotting functions
   -  contents:
      -  matches("_ggplot_layers")
+     -  "ts_qc_run_chart"
   -  title: Time Filtering Functions
      desc: healthyR.ts time based filtering functions
   -  contents:

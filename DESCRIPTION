@@ -31,4 +31,5 @@ Imports:
     ggplot2,
     tidyquant,
     healthyR.data,
-    lubridate
+    lubridate,
+    plotly

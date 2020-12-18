@@ -86,3 +86,164 @@ ts_random_walk_ggplot_layers <- function(.data) {
     )
     return(gg_layers)
 }
+
+#' Quality Control Run Chart
+#'
+#' @author Steven P. Sanderson II, MPH
+#'
+#' @description
+#' A control chart is a specific type of graph that shows data points between
+#' upper and lower limits over a period of time. You can use it to understand
+#' if the process is in control or not. These charts commonly have three types
+#' of lines such as upper and lower specification limits, upper and lower limits
+#' and planned value. By the help of these lines, Control Charts show the
+#' process behavior over time.
+#'
+#' @details
+#' - Expects a time-series tibble/data.frame
+#' - Expects a date column and a value column
+#'
+#' @param .data The data.frame/tibble to be passed.
+#' @param .date_col The column holding the timestamp.
+#' @param .value_col The column with the values to be analyzed.
+#' @param .interactive Default is FALSE, TRUE for an interactive plotly plot.
+#'
+#' @examples
+#' library(healthyR.data)
+#' library(timetk)
+#' library(dplyr)
+#' library(stringr)
+#'
+#' df <- healthyR_data
+#'
+#' df_monthly_tbl <- df %>%
+#'    mutate(ip_op_flag = str_squish(ip_op_flag)) %>%
+#'    filter(ip_op_flag == "I") %>%
+#'    select(visit_end_date_time, length_of_stay) %>%
+#'    arrange(visit_end_date_time) %>%
+#'    summarise_by_time(
+#'        .date_var = visit_end_date_time
+#'        , .by = "month"
+#'        , alos = round(mean(length_of_stay, na.rm = TRUE), 2)
+#'        , .type = "ceiling"
+#'    ) %>%
+#'    mutate(
+#'      visit_end_date_time = visit_end_date_time %>%
+#'        subtract_time("1 day")
+#'    )
+#'
+#' df_monthly_tbl %>%
+#'   ts_qc_run_chart(
+#'     .date_col    = visit_end_date_time
+#'     , .value_col = alos
+#'   )
+#'
+#' @return
+#' A static ggplot2 graph or if .interactive is set to TRUE a plotly plot
+#'
+#' @export
+#'
+
+ts_qc_run_chart <- function(.data, .date_col, .value_col, .interactive = FALSE) {
+
+    # Tidyeval
+    date_col_var_expr  <- rlang::enquo(.date_col)
+    value_col_var_expr <- rlang::enquo(.value_col)
+
+    # Checks
+    if(!is.data.frame(.data)){
+        stop(call. = FALSE, "(.data) is missing. Please supply.")
+    }
+
+    if(rlang::quo_is_missing(date_col_var_expr)){
+        stop(call. = FALSE, "(.date_col) is missing. Please supply.")
+    }
+
+    if(rlang::quo_is_missing(value_col_var_expr)){
+        stop(call. = FALSE, "(.value_col) is missing. Please supply.")
+    }
+
+    data_tbl <- tibble::as_tibble(.data)
+
+    data_tbl <- data_tbl %>%
+        dplyr::select({{date_col_var_expr}}, {{value_col_var_expr}}) %>%
+        purrr::set_names("ds","y")
+
+    y      <- data_tbl %>% dplyr::pull(y)
+    max_ds <- data_tbl %>% dplyr::pull(ds) %>% base::max()
+
+    # Construct control limit lines
+    mean_alos   <- base::mean(y, na.rm = TRUE)
+    median_alos <- stats::median(y, na.rm = TRUE)
+    std_dev     <- stats::sd(y)
+    cl_a        <- mean_alos + std_dev
+    cl_b        <- mean_alos + (2 * std_dev)
+    cl_c        <- mean_alos + (3 * std_dev)
+
+    # Plot
+    p <- data_tbl %>%
+        ggplot2::ggplot(
+            mapping = ggplot2::aes(
+                x = ds
+                , y = y
+            )
+        ) +
+        ggplot2::geom_line(size = .5, color = "#2C3E50") +
+        ggplot2::geom_line(
+            mapping = ggplot2::aes(y = median_alos)
+            , linetype = "dashed"
+            , size = 1
+            , color = "#6A3D9A"
+        ) +
+        ggplot2::geom_line(
+            mapping = ggplot2::aes(y = cl_a)
+            , color = "#18BC9C"
+            , size = 1
+        ) +
+        ggplot2::geom_line(
+            mapping = ggplot2::aes(y = (mean_alos + (2 * std_dev)))
+            , color = "#CCBE93"
+            , size = 1
+        ) +
+        ggplot2::geom_line(
+            mapping = ggplot2::aes(y = (mean_alos + (3 * std_dev)))
+            , color = "#E31A1C"
+            , size = 1
+        ) +
+        ggplot2::geom_text(
+            mapping = ggplot2::aes(x = max_ds, y = cl_a)
+            , label = round(cl_a, 2)
+            , hjust = -.2
+            , na.rm = TRUE
+        ) +
+        ggplot2::geom_text(
+            mapping = ggplot2::aes(x = max_ds, y = cl_b)
+            , label = round(cl_b, 2)
+            , hjust = -.2
+            , na.rm = TRUE
+        ) +
+        ggplot2::geom_text(
+            mapping = ggplot2::aes(x = max_ds, y = cl_c)
+            , label = round(cl_c, 2)
+            , hjust = -.2
+            , na.rm = TRUE
+        ) +
+        ggplot2::geom_text(
+            mapping = ggplot2::aes(x = max_ds, y = median_alos)
+            , label = median_alos
+            , hjust = -.2
+            , na.rm = TRUE
+        ) +
+        ggplot2::theme_minimal() +
+        ggplot2::labs(
+            caption = "Red Line is the UCL, dashed line is the median"
+        )
+
+    # * Interactive ----
+    if(.interactive){
+        p <- plotly::ggplotly(p)
+    }
+
+    # * Return ----
+    print(p)
+}

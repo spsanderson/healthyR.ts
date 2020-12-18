@@ -1,5 +1,5 @@
 globalVariables(
     names = c(
-        "run","rnorm","x"
+        "run","rnorm","x","ds"
     )
 )
