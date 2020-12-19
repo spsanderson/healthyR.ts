@@ -4,7 +4,19 @@
 \alias{ts_qc_run_chart}
 \title{Quality Control Run Chart}
 \usage{
-ts_qc_run_chart(.data, .date_col, .value_col, .interactive = FALSE)
+ts_qc_run_chart(
+  .data,
+  .date_col,
+  .value_col,
+  .interactive = FALSE,
+  .median = TRUE,
+  .cl = TRUE,
+  .mcl = TRUE,
+  .ucl = TRUE,
+  .lc = FALSE,
+  .lmcl = FALSE,
+  .llcl = FALSE
+)
 }
 \arguments{
 \item{.data}{The data.frame/tibble to be passed.}
@@ -14,6 +26,20 @@ ts_qc_run_chart(.data, .date_col, .value_col, .interactive = FALSE)
 \item{.value_col}{The column with the values to be analyzed.}
 
 \item{.interactive}{Default is FALSE, TRUE for an interactive plotly plot.}
+
+\item{.median}{Default is TRUE. This will show the median line of the data.}
+
+\item{.cl}{This is the first upper control line}
+
+\item{.mcl}{This is the second sigma control line positive}
+
+\item{.ucl}{This is the third sigma control line positive}
+
+\item{.lc}{This is the first negative control line}
+
+\item{.lmcl}{This is the second sigma negative control line}
+
+\item{.llcl}{This si the thrid sigma negative control line}
 }
 \value{
 A static ggplot2 graph or if .interactive is set to TRUE a plotly plot
@@ -60,6 +86,7 @@ df_monthly_tbl \%>\%
   ts_qc_run_chart(
     .date_col    = visit_end_date_time
     , .value_col = alos
+    , .llcl      = TRUE
   )
 
 }

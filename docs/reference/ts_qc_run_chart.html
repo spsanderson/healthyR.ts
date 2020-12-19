@@ -153,7 +153,19 @@ and planned value. By the help of these lines, Control Charts show the
 process behavior over time.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ts_qc_run_chart</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>.date_col</span>, <span class='va'>.value_col</span>, .interactive <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ts_qc_run_chart</span><span class='op'>(</span>
+  <span class='va'>.data</span>,
+  <span class='va'>.date_col</span>,
+  <span class='va'>.value_col</span>,
+  .interactive <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  .median <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  .cl <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  .mcl <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  .ucl <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  .lc <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  .lmcl <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  .llcl <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,6 +185,34 @@ process behavior over time.</p>
     <tr>
       <th>.interactive</th>
       <td><p>Default is FALSE, TRUE for an interactive plotly plot.</p></td>
+    </tr>
+    <tr>
+      <th>.median</th>
+      <td><p>Default is TRUE. This will show the median line of the data.</p></td>
+    </tr>
+    <tr>
+      <th>.cl</th>
+      <td><p>This is the first upper control line</p></td>
+    </tr>
+    <tr>
+      <th>.mcl</th>
+      <td><p>This is the second sigma control line positive</p></td>
+    </tr>
+    <tr>
+      <th>.ucl</th>
+      <td><p>This is the third sigma control line positive</p></td>
+    </tr>
+    <tr>
+      <th>.lc</th>
+      <td><p>This is the first negative control line</p></td>
+    </tr>
+    <tr>
+      <th>.lmcl</th>
+      <td><p>This is the second sigma negative control line</p></td>
+    </tr>
+    <tr>
+      <th>.llcl</th>
+      <td><p>This si the thrid sigma negative control line</p></td>
     </tr>
     </table>
 
@@ -219,6 +259,7 @@ process behavior over time.</p>
   <span class='fu'>ts_qc_run_chart</span><span class='op'>(</span>
     .date_col    <span class='op'>=</span> <span class='va'>visit_end_date_time</span>
     , .value_col <span class='op'>=</span> <span class='va'>alos</span>
+    , .llcl      <span class='op'>=</span> <span class='cn'>TRUE</span>
   <span class='op'>)</span>
 </div><div class='img'><img src='ts_qc_run_chart-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
