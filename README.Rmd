@@ -22,7 +22,8 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of `healthyR.ts` is to provide a consistent verb framework for performing
-time-series analysis and forecasting.
+time series analysis and forecasting on both administrative and clinical hospital
+data.
 
 ## Installation
 

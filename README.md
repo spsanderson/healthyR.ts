@@ -10,7 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 The goal of `healthyR.ts` is to provide a consistent verb framework for
-performing time-series analysis and forecasting.
+performing time series analysis and forecasting on both administrative
+and clinical hospital data.
 
 ## Installation
 
@@ -41,14 +42,14 @@ df <- ts_random_walk()
 
 head(df)
 #> # A tibble: 6 x 4
-#>     run     x       y cum_y
-#>   <dbl> <dbl>   <dbl> <dbl>
-#> 1     1     1 -0.0747  925.
-#> 2     1     2 -0.107   826.
-#> 3     1     3  0.0267  848.
-#> 4     1     4 -0.0332  820.
-#> 5     1     5  0.0106  829.
-#> 6     1     6  0.0199  845.
+#>     run     x        y cum_y
+#>   <dbl> <dbl>    <dbl> <dbl>
+#> 1     1     1  0.00840 1008.
+#> 2     1     2 -0.110    897.
+#> 3     1     3  0.0462   939.
+#> 4     1     4 -0.0220   918.
+#> 5     1     5 -0.248    690.
+#> 6     1     6  0.106    764.
 ```
 
 Now that the data has been generated, lets take a look at it.
