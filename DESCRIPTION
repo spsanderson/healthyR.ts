@@ -1,10 +1,15 @@
 Package: healthyR.ts
-Title: The time series modeling companion to 'healthyR'
+Title: The Time Series Modeling Companion to 'healthyR'
 Version: 0.1.0
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
     person("Steven Sanderson", role = "cph"))
-Description: Fill this in later.
+Description: 
+    Hospital time series data analysis workflow tools, modeling, and automations. 
+    This library provides many useful tools to review common administrative time 
+    series hospital data. Some of these include average length of stay, and 
+    readmission rates. The aim is to provide a simple and consistent verb 
+    framework that takes the guesswork out of everything.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -32,4 +37,5 @@ Imports:
     tidyquant,
     healthyR.data,
     lubridate,
+    stringr,
     plotly
