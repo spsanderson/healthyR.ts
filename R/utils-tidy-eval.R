@@ -38,6 +38,9 @@
 #' \href{https://adv-r.hadley.nz/metaprogramming.html}{Metaprogramming
 #' section} of \href{https://adv-r.hadley.nz}{Advanced R}.
 #'
+#' @return
+#' These functions do not return a value but rather are used for side effects.
+#'
 #' @md
 #' @name tidyeval
 #' @keywords internal
