@@ -17,12 +17,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://github.com/spsanderson/healthyR.ts
 BugReports: https://github.com/spsanderson/healthyR.ts/issues
-Suggests: 
-    knitr,
-    rmarkdown,
-    roxygen2,
-    scales
-VignetteBuilder: knitr
 Imports: 
     magrittr,
     rlang (>= 0.1.2),
@@ -39,3 +33,11 @@ Imports:
     lubridate,
     stringr,
     plotly
+Suggests: 
+    knitr,
+    rmarkdown,
+    roxygen2,
+    scales
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
