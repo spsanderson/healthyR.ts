@@ -5,6 +5,9 @@
 
 <!-- badges: start -->
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/healthyR)](https://cran.r-project.org/package=healthyR.ts)
+![](https://cranlogs.r-pkg.org/badges/healthyR.ts)
+![](https://cranlogs.r-pkg.org/badges/grand-total/healthyR.ts)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
@@ -42,14 +45,14 @@ df <- ts_random_walk()
 
 head(df)
 #> # A tibble: 6 x 4
-#>     run     x        y cum_y
-#>   <dbl> <dbl>    <dbl> <dbl>
-#> 1     1     1  0.00840 1008.
-#> 2     1     2 -0.110    897.
-#> 3     1     3  0.0462   939.
-#> 4     1     4 -0.0220   918.
-#> 5     1     5 -0.248    690.
-#> 6     1     6  0.106    764.
+#>     run     x       y cum_y
+#>   <dbl> <dbl>   <dbl> <dbl>
+#> 1     1     1 -0.0323  968.
+#> 2     1     2 -0.0302  938.
+#> 3     1     3 -0.148   800.
+#> 4     1     4 -0.120   704.
+#> 5     1     5 -0.131   612.
+#> 6     1     6 -0.118   539.
 ```
 
 Now that the data has been generated, lets take a look at it.
