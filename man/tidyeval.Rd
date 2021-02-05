@@ -12,6 +12,9 @@
 \alias{as_name}
 \alias{as_label}
 \title{Tidy eval helpers}
+\value{
+These functions do not return a value but rather are used for side effects.
+}
 \description{
 \itemize{
 \item \code{\link[rlang]{sym}()} creates a symbol from a string and
