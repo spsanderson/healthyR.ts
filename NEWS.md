@@ -1,4 +1,4 @@
-# healthyR.ts (development version)
+# healthyR.ts 0.1.1
 
 # healthyR.ts 0.1.0.9001
 * update DESCRIPTION file and minor cleanups
