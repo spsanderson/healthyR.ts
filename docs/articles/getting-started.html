@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@
             <h3 class="subtitle">A Quick Introduction</h3>
                         <h4 class="author">Steven P. Sanderson II, MPH</h4>
             
-            <h4 class="date">2021-01-26</h4>
+            <h4 class="date">2021-02-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/spsanderson/healthyR.ts/blob/master/vignettes/getting-started.Rmd"><code>vignettes/getting-started.Rmd</code></a></small>
       <div class="hidden name"><code>getting-started.Rmd</code></div>
@@ -114,19 +114,19 @@
 <span class="co">#&gt; # A tibble: 6 x 4</span>
 <span class="co">#&gt;     run     x       y cum_y</span>
 <span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1     1 -0.208   792.</span>
-<span class="co">#&gt; 2     1     2  0.0538  835.</span>
-<span class="co">#&gt; 3     1     3  0.0534  879.</span>
-<span class="co">#&gt; 4     1     4  0.0261  902.</span>
-<span class="co">#&gt; 5     1     5 -0.0392  867.</span>
-<span class="co">#&gt; 6     1     6 -0.0465  827.</span>
+<span class="co">#&gt; 1     1     1 -0.0491  951.</span>
+<span class="co">#&gt; 2     1     2  0.0347  984.</span>
+<span class="co">#&gt; 3     1     3  0.137  1119.</span>
+<span class="co">#&gt; 4     1     4 -0.175   923.</span>
+<span class="co">#&gt; 5     1     5 -0.0341  891.</span>
+<span class="co">#&gt; 6     1     6 -0.0773  822.</span>
 <span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 10,000</span>
 <span class="co">#&gt; Columns: 4</span>
 <span class="co">#&gt; $ run   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...</span>
 <span class="co">#&gt; $ x     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18...</span>
-<span class="co">#&gt; $ y     &lt;dbl&gt; -0.207898339, 0.053846361, 0.053417325, 0.026105588, -0.03915...</span>
-<span class="co">#&gt; $ cum_y &lt;dbl&gt; 792.1017, 834.7535, 879.3437, 902.2995, 866.9744, 826.6233, 8...</span></code></pre></div>
+<span class="co">#&gt; $ y     &lt;dbl&gt; -0.049068536, 0.034677849, 0.137092865, -0.175301914, -0.0340...</span>
+<span class="co">#&gt; $ cum_y &lt;dbl&gt; 950.9315, 983.9077, 1118.7945, 922.6676, 891.2156, 822.3429, ...</span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">%&gt;%</span>
