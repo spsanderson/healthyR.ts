@@ -9,7 +9,7 @@
 ![](https://cranlogs.r-pkg.org/badges/healthyR.ts)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/healthyR.ts)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of `healthyR.ts` is to provide a consistent verb framework for
@@ -45,14 +45,14 @@ df <- ts_random_walk()
 
 head(df)
 #> # A tibble: 6 x 4
-#>     run     x       y cum_y
-#>   <dbl> <dbl>   <dbl> <dbl>
-#> 1     1     1  0.0110 1011.
-#> 2     1     2 -0.0646  946.
-#> 3     1     3  0.0421  985.
-#> 4     1     4 -0.115   872.
-#> 5     1     5  0.124   980.
-#> 6     1     6  0.119  1097.
+#>     run     x         y cum_y
+#>   <dbl> <dbl>     <dbl> <dbl>
+#> 1     1     1 -0.0160    984.
+#> 2     1     2 -0.162     825.
+#> 3     1     3 -0.0341    797.
+#> 4     1     4 -0.000276  796.
+#> 5     1     5  0.106     881.
+#> 6     1     6 -0.00479   877.
 ```
 
 Now that the data has been generated, lets take a look at it.
