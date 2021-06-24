@@ -33,3 +33,7 @@ reference:
      desc: healthyR.ts time based filtering functions
   -  contents:
      -  matches("ts_compare_data")
+  -  title: Time Series Recipes
+     desc: healthyR.ts automatic time series recipe functions
+  -  contents:
+     -  "ts_auto_recipe"

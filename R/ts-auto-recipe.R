@@ -10,58 +10,185 @@
 #' in a list. It is required to pass a recipe object to this function.
 #'
 #' @param .data The data that is going to be modeled. You must supply a tibble.
-#' @param .date_col The column that holds the date for the time series. This must be
-#' in quotes like "date_col"
+#' @param .date_col The column that holds the date for the time series.
 #' @param .pred_col The column that is to be predicted.
+#' @param .step_ts_sig A Boolean indicating should the [timetk::step_timeseries_signature()]
+#' be added, default is TRUE.
+#' @param .step_ts_rm_misc A Boolean indicating should the following items be removed from
+#' the time series signature, default is TRUE.
+#'   * iso$
+#'   * xts$
+#'   * hour
+#'   * min
+#'   * sec
+#'   * am.pm
+#' @param .step_ts_dummy A Boolean indicating if all_nominal_predictors() should
+#' be dummied and with one hot encoding.
+#' @param .step_ts_fourier A Boolean indicating if [timetk::step_fourier()] should
+#' be added to the recipe.
+#' @param .step_ts_fourier_period A number such as 365/12, 365/4 or 365 indicting
+#' the period of the fourier term. The numeric period for the oscillation frequency.
+#' @param .K The number of orders to include for each sine/cosine fourier series.
+#' More orders increase the number of fourier terms and therefore the variance
+#' of the fitted model at the expense of bias. See details for examples of K
+#' specification.
+#' @param .step_ts_yeo A Boolean indicating if the [recipes::step_YeoJohnson()] should
+#' be added to the recipe.
+#' @param .step_ts_nzv A Boolean indicating if the [recipes::step_nzv()] should be run
+#' on all predictors.
 #'
 #' @examples
+#' library(healthyR.data)
+#' library(timetk)
+#' library(healthyR.ts)
+#' library(recipes)
+#' library(dplyr)
+#' library(rsample)
+#'
+#' data_tbl <- healthyR_data %>%
+#' filter_by_time(
+#'     .date_var     = visit_end_date_time
+#'  , .start_date = "2012"
+#'  , .end_date   = "2020"
+#' ) %>%
+#'  filter(payer_grouping != "?") %>%
+#'  select(visit_end_date_time, ip_op_flag) %>%
+#'  summarise_by_time(
+#'      .date_var = visit_end_date_time
+#'      , .by     = "week"
+#'      , value   = n()
+#' )
+#'
+#' splits <- rsample::initial_time_split(
+#'  data_tbl
+#'  , prop = 0.8
+#'  , cumulative = TRUE
+#' )
+#'
+#' ts_auto_recipe(
+#'     .data = data_tbl
+#'     , .date_col = visit_end_date_time
+#'     , .pred_col = value
+#' )
+#'
+#' ts_auto_recipe(
+#'   .data = training(splits)
+#'   , .date_col = visit_end_date_time
+#'   , .pred_col = value
+#' )
 #'
 #' @export
 #'
 
-ts_auto_recipe <- function(.rec_obj
+ts_auto_recipe <- function(.data
                            , .date_col
+                           , .pred_col
                            , .step_ts_sig = TRUE
-                           , .step_rm_misc = TRUE) {
+                           , .step_ts_rm_misc = TRUE
+                           , .step_ts_dummy = TRUE
+                           , .step_ts_fourier = TRUE
+                           , .step_ts_fourier_period = NULL
+                           , .K = 1
+                           , .step_ts_yeo = TRUE
+                           , .step_ts_nzv = TRUE) {
 
-    # * Tidy'ish ----
-    date_col     <- .date_col
-    step_ts_sig  <- .step_ts_sig
+    # * Tidyeval ----
+    date_col_var_expr      <- rlang::enquo(.date_col)
+    pred_col_var_expr      <- rlang::enquo(.pred_col)
+    step_ts_sig            <- .step_ts_sig
+    step_ts_rm_misc        <- .step_ts_rm_misc
+    step_ts_dummy          <- .step_ts_dummy
+    step_ts_fourier        <- .step_ts_fourier
+    step_ts_fourier_k      <- .K
+    step_ts_fourier_period <- .step_ts_fourier_period
+    step_ts_yeo            <- .step_ts_yeo
+    step_ts_nzv            <- .step_ts_nzv
 
     # * Checks ----
-    if(class(.rec_obj) != "recipe"){
-        stop(call. = FALSE, "You must supply an object of class recipe.")
+    if(!is.data.frame(.data)){
+        stop(call. = FALSE, "You must supply a data.frame/tibble.")
     }
 
-    if(!is.character(date_col)){
-        stop(call. = FALSE, "The (.date_col) column must be in quotes, a character string.")
+    if(rlang::quo_is_missing(date_col_var_expr)){
+        stop(call. = FALSE, "The (.date_col) must be supplied.")
     }
+
+    if(rlang::quo_is_missing(pred_col_var_expr)){
+        stop(call. = FALSE, "The (.pred_col) must be supplied.")
+    }
+
+    # * Data ----
+    data_tbl <- tibble::as_tibble(.data)
+
+    data_tbl <- data_tbl %>%
+        dplyr::select(
+            {{ date_col_var_expr }}
+            , {{ pred_col_var_expr }}
+            , dplyr::everything()
+        ) %>%
+        dplyr::rename(
+            date_col    = {{ date_col_var_expr }}
+            , value_col = {{ pred_col_var_expr }}
+        )
 
     # * Recipe Objects ----
-    # Base recipe
-    rec_base_obj <- .rec_obj
-
-    # * Add Steps ----
-    if(isTRUE(step_ts_sig)){
-        rec_date_obj <- rec_base_obj %>%
-            timetk::step_timeseries_signature(date_col)
-    }
-
-    # * Recipe List Obj ----
-    rec_obj_lst <- list(
-        rec_base_obj   = rec_base_obj
-        , rec_date_obj = rec_date_obj
+    # ** Base recipe ----
+    rec_base_obj <- recipes::recipe(
+        formula = date_col ~ .
+        , data = data_tbl
     )
 
-    # * Step rm --- needs it's own function
+    # * Add Steps ----
+    # ** ts signature and normalize ----
+    if(step_ts_sig){
+        rec_date_obj <- rec_base_obj %>%
+            timetk::step_timeseries_signature(date_col) %>%
+            recipes::step_normalize(contains("index.num"), contains("date_col_year"))
+    }
+
+    # ** Step rm ----
+    if(step_ts_rm_misc){
+        rec_date_obj <- rec_date_obj %>%
+            recipes::step_rm(matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)"))
+    }
+
+    # ** Step Dummy ----
+    if(step_ts_dummy){
+        rec_date_obj <- rec_date_obj %>%
+            recipes::step_dummy(recipes::all_nominal_predictors(), one_hot = TRUE)
+    }
+
+    # ** Step Fourier ----
+    if(step_ts_fourier){
+        rec_date_fourier_obj <- rec_date_obj %>%
+            timetk::step_fourier(
+                date_col
+                , period = step_ts_fourier_period
+                , K      = step_ts_fourier_k
+            )
+    }
+    # ** Step YeoJohnson ----
+    if(step_ts_yeo){
+        rec_date_fourier_obj <- rec_date_fourier_obj %>%
+            recipes::step_YeoJohnson(value_col, limits = c(0, 1))
+    }
+
+    # ** Step NZV ----
+    if(step_ts_nzv){
+        rec_date_fourier_nzv_obj <- rec_date_fourier_obj %>%
+            recipes::step_nzv(recipes::all_predictors())
+    }
+
+    # * Recipe List ----
+    rec_lst <- list(
+        rec_base             = rec_base_obj,
+        rec_date             = rec_date_obj,
+        rec_date_fourier     = rec_date_fourier_obj,
+        rec_date_fourier_nzv = rec_date_fourier_nzv_obj
+    )
 
     # * Return ----
-    return(rec_obj_lst)
+    return(rec_lst)
 
 }
 
-ts_auto_recipe(
-    .rec_obj = rec_obj
-    , .date_col = "visit_end_date_time"
-    , .step_ts_sig = TRUE
-)
