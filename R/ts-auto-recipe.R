@@ -143,13 +143,16 @@ ts_auto_recipe <- function(.data
     if(step_ts_sig){
         rec_date_obj <- rec_base_obj %>%
             timetk::step_timeseries_signature(date_col) %>%
-            recipes::step_normalize(contains("index.num"), contains("date_col_year"))
+            recipes::step_normalize(
+                dplyr::contains("index.num")
+                , dplyr::contains("date_col_year")
+            )
     }
 
     # ** Step rm ----
     if(step_ts_rm_misc){
         rec_date_obj <- rec_date_obj %>%
-            recipes::step_rm(matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)"))
+            recipes::step_rm(dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)"))
     }
 
     # ** Step Dummy ----

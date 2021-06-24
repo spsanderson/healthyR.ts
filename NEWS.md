@@ -3,6 +3,15 @@
 # healthyR.ts 0.1.1.9000
 * New Dev Version
 
+## Breaking Changes
+None
+
+## New Features
+1. Fix #16 - Add `ts_auto_recipe()` function
+
+## Minor Fixes and Improvments
+None
+
 ## healthyR.ts 0.1.1
 * update DESCRIPTION file and minor cleanups
 * GitHub release: https://github.com/spsanderson/healthyR.ts/releases/tag/v0.1.1
