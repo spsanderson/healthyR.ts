@@ -3,11 +3,11 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description Automatically builds generic time series recipe objects from a given
-#' recipe.
+#' tibble.
 #'
 #' @details
 #' This will build out a couple of generic recipe objects and return those items
-#' in a list. It is required to pass a recipe object to this function.
+#' in a list.
 #'
 #' @param .data The data that is going to be modeled. You must supply a tibble.
 #' @param .date_col The column that holds the date for the time series.
@@ -47,7 +47,7 @@
 #'
 #' data_tbl <- healthyR_data %>%
 #' filter_by_time(
-#'     .date_var     = visit_end_date_time
+#'     .date_var  = visit_end_date_time
 #'  , .start_date = "2012"
 #'  , .end_date   = "2020"
 #' ) %>%

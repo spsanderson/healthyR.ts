@@ -61,11 +61,11 @@ on all predictors.}
 }
 \description{
 Automatically builds generic time series recipe objects from a given
-recipe.
+tibble.
 }
 \details{
 This will build out a couple of generic recipe objects and return those items
-in a list. It is required to pass a recipe object to this function.
+in a list.
 }
 \examples{
 library(healthyR.data)
@@ -77,7 +77,7 @@ library(rsample)
 
 data_tbl <- healthyR_data \%>\%
 filter_by_time(
-    .date_var     = visit_end_date_time
+    .date_var  = visit_end_date_time
  , .start_date = "2012"
  , .end_date   = "2020"
 ) \%>\%
