@@ -22,16 +22,11 @@ Imports:
     rlang (>= 0.1.2),
     tibble,
     timetk,
-    modeltime,
-    modeltime.ensemble,
-    modeltime.resample,
     dplyr,
     purrr,
     ggplot2,
     tidyquant,
-    healthyR.data,
     lubridate,
-    stringr,
     plotly,
     recipes
 Suggests: 
