@@ -1,5 +1,5 @@
 ## Updates
-Update DESCRIPTION file and minor clean ups.
+Prep for 0.1.2 CRAN submission.
 
 ## Test environments
 * local R installation, R 4.0.2
