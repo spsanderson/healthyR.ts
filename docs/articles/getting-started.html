@@ -112,21 +112,21 @@
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ts_random_walk.html">ts_random_walk</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 x 4</span>
-<span class="co">#&gt;     run     x      y cum_y</span>
-<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1     1 0.0344 1034.</span>
-<span class="co">#&gt; 2     1     2 0.0473 1083.</span>
-<span class="co">#&gt; 3     1     3 0.0724 1162.</span>
-<span class="co">#&gt; 4     1     4 0.0375 1205.</span>
-<span class="co">#&gt; 5     1     5 0.0826 1305.</span>
-<span class="co">#&gt; 6     1     6 0.0152 1325.</span>
+<span class="co">#&gt;     run     x        y cum_y</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     1     1 -0.00924  991.</span>
+<span class="co">#&gt; 2     1     2 -0.105    887.</span>
+<span class="co">#&gt; 3     1     3 -0.240    674.</span>
+<span class="co">#&gt; 4     1     4  0.149    774.</span>
+<span class="co">#&gt; 5     1     5 -0.0119   765.</span>
+<span class="co">#&gt; 6     1     6 -0.0315   741.</span>
 <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 10,000</span>
 <span class="co">#&gt; Columns: 4</span>
 <span class="co">#&gt; $ run   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~</span>
 <span class="co">#&gt; $ x     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1~</span>
-<span class="co">#&gt; $ y     &lt;dbl&gt; 0.034402716, 0.047292369, 0.072432705, 0.037457308, 0.082644776,~</span>
-<span class="co">#&gt; $ cum_y &lt;dbl&gt; 1034.4027, 1083.3221, 1161.7900, 1205.3075, 1304.9199, 1324.7088~</span></code></pre></div>
+<span class="co">#&gt; $ y     &lt;dbl&gt; -0.009239019, -0.104996957, -0.239930060, 0.149120211, -0.011862~</span>
+<span class="co">#&gt; $ cum_y &lt;dbl&gt; 990.7610, 886.7341, 673.9799, 774.4840, 765.2969, 741.2131, 727.~</span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">%&gt;%</span>
