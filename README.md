@@ -11,7 +11,7 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![PRs
-Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com/)
 <!-- badges: end -->
 
 The goal of `healthyR.ts` is to provide a consistent verb framework for
@@ -49,12 +49,12 @@ head(df)
 #> # A tibble: 6 x 4
 #>     run     x       y cum_y
 #>   <dbl> <dbl>   <dbl> <dbl>
-#> 1     1     1 -0.0110  989.
-#> 2     1     2  0.0103  999.
-#> 3     1     3  0.0212 1020.
-#> 4     1     4  0.131  1154.
-#> 5     1     5  0.0496 1212.
-#> 6     1     6 -0.0894 1103.
+#> 1     1     1 -0.0375  963.
+#> 2     1     2 -0.0110  952.
+#> 3     1     3 -0.112   846.
+#> 4     1     4 -0.0432  809.
+#> 5     1     5  0.0602  858.
+#> 6     1     6  0.0382  890.
 ```
 
 Now that the data has been generated, lets take a look at it.
