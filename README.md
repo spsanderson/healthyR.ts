@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# healthyR.ts <img src="man/figures/healthyR_ts6.png" width="147" height="170" align="right" />
+# healthyR.ts <img src="man/figures/test1.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
 
@@ -49,12 +49,12 @@ head(df)
 #> # A tibble: 6 x 4
 #>     run     x        y cum_y
 #>   <dbl> <dbl>    <dbl> <dbl>
-#> 1     1     1 -0.00919  991.
-#> 2     1     2  0.0287  1019.
-#> 3     1     3  0.0379  1058.
-#> 4     1     4 -0.175    873.
-#> 5     1     5  0.0565   922.
-#> 6     1     6 -0.0152   908.
+#> 1     1     1  0.195   1195.
+#> 2     1     2  0.0547  1261.
+#> 3     1     3 -0.0471  1201.
+#> 4     1     4 -0.00551 1195.
+#> 5     1     5  0.285   1536.
+#> 6     1     6  0.0248  1574.
 ```
 
 Now that the data has been generated, lets take a look at it.
