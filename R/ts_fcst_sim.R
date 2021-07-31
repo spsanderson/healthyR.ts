@@ -123,7 +123,6 @@ ts_forecast_simulator <- function(.model,
 
   sim_output <- s %>%
     dplyr::bind_rows() %>%
-    # tidyr::spread(key = n, value = y) %>%
     tidyr::pivot_wider(names_from = n, values_from = y) %>%
     dplyr::select(-x) %>%
     stats::ts(
@@ -176,8 +175,5 @@ ts_forecast_simulator <- function(.model,
       , forecast_sim = sim_output
       , series       = .model$x
   )
-  # output$plot <- p
-  # output$forecast_sim <- sim_output
-  # output$series <- model$x
   return(output)
 }
