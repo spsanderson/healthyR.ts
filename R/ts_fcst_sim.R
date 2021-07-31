@@ -66,7 +66,6 @@
 #'   , .iterations = 50
 #' )
 #'
-#'
 #' @return The baseline series, the simulated values and a plot
 #'
 #' @export ts_forecast_simulator

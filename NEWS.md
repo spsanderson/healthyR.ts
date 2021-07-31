@@ -1,5 +1,14 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+1. Fix #36 - Add `ts_forecast_simulator` function
+
+## Minor Fixes and Improvements
+None
+
 # healthyR.ts 0.1.2
 
 ## Breaking Changes

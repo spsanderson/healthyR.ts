@@ -91,7 +91,6 @@ ts_forecast_simulator(
   , .iterations = 50
 )
 
-
 }
 \author{
 Steven P. Sanderson II, MPH
