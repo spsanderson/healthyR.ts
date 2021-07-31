@@ -71,6 +71,16 @@ data <- healthyR_data \%>\%
        , .end_date   = "2019"
    )
 
+# Make a ts object
+start_date <- min(data$date_col)
+start <- c(lubridate::year(start_date), lubridate::month(start_date))
+
+ data <- ts(
+   data = data$value
+   , start = c(start[[1]], start[[2]])
+   , frequency = 12
+ )
+
 # Create a model
 fit <- auto.arima(data)
 
