@@ -107,6 +107,7 @@ ts_forecast_simulator <- function(.model,
     .show_plot <- TRUE
   }
 
+  # Simulation
   s <- lapply(1:.iterations, function(i) {
     # Set Var
     sim <- sim_df <- x <- y <- NULL
@@ -120,6 +121,7 @@ ts_forecast_simulator <- function(.model,
     return(sim_df)
   })
 
+  # Simulation Output
   sim_output <- s %>%
     dplyr::bind_rows() %>%
     tidyr::pivot_wider(names_from = n, values_from = y) %>%
@@ -128,6 +130,11 @@ ts_forecast_simulator <- function(.model,
       start = stats::start(stats::simulate(.model, nsim = 1)),
       frequency = stats::frequency(stats::simulate(.model, nsim = 1))
     )
+
+  # ggplot
+  # g <- ggplot2::ggplot(
+  #   data =
+  # )
 
   p <- plotly::plot_ly()
 
@@ -172,7 +179,7 @@ ts_forecast_simulator <- function(.model,
   output <- list(
       plot           = p
       , forecast_sim = sim_output
-      , series       = .model$x
+      , time_series  = .model$x
   )
   return(output)
 }
