@@ -19,9 +19,8 @@
 #' @param .iterations An integer, set the number of iterations of the simulation.
 #' @param .sim_color Set the color of the simulation paths lines.
 #' @param .alpha Set the opacity level of the simulation path lines.
-#' @param .show_plot Logical, if TRUE will display the output plot.
-#' @param .plotly_plot Logical, if TRUE will display the plotly plot otherwise a
-#' ggplot object.
+#' @param .data The data that is used for the `.model` parameter. This is used with
+#' [timetk::tk_index()]
 #'
 #' @examples
 #' library(forecast)
@@ -30,6 +29,9 @@
 #' library(timetk)
 #' library(ggplot2)
 #' library(plotly)
+#' library(purrr)
+#' library(tidyquant)
+#' library(tidyr)
 #'
 #' data <- healthyR_data %>%
 #'  filter(ip_op_flag == "I") %>%
@@ -46,27 +48,29 @@
 #'        , .end_date   = "2019"
 #'    )
 #'
-#' # Make a ts object
-#' start_date <- min(data$date_col)
-#' start <- c(lubridate::year(start_date), lubridate::month(start_date))
-#'
-#'  data <- ts(
-#'    data = data$value
-#'    , start = c(start[[1]], start[[2]])
-#'    , frequency = 12
-#'  )
+#' data_ts <- tk_ts(data = data, frequency = 12)
 #'
 #' # Create a model
-#' fit <- auto.arima(data)
+#' fit <- auto.arima(data_ts)
 #'
 #' # Simulate 50 possible forecast paths, with .horizon of 12 months
-#' ts_forecast_simulator(
+#' output <- ts_forecast_simulator(
 #'   .model        = fit
 #'   , .horizon    = 12
 #'   , .iterations = 50
+#'   , .data       = data
 #' )
 #'
-#' @return The baseline series, the simulated values and a plot
+#' output$ggplot
+#' output$plotly_plot
+#' output$forecast_sim_tbl
+#' output$input_data
+#' output$sim_ts_tbl
+#' output$forecast_sim
+#' output$time_series
+#'
+#'
+#' @return The original time series, the simulated values and a some plots
 #'
 #' @export ts_forecast_simulator
 
@@ -75,13 +79,12 @@ ts_forecast_simulator <- function(.model,
                                   .iterations = 25,
                                   .sim_color = "steelblue",
                                   .alpha = 0.05,
-                                  .show_plot = TRUE,
-                                  .plotly_plot = TRUE) {
+                                  .data) {
 
   # Setting variables
   x <- y <- s <- s1 <- sim_output <- p <- output <- NULL
 
-  # Error handling
+  # Checks ----
   if (!any(class(.model) %in% c("ARIMA", "ets", "nnetar", "Arima"))) {
     stop("The .model argument is not valid")
   }
@@ -107,6 +110,14 @@ ts_forecast_simulator <- function(.model,
     .show_plot <- TRUE
   }
 
+  if(!is.data.frame(.data)){
+    stop(call. = FALSE, "You must provide a data.frame/tibble to this function.")
+  }
+
+  # Data ----
+  data_tbl <- .data
+
+  # Manipulation ----
   # Simulation
   s <- lapply(1:.iterations, function(i) {
     # Set Var
@@ -121,6 +132,11 @@ ts_forecast_simulator <- function(.model,
     return(sim_df)
   })
 
+  s1 <- s %>%
+    dplyr::bind_rows() %>%
+    dplyr::group_by(x) %>%
+    dplyr::summarise(p50 = stats::median(y))
+
   # Simulation Output
   sim_output <- s %>%
     dplyr::bind_rows() %>%
@@ -131,10 +147,57 @@ ts_forecast_simulator <- function(.model,
       frequency = stats::frequency(stats::simulate(.model, nsim = 1))
     )
 
-  # ggplot
-  # g <- ggplot2::ggplot(
-  #   data =
-  # )
+  # Make s into a tibble
+  s_tbl <- purrr::map_dfr(s, as_tibble) %>%
+    dplyr::group_by(n) %>%
+    dplyr::mutate(id = dplyr::row_number(n)) %>%
+    dplyr::ungroup()
+
+  # Make a model time series tibble
+  model_ts_tbl <- timetk::tk_tbl(.model$x, timetk_idx = TRUE)
+
+  # Get the timetk index of the
+  data_ts_index <- timetk::tk_index(data = data_tbl)
+  future_tbl <- timetk::tk_make_future_timeseries(
+    idx = data_ts_index
+    , length_out = .horizon
+  ) %>%
+    tibble::as_tibble() %>%
+    dplyr::mutate(id = dplyr::row_number())
+
+  s_joined_tbl <- s_tbl %>%
+    dplyr::left_join(future_tbl, by = c("id"="id")) %>%
+    dplyr::select(value, dplyr::everything()) %>%
+    dplyr::rename(index = value)
+
+  s1_tbl <- s1 %>%
+    dplyr::mutate(id = dplyr::row_number()) %>%
+    dplyr::left_join(future_tbl, by = c("id"="id")) %>%
+    dplyr::select(value, dplyr::everything()) %>%
+    dplyr::rename(index = value)
+
+  # ggplot object
+  g <- ggplot2::ggplot(
+    data = model_ts_tbl
+    , ggplot2::aes(x = index, y = value)
+  ) +
+    ggplot2::geom_line() +
+    ggplot2::geom_line(
+      data = s1_tbl
+      , ggplot2::aes(x = index, y = p50)
+      , color = "red"
+      , size = 1
+    ) +
+    ggplot2::geom_line(
+      data = s_joined_tbl
+      , ggplot2::aes(x = index, y = y, group = n)
+      , alpha = .alpha
+      , color = .sim_color
+    ) +
+    tidyquant::theme_tq() +
+    ggplot2::labs(
+      title = glue::glue("Model: {.model$method}, Iterations: {.iterations}")
+    )
 
   p <- plotly::plot_ly()
 
@@ -150,11 +213,7 @@ ts_forecast_simulator <- function(.model,
       )
   }
 
-  s1 <- s %>%
-    dplyr::bind_rows() %>%
-    dplyr::group_by(x) %>%
-    dplyr::summarise(p50 = stats::median(y))
-
+  # Plotly Plot
   p <- p %>% plotly::add_lines(
     x = s1$x, y = s1$p50,
     line = list(
@@ -172,14 +231,16 @@ ts_forecast_simulator <- function(.model,
         name = "Actual"
       )
 
-  if (.show_plot) {
-    print(p)
-  }
-
   output <- list(
-      plot           = p
-      , forecast_sim = sim_output
-      , time_series  = .model$x
+      plotly_plot        = p
+      , ggplot           = g
+      , forecast_sim     = sim_output
+      , forecast_sim_tbl = s_tbl
+      , time_series      = .model$x
+      , input_data       = model_ts_tbl
+      , sim_ts_tbl       = s_joined_tbl
   )
+
+  # Return ----
   return(output)
 }
