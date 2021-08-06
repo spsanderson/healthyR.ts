@@ -242,7 +242,9 @@ forecasting horizon, iterations and a few other items.</p>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: `type_convert()` only converts columns of type 'character'.</span>
 #&gt; <span class='warning'>- `df` has no columns of type 'character'</span></div><div class='input'>
 <span class='va'>output</span><span class='op'>$</span><span class='va'>ggplot</span>
-</div><div class='img'><img src='ts_forecast_simulator-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>output</span><span class='op'>$</span><span class='va'>plotly_plot</span>
+</div><div class='img'><img src='ts_forecast_simulator-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>output</span><span class='op'>$</span><span class='va'>plotly_plot</span>
+
 <span class='va'>output</span><span class='op'>$</span><span class='va'>forecast_sim_tbl</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 600 x 4</span>
 #&gt;        x     y n        id
@@ -257,7 +259,8 @@ forecasting horizon, iterations and a few other items.</p>
 #&gt; <span style='color: #BCBCBC;'> 8</span>  9.58  674. sim_1     8
 #&gt; <span style='color: #BCBCBC;'> 9</span>  9.67  645. sim_1     9
 #&gt; <span style='color: #BCBCBC;'>10</span>  9.75  801. sim_1    10
-#&gt; <span style='color: #949494;'># ... with 590 more rows</span></div><div class='input'><span class='va'>output</span><span class='op'>$</span><span class='va'>input_data</span>
+#&gt; <span style='color: #949494;'># ... with 590 more rows</span></div><div class='input'>
+<span class='va'>output</span><span class='op'>$</span><span class='va'>input_data</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 96 x 2</span>
 #&gt;    index               value
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
@@ -271,7 +274,8 @@ forecasting horizon, iterations and a few other items.</p>
 #&gt; <span style='color: #BCBCBC;'> 8</span> 2012-08-01 <span style='color: #949494;'>00:00:00</span>  <span style='text-decoration: underline;'>1</span>474
 #&gt; <span style='color: #BCBCBC;'> 9</span> 2012-09-01 <span style='color: #949494;'>00:00:00</span>  <span style='text-decoration: underline;'>1</span>275
 #&gt; <span style='color: #BCBCBC;'>10</span> 2012-10-01 <span style='color: #949494;'>00:00:00</span>  <span style='text-decoration: underline;'>1</span>322
-#&gt; <span style='color: #949494;'># ... with 86 more rows</span></div><div class='input'><span class='va'>output</span><span class='op'>$</span><span class='va'>sim_ts_tbl</span>
+#&gt; <span style='color: #949494;'># ... with 86 more rows</span></div><div class='input'>
+<span class='va'>output</span><span class='op'>$</span><span class='va'>sim_ts_tbl</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 600 x 5</span>
 #&gt;    index                   x     y n        id
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
@@ -285,7 +289,8 @@ forecasting horizon, iterations and a few other items.</p>
 #&gt; <span style='color: #BCBCBC;'> 8</span> 2020-08-01 <span style='color: #949494;'>00:00:00</span>  9.58  674. sim_1     8
 #&gt; <span style='color: #BCBCBC;'> 9</span> 2020-09-01 <span style='color: #949494;'>00:00:00</span>  9.67  645. sim_1     9
 #&gt; <span style='color: #BCBCBC;'>10</span> 2020-10-01 <span style='color: #949494;'>00:00:00</span>  9.75  801. sim_1    10
-#&gt; <span style='color: #949494;'># ... with 590 more rows</span></div><div class='input'><span class='va'>output</span><span class='op'>$</span><span class='va'>forecast_sim</span>
+#&gt; <span style='color: #949494;'># ... with 590 more rows</span></div><div class='input'>
+<span class='va'>output</span><span class='op'>$</span><span class='va'>forecast_sim</span>
 </div><div class='output co'>#&gt;          sim_1    sim_2     sim_3    sim_4    sim_5     sim_6    sim_7    sim_8
 #&gt; Jan 9 756.5625 887.0261  984.3584 844.8119 845.1270  807.7144 939.3426 870.4060
 #&gt; Feb 9 824.2490 909.6946  833.0631 899.1046 943.6967  877.9665 793.4219 876.5993
@@ -376,7 +381,8 @@ forecasting horizon, iterations and a few other items.</p>
 #&gt; Sep 9 803.9778 767.1538
 #&gt; Oct 9 834.2610 914.6296
 #&gt; Nov 9 703.5034 836.6751
-#&gt; Dec 9 724.5535 847.9790</div><div class='input'><span class='va'>output</span><span class='op'>$</span><span class='va'>time_series</span>
+#&gt; Dec 9 724.5535 847.9790</div><div class='input'>
+<span class='va'>output</span><span class='op'>$</span><span class='va'>time_series</span>
 </div><div class='output co'>#&gt;    Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec
 #&gt; 1 1375 1371 1530 1452 1475 1388 1489 1474 1275 1322 1347 1288
 #&gt; 2 1389 1167 1247 1277 1320 1228 1308 1243 1196 1264 1117 1163
