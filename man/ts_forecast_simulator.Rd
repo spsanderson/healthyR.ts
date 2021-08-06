@@ -46,15 +46,15 @@ This function expects to take in a model of either \code{Arima},
 forecasting horizon, iterations and a few other items.
 }
 \examples{
-library(forecast)
-library(healthyR.data)
-library(dplyr)
-library(timetk)
-library(ggplot2)
-library(plotly)
-library(purrr)
-library(tidyquant)
-library(tidyr)
+suppressPackageStartupMessages(library(forecast))
+suppressPackageStartupMessages(library(healthyR.data))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(timetk))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(plotly))
+suppressPackageStartupMessages(library(purrr))
+suppressPackageStartupMessages(library(tidyquant))
+suppressPackageStartupMessages(library(tidyr))
 
 data <- healthyR_data \%>\%
  filter(ip_op_flag == "I") \%>\%
