@@ -23,15 +23,15 @@
 #' [timetk::tk_index()]
 #'
 #' @examples
-#' library(forecast)
-#' library(healthyR.data)
-#' library(dplyr)
-#' library(timetk)
-#' library(ggplot2)
-#' library(plotly)
-#' library(purrr)
-#' library(tidyquant)
-#' library(tidyr)
+#' suppressPackageStartupMessages(library(forecast))
+#' suppressPackageStartupMessages(library(healthyR.data))
+#' suppressPackageStartupMessages(library(dplyr))
+#' suppressPackageStartupMessages(library(timetk))
+#' suppressPackageStartupMessages(library(ggplot2))
+#' suppressPackageStartupMessages(library(plotly))
+#' suppressPackageStartupMessages(library(purrr))
+#' suppressPackageStartupMessages(library(tidyquant))
+#' suppressPackageStartupMessages(library(tidyr))
 #'
 #' data <- healthyR_data %>%
 #'  filter(ip_op_flag == "I") %>%
@@ -103,11 +103,6 @@ ts_forecast_simulator <- function(.model,
     stop("The '.horizon' argument is not integer")
   } else if (.horizon < 1) {
     stop("The value of the '.horizon' argument is not valid")
-  }
-
-  if (!base::is.logical(.show_plot)) {
-    warning("The value of the '.show_plot' parameter is invalid, using default option TRUE")
-    .show_plot <- TRUE
   }
 
   if(!is.data.frame(.data)){
