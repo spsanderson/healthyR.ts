@@ -10,8 +10,7 @@ ts_forecast_simulator(
   .iterations = 25,
   .sim_color = "steelblue",
   .alpha = 0.05,
-  .show_plot = TRUE,
-  .plotly_plot = TRUE
+  .data
 )
 }
 \arguments{
@@ -31,13 +30,11 @@ ts_forecast_simulator(
 
 \item{.alpha}{Set the opacity level of the simulation path lines.}
 
-\item{.show_plot}{Logical, if TRUE will display the output plot.}
-
-\item{.plotly_plot}{Logical, if TRUE will display the plotly plot otherwise a
-ggplot object.}
+\item{.data}{The data that is used for the \code{.model} parameter. This is used with
+\code{\link[timetk:tk_index]{timetk::tk_index()}}}
 }
 \value{
-The baseline series, the simulated values and a plot
+The original time series, the simulated values and a some plots
 }
 \description{
 Creating different forecast paths for forecast objects (when applicable),
@@ -55,6 +52,9 @@ library(dplyr)
 library(timetk)
 library(ggplot2)
 library(plotly)
+library(purrr)
+library(tidyquant)
+library(tidyr)
 
 data <- healthyR_data \%>\%
  filter(ip_op_flag == "I") \%>\%
@@ -71,25 +71,27 @@ data <- healthyR_data \%>\%
        , .end_date   = "2019"
    )
 
-# Make a ts object
-start_date <- min(data$date_col)
-start <- c(lubridate::year(start_date), lubridate::month(start_date))
-
- data <- ts(
-   data = data$value
-   , start = c(start[[1]], start[[2]])
-   , frequency = 12
- )
+data_ts <- tk_ts(data = data, frequency = 12)
 
 # Create a model
-fit <- auto.arima(data)
+fit <- auto.arima(data_ts)
 
 # Simulate 50 possible forecast paths, with .horizon of 12 months
-ts_forecast_simulator(
+output <- ts_forecast_simulator(
   .model        = fit
   , .horizon    = 12
   , .iterations = 50
+  , .data       = data
 )
+
+output$ggplot
+output$plotly_plot
+output$forecast_sim_tbl
+output$input_data
+output$sim_ts_tbl
+output$forecast_sim
+output$time_series
+
 
 }
 \author{
