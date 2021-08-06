@@ -85,11 +85,17 @@ output <- ts_forecast_simulator(
 )
 
 output$ggplot
+
 output$plotly_plot
+
 output$forecast_sim_tbl
+
 output$input_data
+
 output$sim_ts_tbl
+
 output$forecast_sim
+
 output$time_series
 
 
