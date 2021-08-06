@@ -86,14 +86,14 @@
 
       
 
-      </header><script src="getting-started_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
+      </header><script src="getting-started_files/header-attrs-2.10/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting Started with healthyR.ts</h1>
             <h3 class="subtitle">A Quick Introduction</h3>
                         <h4 class="author">Steven P. Sanderson II, MPH</h4>
             
-            <h4 class="date">2021-07-31</h4>
+            <h4 class="date">2021-08-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/spsanderson/healthyR.ts/blob/master/vignettes/getting-started.Rmd"><code>vignettes/getting-started.Rmd</code></a></small>
       <div class="hidden name"><code>getting-started.Rmd</code></div>
@@ -112,21 +112,21 @@
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ts_random_walk.html">ts_random_walk</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 x 4</span>
-<span class="co">#&gt;     run     x       y cum_y</span>
-<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1     1  0.101  1101.</span>
-<span class="co">#&gt; 2     1     2  0.104  1216.</span>
-<span class="co">#&gt; 3     1     3 -0.0930 1103.</span>
-<span class="co">#&gt; 4     1     4  0.108  1222.</span>
-<span class="co">#&gt; 5     1     5 -0.0108 1209.</span>
-<span class="co">#&gt; 6     1     6  0.0840 1310.</span>
+<span class="co">#&gt;     run     x          y cum_y</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     1     1  0.00799   1008.</span>
+<span class="co">#&gt; 2     1     2  0.194     1204.</span>
+<span class="co">#&gt; 3     1     3 -0.0334    1164.</span>
+<span class="co">#&gt; 4     1     4  0.238     1441.</span>
+<span class="co">#&gt; 5     1     5  0.0000904 1441.</span>
+<span class="co">#&gt; 6     1     6  0.0301    1484.</span>
 <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 10,000</span>
 <span class="co">#&gt; Columns: 4</span>
 <span class="co">#&gt; $ run   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~</span>
 <span class="co">#&gt; $ x     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1~</span>
-<span class="co">#&gt; $ y     &lt;dbl&gt; 0.10126229, 0.10402050, -0.09303518, 0.10818132, -0.01083583, 0.~</span>
-<span class="co">#&gt; $ cum_y &lt;dbl&gt; 1101.2623, 1215.8161, 1102.7025, 1221.9943, 1208.7530, 1310.3065~</span></code></pre></div>
+<span class="co">#&gt; $ y     &lt;dbl&gt; 7.993398e-03, 1.944832e-01, -3.344405e-02, 2.378131e-01, 9.04395~</span>
+<span class="co">#&gt; $ cum_y &lt;dbl&gt; 1007.9934, 1204.0312, 1163.7635, 1440.5217, 1440.6520, 1484.0658~</span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">%&gt;%</span>
