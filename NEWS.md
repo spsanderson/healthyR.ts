@@ -7,7 +7,7 @@ None
 1. Fix #36 - Add `ts_forecast_simulator` function
 
 ## Minor Fixes and Improvements
-None
+1. Fix #40 - Add ggplot object
 
 # healthyR.ts 0.1.2
 
