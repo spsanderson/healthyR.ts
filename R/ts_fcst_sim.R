@@ -3,7 +3,7 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description Creating different forecast paths for forecast objects (when applicable),
-#' by utilizing the underline model distribution with the \code{\link[stats]{simulate}} function.
+#' by utilizing the underlying model distribution with the \code{\link[stats]{simulate}} function.
 #'
 #' @details This function expects to take in a model of either `Arima`,
 #' `auto.arima`, `ets` or `nnetar` from the `forecast` package. You can supply a
