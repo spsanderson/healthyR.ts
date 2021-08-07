@@ -38,7 +38,7 @@
 #' @return
 #' The original time series, the simulated values and a some plots
 #'
-#' @export ts_forecast_simulator
+#' @export calibrate_and_plot
 
 # *** PLOTTING UTILITY *** ----
 # - Calibrate & Plot
