@@ -6,9 +6,12 @@
 #' This function is a helper function. It will take in a set of pre-processors and then
 #' calibrate and plot them.
 #'
-#' @details This function expects to take in ...
+#' @details This function expects to take in workflows
 #'
-#' @param .type
+#' @param ... The workflow(s) you want to add to the function.
+#' @param .type Either the training(splits) or testing(splits) data.
+#' @param .data The full data set.
+#' @param .splits_obj The splits object.
 #'
 #' @examples
 #' suppressPackageStartupMessages(library(modeltime))
@@ -42,16 +45,37 @@
 
 # *** PLOTTING UTILITY *** ----
 # - Calibrate & Plot
-calibrate_and_plot <- function(..., type = "testing"){
+calibrate_and_plot <- function(..., type = "testing", .splits_obj, .data){
 
+    # Tidyeval ----
+    workflow_var_expr <- rlang::enquos(...)
+    splits_obj        <- .splits_obj
+
+    # Checks ----
     if(type == "testing"){
-        new_data = testing(splits)
+        new_data = testing(splits_obj)
     } else {
-        new_data = training(splits) %>%
+        new_data = training(splits_obj) %>%
             drop_na()
     }
 
-    calibration_tbl <- modeltime_table(...) %>%
+    if(!is.data.frame(.data)){
+        stop(call. = FALSE, "(.data) is missing or is not a data.frame/tibble, please supply.")
+    }
+
+    if(!class(splits_obj) == "rsplit") {
+        stop(call. = FALSE, ("(.splits) is missing or is not a rsplit or ts_cv_split. Please supply."))
+    }
+
+    if(!class({{{ workflow_var_expr }}}) == "workflow") {
+        stop(call. = FALSE, "Must provide a workflow object")
+    }
+
+    # Data
+    data <- .data
+
+    # Calibration Tibble
+    calibration_tbl <- modeltime_table({{{ workflow_var_expr }}}) %>%
         modeltime_calibrate(new_data)
 
     print(calibration_tbl %>% modeltime_accuracy())
@@ -59,15 +83,9 @@ calibrate_and_plot <- function(..., type = "testing"){
     calibration_tbl %>%
         modeltime_forecast(
             new_data = new_data
-            , actual_data = data_prepared_tbl
+            , actual_data = data
         ) %>%
         plot_modeltime_forecast(
             .conf_interval_show = FALSE
         )
 }
-
-calibrate_and_plot(
-    wflw_fit_glmnet_spline,
-    wflw_fit_glmnet_lag,
-    type = "testing"
-)
