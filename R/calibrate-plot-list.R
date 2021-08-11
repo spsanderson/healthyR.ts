@@ -1,17 +1,19 @@
-#' Time-series Forecasting Simulator
+#' Helper function - Calibrate and Plot
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
-#' This function is a helper function. It will take in a set of pre-processors and then
-#' calibrate and plot them.
+#' This function is a helper function. It will take in a set of workflows and then
+#' perform the [modeltime::modeltime_calibrate()] and [modeltime::plot_modeltime_forecast()].
 #'
-#' @details This function expects to take in workflows
+#' @details This function expects to take in workflows fitted with training data.
 #'
 #' @param ... The workflow(s) you want to add to the function.
 #' @param .type Either the training(splits) or testing(splits) data.
 #' @param .data The full data set.
 #' @param .splits_obj The splits object.
+#' @param .print_info The default is TRUE and will print out the calibration
+#' accuracy tibble and the resulting plotly plot.
 #'
 #' @examples
 #' suppressPackageStartupMessages(library(modeltime))
@@ -78,17 +80,18 @@
 
 # *** PLOTTING UTILITY *** ----
 # - Calibrate & Plot
-calibrate_and_plot <- function(..., .type = "testing", .splits_obj, .data){
+calibrate_and_plot <- function(..., .type = "testing", .splits_obj
+                               , .data, .print_info = TRUE){
 
     # Tidyeval ----
-    splits_obj        <- .splits_obj
+    splits_obj <- .splits_obj
 
     # Checks ----
     if(.type == "testing"){
-        new_data = testing(splits_obj)
+        new_data = rsample::testing(splits_obj)
     } else {
-        new_data = training(splits_obj) %>%
-            drop_na()
+        new_data = rsample::training(splits_obj) %>%
+            tidyr::drop_na()
     }
 
     if(!is.data.frame(.data)){
@@ -106,18 +109,32 @@ calibrate_and_plot <- function(..., .type = "testing", .splits_obj, .data){
     data <- .data
 
     # Calibration Tibble
-    calibration_tbl <- modeltime_table(...) %>%
-        modeltime_calibrate(new_data)
+    calibration_tbl <- modeltime::modeltime_table(...) %>%
+        modeltime::modeltime_calibrate(new_data)
 
-    print(calibration_tbl %>% modeltime_accuracy())
+    model_accuracy_tbl <- calibration_tbl %>%
+        modeltime::modeltime_accuracy()
 
-    calibration_tbl %>%
-        modeltime_forecast(
+    plt <- calibration_tbl %>%
+        modeltime::modeltime_forecast(
             new_data = new_data
             , actual_data = data
         ) %>%
-        plot_modeltime_forecast(
+        modeltime::plot_modeltime_forecast(
             .conf_interval_show = FALSE
         )
 
+    output <- list(
+        calibration_tbl = calibration_tbl,
+        model_accuracy  = model_accuracy_tbl,
+        plot            = plt
+    )
+
+    # Should we print?
+    if(.print_info){
+        print(model_accuracy_tbl)
+        plt
+    }
+
+    return(output)
 }
