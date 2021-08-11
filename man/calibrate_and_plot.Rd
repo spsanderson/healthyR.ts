@@ -4,16 +4,16 @@
 \alias{calibrate_and_plot}
 \title{Time-series Forecasting Simulator}
 \usage{
-calibrate_and_plot(..., type = "testing", .splits_obj, .data)
+calibrate_and_plot(..., .type = "testing", .splits_obj, .data)
 }
 \arguments{
 \item{...}{The workflow(s) you want to add to the function.}
 
+\item{.type}{Either the training(splits) or testing(splits) data.}
+
 \item{.splits_obj}{The splits object.}
 
 \item{.data}{The full data set.}
-
-\item{.type}{Either the training(splits) or testing(splits) data.}
 }
 \value{
 The original time series, the simulated values and a some plots
@@ -27,12 +27,10 @@ This function expects to take in workflows
 }
 \examples{
 suppressPackageStartupMessages(library(modeltime))
-suppressPackageStartupMessages(library(healthyR.data))
-suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(timetk))
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(plotly))
-suppressPackageStartupMessages(library(tidyquant))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(healthyR.data))
+suppressPackageStartupMessages(library(tidymodels))
 
 data <- healthyR_data \%>\%
  filter(ip_op_flag == "I") \%>\%
@@ -49,6 +47,41 @@ data <- healthyR_data \%>\%
        , .end_date   = "2019"
    )
 
+splits <- time_series_split(
+   data
+  , date_col
+  , assess = 12
+  , skip = 3
+  , cumulative = TRUE
+)
+
+rec_obj <- recipe(value ~ ., data = training(splits))
+
+model_spec <- linear_reg(
+   mode = "regression"
+   , penalty = 0.1
+   , mixture = 0.5
+) \%>\%
+   set_engine("lm")
+
+wflw <- workflow() \%>\%
+   add_recipe(rec_obj) \%>\%
+   add_model(model_spec) \%>\%
+   fit(training(splits))
+
+calibrate_and_plot(
+  wflw
+  , .type = "training"
+  , .splits_obj = splits
+  , .data = data
+ )
+
+calibrate_and_plot(
+  wflw
+  , .type        = "testing"
+  , .splits_obj = splits
+  , .data       = data
+)
 
 }
 \author{
