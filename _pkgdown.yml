@@ -41,3 +41,7 @@ reference:
      desc: healthyR.ts automatic time series recipe functions
   -  contents:
      -  "ts_auto_recipe"
+  -  title: Time Series Helper functions
+     desc: healthyR.ts helper functions
+  -  contents:
+     -  "calibrate_and_plot"
