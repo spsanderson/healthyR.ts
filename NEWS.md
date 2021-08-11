@@ -5,6 +5,9 @@ None
 
 ## New Features
 1. Fix #36 - Add `ts_forecast_simulator` function
+2. Fix #45 - Add `calibrate_and_plot` helper function
+3. Fix #46 - Add `ts_wfs_lin_reg`, `ts_wfs_mars`, `ts_wfs_svm_poly`, `ts_wfs_svm_rbf`
+4. Fix #47 - Add `model_extraction` helper function
 
 ## Minor Fixes and Improvements
 1. Fix #40 - Add ggplot object

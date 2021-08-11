@@ -38,7 +38,7 @@ The original time series, the simulated values and a some plots
 }
 \description{
 Creating different forecast paths for forecast objects (when applicable),
-by utilizing the underline model distribution with the \code{\link[stats]{simulate}} function.
+by utilizing the underlying model distribution with the \code{\link[stats]{simulate}} function.
 }
 \details{
 This function expects to take in a model of either \code{Arima},
