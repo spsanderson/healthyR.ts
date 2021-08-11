@@ -64,7 +64,7 @@ data_tbl <- healthyR_data \%>\%
   set_names("date_col","value")
 
 ts_ma_plot(
-  .data = data,
+  .data = data_tbl,
   .date_col = date_col,
   .value_col = value
 )
@@ -79,7 +79,7 @@ data_tbl <- healthyR_data \%>\%
   set_names("date_col","value")
 
 ts_ma_plot(
-  .data = data,
+  .data = data_tbl,
   .date_col = date_col,
   .value_col = value,
   .ts_frequency = "week"
