@@ -41,7 +41,7 @@
 #'   set_names("date_col","value")
 #'
 #' ts_ma_plot(
-#'   .data = data,
+#'   .data = data_tbl,
 #'   .date_col = date_col,
 #'   .value_col = value
 #' )
@@ -56,7 +56,7 @@
 #'   set_names("date_col","value")
 #'
 #' ts_ma_plot(
-#'   .data = data,
+#'   .data = data_tbl,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .ts_frequency = "week"
@@ -272,27 +272,27 @@ ts_ma_plot <- function(.data,
     # xts plot?
     #' @export
     ts_xts_plt_internal <- function(){
-        plot.xts(
+        xts::plot.xts(
             data_trans_xts,
             main = .main_title,
             multi.panel = FALSE,
             col = c("black","blue")
         )
-        lines(
+        graphics::lines(
             data_diff_xts_a,
             col = "red",
             type = "h",
             on = NA,
             main = .secondary_title
         )
-        lines(
+        graphics::lines(
             data_diff_xts_b,
             col = "purple",
             type = "h",
             on = NA,
             main = .tertiary_title
         )
-        addLegend(
+        xts::addLegend(
             "bottomleft",
             on = 1,
             lty = c(1,1),
