@@ -30,7 +30,9 @@ Imports:
     lubridate,
     plotly,
     recipes,
-    modeltime
+    modeltime,
+    cowplot,
+    xts
 Suggests: 
     knitr,
     rmarkdown,
