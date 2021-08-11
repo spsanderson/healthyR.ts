@@ -41,7 +41,11 @@ Suggests:
     stringr,
     forecast,
     tidymodels,
-    tidyverse
+    tidyverse,
+    cli,
+    crayon,
+    glue,
+    rstudioapi
 VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
