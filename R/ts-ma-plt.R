@@ -148,14 +148,14 @@ ts_ma_plot <- function(.data,
         frequency = ts_freq_for_calc,
         start = c(start_yr, start_mn)
     ) %>%
-        xts::as.xts()
+        timetk::tk_xts()
 
     data_diff_xts_b <- timetk::tk_ts(
         data_diff_b,
         frequency = ts_freq_for_calc,
         start = c(start_yr, start_mn)
     ) %>%
-        xts::as.xts()
+        timetk::tk_xts()
 
     # tibbles for ggplot/cowplot
     data_summary_tbl <- data_tbl %>%
