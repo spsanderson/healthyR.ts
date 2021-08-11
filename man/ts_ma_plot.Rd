@@ -61,7 +61,12 @@ data_tbl <- healthyR_data \%>\%
     .by       = "month",
     value     = n()
   ) \%>\%
-  set_names("date_col","value")
+  set_names("date_col","value") \%>\%
+  filter_by_time(
+    .date_var = date_col,
+    .start_date = "2013",
+    .end_date = "2020"
+  )
 
 output <- ts_ma_plot(
   .data = data_tbl,
@@ -80,7 +85,12 @@ data_tbl <- healthyR_data \%>\%
     .by = "week",
     value = n()
   ) \%>\%
-  set_names("date_col","value")
+  set_names("date_col","value") \%>\%
+  filter_by_time(
+    .date_var = date_col,
+    .start_date = "2013",
+    .end_date = "2020"
+  )
 
 output <- ts_ma_plot(
   .data = data_tbl,

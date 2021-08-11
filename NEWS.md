@@ -12,6 +12,7 @@ None
 
 ## Minor Fixes and Improvements
 1. Fix #40 - Add ggplot object
+2. Fix #54 - Drop xts::legend and add .align = "right" to slidify_vec function
 
 # healthyR.ts 0.1.2
 
