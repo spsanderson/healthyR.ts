@@ -18,7 +18,7 @@
 #' @examples
 #' suppressPackageStartupMessages(library(modeltime))
 #' suppressPackageStartupMessages(library(timetk))
-#' suppressPackageStartupMessages(library(tidyverse))
+#' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(tidymodels))
 #'
@@ -68,7 +68,7 @@
 #'
 #' calibrate_and_plot(
 #'   wflw
-#'   , .type        = "testing"
+#'   , .type       = "testing"
 #'   , .splits_obj = splits
 #'   , .data       = data
 #' )
