@@ -29,6 +29,7 @@ reference:
   -  contents:
      -  matches("_ggplot_layers")
      -  "ts_qc_run_chart"
+     -  "ts_ma_plot"
   -  title: Time Filtering Functions
      desc: healthyR.ts time based filtering functions
   -  contents:
