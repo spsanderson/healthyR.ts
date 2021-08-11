@@ -40,11 +40,15 @@
 #'   ) %>%
 #'   set_names("date_col","value")
 #'
-#' ts_ma_plot(
+#' output <- ts_ma_plot(
 #'   .data = data_tbl,
 #'   .date_col = date_col,
 #'   .value_col = value
 #' )
+#'
+#' output$pgrid
+#' output$xts_plt
+#' output$data_summary_tbl %>% head()
 #'
 #' data_tbl <- healthyR_data %>%
 #'   select(visit_end_date_time) %>%
@@ -55,12 +59,16 @@
 #'   ) %>%
 #'   set_names("date_col","value")
 #'
-#' ts_ma_plot(
+#' output <- ts_ma_plot(
 #'   .data = data_tbl,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .ts_frequency = "week"
 #' )
+#'
+#' output$pgrid
+#' output$xts_plt
+#' output$data_summary_tbl %>% head()
 #'
 #' @return
 #' The original time series, the simulated values and a some plots
@@ -118,6 +126,7 @@ ts_ma_plot <- function(.data,
                 .x = value,
                 .period = ts_freq_for_calc,
                 .f = mean,
+                .align = "right",
                 na.rm = TRUE
             )
         )
@@ -165,6 +174,7 @@ ts_ma_plot <- function(.data,
                 .x = value,
                 .period = ts_freq_for_calc,
                 .f = mean,
+                .align = "right",
                 na.rm = TRUE
             )
         ) %>%
@@ -291,13 +301,6 @@ ts_ma_plot <- function(.data,
             type = "h",
             on = NA,
             main = .tertiary_title
-        )
-        xts::addLegend(
-            "bottomleft",
-            on = 1,
-            lty = c(1,1),
-            lwd = c(2,1),
-            col = c("black","blue")
         )
     }
 
