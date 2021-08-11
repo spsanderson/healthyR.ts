@@ -32,7 +32,8 @@ Imports:
     recipes,
     modeltime,
     cowplot,
-    xts
+    xts,
+    graphics
 Suggests: 
     knitr,
     rmarkdown,
