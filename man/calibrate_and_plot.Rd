@@ -2,9 +2,15 @@
 % Please edit documentation in R/calibrate-plot-list.R
 \name{calibrate_and_plot}
 \alias{calibrate_and_plot}
-\title{Time-series Forecasting Simulator}
+\title{Helper function - Calibrate and Plot}
 \usage{
-calibrate_and_plot(..., .type = "testing", .splits_obj, .data)
+calibrate_and_plot(
+  ...,
+  .type = "testing",
+  .splits_obj,
+  .data,
+  .print_info = TRUE
+)
 }
 \arguments{
 \item{...}{The workflow(s) you want to add to the function.}
@@ -14,16 +20,19 @@ calibrate_and_plot(..., .type = "testing", .splits_obj, .data)
 \item{.splits_obj}{The splits object.}
 
 \item{.data}{The full data set.}
+
+\item{.print_info}{The default is TRUE and will print out the calibration
+accuracy tibble and the resulting plotly plot.}
 }
 \value{
 The original time series, the simulated values and a some plots
 }
 \description{
-This function is a helper function. It will take in a set of pre-processors and then
-calibrate and plot them.
+This function is a helper function. It will take in a set of workflows and then
+perform the \code{\link[modeltime:modeltime_calibrate]{modeltime::modeltime_calibrate()}} and \code{\link[modeltime:plot_modeltime_forecast]{modeltime::plot_modeltime_forecast()}}.
 }
 \details{
-This function expects to take in workflows
+This function expects to take in workflows fitted with training data.
 }
 \examples{
 suppressPackageStartupMessages(library(modeltime))
