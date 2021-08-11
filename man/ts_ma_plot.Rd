@@ -63,11 +63,15 @@ data_tbl <- healthyR_data \%>\%
   ) \%>\%
   set_names("date_col","value")
 
-ts_ma_plot(
+output <- ts_ma_plot(
   .data = data_tbl,
   .date_col = date_col,
   .value_col = value
 )
+
+output$pgrid
+output$xts_plt
+output$data_summary_tbl \%>\% head()
 
 data_tbl <- healthyR_data \%>\%
   select(visit_end_date_time) \%>\%
@@ -78,12 +82,16 @@ data_tbl <- healthyR_data \%>\%
   ) \%>\%
   set_names("date_col","value")
 
-ts_ma_plot(
+output <- ts_ma_plot(
   .data = data_tbl,
   .date_col = date_col,
   .value_col = value,
   .ts_frequency = "week"
 )
+
+output$pgrid
+output$xts_plt
+output$data_summary_tbl \%>\% head()
 
 }
 \author{
