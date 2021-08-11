@@ -270,6 +270,7 @@ ts_ma_plot <- function(.data,
     )
 
     # xts plot?
+    #' @export
     ts_xts_plt_internal <- function(){
         plot.xts(
             data_trans_xts,
