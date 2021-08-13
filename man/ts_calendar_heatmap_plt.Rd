@@ -55,6 +55,8 @@ suppressPackageStartupMessages(library(zoo))
 suppressPackageStartupMessages(library(healthyR.data))
 suppressPackageStartupMessages(library(stringi))
 suppressPackageStartupMessages(library(plotly))
+suppressPackageStartupMessages(library(purrr))
+suppressPackageStartupMessages(library(forcats))
 
 data <- healthyR_data \%>\%
    filter(ip_op_flag == "O") \%>\%
