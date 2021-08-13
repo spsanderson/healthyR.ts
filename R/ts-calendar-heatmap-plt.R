@@ -33,6 +33,8 @@
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(stringi))
 #' suppressPackageStartupMessages(library(plotly))
+#' suppressPackageStartupMessages(library(purrr))
+#' suppressPackageStartupMessages(library(forcats))
 #'
 #' data <- healthyR_data %>%
 #'    filter(ip_op_flag == "O") %>%
@@ -64,14 +66,14 @@
 #'    mutate(week_of_month = stri_datetime_fields(date_col)$WeekOfMonth) %>%
 #'    rename("week_day" = "wday.lbl")
 #'
-#' ts_calendar_heatmap_plt(
-#'   .data        = data_tbl
+#' ts_calendar_heatmap_plot(
+#'   .data        = data
 #'   , .date_col  = date_col
 #'   , .value_col = value
 #' )
 #'
-#' ts_calendar_heatmap_plt(
-#'   .data          = data_tbl
+#' ts_calendar_heatmap_plot(
+#'   .data          = data
 #'   , .date_col    = date_col
 #'   , .value_col   = value
 #'   , .interactive = FALSE
@@ -83,7 +85,7 @@
 #' @export
 #'
 
-ts_calendar_heatmap_plt <- function(.data, .date_col, .value_col,
+ts_calendar_heatmap_plot <- function(.data, .date_col, .value_col,
                                     .low = "red", .high = "green",
                                     .plt_title = "",
                                     .interactive = TRUE){
