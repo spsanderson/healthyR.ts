@@ -33,6 +33,7 @@
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(stringi))
 #' suppressPackageStartupMessages(library(plotly))
+#' suppressPackageStartupMessages(library(purrr))
 #'
 #' data <- healthyR_data %>%
 #'    filter(ip_op_flag == "O") %>%
