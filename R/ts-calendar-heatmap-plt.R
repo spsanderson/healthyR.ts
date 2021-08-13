@@ -67,13 +67,13 @@
 #'    rename("week_day" = "wday.lbl")
 #'
 #' ts_calendar_heatmap_plt(
-#'   .data        = data_tbl
+#'   .data        = data
 #'   , .date_col  = date_col
 #'   , .value_col = value
 #' )
 #'
 #' ts_calendar_heatmap_plt(
-#'   .data          = data_tbl
+#'   .data          = data
 #'   , .date_col    = date_col
 #'   , .value_col   = value
 #'   , .interactive = FALSE
