@@ -33,7 +33,10 @@ Imports:
     modeltime,
     cowplot,
     xts,
-    graphics
+    graphics,
+    forcats,
+    stringi,
+    zoo
 Suggests: 
     knitr,
     rmarkdown,
