@@ -2,6 +2,6 @@ globalVariables(
     names = c(
         "run","rnorm","x","ds","date_col","value_col","n","as_tibble","value",
         "index","p50","diff_a","diff_b","ma12","year","month.lbl","wday.lbl",
-        "week_of_month","week_day"
+        "week_of_month","week_day","fit"
     )
 )
