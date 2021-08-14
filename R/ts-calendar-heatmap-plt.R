@@ -143,7 +143,9 @@ ts_calendar_heatmap_plot <- function(.data, .date_col, .value_col,
         ggplot2::facet_grid(year ~ month.lbl) +
         ggplot2::scale_fill_gradient(low = low, high = high) +
         ggplot2::labs(
-            title = .plt_title
+            title = .plt_title,
+            x     = "",
+            y     = ""
         )
     ggplot2::theme_minimal()
 
