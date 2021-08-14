@@ -178,6 +178,7 @@ ts_forecast_simulator <- function(.model,
     dplyr::rename(index = value)
 
   # ggplot object
+  model_method <- model_extraction_helper(.fit_object = .model)
   g <- ggplot2::ggplot(
     data = model_ts_tbl
     , ggplot2::aes(x = index, y = value)
@@ -197,7 +198,7 @@ ts_forecast_simulator <- function(.model,
     ) +
     tidyquant::theme_tq() +
     ggplot2::labs(
-      title = glue::glue("Model: {.model$method}, Iterations: {.iterations}")
+      title = glue::glue("Model: {model_method}, Iterations: {.iterations}")
     )
 
   p <- plotly::plot_ly()
