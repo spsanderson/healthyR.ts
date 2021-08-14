@@ -14,6 +14,7 @@ None
 ## Minor Fixes and Improvements
 1. Fix #40 - Add ggplot object
 2. Fix #54 - Drop xts::legend and add .align = "right" to slidify_vec function
+3. Fix #62 - Fix ggplot title for Arima models
 
 # healthyR.ts 0.1.2
 
