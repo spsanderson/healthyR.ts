@@ -56,8 +56,5 @@
 #' @return
 #' The
 #'
-#' @export
-#'
 
-linear_reg_wfs
 
