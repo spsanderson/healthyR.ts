@@ -1,17 +1,28 @@
-#' Helper function - Calibrate and Plot
+#' Linear Regression Workflowset Function
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
-#' This function is
+#' This function is used to quickly create a workflowsets object.
 #'
-#' @details This function expects to take
+#' @seealso \url{https://workflowsets.tidymodels.org/}(workflowsets)
 #'
-#' @param .type Either the training(splits) or testing(splits) data.
-#' @param .data The full data set.
-#' @param .splits_obj The splits object.
-#' @param .print_info The default is TRUE
-#' @param ... The workflow(s) you want to add to the function.
+#' @details This function expects to take in the recipes that you want to use in
+#' the modeling process.
+#'
+#' @param .data This should be your training data typically obtained from the
+#' splits object training(splits). You can provide a tibble or you can provide
+#' training(splits) as the argument. This will get passed to the
+#' [parsnip::fit()] portion of the [workflows::workflow()]
+#' @param .model_type This is where you will set your engine. It uses
+#' [parsnip::linear_reg()] under the hood and can take one of the following:
+#'   * "lm"
+#'   * "glmnet"
+#' Not yet implemented are:
+#'   * "stan"
+#'   * "spark"
+#'   * "keras"
+#' @param ... The recipes you want to use in the function.
 #'
 #' @examples
 #' suppressPackageStartupMessages(library(modeltime))
@@ -57,4 +68,5 @@
 #' The
 #'
 
+linear_reg_wfs
 
