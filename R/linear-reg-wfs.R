@@ -8,7 +8,9 @@
 #' @seealso \url{https://workflowsets.tidymodels.org/}(workflowsets)
 #'
 #' @details This function expects to take in the recipes that you want to use in
-#' the modeling process.
+#' the modeling process. This is an automated workflow process. There are sensible
+#' defaults set for the `glmnet` model specification, but if you choose you can
+#' set them yourself if you have a good understanding of what they should be.
 #'
 #' @param .data This should be your training data typically obtained from the
 #' splits object training(splits). You can provide a tibble or you can provide
@@ -18,6 +20,7 @@
 #' [parsnip::linear_reg()] under the hood and can take one of the following:
 #'   * "lm"
 #'   * "glmnet"
+#'   * "all_engines" - This will make a model spec for all available engines.
 #' Not yet implemented are:
 #'   * "stan"
 #'   * "spark"
@@ -65,8 +68,11 @@
 #'
 #'
 #' @return
-#' The
+#' Returns a workflowsets object.
 #'
 
-linear_reg_wfs
+linear_reg_wfs <- function(.data, .model_type, ...){
+
+    print("still working on it")
+}
 
