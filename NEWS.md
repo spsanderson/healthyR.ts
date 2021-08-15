@@ -10,6 +10,7 @@ None
 4. Fix #47 - Add `model_extraction` helper function
 5. Fix #51 - Add `ts_ma_plot` plotting function
 6. Fix #59 - Add `ts_calendar_heatmap_plt()` plotting function
+7. Fix #65 - Add `ts_splits_plot()` plotting function
 
 ## Minor Fixes and Improvements
 1. Fix #40 - Add ggplot object
