@@ -60,3 +60,25 @@
 #'
 #' @export
 #'
+
+ts_splits_plot <- function(.splits_obj, .date_col, .value_col){
+
+    # * Tidyeval ----
+    date_col_var_expr  <- rlang::enquo(.date_col)
+    value_col_var_expr <- rlang::enquo(.value_col)
+
+    # Splits Object
+    splits_object <- .splits_obj
+
+    # * Plot out splits
+    plt <- splits_object %>%
+        timetk::tk_time_series_cv_plan() %>%
+        timetk::plot_time_series_cv_plan(
+            .date_var = {{ date_col_var_expr }}
+            , .value  = {{ value_col_var_expr }}
+        )
+
+    # * Return ----
+    return(plt)
+
+}
