@@ -17,6 +17,7 @@
 #'   * "lm"
 #'   * "glmnet"
 #'   * "all_engines" - This will make a model spec for all available engines.
+#'
 #' Not yet implemented are:
 #'   * "stan"
 #'   * "spark"
