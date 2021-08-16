@@ -25,7 +25,8 @@
 #'   * "stan"
 #'   * "spark"
 #'   * "keras"
-#' @param ... The recipes you want to use in the function.
+#' @param ... The recipes you want to use in the function. You can also place your
+#' recipes in a list as the `...` argument.
 #'
 #' @examples
 #' suppressPackageStartupMessages(library(modeltime))
@@ -73,6 +74,7 @@
 
 linear_reg_wfs <- function(.data, .model_type, ...){
 
-    print("still working on it")
+
+
 }
 
