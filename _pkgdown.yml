@@ -44,6 +44,10 @@ reference:
      desc: healthyR.ts automatic time series recipe functions
   -  contents:
      -  "ts_auto_recipe"
+  -  title: Time Series Auto Workflowsets
+     desc: healthyR.ts automatic time series workflow set functions
+  -  contents:
+     -  "ts_wfs_lin_reg"
   -  title: Time Series Helper functions
      desc: healthyR.ts helper functions
   -  contents:
