@@ -61,14 +61,14 @@
 #'  , .pred_col = value
 #' )
 #'
-#' wf_sets <- linear_reg_wfs("all_engines", rec_objs)
+#' wf_sets <- ts_wfs_lin_reg("all_engines", rec_objs)
 #' wf_sets
 #'
 #' @return
 #' Returns a workflowsets object.
 #'
 
-linear_reg_wfs <- function(.model_type, .recipe_list, .penalty = 1, .mixture = 0.5){
+ts_wfs_lin_reg <- function(.model_type, .recipe_list, .penalty = 1, .mixture = 0.5){
 
     # * Tidyeval ---
     model_type  = .model_type
