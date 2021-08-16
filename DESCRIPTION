@@ -36,7 +36,9 @@ Imports:
     graphics,
     forcats,
     stringi,
-    zoo
+    zoo,
+    parsnip,
+    workflowsets
 Suggests: 
     knitr,
     rmarkdown,
