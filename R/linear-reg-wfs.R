@@ -55,15 +55,14 @@
 #'   , cumulative = TRUE
 #' )
 #'
-#' rec_obj <- recipe(value ~ ., data = training(splits))
+#' rec_objs <- ts_auto_recipe(
+#'  .data = training(splits)
+#'  , .date_col = date_col
+#'  , .pred_col = value
+#' )
 #'
-#' model_spec <- linear_reg(
-#'    mode = "regression"
-#'    , penalty = 0.1
-#'    , mixture = 0.5
-#' ) %>%
-#'    set_engine("lm")
-#'
+#' wf_sets <- linear_reg_wfs("all_engines", rec_objs)
+#' wf_sets
 #'
 #' @return
 #' Returns a workflowsets object.
@@ -93,14 +92,38 @@ linear_reg_wfs <- function(.model_type, .recipe_list, .penalty = 1, .mixture = 0
     }
 
     # * Models ----
+    model_spec_lm <- parsnip::linear_reg(
+        mode = "regression"
+    ) %>%
+        parsnip::set_engine("lm")
 
+    model_spec_glmnet <- parsnip::linear_reg(
+        mode    = "regression",
+        penalty = .penalty,
+        mixture = .mixture
+    ) %>%
+        parsnip::set_engine("glmnet")
+
+    final_model_list <- if (model_type == "lm"){
+        fml <- list(model_spec_lm)
+    } else if (model_type == "glmnet"){
+        fml <- list(model_spec_glmnet)
+    } else {
+        fml <- list(
+            model_spec_lm,
+            model_spec_glmnet
+        )
+    }
 
     # * Workflow Sets ----
-
+    wf_sets <- workflowsets::workflow_set(
+        preproc = recipe_list,
+        models  = final_model_list,
+        cross   = TRUE
+    )
 
     # * Return ---
-    print(model_type)
-    return(recipe_list)
+    return(wf_sets)
 
 }
 
