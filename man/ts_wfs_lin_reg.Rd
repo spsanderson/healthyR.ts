@@ -13,7 +13,10 @@ ts_wfs_lin_reg(.model_type, .recipe_list, .penalty = 1, .mixture = 0.5)
 \item "lm"
 \item "glmnet"
 \item "all_engines" - This will make a model spec for all available engines.
+}
+
 Not yet implemented are:
+\itemize{
 \item "stan"
 \item "spark"
 \item "keras"
