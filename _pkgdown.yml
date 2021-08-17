@@ -49,6 +49,7 @@ reference:
   -  contents:
      -  "ts_wfs_lin_reg"
      -  "ts_wfs_mars"
+     -  "ts_wfs_svm_poly"
   -  title: Time Series Helper functions
      desc: healthyR.ts helper functions
   -  contents:

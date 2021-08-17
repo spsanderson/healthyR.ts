@@ -16,7 +16,7 @@
 #'
 #' This only uses the option `set_engine("earth")` and therefore the .model_type
 #' is not needed. The parameter is kept because it is possible in the future that
-#' this could change, and it keeps with the framework of how other frunctions
+#' this could change, and it keeps with the framework of how other functions
 #' are written.
 #'
 #' @param .model_type This is where you will set your engine. It uses
