@@ -31,7 +31,7 @@
 #' [parsnip::svm_poly()] under the hood and can take one of the following:
 #'   * "kernlab"
 #' @param .recipe_list You must supply a list of recipes. list(rec_1, rec_2, ...)
-#' @param .cose A positive number for the cose of predicting a sample within or
+#' @param .cost A positive number for the cose of predicting a sample within or
 #' on the wrong side of the margin.
 #' @param .degree A positive number for polynomial degree.
 #' @param .scale_factor A positive number for the polynomial scaling factor.
