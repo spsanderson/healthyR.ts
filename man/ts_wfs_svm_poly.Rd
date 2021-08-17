@@ -22,15 +22,15 @@ ts_wfs_svm_poly(
 
 \item{.recipe_list}{You must supply a list of recipes. list(rec_1, rec_2, ...)}
 
+\item{.cost}{A positive number for the cose of predicting a sample within or
+on the wrong side of the margin.}
+
 \item{.degree}{A positive number for polynomial degree.}
 
 \item{.scale_factor}{A positive number for the polynomial scaling factor.}
 
 \item{.margin}{A positive number for the epsilon in the SVM insensitive loss
 function (regression only.)}
-
-\item{.cose}{A positive number for the cose of predicting a sample within or
-on the wrong side of the margin.}
 }
 \value{
 Returns a workflowsets object.
