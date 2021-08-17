@@ -6,7 +6,7 @@
 #' This function is used to quickly create a workflowsets object.
 #'
 #' @seealso \url{https://workflowsets.tidymodels.org/}
-#' @seealso \url{https://parsnip.tidymodels.org/reference/svm_poly.html}
+#' @seealso \url{https://parsnip.tidymodels.org/reference/svm_rbf.html}
 #'
 #' @details This function expects to take in the recipes that you want to use in
 #' the modeling process. This is an automated workflow process. There are sensible
@@ -19,7 +19,7 @@
 #' this could change, and it keeps with the framework of how other functions
 #' are written.
 #'
-#' [parsnip::svm_poly()] svm_poly() defines a support vector machine model.
+#' [parsnip::svm_rbf()] svm_poly() defines a support vector machine model.
 #' For classification, the model tries to maximize the width of the margin
 #' between classes. For regression, the model optimizes a robust loss function
 #' that is only affected by very large model residuals.
@@ -28,15 +28,14 @@
 #' to create the decision boundary or regression line.
 #'
 #' @param .model_type This is where you will set your engine. It uses
-#' [parsnip::svm_poly()] under the hood and can take one of the following:
+#' [parsnip::svm_rbf()] under the hood and can take one of the following:
 #'   * "kernlab"
 #' @param .recipe_list You must supply a list of recipes. list(rec_1, rec_2, ...)
 #' @param .cost A positive number for the cose of predicting a sample within or
 #' on the wrong side of the margin.
-#' @param .degree A positive number for polynomial degree.
-#' @param .scale_factor A positive number for the polynomial scaling factor.
+#' @param .rbf_sigma A positive number for the radial basis function.
 #' @param .margin A positive number for the epsilon in the SVM insensitive loss
-#' function (regression only.)
+#' function (regression only).
 #'
 #' @examples
 #' suppressPackageStartupMessages(library(modeltime))
