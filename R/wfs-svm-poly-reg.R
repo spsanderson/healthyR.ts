@@ -123,7 +123,7 @@ ts_wfs_svm_poly <- function(.model_type = "kernlab", .recipe_list,
         cost         = cost,
         degree       = degree,
         scale_factor = scale_factor,
-        margin       = maring
+        margin       = margin
     ) %>%
         parsnip::set_engine("kernlab")
 
