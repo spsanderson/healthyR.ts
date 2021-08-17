@@ -50,6 +50,7 @@ reference:
      -  "ts_wfs_lin_reg"
      -  "ts_wfs_mars"
      -  "ts_wfs_svm_poly"
+     -  "ts_wfs_svm_rbf"
   -  title: Time Series Helper functions
      desc: healthyR.ts helper functions
   -  contents:
