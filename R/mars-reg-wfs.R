@@ -92,9 +92,11 @@ ts_wfs_lin_reg <- function(.model_type, .recipe_list,
     prod_degree  = .prod_degree
 
     # * Checks ----
-    if (!is.character(.model_type)) {
+    if (!is.character(model_type)) {
         stop(call. = FALSE, "(.model_type) must be set to a character string.")
     }
+
+    if (!is.character(prune_method()))
 
     if (!model_type %in% c("earth")){
         stop(call. = FALSE, "(.model_type) must be 'earth'.")
