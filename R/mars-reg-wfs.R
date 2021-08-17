@@ -5,7 +5,8 @@
 #' @description
 #' This function is used to quickly create a workflowsets object.
 #'
-#' @seealso \url{https://workflowsets.tidymodels.org/}(workflowsets)
+#' @seealso \url{https://workflowsets.tidymodels.org/}
+#' @seealso \url{https://parsnip.tidymodels.org/reference/mars.html}
 #'
 #' @details This function expects to take in the recipes that you want to use in
 #' the modeling process. This is an automated workflow process. There are sensible
@@ -13,11 +14,16 @@
 #' yourself if you have a good understanding of what they should be. The mode is
 #' set to "regression".
 #'
+#' This only uses the option `set_engine("earth")` and therefore the .model_type
+#' is not needed. The parameter is kept because it is possible in the future that
+#' this could change, and it keeps with the framework of how other frunctions
+#' are written.
+#'
 #' @param .model_type This is where you will set your engine. It uses
 #' [parsnip::mars()] under the hood and can take one of the following:
 #'   * "earth"
 #' @param .recipe_list You must supply a list of recipes. list(rec_1, rec_2, ...)
-#' @param .num_terms The number of features that will be retained in teh final
+#' @param .num_terms The number of features that will be retained in the final
 #' model, including the intercept.
 #' @param .prod_degree The highest possible interaction degree.
 #' @param .prune_method The pruning method. This is a character, the default is
@@ -65,7 +71,7 @@
 #'  , .pred_col = value
 #' )
 #'
-#' wf_sets <- ts_wfs_lin_reg("all_engines", rec_objs)
+#' wf_sets <- ts_wfs_mars("all_engines", rec_objs)
 #' wf_sets
 #'
 #' @return
@@ -74,23 +80,33 @@
 #' @export
 #'
 
-ts_wfs_lin_reg <- function(.model_type, .recipe_list, .penalty = 1, .mixture = 0.5){
+ts_wfs_lin_reg <- function(.model_type, .recipe_list,
+                           .num_terms = 200, .prod_degree = 1,
+                           .prune_method = "backward"){
 
     # * Tidyeval ---
-    model_type  = .model_type
-    recipe_list = .recipe_list
+    model_type   = .model_type
+    recipe_list  = .recipe_list
+    prune_method = .prune_method
+    num_terms    = .num_terms
+    prod_degree  = .prod_degree
 
     # * Checks ----
     if (!is.character(.model_type)) {
-        stop(call. = FALSE, "(.model_type) must be a character like 'lm', 'glmnet'")
+        stop(call. = FALSE, "(.model_type) must be set to a character string.")
     }
 
-    if (!model_type %in% c("lm","glmnet","all_engines")){
-        stop(call. = FALSE, "(.model_type) must be one of the following, 'lm','glmnet', or 'all_engines'")
+    if (!model_type %in% c("earth")){
+        stop(call. = FALSE, "(.model_type) must be 'earth'.")
     }
 
     if (!is.list(recipe_list)){
         stop(call. = FALSE, "(.recipe_list) must be a list of recipe objects")
+    }
+
+    if (!prune_method %in% c("backward","none","exhaustive","forward","seqrep","cv")){
+        stop(call. = FALSE, "(.prune_method) must be set to either 'backward','none','exhaustive'
+             'forward','seqrep', or 'cv'")
     }
 
     if (!is.numeric(.penalty) | !is.numeric(.mixture)){
