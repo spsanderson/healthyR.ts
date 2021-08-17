@@ -32,11 +32,9 @@ Imports:
     recipes,
     modeltime,
     cowplot,
-    xts,
     graphics,
     forcats,
     stringi,
-    zoo,
     parsnip,
     workflowsets,
     earth
@@ -54,7 +52,9 @@ Suggests:
     cli,
     crayon,
     glue,
-    rstudioapi
+    rstudioapi,
+    xts,
+    zoo
 VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
