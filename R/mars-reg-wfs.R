@@ -113,33 +113,22 @@ ts_wfs_lin_reg <- function(.model_type, .recipe_list,
              'forward','seqrep', or 'cv'")
     }
 
-    if (!is.numeric(.penalty) | !is.numeric(.mixture)){
-        stop(call. = FALSE, "Both the .penalty and .mixture parameters must be numeric.")
+    if (!is.numeric(num_terms) | !is.numeric(prod_degree)){
+        stop(call. = FALSE, "Both the .num_terms and .prod-degree parameters must be numeric.")
     }
 
     # * Models ----
-    model_spec_lm <- parsnip::linear_reg(
-        mode = "regression"
+    model_spec_mars <- parsnip::mars(
+        mode         = "regression",
+        num_terms    = num_terms,
+        prod_degree  = prod_degree,
+        prune_method = prune_method
     ) %>%
-        parsnip::set_engine("lm")
+        parsnip::set_engine("earth")
 
-    model_spec_glmnet <- parsnip::linear_reg(
-        mode    = "regression",
-        penalty = .penalty,
-        mixture = .mixture
-    ) %>%
-        parsnip::set_engine("glmnet")
-
-    final_model_list <- if (model_type == "lm"){
-        fml <- list(model_spec_lm)
-    } else if (model_type == "glmnet"){
-        fml <- list(model_spec_glmnet)
-    } else {
-        fml <- list(
-            model_spec_lm,
-            model_spec_glmnet
+    final_model_list <- list(
+            model_spec_mars
         )
-    }
 
     # * Workflow Sets ----
     wf_sets <- workflowsets::workflow_set(
