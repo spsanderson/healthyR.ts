@@ -38,7 +38,8 @@ Imports:
     stringi,
     zoo,
     parsnip,
-    workflowsets
+    workflowsets,
+    earth
 Suggests: 
     knitr,
     rmarkdown,
