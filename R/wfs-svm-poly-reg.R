@@ -91,8 +91,8 @@ ts_wfs_svm_poly <- function(.model_type = "kernlab", .recipe_list,
     # * Tidyeval ---
     model_type   = .model_type
     recipe_list  = .recipe_list
-    cost         = .cost
-    degree       = .degree
+    cost         = as.integer(.cost)
+    degree       = as.integer(.degree)
     scale_factor = .scale_factor
     margin       = .margin
 
