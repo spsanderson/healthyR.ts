@@ -48,6 +48,7 @@ reference:
      desc: healthyR.ts automatic time series workflow set functions
   -  contents:
      -  "ts_wfs_lin_reg"
+     -  "ts_wfs_mars"
   -  title: Time Series Helper functions
      desc: healthyR.ts helper functions
   -  contents:
