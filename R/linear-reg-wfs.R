@@ -78,7 +78,7 @@ ts_wfs_lin_reg <- function(.model_type, .recipe_list, .penalty = 1, .mixture = 0
     recipe_list = .recipe_list
 
     # * Checks ----
-    if (!is.character(.model_type)) {
+    if (!is.character(model_type)) {
         stop(call. = FALSE, "(.model_type) must be a character like 'lm', 'glmnet'")
     }
 
