@@ -41,6 +41,7 @@
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(tidymodels))
+#' suppressPackageStartupMessages(library(earth))
 #'
 #' data <- healthyR_data %>%
 #'  filter(ip_op_flag == "I") %>%
