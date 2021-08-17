@@ -1,4 +1,4 @@
-#' SVM Poly (Kernlab) Workflowset Function
+#' SVM RBF (Kernlab) Workflowset Function
 #'
 #' @author Steven P. Sanderson II, MPH
 #'

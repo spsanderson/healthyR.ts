@@ -2,7 +2,7 @@
 % Please edit documentation in R/wfs-svm-rbf.R
 \name{ts_wfs_svm_rbf}
 \alias{ts_wfs_svm_rbf}
-\title{SVM Poly (Kernlab) Workflowset Function}
+\title{SVM RBF (Kernlab) Workflowset Function}
 \usage{
 ts_wfs_svm_rbf(
   .model_type = "kernlab",
