@@ -80,7 +80,7 @@
 #' @export
 #'
 
-ts_wfs_lin_reg <- function(.model_type, .recipe_list,
+ts_wfs_mars <- function(.model_type = "earth", .recipe_list,
                            .num_terms = 200, .prod_degree = 1,
                            .prune_method = "backward"){
 
