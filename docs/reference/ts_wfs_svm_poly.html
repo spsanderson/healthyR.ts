@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MARS (Earth) Workflowset Function — ts_wfs_mars • healthyR.ts</title>
+<title>SVM Poly (Kernlab) Workflowset Function — ts_wfs_svm_poly • healthyR.ts</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="MARS (Earth) Workflowset Function — ts_wfs_mars" />
+<meta property="og:title" content="SVM Poly (Kernlab) Workflowset Function — ts_wfs_svm_poly" />
 <meta property="og:description" content="This function is used to quickly create a workflowsets object." />
 
 
@@ -134,21 +134,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MARS (Earth) Workflowset Function</h1>
-    <small class="dont-index">Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/R/wfs-mars-reg.R'><code>R/wfs-mars-reg.R</code></a></small>
-    <div class="hidden name"><code>ts_wfs_mars.Rd</code></div>
+    <h1>SVM Poly (Kernlab) Workflowset Function</h1>
+    <small class="dont-index">Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/R/wfs-svm-poly-reg.R'><code>R/wfs-svm-poly-reg.R</code></a></small>
+    <div class="hidden name"><code>ts_wfs_svm_poly.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function is used to quickly create a workflowsets object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ts_wfs_mars</span><span class='op'>(</span>
-  .model_type <span class='op'>=</span> <span class='st'>"earth"</span>,
+    <pre class="usage"><span class='fu'>ts_wfs_svm_poly</span><span class='op'>(</span>
+  .model_type <span class='op'>=</span> <span class='st'>"kernlab"</span>,
   <span class='va'>.recipe_list</span>,
-  .num_terms <span class='op'>=</span> <span class='fl'>200</span>,
-  .prod_degree <span class='op'>=</span> <span class='fl'>1</span>,
-  .prune_method <span class='op'>=</span> <span class='st'>"backward"</span>
+  .cost <span class='op'>=</span> <span class='fl'>1</span>,
+  .degree <span class='op'>=</span> <span class='fl'>1</span>,
+  .scale_factor <span class='op'>=</span> <span class='fl'>1</span>,
+  .margin <span class='op'>=</span> <span class='fl'>0.1</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -157,8 +158,8 @@
     <tr>
       <th>.model_type</th>
       <td><p>This is where you will set your engine. It uses
-<code><a href='https://parsnip.tidymodels.org/reference/mars.html'>parsnip::mars()</a></code> under the hood and can take one of the following:</p><ul>
-<li><p>"earth"</p></li>
+<code><a href='https://parsnip.tidymodels.org/reference/svm_poly.html'>parsnip::svm_poly()</a></code> under the hood and can take one of the following:</p><ul>
+<li><p>"kernlab"</p></li>
 </ul></td>
     </tr>
     <tr>
@@ -166,25 +167,22 @@
       <td><p>You must supply a list of recipes. list(rec_1, rec_2, ...)</p></td>
     </tr>
     <tr>
-      <th>.num_terms</th>
-      <td><p>The number of features that will be retained in the final
-model, including the intercept.</p></td>
+      <th>.cost</th>
+      <td><p>A positive number for the cose of predicting a sample within or
+on the wrong side of the margin.</p></td>
     </tr>
     <tr>
-      <th>.prod_degree</th>
-      <td><p>The highest possible interaction degree.</p></td>
+      <th>.degree</th>
+      <td><p>A positive number for polynomial degree.</p></td>
     </tr>
     <tr>
-      <th>.prune_method</th>
-      <td><p>The pruning method. This is a character, the default is
-"backward". You can choose from one of the following:</p><ul>
-<li><p>"backward"</p></li>
-<li><p>"none"</p></li>
-<li><p>"exhaustive"</p></li>
-<li><p>"forward"</p></li>
-<li><p>"seqrep"</p></li>
-<li><p>"cv"</p></li>
-</ul></td>
+      <th>.scale_factor</th>
+      <td><p>A positive number for the polynomial scaling factor.</p></td>
+    </tr>
+    <tr>
+      <th>.margin</th>
+      <td><p>A positive number for the epsilon in the SVM insensitive loss
+function (regression only.)</p></td>
     </tr>
     </table>
 
@@ -198,14 +196,20 @@ the modeling process. This is an automated workflow process. There are sensible
 defaults set for the model specification, but if you choose you can set them
 yourself if you have a good understanding of what they should be. The mode is
 set to "regression".</p>
-<p>This only uses the option <code>set_engine("earth")</code> and therefore the .model_type
+<p>This only uses the option <code>set_engine("kernlab")</code> and therefore the .model_type
 is not needed. The parameter is kept because it is possible in the future that
 this could change, and it keeps with the framework of how other functions
 are written.</p>
+<p><code><a href='https://parsnip.tidymodels.org/reference/svm_poly.html'>parsnip::svm_poly()</a></code> svm_poly() defines a support vector machine model.
+For classification, the model tries to maximize the width of the margin
+between classes. For regression, the model optimizes a robust loss function
+that is only affected by very large model residuals.</p>
+<p>This SVM model uses a nonlinear function, specifically a polynomial function,
+to create the decision boundary or regression line.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='https://workflowsets.tidymodels.org/'>https://workflowsets.tidymodels.org/</a></p>
-<p><a href='https://parsnip.tidymodels.org/reference/mars.html'>https://parsnip.tidymodels.org/reference/mars.html</a></p></div>
+<p><a href='https://parsnip.tidymodels.org/reference/svm_poly.html'>https://parsnip.tidymodels.org/reference/svm_poly.html</a></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Steven P. Sanderson II, MPH</p>
@@ -247,15 +251,15 @@ are written.</p>
  , .pred_col <span class='op'>=</span> <span class='va'>value</span>
 <span class='op'>)</span>
 
-<span class='va'>wf_sets</span> <span class='op'>&lt;-</span> <span class='fu'>ts_wfs_mars</span><span class='op'>(</span><span class='st'>"earth"</span>, <span class='va'>rec_objs</span><span class='op'>)</span>
+<span class='va'>wf_sets</span> <span class='op'>&lt;-</span> <span class='fu'>ts_wfs_svm_poly</span><span class='op'>(</span><span class='st'>"kernlab"</span>, <span class='va'>rec_objs</span><span class='op'>)</span>
 <span class='va'>wf_sets</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A workflow set/tibble: 4 x 4</span>
-#&gt;   wflow_id                  info             option    result    
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                     <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    
-#&gt; <span style='color: #BCBCBC;'>1</span> rec_base_mars             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>2</span> rec_date_mars             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>3</span> rec_date_fourier_mars     <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>4</span> rec_date_fourier_nzv_mars <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span></div><div class='input'>
+#&gt;   wflow_id                      info             option    result    
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                         <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    
+#&gt; <span style='color: #BCBCBC;'>1</span> rec_base_svm_poly             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>2</span> rec_date_svm_poly             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>3</span> rec_date_fourier_svm_poly     <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>4</span> rec_date_fourier_nzv_svm_poly <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
