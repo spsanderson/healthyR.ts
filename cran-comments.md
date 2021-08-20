@@ -1,5 +1,5 @@
 ## Updates
-Prep for 0.1.2 CRAN submission.
+Prep for 0.1.3 CRAN submission.
 
 ## Test environments
 * local R installation, R 4.0.2
@@ -8,6 +8,6 @@ Prep for 0.1.2 CRAN submission.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 2 note
 
-* This is a new release.
+* This is a package update
