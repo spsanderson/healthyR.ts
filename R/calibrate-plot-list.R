@@ -16,7 +16,6 @@
 #' accuracy tibble and the resulting plotly plot.
 #'
 #' @examples
-#' suppressPackageStartupMessages(library(modeltime))
 #' suppressPackageStartupMessages(library(timetk))
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(healthyR.data))
@@ -26,16 +25,16 @@
 #'  filter(ip_op_flag == "I") %>%
 #'    select(visit_end_date_time) %>%
 #'    rename(date_col = visit_end_date_time) %>%
+#'    filter_by_time(
+#'        .date_var = date_col
+#'      , .start_date = "2015"
+#'      , .end_date   = "2019"
+#'    ) %>%
 #'    summarise_by_time(
 #'        .date_var = date_col
 #'        , .by     = "month"
 #'        , value   = n()
-#'   ) %>%
-#'    filter_by_time(
-#'        .date_var     = date_col
-#'        , .start_date = "2012"
-#'        , .end_date   = "2019"
-#'    )
+#'   )
 #'
 #' splits <- time_series_split(
 #'    data
@@ -59,19 +58,13 @@
 #'    add_model(model_spec) %>%
 #'    fit(training(splits))
 #'
-#' calibrate_and_plot(
+#' output <- calibrate_and_plot(
 #'   wflw
 #'   , .type = "training"
 #'   , .splits_obj = splits
 #'   , .data = data
+#'   , .print_info = FALSE
 #'  )
-#'
-#' calibrate_and_plot(
-#'   wflw
-#'   , .type       = "testing"
-#'   , .splits_obj = splits
-#'   , .data       = data
-#' )
 #'
 #' @return
 #' The original time series, the simulated values and a some plots
