@@ -39,7 +39,8 @@ perform the \code{\link[modeltime:modeltime_calibrate]{modeltime::modeltime_cali
 This function expects to take in workflows fitted with training data.
 }
 \examples{
-#suppressPackageStartupMessages(library(timetk))
+\dontrun{
+suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(healthyR.data))
 suppressPackageStartupMessages(library(tidymodels))
@@ -89,6 +90,7 @@ output <- calibrate_and_plot(
   , .print_info = FALSE
   , .interactive = FALSE
  )
+}
 
 }
 \author{
