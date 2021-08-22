@@ -18,7 +18,8 @@
 #' is interactive or not via plotly.
 #'
 #' @examples
-#' #suppressPackageStartupMessages(library(timetk))
+#' \dontrun{
+#' suppressPackageStartupMessages(library(timetk))
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(tidymodels))
@@ -68,6 +69,7 @@
 #'   , .print_info = FALSE
 #'   , .interactive = FALSE
 #'  )
+#' }
 #'
 #' @return
 #' The original time series, the simulated values and a some plots
