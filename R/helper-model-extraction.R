@@ -19,11 +19,6 @@
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(timetk))
-#' suppressPackageStartupMessages(library(ggplot2))
-#' suppressPackageStartupMessages(library(plotly))
-#' suppressPackageStartupMessages(library(purrr))
-#' suppressPackageStartupMessages(library(tidyquant))
-#' suppressPackageStartupMessages(library(tidyr))
 #'
 #' data <- healthyR_data %>%
 #'     filter(ip_op_flag == "I") %>%
@@ -44,14 +39,10 @@
 #'
 #' # Create a model
 #' fit_arima  <- auto.arima(data_ts)
-#' fit_nnetar <- nnetar(data_ts)
-#' fit_ets    <- ets(data_ts)
 #'
 #' model_extraction_helper(fit_arima)
-#' model_extraction_helper(fit_nnetar)
-#' model_extraction_helper(fit_ets)
 #'
-#' @return A model descritption
+#' @return A model description
 #'
 #' @export
 #'
