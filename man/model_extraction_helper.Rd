@@ -10,7 +10,7 @@ model_extraction_helper(.fit_object)
 \item{.fit_object}{A time-series fitted model}
 }
 \value{
-A model descritption
+A model description
 }
 \description{
 This takes in a model fit and returns the method of the fit object.
@@ -30,11 +30,6 @@ suppressPackageStartupMessages(library(forecast))
 suppressPackageStartupMessages(library(healthyR.data))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(timetk))
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(plotly))
-suppressPackageStartupMessages(library(purrr))
-suppressPackageStartupMessages(library(tidyquant))
-suppressPackageStartupMessages(library(tidyr))
 
 data <- healthyR_data \%>\%
     filter(ip_op_flag == "I") \%>\%
@@ -55,12 +50,8 @@ data_ts <- tk_ts(data = data, frequency = 12)
 
 # Create a model
 fit_arima  <- auto.arima(data_ts)
-fit_nnetar <- nnetar(data_ts)
-fit_ets    <- ets(data_ts)
 
 model_extraction_helper(fit_arima)
-model_extraction_helper(fit_nnetar)
-model_extraction_helper(fit_ets)
 
 }
 \author{
