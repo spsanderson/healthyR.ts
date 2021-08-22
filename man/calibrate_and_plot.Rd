@@ -9,7 +9,8 @@ calibrate_and_plot(
   .type = "testing",
   .splits_obj,
   .data,
-  .print_info = TRUE
+  .print_info = TRUE,
+  .interactive = FALSE
 )
 }
 \arguments{
@@ -23,6 +24,9 @@ calibrate_and_plot(
 
 \item{.print_info}{The default is TRUE and will print out the calibration
 accuracy tibble and the resulting plotly plot.}
+
+\item{.interactive}{The defaults is FALSE. This controls if a forecast plot
+is interactive or not via plotly.}
 }
 \value{
 The original time series, the simulated values and a some plots
@@ -35,7 +39,7 @@ perform the \code{\link[modeltime:modeltime_calibrate]{modeltime::modeltime_cali
 This function expects to take in workflows fitted with training data.
 }
 \examples{
-suppressPackageStartupMessages(library(timetk))
+#suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(healthyR.data))
 suppressPackageStartupMessages(library(tidymodels))
@@ -44,18 +48,18 @@ data <- healthyR_data \%>\%
  filter(ip_op_flag == "I") \%>\%
    select(visit_end_date_time) \%>\%
    rename(date_col = visit_end_date_time) \%>\%
-   filter_by_time(
+   timetk::filter_by_time(
        .date_var = date_col
      , .start_date = "2015"
      , .end_date   = "2019"
    ) \%>\%
-   summarise_by_time(
+   timetk::summarise_by_time(
        .date_var = date_col
        , .by     = "month"
        , value   = n()
   )
 
-splits <- time_series_split(
+splits <- timetk::time_series_split(
    data
   , date_col
   , assess = 12
@@ -83,6 +87,7 @@ output <- calibrate_and_plot(
   , .splits_obj = splits
   , .data = data
   , .print_info = FALSE
+  , .interactive = FALSE
  )
 
 }

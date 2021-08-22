@@ -14,9 +14,11 @@
 #' @param .splits_obj The splits object.
 #' @param .print_info The default is TRUE and will print out the calibration
 #' accuracy tibble and the resulting plotly plot.
+#' @param .interactive The defaults is FALSE. This controls if a forecast plot
+#' is interactive or not via plotly.
 #'
 #' @examples
-#' suppressPackageStartupMessages(library(timetk))
+#' #suppressPackageStartupMessages(library(timetk))
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(tidymodels))
@@ -25,18 +27,18 @@
 #'  filter(ip_op_flag == "I") %>%
 #'    select(visit_end_date_time) %>%
 #'    rename(date_col = visit_end_date_time) %>%
-#'    filter_by_time(
+#'    timetk::filter_by_time(
 #'        .date_var = date_col
 #'      , .start_date = "2015"
 #'      , .end_date   = "2019"
 #'    ) %>%
-#'    summarise_by_time(
+#'    timetk::summarise_by_time(
 #'        .date_var = date_col
 #'        , .by     = "month"
 #'        , value   = n()
 #'   )
 #'
-#' splits <- time_series_split(
+#' splits <- timetk::time_series_split(
 #'    data
 #'   , date_col
 #'   , assess = 12
@@ -64,17 +66,19 @@
 #'   , .splits_obj = splits
 #'   , .data = data
 #'   , .print_info = FALSE
+#'   , .interactive = FALSE
 #'  )
 #'
 #' @return
 #' The original time series, the simulated values and a some plots
 #'
 #' @export calibrate_and_plot
-
+#'
 # *** PLOTTING UTILITY *** ----
 # - Calibrate & Plot
 calibrate_and_plot <- function(..., .type = "testing", .splits_obj
-                               , .data, .print_info = TRUE){
+                               , .data, .print_info = TRUE
+                               , .interactive = FALSE){
 
     # Tidyeval ----
     splits_obj <- .splits_obj
@@ -115,6 +119,7 @@ calibrate_and_plot <- function(..., .type = "testing", .splits_obj
         ) %>%
         modeltime::plot_modeltime_forecast(
             .conf_interval_show = FALSE
+            , .interactive = .interactive
         )
 
     output <- list(
