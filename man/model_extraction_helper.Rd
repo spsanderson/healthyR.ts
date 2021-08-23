@@ -26,6 +26,8 @@ Currently supports forecasting model of one of the following from the
 }
 }
 \examples{
+# NOT RUN
+\dontrun{
 suppressPackageStartupMessages(library(forecast))
 suppressPackageStartupMessages(library(healthyR.data))
 suppressPackageStartupMessages(library(dplyr))
@@ -52,6 +54,7 @@ data_ts <- tk_ts(data = data, frequency = 12)
 fit_arima  <- auto.arima(data_ts)
 
 model_extraction_helper(fit_arima)
+}
 
 }
 \author{
