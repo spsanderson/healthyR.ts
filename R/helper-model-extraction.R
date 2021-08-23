@@ -15,6 +15,8 @@
 #' @param .fit_object A time-series fitted model
 #'
 #' @examples
+#' # NOT RUN
+#' \dontrun{
 #' suppressPackageStartupMessages(library(forecast))
 #' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(dplyr))
@@ -41,6 +43,7 @@
 #' fit_arima  <- auto.arima(data_ts)
 #'
 #' model_extraction_helper(fit_arima)
+#' }
 #'
 #' @return A model description
 #'

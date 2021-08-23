@@ -67,12 +67,6 @@
 #'    rename("week_day" = "wday.lbl")
 #'
 #' ts_calendar_heatmap_plot(
-#'   .data        = data
-#'   , .date_col  = date_col
-#'   , .value_col = value
-#' )
-#'
-#' ts_calendar_heatmap_plot(
 #'   .data          = data
 #'   , .date_col    = date_col
 #'   , .value_col   = value
