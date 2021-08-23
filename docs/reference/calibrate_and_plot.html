@@ -83,7 +83,7 @@ perform the modeltime::modeltime_calibrate() and modeltime::plot_modeltime_forec
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3.9000</span>
       </span>
     </div>
 
@@ -150,7 +150,8 @@ perform the <code><a href='https://rdrr.io/pkg/modeltime/man/modeltime_calibrate
   .type <span class='op'>=</span> <span class='st'>"testing"</span>,
   <span class='va'>.splits_obj</span>,
   <span class='va'>.data</span>,
-  .print_info <span class='op'>=</span> <span class='cn'>TRUE</span>
+  .print_info <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  .interactive <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -177,6 +178,11 @@ perform the <code><a href='https://rdrr.io/pkg/modeltime/man/modeltime_calibrate
       <td><p>The default is TRUE and will print out the calibration
 accuracy tibble and the resulting plotly plot.</p></td>
     </tr>
+    <tr>
+      <th>.interactive</th>
+      <td><p>The defaults is FALSE. This controls if a forecast plot
+is interactive or not via plotly.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -190,7 +196,7 @@ accuracy tibble and the resulting plotly plot.</p></td>
     <p>Steven P. Sanderson II, MPH</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/business-science/modeltime'>modeltime</a></span><span class='op'>)</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/business-science/timetk'>timetk</a></span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/spsanderson/healthyR.data'>healthyR.data</a></span><span class='op'>)</span><span class='op'>)</span>
@@ -200,18 +206,18 @@ accuracy tibble and the resulting plotly plot.</p></td>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ip_op_flag</span> <span class='op'>==</span> <span class='st'>"I"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>visit_end_date_time</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>date_col <span class='op'>=</span> <span class='va'>visit_end_date_time</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-   <span class='fu'><a href='https://rdrr.io/pkg/timetk/man/summarise_by_time.html'>summarise_by_time</a></span><span class='op'>(</span>
+   <span class='fu'>timetk</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/timetk/man/filter_by_time.html'>filter_by_time</a></span><span class='op'>(</span>
+       .date_var <span class='op'>=</span> <span class='va'>date_col</span>
+     , .start_date <span class='op'>=</span> <span class='st'>"2015"</span>
+     , .end_date   <span class='op'>=</span> <span class='st'>"2019"</span>
+   <span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'>timetk</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/timetk/man/summarise_by_time.html'>summarise_by_time</a></span><span class='op'>(</span>
        .date_var <span class='op'>=</span> <span class='va'>date_col</span>
        , .by     <span class='op'>=</span> <span class='st'>"month"</span>
        , value   <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>
-  <span class='op'>)</span> <span class='op'>%&gt;%</span>
-   <span class='fu'><a href='https://rdrr.io/pkg/timetk/man/filter_by_time.html'>filter_by_time</a></span><span class='op'>(</span>
-       .date_var     <span class='op'>=</span> <span class='va'>date_col</span>
-       , .start_date <span class='op'>=</span> <span class='st'>"2012"</span>
-       , .end_date   <span class='op'>=</span> <span class='st'>"2019"</span>
-   <span class='op'>)</span>
+  <span class='op'>)</span>
 
-<span class='va'>splits</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/timetk/man/time_series_split.html'>time_series_split</a></span><span class='op'>(</span>
+<span class='va'>splits</span> <span class='op'>&lt;-</span> <span class='fu'>timetk</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/timetk/man/time_series_split.html'>time_series_split</a></span><span class='op'>(</span>
    <span class='va'>data</span>
   , <span class='va'>date_col</span>
   , assess <span class='op'>=</span> <span class='fl'>12</span>
@@ -233,54 +239,16 @@ accuracy tibble and the resulting plotly plot.</p></td>
    <span class='fu'>add_model</span><span class='op'>(</span><span class='va'>model_spec</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
    <span class='fu'>fit</span><span class='op'>(</span><span class='fu'>training</span><span class='op'>(</span><span class='va'>splits</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>calibrate_and_plot</span><span class='op'>(</span>
+<span class='va'>output</span> <span class='op'>&lt;-</span> <span class='fu'>calibrate_and_plot</span><span class='op'>(</span>
   <span class='va'>wflw</span>
   , .type <span class='op'>=</span> <span class='st'>"training"</span>
   , .splits_obj <span class='op'>=</span> <span class='va'>splits</span>
   , .data <span class='op'>=</span> <span class='va'>data</span>
+  , .print_info <span class='op'>=</span> <span class='cn'>FALSE</span>
+  , .interactive <span class='op'>=</span> <span class='cn'>FALSE</span>
  <span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 9</span>
-#&gt;   .model_id .model_desc .type   mae  mape  mase smape  rmse   rsq
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>         1 LM          Test   68.0  6.20 0.921  6.14  87.1 0.691</div><div class='output co'>#&gt; $calibration_tbl
-#&gt; # Modeltime Table
-#&gt; <span style='color: #949494;'># A tibble: 1 x 5</span>
-#&gt;   .model_id .model     .model_desc .type .calibration_data
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           
-#&gt; <span style='color: #BCBCBC;'>1</span>         1 <span style='color: #949494;'>&lt;workflow&gt;</span> LM          Test  <span style='color: #949494;'>&lt;tibble [84 x 4]&gt;</span>
-#&gt; 
-#&gt; $model_accuracy
-#&gt; <span style='color: #949494;'># A tibble: 1 x 9</span>
-#&gt;   .model_id .model_desc .type   mae  mape  mase smape  rmse   rsq
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>         1 LM          Test   68.0  6.20 0.921  6.14  87.1 0.691
-#&gt; 
-#&gt; $plot
-#&gt; </div><div class='input'>
-<span class='fu'>calibrate_and_plot</span><span class='op'>(</span>
-  <span class='va'>wflw</span>
-  , .type       <span class='op'>=</span> <span class='st'>"testing"</span>
-  , .splits_obj <span class='op'>=</span> <span class='va'>splits</span>
-  , .data       <span class='op'>=</span> <span class='va'>data</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 9</span>
-#&gt;   .model_id .model_desc .type   mae  mape  mase smape  rmse   rsq
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>         1 LM          Test   44.3  4.72 0.949  4.89  54.6 0.563</div><div class='output co'>#&gt; $calibration_tbl
-#&gt; # Modeltime Table
-#&gt; <span style='color: #949494;'># A tibble: 1 x 5</span>
-#&gt;   .model_id .model     .model_desc .type .calibration_data
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           
-#&gt; <span style='color: #BCBCBC;'>1</span>         1 <span style='color: #949494;'>&lt;workflow&gt;</span> LM          Test  <span style='color: #949494;'>&lt;tibble [12 x 4]&gt;</span>
-#&gt; 
-#&gt; $model_accuracy
-#&gt; <span style='color: #949494;'># A tibble: 1 x 9</span>
-#&gt;   .model_id .model_desc .type   mae  mape  mase smape  rmse   rsq
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>         1 LM          Test   44.3  4.72 0.949  4.89  54.6 0.563
-#&gt; 
-#&gt; $plot
-#&gt; </div><div class='input'>
+<span class='op'>}</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

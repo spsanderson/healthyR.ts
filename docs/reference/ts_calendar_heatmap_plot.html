@@ -83,7 +83,7 @@ heatmap." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3.9000</span>
       </span>
     </div>
 
@@ -245,12 +245,6 @@ order to force the user to supply a clean data-set.</p>
    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>date_col</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>week_of_month <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/stringi/man/stri_datetime_fields.html'>stri_datetime_fields</a></span><span class='op'>(</span><span class='va'>date_col</span><span class='op'>)</span><span class='op'>$</span><span class='va'>WeekOfMonth</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span><span class='st'>"week_day"</span> <span class='op'>=</span> <span class='st'>"wday.lbl"</span><span class='op'>)</span>
-
-<span class='fu'>ts_calendar_heatmap_plot</span><span class='op'>(</span>
-  .data        <span class='op'>=</span> <span class='va'>data</span>
-  , .date_col  <span class='op'>=</span> <span class='va'>date_col</span>
-  , .value_col <span class='op'>=</span> <span class='va'>value</span>
-<span class='op'>)</span>
 
 <span class='fu'>ts_calendar_heatmap_plot</span><span class='op'>(</span>
   .data          <span class='op'>=</span> <span class='va'>data</span>
