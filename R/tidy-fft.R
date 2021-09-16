@@ -1,3 +1,39 @@
+#' Tidy Style FFT
+#'
+#' @author Steven P. Sanderson II, MPH
+#'
+#' @description
+#' Perform an fft using [fft()] and return a tidier style output list with plots.
+#'
+#' @details
+#' - Set the intercept of the initial value from the random walk
+#' - Set the max and min of the cumulative sum of the random walks
+#'
+#' @param .data The data passed to the function.
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' df <- ts_random_walk()
+#'
+#' df %>%
+#'   ggplot(
+#'     mapping = aes(
+#'       x = x
+#'       , y = cum_y
+#'       , color = factor(run)
+#'       , group = factor(run)
+#'    )
+#'  ) +
+#'  geom_line(alpha = 0.8) +
+#'  ts_random_walk_ggplot_layers(df)
+#'
+#' @return
+#' A `ggplot2` layers object
+#'
+#' @export
+#'
+
 tidy_fft <- function(x = NULL, n = NULL, up = 10L){
 
     # * Variables ----
