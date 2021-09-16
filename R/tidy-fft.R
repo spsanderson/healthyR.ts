@@ -9,27 +9,14 @@
 #' - Set the intercept of the initial value from the random walk
 #' - Set the max and min of the cumulative sum of the random walks
 #'
-#' @param .data The data passed to the function.
+#' @param .x The vector you want to analyze
+#' @param .n The number of harmonics you want to plot out.
+#' @param .up The upsampling of the time series.
 #'
 #' @examples
-#' library(ggplot2)
-#'
-#' df <- ts_random_walk()
-#'
-#' df %>%
-#'   ggplot(
-#'     mapping = aes(
-#'       x = x
-#'       , y = cum_y
-#'       , color = factor(run)
-#'       , group = factor(run)
-#'    )
-#'  ) +
-#'  geom_line(alpha = 0.8) +
-#'  ts_random_walk_ggplot_layers(df)
 #'
 #' @return
-#' A `ggplot2` layers object
+#' A list object.
 #'
 #' @export
 #'
