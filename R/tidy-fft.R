@@ -21,13 +21,66 @@
 #' @export
 #'
 
-tidy_fft <- function(x = NULL, n = NULL, up = 10L){
+tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
+                         .harmonics = 1L, .upsampling = 10L,
+                         .multi_harmonic = FALSE){
+
+    # * Checks ----
+    if(!is.data.frame(.data)){
+        stop(call. = FALSE, "(.data) must be supplied as a data.frame")
+    }
+
+    if(is.na(.harmonics)){
+        message(".harmonics was not provided so setting to 1.")
+        .harmonics <- 1L
+    }
+
+    if(!is.numeric(.harmonics)){
+        stop(call. = FALSE, "(.harmonics) must be a positive number and coercable to an integer.")
+    }
+
+    if(!is.numeric(.frequency)){
+        stop(call. = FALSE, "(.frequency) must be a positive number and coercable to an integer.")
+    }
+
+    if(!is.logical(.multi_harmonic)){
+        stop(call. = FALSE, "(.multi_harmonic) must be either TRUE/FALSE.")
+    }
+
+    # * Data ----
+    data <- tibble::as_tibble(.data)
+
+    # * Value Vector ----
+    value_col <- rlang::enquo(.value_col)
+    x <- data %>% dplyr::pull( {{ value_col }} )
+
+    # ** Dates ----
+    date_col_var <- rlang::enquo(.date_col)
+    date_data    <- data %>% dplyr::pull( {{date_col_var }} )
+    date_val     <- lubridate::as_datetime(date_data)
+    start_date   <- min(date_val)
+    start_int    <- lubridate::year(start_date)
+    end_date     <- max(date_val)
+    freq_var     <- as.integer(.frequency)
+
+    # Make ts object
+    ts_obj <- stats::ts(
+        data        = x
+        , start     = start_int
+        , frequency = freq_var
+    )
+
+    m   <- as.integer(round(freq_var/2L, 0))
+    har <- TSA::harmonic(ts_obj, m = m)
+    harmonic_model    <- stats::lm(ts_obj ~ har)
+    har_model_summary <- summary(harmonic_model)
 
     # * Variables ----
-    x    <- x
+    multi_harmonic_bool = as.logical(.multi_harmonic)
+    #x    <- x
     dff  <- fft(x)
-    n    <- n
-    up   <- up
+    n    <- as.integer(.harmonics)
+    up   <- as.integer(.upsampling)
     t    <- seq(from = 1, to = length(x))
     nt   <- seq(from = 1, to = length(x) + 1 - 1/up, by = 1/up)
     ndff <- array(data = 0, dim = c(length(nt), 1L))
@@ -66,8 +119,13 @@ tidy_fft <- function(x = NULL, n = NULL, up = 10L){
     error_term_tbl <- data_tbl %>%
         dplyr::filter(!is.na(y_actual))
 
-    # * Plot ----
-    g <- data_tbl %>%
+    maximum_harmonic_tbl <- data_tbl %>%
+        dplyr::filter(harmonic == max(as.numeric(harmonic)))
+
+    differenced_value_tbl <- tibble::as_tibble(diff(x))
+
+    # * Plots ----
+    harmonic_plt <- data_tbl %>%
         ggplot2::ggplot(ggplot2::aes(x = x, y = y_actual)) +
         ggplot2::geom_line() +
         ggplot2::geom_point() +
@@ -92,12 +150,31 @@ tidy_fft <- function(x = NULL, n = NULL, up = 10L){
     # * Return ----
     output_list <- list(
         data = list(
-            data       = data_tbl,
-            error_data = error_term_tbl
+            data                  = data_tbl,
+            error_data            = error_term_tbl,
+            input_vector          = x,
+            maximum_harmonic_tbl  = maximum_harmonic_tbl,
+            differenced_value_tbl = differenced_value_tbl,
+            ts_obj                = ts_obj
         ),
         plots = list(
-            plot   = g,
-            plotly = plotly::ggplotly(g)
+            plot   = harmonic_plt,
+            plotly = plotly::ggplotly(harmonic_plt)
+        ),
+        dff_transform = dff
+        , parameters = list(
+            harmonics           = up,
+            upsampling          = n,
+            multi_harmonic_bool = multi_harmonic_bool,
+            start_date          = start_date,
+            end_date            = end_date,
+            freq                = freq_var
+        )
+        , model = list(
+            m              = m,
+            harmonic_obj   = har,
+            harmonic_model = harmonic_model,
+            model_summary  = har_model_summary
         )
     )
 
