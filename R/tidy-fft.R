@@ -6,8 +6,7 @@
 #' Perform an fft using [fft()] and return a tidier style output list with plots.
 #'
 #' @details
-#' - Set the intercept of the initial value from the random walk
-#' - Set the max and min of the cumulative sum of the random walks
+#'
 #'
 #' @param .x The vector you want to analyze
 #' @param .n The number of harmonics you want to plot out.
