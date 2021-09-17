@@ -8,9 +8,14 @@
 #' @details
 #'
 #'
-#' @param .x The vector you want to analyze
-#' @param .n The number of harmonics you want to plot out.
-#' @param .up The upsampling of the time series.
+#' @param .data The data.frame/tibble you will pass for analysis.
+#' @param .value_col The column that holds the data to be analyzed.
+#' @param .date_col The column that holds the date.
+#' @param .frequency The frequency of the data, 12 = monthly for example.
+#' @param .harmonics How many harmonic waves do you want to produce.
+#' @param .upsampling The upsampling of the time series.
+#' @param .multi_harmonic A boolean TRUE/FALSE value that will decided if a
+#' plot will be produced with all the harmonic waves on it from .harmonics.
 #'
 #' @examples
 #'
