@@ -161,7 +161,7 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
 
     # Difference Plot
     diff_plt <- differenced_value_tbl %>%
-        ggplot2::ggplot(aes(x = nrow(differenced_value_tbl), y = value)) +
+        ggplot2::ggplot(aes(x = 1:nrow(differenced_value_tbl), y = value)) +
         ggplot2::geom_point() +
         ggplot2::geom_line() +
         ggplot2::labs(
@@ -212,6 +212,6 @@ a <- tidy_fft(
     .value_col = V1,
     .date_col = visit_end_date_time,
     .frequency = 12,
-    .harmonics = 3,
-    .upsampling = 5
+    .harmonics = 8,
+    .upsampling = 10
 )
