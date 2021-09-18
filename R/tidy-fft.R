@@ -194,15 +194,15 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
             ts_obj                = ts_obj
         ),
         plots = list(
-            harmonic_plot = harmonic_plt,
-            diff_plt      = diff_plt,
-            max_har_plt   = max_har_plt,
-            plotly        = plotly::ggplotly(harmonic_plt)
+            harmonic_plot   = harmonic_plt,
+            diff_plt        = diff_plt,
+            max_har_plt     = max_har_plt,
+            harmonic_plotly = plotly::ggplotly(harmonic_plt),
+            max_har_plotly  = plotly::ggplotly(max_har_plt)
         ),
         parameters = list(
             harmonics           = up,
             upsampling          = n,
-            multi_harmonic_bool = multi_harmonic_bool,
             start_date          = start_date,
             end_date            = end_date,
             freq                = freq_var
