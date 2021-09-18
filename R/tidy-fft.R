@@ -164,7 +164,7 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
 
     # Maximum Harmonic Plot
     max_har_plt <- data_tbl %>%
-        dplyr::filter(harmonic == max(harmonic)) %>%
+        dplyr::filter(as.numeric(harmonic) == max(as.numeric(harmonic))) %>%
         ggplot2::ggplot(ggplot2::aes(x = x, y = y_actual)) +
         ggplot2::geom_line() +
         ggplot2::geom_point() +
