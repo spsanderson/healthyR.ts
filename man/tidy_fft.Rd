@@ -10,8 +10,7 @@ tidy_fft(
   .date_col,
   .frequency = 12L,
   .harmonics = 1L,
-  .upsampling = 10L,
-  .multi_harmonic = FALSE
+  .upsampling = 10L
 )
 }
 \arguments{
@@ -26,9 +25,6 @@ tidy_fft(
 \item{.harmonics}{How many harmonic waves do you want to produce.}
 
 \item{.upsampling}{The upsampling of the time series.}
-
-\item{.multi_harmonic}{A boolean TRUE/FALSE value that will decided if a
-plot will be produced with all the harmonic waves on it from .harmonics.}
 }
 \value{
 A list object.
@@ -40,6 +36,33 @@ Perform an fft using \code{\link[=fft]{fft()}} and return a tidier style output 
 
 }
 \examples{
+library(healthyR.data)
+library(tidyverse)
+library(timetk)
+
+dat <- healthyR_data\%>\%
+    filter(ip_op_flag == 'I') \%>\%
+    summarise_by_time(
+        .date_var = visit_end_date_time,
+        .by = "month",
+        V1 = n()
+    ) \%>\%
+    filter_by_time(
+        .date_var = visit_end_date_time,
+        .start_date = "2015",
+        .end_date = "2019"
+   )
+
+a <- tidy_fft(
+  .data = dat,
+  .value_col = V1,
+  .date_col = visit_end_date_time,
+  .harmonics = 3,
+  .frequency = 12
+)
+
+a$plots$max_har_plt
+a$plots$harmonic_plt
 
 }
 \author{
