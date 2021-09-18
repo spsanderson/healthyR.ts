@@ -153,6 +153,7 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
 
     # * Return ----
     output_list <- list(
+        dff_transform = dff,
         data = list(
             data                  = data_tbl,
             error_data            = error_term_tbl,
@@ -165,16 +166,15 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
             plot   = harmonic_plt,
             plotly = plotly::ggplotly(harmonic_plt)
         ),
-        dff_transform = dff
-        , parameters = list(
+        parameters = list(
             harmonics           = up,
             upsampling          = n,
             multi_harmonic_bool = multi_harmonic_bool,
             start_date          = start_date,
             end_date            = end_date,
             freq                = freq_var
-        )
-        , model = list(
+        ),
+        model = list(
             m              = m,
             harmonic_obj   = har,
             harmonic_model = harmonic_model,
@@ -186,3 +186,11 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
 
 }
 
+a <- tidy_fft(
+    .data = dat,
+    .value_col = V1,
+    .date_col = visit_end_date_time,
+    .frequency = 12,
+    .harmonics = 3,
+    .upsampling = 5
+)
