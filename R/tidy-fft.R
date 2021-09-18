@@ -128,6 +128,14 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
 
     differenced_value_tbl <- tibble::as_tibble(diff(x))
 
+    dff_tbl <- dff %>%
+        tibble::as_tibble() %>%
+        dplyr::rename(dff_trans = value) %>%
+        dplyr::mutate(
+            real_part = Re(dff_trans),
+            imag_part = Im(dff_trans)
+        )
+
     # * Plots ----
     harmonic_plt <- data_tbl %>%
         ggplot2::ggplot(ggplot2::aes(x = x, y = y_actual)) +
@@ -151,20 +159,33 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
             legend.position = "none"
         )
 
+    # Difference Plot
+    diff_plt <- differenced_value_tbl %>%
+        ggplot2::ggplot(aes(y = value)) +
+        ggplot2::geom_point() +
+        ggplot2::geom_line() +
+        ggplot2::labs(
+            title = "Difference of Value Column"
+            , x = "Time"
+            , y = "Lag 1 Difference"
+        ) +
+        tidyquant::theme_tq()
+
     # * Return ----
     output_list <- list(
-        dff = dff,
         data = list(
             data                  = data_tbl,
             error_data            = error_term_tbl,
             input_vector          = x,
             maximum_harmonic_tbl  = maximum_harmonic_tbl,
             differenced_value_tbl = differenced_value_tbl,
+            dff_tbl               = dff_tbl,
             ts_obj                = ts_obj
         ),
         plots = list(
-            plot   = harmonic_plt,
-            plotly = plotly::ggplotly(harmonic_plt)
+            harmonic_plot = harmonic_plt,
+            plotly        = plotly::ggplotly(harmonic_plt),
+            diff_plt      = diff_plt
         ),
         parameters = list(
             harmonics           = up,
