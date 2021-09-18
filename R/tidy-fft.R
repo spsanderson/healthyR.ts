@@ -153,7 +153,7 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
 
     # * Return ----
     output_list <- list(
-        dff_transform = dff,
+        dff = dff,
         data = list(
             data                  = data_tbl,
             error_data            = error_term_tbl,
