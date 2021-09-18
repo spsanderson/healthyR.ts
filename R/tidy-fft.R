@@ -16,6 +16,33 @@
 #' @param .upsampling The upsampling of the time series.
 #'
 #' @examples
+#' library(healthyR.data)
+#' library(tidyverse)
+#' library(timetk)
+#'
+#' dat <- healthyR_data%>%
+#'     filter(ip_op_flag == 'I') %>%
+#'     summarise_by_time(
+#'         .date_var = visit_end_date_time,
+#'         .by = "month",
+#'         V1 = n()
+#'     ) %>%
+#'     filter_by_time(
+#'         .date_var = visit_end_date_time,
+#'         .start_date = "2015",
+#'         .end_date = "2019"
+#'    )
+#'
+#' a <- tidy_fft(
+#'   .data = dat,
+#'   .value_col = V1,
+#'   .date_col = visit_end_date_time,
+#'   .harmonics = 3,
+#'   .frequency = 12
+#' )
+#'
+#' a$plots$max_har_plt
+#' a$plots$harmonic_plt
 #'
 #' @return
 #' A list object.
@@ -218,12 +245,3 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
     return(invisible(output_list))
 
 }
-
-a <- tidy_fft(
-    .data = dat,
-    .value_col = V1,
-    .date_col = visit_end_date_time,
-    .frequency = 12,
-    .harmonics = 8,
-    .upsampling = 100
-)
