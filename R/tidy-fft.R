@@ -201,11 +201,11 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
             max_har_plotly  = plotly::ggplotly(max_har_plt)
         ),
         parameters = list(
-            harmonics           = up,
-            upsampling          = n,
-            start_date          = start_date,
-            end_date            = end_date,
-            freq                = freq_var
+            harmonics  = up,
+            upsampling = n,
+            start_date = start_date,
+            end_date   = end_date,
+            freq       = freq_var
         ),
         model = list(
             m              = m,
