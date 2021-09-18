@@ -14,8 +14,6 @@
 #' @param .frequency The frequency of the data, 12 = monthly for example.
 #' @param .harmonics How many harmonic waves do you want to produce.
 #' @param .upsampling The upsampling of the time series.
-#' @param .multi_harmonic A boolean TRUE/FALSE value that will decided if a
-#' plot will be produced with all the harmonic waves on it from .harmonics.
 #'
 #' @examples
 #'
@@ -26,8 +24,7 @@
 #'
 
 tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
-                         .harmonics = 1L, .upsampling = 10L,
-                         .multi_harmonic = FALSE){
+                         .harmonics = 1L, .upsampling = 10L){
 
     # * Checks ----
     if(!is.data.frame(.data)){
@@ -45,10 +42,6 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
 
     if(!is.numeric(.frequency)){
         stop(call. = FALSE, "(.frequency) must be a positive number and coercable to an integer.")
-    }
-
-    if(!is.logical(.multi_harmonic)){
-        stop(call. = FALSE, "(.multi_harmonic) must be either TRUE/FALSE.")
     }
 
     # * Data ----
@@ -80,8 +73,6 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
     har_model_summary <- summary(harmonic_model)
 
     # * Variables ----
-    multi_harmonic_bool = as.logical(.multi_harmonic)
-    #x    <- x
     dff  <- fft(x)
     n    <- as.integer(.harmonics)
     up   <- as.integer(.upsampling)
@@ -171,6 +162,26 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
         ) +
         tidyquant::theme_tq()
 
+    # Maximum Harmonic Plot
+    max_har_plt <- data_tbl %>%
+        dplyr::filter(harmonic == max(harmonic)) %>%
+        ggplot2::ggplot(ggplot2::aes(x = x, y = y_actual)) +
+        ggplot2::geom_line() +
+        ggplot2::geom_point() +
+        ggplot2::geom_line(
+            ggplot2::aes(
+                x = time
+                , y = y_hat
+                , color = harmonic
+            )
+        ) +
+        ggplot2::labs(
+            title = paste0("Harmonic ", n, " Plot"),
+            x = "Time",
+            y = "Measurement"
+        ) +
+        tidyquant::theme_tq()
+
     # * Return ----
     output_list <- list(
         data = list(
@@ -184,8 +195,9 @@ tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
         ),
         plots = list(
             harmonic_plot = harmonic_plt,
-            plotly        = plotly::ggplotly(harmonic_plt),
-            diff_plt      = diff_plt
+            diff_plt      = diff_plt,
+            max_har_plt   = max_har_plt,
+            plotly        = plotly::ggplotly(harmonic_plt)
         ),
         parameters = list(
             harmonics           = up,
@@ -213,5 +225,5 @@ a <- tidy_fft(
     .date_col = visit_end_date_time,
     .frequency = 12,
     .harmonics = 8,
-    .upsampling = 10
+    .upsampling = 100
 )
