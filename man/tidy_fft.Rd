@@ -6,8 +6,8 @@
 \usage{
 tidy_fft(
   .data,
-  .value_col,
   .date_col,
+  .value_col,
   .frequency = 12L,
   .harmonics = 1L,
   .upsampling = 10L
@@ -16,9 +16,9 @@ tidy_fft(
 \arguments{
 \item{.data}{The data.frame/tibble you will pass for analysis.}
 
-\item{.value_col}{The column that holds the data to be analyzed.}
-
 \item{.date_col}{The column that holds the date.}
+
+\item{.value_col}{The column that holds the data to be analyzed.}
 
 \item{.frequency}{The frequency of the data, 12 = monthly for example.}
 
@@ -30,10 +30,13 @@ tidy_fft(
 A list object.
 }
 \description{
-Perform an fft using \code{\link[=fft]{fft()}} and return a tidier style output list with plots.
+Perform an fft using \code{\link[stats:fft]{stats::fft()}} and return a tidier style output list with plots.
 }
 \details{
-
+This function will perform a few different things, but primarily it will
+compute the Fast Discrete Fourier Transform (FFT) using \code{\link[stats:fft]{stats::fft()}}. The
+formula is given as:
+\deqn{y(h) = sum_{k=1}^n z(k)*exp(-2*pi*1i*(k-1)*h-1)/n}
 }
 \examples{
 library(healthyR.data)
