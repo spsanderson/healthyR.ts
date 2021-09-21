@@ -147,7 +147,7 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
     har_model_summary <- summary(harmonic_model)
 
     # * Variables ----
-    dff  <- fft(x)
+    dff  <- stats::fft(x)
     n    <- as.integer(.harmonics)
     up   <- as.integer(.upsampling)
     t    <- seq(from = 1, to = length(x))
