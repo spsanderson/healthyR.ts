@@ -48,7 +48,6 @@ Suggests:
     stringr,
     forecast,
     tidymodels,
-    tidyverse,
     cli,
     crayon,
     glue,
