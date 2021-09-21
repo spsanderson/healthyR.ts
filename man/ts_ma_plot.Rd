@@ -48,7 +48,9 @@ from there.
 }
 \examples{
 suppressPackageStartupMessages(library(timetk))
-suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(purrr))
+suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(tidyquant))
 suppressPackageStartupMessages(library(xts))
 suppressPackageStartupMessages(library(cowplot))
