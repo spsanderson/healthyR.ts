@@ -27,7 +27,7 @@ tidy_fft(
 \item{.upsampling}{The up sampling of the time series.}
 }
 \value{
-A list object.
+A list object returned invisibly.
 }
 \description{
 Perform an fft using \code{\link[stats:fft]{stats::fft()}} and return a tidier style output list with plots.
@@ -40,9 +40,7 @@ formula is given as:
 
 There are many items returned inside of a list invisibly. There are four primary
 categories of data returned in the list. Below are the primary categories and
-the items inside of them, we also list how to call them individually.
-
-First we will go over the data elements.
+the items inside of them.
 
 \strong{data:}
 \enumerate{
@@ -83,7 +81,8 @@ First we will go over the data elements.
 }
 \examples{
 library(healthyR.data)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(timetk)
 
 dat <- healthyR_data\%>\%
@@ -91,7 +90,7 @@ dat <- healthyR_data\%>\%
     summarise_by_time(
         .date_var = visit_end_date_time,
         .by = "month",
-        V1 = n()
+        value = n()
     ) \%>\%
     filter_by_time(
         .date_var = visit_end_date_time,
@@ -101,7 +100,7 @@ dat <- healthyR_data\%>\%
 
 a <- tidy_fft(
   .data = dat,
-  .value_col = V1,
+  .value_col = value,
   .date_col = visit_end_date_time,
   .harmonics = 3,
   .frequency = 12
