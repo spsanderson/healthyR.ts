@@ -106,8 +106,8 @@ a <- tidy_fft(
   .frequency = 12
 )
 
-a$plots$max_har_plt
-a$plots$harmonic_plt
+a$plots$max_har_plot
+a$plots$harmonic_plot
 
 }
 \author{

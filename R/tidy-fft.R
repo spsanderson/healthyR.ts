@@ -87,8 +87,8 @@
 #'   .frequency = 12
 #' )
 #'
-#' a$plots$max_har_plt
-#' a$plots$harmonic_plt
+#' a$plots$max_har_plot
+#' a$plots$harmonic_plot
 #'
 #' @return
 #' A list object returned invisibly.
@@ -269,8 +269,8 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
         ),
         plots = list(
             harmonic_plot   = harmonic_plt,
-            diff_plt        = diff_plt,
-            max_har_plt     = max_har_plt,
+            diff_plot       = diff_plt,
+            max_har_plot    = max_har_plt,
             harmonic_plotly = plotly::ggplotly(harmonic_plt),
             max_har_plotly  = plotly::ggplotly(max_har_plt)
         ),
