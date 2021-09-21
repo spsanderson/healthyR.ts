@@ -3,14 +3,18 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
-#' Perform an fft using [fft()] and return a tidier style output list with plots.
+#' Perform an fft using [stats::fft()] and return a tidier style output list with plots.
 #'
 #' @details
+#' This function will perform a few different things, but primarily it will
+#' compute the Fast Discrete Fourier Transform (FFT) using [stats::fft()]. The
+#' formula is given as:
+#' \deqn{y(h) = sum_{k=1}^n z(k)*exp(-2*pi*1i*(k-1)*h-1)/n}
 #'
 #'
 #' @param .data The data.frame/tibble you will pass for analysis.
-#' @param .value_col The column that holds the data to be analyzed.
 #' @param .date_col The column that holds the date.
+#' @param .value_col The column that holds the data to be analyzed.
 #' @param .frequency The frequency of the data, 12 = monthly for example.
 #' @param .harmonics How many harmonic waves do you want to produce.
 #' @param .upsampling The upsampling of the time series.
