@@ -24,6 +24,7 @@ reference:
      desc: healthyR.ts functions that generate data
      contents:
      -  "ts_random_walk"
+     -  "tidy_fft"
   -  title: Plotting Functions
      desc: healthyR.ts plotting functions
   -  contents:
