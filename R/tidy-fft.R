@@ -37,6 +37,15 @@
 #'   \item max_har_plotly
 #' }
 #'
+#' __parameters:__
+#' \enumerate{
+#'   \item harmonics
+#'   \item upsampling
+#'   \item start_date
+#'   \item end_date
+#'   \item freq
+#' }
+#'
 #'
 #' @param .data The data.frame/tibble you will pass for analysis.
 #' @param .date_col The column that holds the date.
