@@ -50,8 +50,8 @@
 #' @export
 #'
 
-tidy_fft <- function(.data, .value_col, .date_col, .frequency = 12L,
-                         .harmonics = 1L, .upsampling = 10L){
+tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
+                     .harmonics = 1L, .upsampling = 10L){
 
     # * Checks ----
     if(!is.data.frame(.data)){
