@@ -92,7 +92,7 @@
 #' a$plots$harmonic_plt
 #'
 #' @return
-#' A list object.
+#' A list object returned invisibly.
 #'
 #' @export
 #'
@@ -141,9 +141,10 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
         , frequency = freq_var
     )
 
+    # * Harmonic Model ----
     m   <- as.integer(round(freq_var/2L, 0))
-    har <- TSA::harmonic(ts_obj, m = m)
-    harmonic_model    <- stats::lm(ts_obj ~ har)
+    har_ <- TSA::harmonic(ts_obj, m = m)
+    harmonic_model    <- stats::lm(ts_obj ~ har_)
     har_model_summary <- summary(harmonic_model)
 
     # * Variables ----
@@ -283,7 +284,7 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
         ),
         model = list(
             m              = m,
-            harmonic_obj   = har,
+            harmonic_obj   = har_,
             harmonic_model = harmonic_model,
             model_summary  = har_model_summary
         )
