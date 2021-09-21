@@ -13,9 +13,7 @@
 #'
 #' There are many items returned inside of a list invisibly. There are four primary
 #' categories of data returned in the list. Below are the primary categories and
-#' the items inside of them, we also list how to call them individually.
-#'
-#' First we will go over the data elements.
+#' the items inside of them.
 #'
 #' __data:__
 #' \enumerate{
@@ -64,7 +62,8 @@
 #'
 #' @examples
 #' library(healthyR.data)
-#' library(tidyverse)
+#' library(dplyr)
+#' library(ggplot2)
 #' library(timetk)
 #'
 #' dat <- healthyR_data%>%
@@ -72,7 +71,7 @@
 #'     summarise_by_time(
 #'         .date_var = visit_end_date_time,
 #'         .by = "month",
-#'         V1 = n()
+#'         value = n()
 #'     ) %>%
 #'     filter_by_time(
 #'         .date_var = visit_end_date_time,
@@ -82,7 +81,7 @@
 #'
 #' a <- tidy_fft(
 #'   .data = dat,
-#'   .value_col = V1,
+#'   .value_col = value,
 #'   .date_col = visit_end_date_time,
 #'   .harmonics = 3,
 #'   .frequency = 12
