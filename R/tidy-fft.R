@@ -46,6 +46,14 @@
 #'   \item freq
 #' }
 #'
+#' __model:__
+#' \enumerate{
+#'   \item m
+#'   \item harmonic_obj
+#'   \item harmonic_model
+#'   \item model_summary
+#' }
+#'
 #'
 #' @param .data The data.frame/tibble you will pass for analysis.
 #' @param .date_col The column that holds the date.
