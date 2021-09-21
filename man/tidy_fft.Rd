@@ -24,7 +24,7 @@ tidy_fft(
 
 \item{.harmonics}{How many harmonic waves do you want to produce.}
 
-\item{.upsampling}{The upsampling of the time series.}
+\item{.upsampling}{The up sampling of the time series.}
 }
 \value{
 A list object.
@@ -36,7 +36,50 @@ Perform an fft using \code{\link[stats:fft]{stats::fft()}} and return a tidier s
 This function will perform a few different things, but primarily it will
 compute the Fast Discrete Fourier Transform (FFT) using \code{\link[stats:fft]{stats::fft()}}. The
 formula is given as:
-\deqn{y(h) = sum_{k=1}^n z(k)*exp(-2*pi*1i*(k-1)*h-1)/n}
+\deqn{y[h] = sum_{k=1}^n z[k]*exp(-2*pi*1i*(k-1)*(h-1)/n)}
+
+There are many items returned inside of a list invisibly. There are four primary
+categories of data returned in the list. Below are the primary categories and
+the items inside of them, we also list how to call them individually.
+
+First we will go over the data elements.
+
+\strong{data:}
+\enumerate{
+\item data
+\item error_data
+\item input_vector
+\item maximum_harmonic_tbl
+\item differenced_value_tbl
+\item dff_tbl
+\item ts_obj
+}
+
+\strong{plots:}
+\enumerate{
+\item harmonic_plot
+\item diff_plot
+\item max_har_plot
+\item harmoniic_plotly
+\item max_har_plotly
+}
+
+\strong{parameters:}
+\enumerate{
+\item harmonics
+\item upsampling
+\item start_date
+\item end_date
+\item freq
+}
+
+\strong{model:}
+\enumerate{
+\item m
+\item harmonic_obj
+\item harmonic_model
+\item model_summary
+}
 }
 \examples{
 library(healthyR.data)
