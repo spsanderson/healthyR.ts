@@ -11,13 +11,39 @@
 #' formula is given as:
 #' \deqn{y[h] = sum_{k=1}^n z[k]*exp(-2*pi*1i*(k-1)*(h-1)/n)}
 #'
+#' There are many items returned inside of a list invisibly. There are four primary
+#' categories of data returned in the list. Below are the primary categories and
+#' the items inside of them, we also list how to call them individually.
+#'
+#' First we will go over the data elements.
+#'
+#' __data:__
+#' \enumerate{
+#'   \item data
+#'   \item error_data
+#'   \item input_vector
+#'   \item maximum_harmonic_tbl
+#'   \item differenced_value_tbl
+#'   \item dff_tbl
+#'   \item ts_obj
+#' }
+#'
+#' __plots:__
+#' \enumerate{
+#'   \item harmonic_plot
+#'   \item diff_plot
+#'   \item max_har_plot
+#'   \item harmoniic_plotly
+#'   \item max_har_plotly
+#' }
+#'
 #'
 #' @param .data The data.frame/tibble you will pass for analysis.
 #' @param .date_col The column that holds the date.
 #' @param .value_col The column that holds the data to be analyzed.
 #' @param .frequency The frequency of the data, 12 = monthly for example.
 #' @param .harmonics How many harmonic waves do you want to produce.
-#' @param .upsampling The upsampling of the time series.
+#' @param .upsampling The up sampling of the time series.
 #'
 #' @examples
 #' library(healthyR.data)
