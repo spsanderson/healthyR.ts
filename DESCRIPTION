@@ -58,5 +58,4 @@ Suggests:
     TSA
 VignetteBuilder: knitr
 Depends: 
-    R (>= 2.10),
-    TSA
+    R (>= 2.10)
