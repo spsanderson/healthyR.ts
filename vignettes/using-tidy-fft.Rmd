@@ -64,6 +64,8 @@ Let us now work through a simple example.
 
 # Example
 
+## Data
+
 Lets get started with some data.
 
 ```{r example_data}
@@ -91,4 +93,18 @@ Now that we have our sample data, let's check it out.
 
 ```{r data_glimpse}
 glimpse(data_tbl)
+```
+
+## Plot Data
+
+Lets take a look at a time series plot of the data.
+
+```{r ts_plt}
+suppressPackageStartupMessages(library(timetk))
+
+data_tbl %>%
+  plot_time_series(
+    .date_var = date_col,
+    .value    = value
+  )
 ```
