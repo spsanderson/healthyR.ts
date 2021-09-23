@@ -54,4 +54,41 @@ The `.data` argument is the actual formatted data that will get passed to the fu
 the time series data. The `.date_col` argument is the column that holds the datetime
 of interest. The `.value` column is the column that holds the value that is being
 analyzed by the function, this can be counts, averages, any type of value that is
-in the time series.
+in the time series. The `.frequency` argument details the cyclical nature of the data, 
+is it 12 for monthly, 7 for weekly, etc. The `.harmonics` argument will tell the 
+function how many times the `fft` should be run internally and how many filters should
+be made. Finally the `.upsampling` argument will tell the function how much the
+function should up sample the time parameter.
+
+Let us now work through a simple example.
+
+# Example
+
+Lets get started with some data.
+
+```{r example_data}
+suppressPackageStartupMessages(library(healthyR.data))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(timetk))
+
+data_tbl <- healthyR_data%>%
+    filter(ip_op_flag == 'I') %>%
+    summarise_by_time(
+        .date_var = visit_end_date_time,
+        .by = "month",
+        value = n()
+    ) %>%
+    filter_by_time(
+        .date_var = visit_end_date_time,
+        .start_date = "2015",
+        .end_date = "2019"
+   ) %>%
+  rename(date_col = visit_end_date_time)
+```
+
+Now that we have our sample data, let's check it out.
+
+```{r data_glimpse}
+glimpse(data_tbl)
+```
