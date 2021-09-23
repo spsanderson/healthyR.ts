@@ -99,7 +99,7 @@ glimpse(data_tbl)
 
 Lets take a look at a time series plot of the data.
 
-```{r ts_plt}
+```{r ts_plt, fig.align='center', fig.width=.8, fig.height=.8}
 suppressPackageStartupMessages(library(timetk))
 
 data_tbl %>%
