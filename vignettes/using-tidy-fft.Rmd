@@ -110,3 +110,27 @@ data_tbl %>%
     .value    = value
   )
 ```
+
+Now that we know what our data looks like, lets go ahead and run it through the function
+and assign it to a variable called `output`
+
+## Run Function
+
+```{r run_func}
+suppressPackageStartupMessages(library(healthyR.ts))
+
+output <- tidy_fft(
+  .data = data_tbl,
+  .date_col = date_col,
+  .value_col = value,
+  .harmonics = 8,
+  .frequency = 12,
+  .upsampling = 5
+)
+```
+
+Now that the function has been run against the data, lets explore what we now have.
+
+# Output
+
+The function invisibly returns a list object, hence the need to assign it to a variable.
