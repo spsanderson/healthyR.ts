@@ -17,8 +17,8 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.width = 12,
-  fig.height = 10
+  fig.width = 8,
+  fig.height = 5
 )
 ```
 
@@ -101,7 +101,7 @@ glimpse(data_tbl)
 
 Lets take a look at a time series plot of the data.
 
-```{r ts_plt, fig.align='center'}
+```{r ts_plt}
 suppressPackageStartupMessages(library(timetk))
 
 data_tbl %>%
