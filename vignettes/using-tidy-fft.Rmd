@@ -51,7 +51,7 @@ tidy_fft(
 )
 ```
 The `.data` argument is the actual formatted data that will get passed to the function,
-the timeseries data. The `.date_col` argument is the column that holds the datetime
-of interest. The `.value` column is the colmn that holds the value that is being
+the time series data. The `.date_col` argument is the column that holds the datetime
+of interest. The `.value` column is the column that holds the value that is being
 analyzed by the function, this can be counts, averages, any type of value that is
-in the timeseries.
+in the time series.
