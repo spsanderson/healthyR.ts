@@ -23,3 +23,31 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(healthyR.ts)
 ```
+
+# Introduction
+
+In this vignette we will discuss how to use the `tidy_fft` function, what it does,
+and what it produces.
+
+# The Function
+
+The `tidy_fft` function has only a few parameters, six to be exact. There are some
+sensible defaults made. It is important that when you use this function, that you
+supply it with a full time-series data set, one that has no missing data in it as
+this will affect your results.
+
+## Funcation and Parameters
+
+The function and its full parameters are as follows:
+
+```r
+tidy_fft(
+  .data,
+  .date_col,
+  .value_col,
+  .frequency = 12L,
+  .harmonics = 1L,
+  .upsampling = 10L
+)
+```
+
