@@ -129,7 +129,7 @@ output <- tidy_fft(
 )
 ```
 
-Now that the function has been run against the data, lets explore what we now have.
+Now that we have run the function, let's take a look at the output.
 
 # Output
 
@@ -141,18 +141,16 @@ are:
   * plots
   * parameters
   * model
-  
-
 
 ## Output Data
 
 In this section we will go over all of the data components that are returned. We
-can access all of the data in the usual format `r output$data`, which in of itself 
+can access all of the data in the usual format `output$data`, which in of itself 
 will return another list of objects, 7 to be specific. Lets go through them all.
 
 ### data
 
-The data element accessed by `r output$data$data` is the original data with a few
+The data element accessed by `output$data$data` is the original data with a few
 elements added to it. Let's take a look:
 
 ```{r data_data}
