@@ -134,3 +134,12 @@ Now that the function has been run against the data, lets explore what we now ha
 # Output
 
 The function invisibly returns a list object, hence the need to assign it to a variable.
+There are a total of 4 different sections of data in the list that are returned. These 
+are:
+
+  * data
+  * plots
+  * parameters
+  * model
+
+## Output Data
