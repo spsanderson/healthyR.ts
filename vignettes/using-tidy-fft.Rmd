@@ -116,9 +116,7 @@ and assign it to a variable called `output`
 
 ## Run Function
 
-```{r run_func}
-suppressPackageStartupMessages(library(healthyR.ts))
-
+```{r run_func, message=FALSE, warning=FALSE}
 output <- tidy_fft(
   .data = data_tbl,
   .date_col = date_col,
@@ -156,4 +154,22 @@ elements added to it. Let's take a look:
 ```{r data_data}
 output$data$data %>%
   glimpse()
+```
+
+### error_data
+
+The error_data element accessed by `output$data$error_data` is a `tibble` that
+has the original data, plus a few other elements and an error term that is the
+actual value minus the harmonic output. This is done for each harmonic level.
+
+```{r error_data}
+output$data$error_data %>%
+  glimpse()
+```
+
+### input_vector
+
+The input_vector is just the value column that was passed to the function.
+```{r input_vector}
+output$data$input_vector
 ```
