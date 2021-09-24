@@ -243,4 +243,8 @@ output$plots$max_har_plot
 
 ### harmonic_plotly
 
-The `harmonic_plotly` is a `plotly::ggplotly` plot of the 
+The `harmonic_plotly` is a `plotly::ggplotly` plot of the `harmonic_plot`
+
+```{r har_pltly, message=FALSE, warning=FALSE}
+output$plots$harmonic_plotly
+```
