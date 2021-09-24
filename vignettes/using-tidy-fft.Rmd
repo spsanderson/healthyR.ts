@@ -173,3 +173,42 @@ The input_vector is just the value column that was passed to the function.
 ```{r input_vector}
 output$data$input_vector
 ```
+
+### maximum_harmonic_tbl
+
+The maximum_harmonic_tbl is a `tibble` that has data regarding the maximum harmonic
+entered into the function, this will be the most flexible data returned.
+
+```{r max_har_tbl}
+output$data$maximum_harmonic_tbl %>%
+  glimpse()
+```
+
+### differenced_value_tbl
+
+The `differenced_value_tbl` is a `tibble` that has a lag 1 difference of the value
+column supplied.
+
+```{r diff_val_tbl}
+output$data$differenced_value_tbl %>%
+  glimpse()
+```
+
+### dff_tbl
+
+The `dff_tbl` is a `tibble` that is returned that has the fft values, the complex,
+real and imaginary parts.
+
+```{r dff_tbl}
+output$data$dff_tbl %>%
+  glimpse()
+```
+
+### ts_obj
+
+The last data piece of the data section is the `ts_obj`. This is a `ts` version of
+the `input_vector`
+
+```{r ts_obj}
+output$data$ts_obj
+```
