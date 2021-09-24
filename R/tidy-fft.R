@@ -31,7 +31,7 @@
 #'   \item harmonic_plot
 #'   \item diff_plot
 #'   \item max_har_plot
-#'   \item harmoniic_plotly
+#'   \item harmonic_plotly
 #'   \item max_har_plotly
 #' }
 #'
