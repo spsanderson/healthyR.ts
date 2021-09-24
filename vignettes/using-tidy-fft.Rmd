@@ -213,7 +213,7 @@ the `input_vector`
 output$data$ts_obj
 ```
 
-## plots
+## Output Plots
 
 There are a total of five plots that are returned in the list. Three of them are `ggplot` plots and two of them are `plotly::ggplotly` plots.
 
@@ -247,4 +247,52 @@ The `harmonic_plotly` is a `plotly::ggplotly` plot of the `harmonic_plot`
 
 ```{r har_pltly, message=FALSE, warning=FALSE}
 output$plots$harmonic_plotly
+```
+
+### max_har_plotly
+
+The `max_har_plotly` is a `plotly::ggplotly` plot of the `max_har_plot`
+
+```{r max_har_pltly, message=FALSE, warning=FALSE}
+output$plots$max_har_plotly
+```
+
+## Output Parameters
+
+### parameters
+
+The `parameters` element is a list of input parameters and internal parameters.
+
+```{r parameters}
+output$parameters
+```
+
+## Output Model
+
+The `model` portion has four pieces to it which we will look at below.
+
+### m
+
+The parameter `m` is an internal parameter that is equal to `.harmonics` / 2. This is fed into `TSA::harmonic` along with the `ts_obj`
+
+The parameter `harmonic_obj` is the object returned from `TSA::harmonic`
+
+The parameter `harmonic_model` is the harmonic model from the `TSA::harmonic`
+
+The parameter `model_summary` is a summary of the harmonic model.
+
+```{r m}
+output$model$m
+```
+
+```{r harmonic_obj}
+output$model$harmonic_obj %>% head()
+```
+
+```{r har_model}
+output$model$harmonic_model
+```
+
+```{r har_summary}
+output$model$model_summary
 ```
