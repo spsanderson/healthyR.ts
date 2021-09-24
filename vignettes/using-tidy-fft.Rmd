@@ -212,3 +212,15 @@ the `input_vector`
 ```{r ts_obj}
 output$data$ts_obj
 ```
+
+## plots
+
+There are a total of five plots that are returned in the list. Three of them are `ggplot` plots and two of them are `plotly::ggplotly` plots.
+
+### harmonic_plt
+
+The `harmonic_plt` plot shows all of the harmonic waves on the same graph if you set `.harmonics` greater than 1.
+
+```{r har_plt}
+output$plots$harmonic_plot
+```
