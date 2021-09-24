@@ -219,8 +219,28 @@ There are a total of five plots that are returned in the list. Three of them are
 
 ### harmonic_plt
 
-The `harmonic_plt` plot shows all of the harmonic waves on the same graph if you set `.harmonics` greater than 1.
+The `harmonic_plot` is a `ggplot` plot that shows all of the harmonic waves on the same graph if you set `.harmonics` greater than 1.
 
-```{r har_plt}
+```{r har_plt, message=FALSE, warning=FALSE}
 output$plots$harmonic_plot
 ```
+
+### diff_plot
+
+The `diff_plot` is a `ggplot` plot of the lag 1 `differenced_value_tbl`
+
+```{r diff_val_plt, message=FALSE, warning=FALSE}
+output$plots$diff_plot
+```
+
+### max_har_plot
+
+The `max_har_plot` is a `ggplot` plot of the maximum harmonic wave entered into `.harmonics`
+
+```{r max_har_plt, message=FALSE, warning=FALSE}
+output$plots$max_har_plot
+```
+
+### harmonic_plotly
+
+The `harmonic_plotly` is a `plotly::ggplotly` plot of the 
