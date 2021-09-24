@@ -3,5 +3,6 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
-last_built: 2021-09-21T03:01Z
+  using-tidy-fft: using-tidy-fft.html
+last_built: 2021-09-24T19:47Z
 

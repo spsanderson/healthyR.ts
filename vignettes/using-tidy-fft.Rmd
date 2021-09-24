@@ -1,0 +1,298 @@
+---
+title: "Using Tidy FFT"
+subtitle: "Analyze Time Series data with tidy_fft"
+author: "Steven P. Sanderson II, MPH"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Using Tidy FFT}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 5
+)
+```
+
+```{r setup}
+library(healthyR.ts)
+```
+
+# Introduction
+
+In this vignette we will discuss how to use the `tidy_fft` function, what it does,
+and what it produces.
+
+# The Function
+
+The `tidy_fft` function has only a few parameters, six to be exact. There are some
+sensible defaults made. It is important that when you use this function, that you
+supply it with a full time-series data set, one that has no missing data in it as
+this will affect your results.
+
+## Funcation and Parameters
+
+The function and its full parameters are as follows:
+
+```r
+tidy_fft(
+  .data,
+  .date_col,
+  .value_col,
+  .frequency = 12L,
+  .harmonics = 1L,
+  .upsampling = 10L
+)
+```
+The `.data` argument is the actual formatted data that will get passed to the function,
+the time series data. The `.date_col` argument is the column that holds the datetime
+of interest. The `.value` column is the column that holds the value that is being
+analyzed by the function, this can be counts, averages, any type of value that is
+in the time series. The `.frequency` argument details the cyclical nature of the data, 
+is it 12 for monthly, 7 for weekly, etc. The `.harmonics` argument will tell the 
+function how many times the `fft` should be run internally and how many filters should
+be made. Finally the `.upsampling` argument will tell the function how much the
+function should up sample the time parameter.
+
+Let us now work through a simple example.
+
+# Example
+
+## Data
+
+Lets get started with some data.
+
+```{r example_data}
+suppressPackageStartupMessages(library(healthyR.data))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(timetk))
+
+data_tbl <- healthyR_data%>%
+    filter(ip_op_flag == 'I') %>%
+    summarise_by_time(
+        .date_var = visit_end_date_time,
+        .by = "month",
+        value = n()
+    ) %>%
+    filter_by_time(
+        .date_var = visit_end_date_time,
+        .start_date = "2015",
+        .end_date = "2019"
+   ) %>%
+  rename(date_col = visit_end_date_time)
+```
+
+Now that we have our sample data, let's check it out.
+
+```{r data_glimpse}
+glimpse(data_tbl)
+```
+
+## Plot Data
+
+Lets take a look at a time series plot of the data.
+
+```{r ts_plt}
+suppressPackageStartupMessages(library(timetk))
+
+data_tbl %>%
+  plot_time_series(
+    .date_var = date_col,
+    .value    = value
+  )
+```
+
+Now that we know what our data looks like, lets go ahead and run it through the function
+and assign it to a variable called `output`
+
+## Run Function
+
+```{r run_func, message=FALSE, warning=FALSE}
+output <- tidy_fft(
+  .data = data_tbl,
+  .date_col = date_col,
+  .value_col = value,
+  .harmonics = 8,
+  .frequency = 12,
+  .upsampling = 5
+)
+```
+
+Now that we have run the function, let's take a look at the output.
+
+# Output
+
+The function invisibly returns a list object, hence the need to assign it to a variable.
+There are a total of 4 different sections of data in the list that are returned. These 
+are:
+
+  * data
+  * plots
+  * parameters
+  * model
+
+## Output Data
+
+In this section we will go over all of the data components that are returned. We
+can access all of the data in the usual format `output$data`, which in of itself 
+will return another list of objects, 7 to be specific. Lets go through them all.
+
+### data
+
+The data element accessed by `output$data$data` is the original data with a few
+elements added to it. Let's take a look:
+
+```{r data_data}
+output$data$data %>%
+  glimpse()
+```
+
+### error_data
+
+The error_data element accessed by `output$data$error_data` is a `tibble` that
+has the original data, plus a few other elements and an error term that is the
+actual value minus the harmonic output. This is done for each harmonic level.
+
+```{r error_data}
+output$data$error_data %>%
+  glimpse()
+```
+
+### input_vector
+
+The input_vector is just the value column that was passed to the function.
+```{r input_vector}
+output$data$input_vector
+```
+
+### maximum_harmonic_tbl
+
+The maximum_harmonic_tbl is a `tibble` that has data regarding the maximum harmonic
+entered into the function, this will be the most flexible data returned.
+
+```{r max_har_tbl}
+output$data$maximum_harmonic_tbl %>%
+  glimpse()
+```
+
+### differenced_value_tbl
+
+The `differenced_value_tbl` is a `tibble` that has a lag 1 difference of the value
+column supplied.
+
+```{r diff_val_tbl}
+output$data$differenced_value_tbl %>%
+  glimpse()
+```
+
+### dff_tbl
+
+The `dff_tbl` is a `tibble` that is returned that has the fft values, the complex,
+real and imaginary parts.
+
+```{r dff_tbl}
+output$data$dff_tbl %>%
+  glimpse()
+```
+
+### ts_obj
+
+The last data piece of the data section is the `ts_obj`. This is a `ts` version of
+the `input_vector`
+
+```{r ts_obj}
+output$data$ts_obj
+```
+
+## Output Plots
+
+There are a total of five plots that are returned in the list. Three of them are `ggplot` plots and two of them are `plotly::ggplotly` plots.
+
+### harmonic_plt
+
+The `harmonic_plot` is a `ggplot` plot that shows all of the harmonic waves on the same graph if you set `.harmonics` greater than 1.
+
+```{r har_plt, message=FALSE, warning=FALSE}
+output$plots$harmonic_plot
+```
+
+### diff_plot
+
+The `diff_plot` is a `ggplot` plot of the lag 1 `differenced_value_tbl`
+
+```{r diff_val_plt, message=FALSE, warning=FALSE}
+output$plots$diff_plot
+```
+
+### max_har_plot
+
+The `max_har_plot` is a `ggplot` plot of the maximum harmonic wave entered into `.harmonics`
+
+```{r max_har_plt, message=FALSE, warning=FALSE}
+output$plots$max_har_plot
+```
+
+### harmonic_plotly
+
+The `harmonic_plotly` is a `plotly::ggplotly` plot of the `harmonic_plot`
+
+```{r har_pltly, message=FALSE, warning=FALSE}
+output$plots$harmonic_plotly
+```
+
+### max_har_plotly
+
+The `max_har_plotly` is a `plotly::ggplotly` plot of the `max_har_plot`
+
+```{r max_har_pltly, message=FALSE, warning=FALSE}
+output$plots$max_har_plotly
+```
+
+## Output Parameters
+
+### parameters
+
+The `parameters` element is a list of input parameters and internal parameters.
+
+```{r parameters}
+output$parameters
+```
+
+## Output Model
+
+The `model` portion has four pieces to it which we will look at below.
+
+### m
+
+The parameter `m` is an internal parameter that is equal to `.harmonics` / 2. This is fed into `TSA::harmonic` along with the `ts_obj`
+
+The parameter `harmonic_obj` is the object returned from `TSA::harmonic`
+
+The parameter `harmonic_model` is the harmonic model from the `TSA::harmonic`
+
+The parameter `model_summary` is a summary of the harmonic model.
+
+```{r m}
+output$model$m
+```
+
+```{r harmonic_obj}
+output$model$harmonic_obj %>% head()
+```
+
+```{r har_model}
+output$model$harmonic_model
+```
+
+```{r har_summary}
+output$model$model_summary
+```
