@@ -75,7 +75,7 @@ ts_info_tbl <- function(.data, .date_col){
 
     # * TS Object Tyep ----
     # ** Stats TS Object ----
-    if(stats::is.ts(ts_obj) & !is.mts(ts_obj)){
+    if(stats::is.ts(ts_obj) & !stats::is.mts(ts_obj)){
         ts_info  <- tibble::tibble(
             name = ts_name,
             class = "ts",
@@ -145,7 +145,7 @@ ts_info_tbl <- function(.data, .date_col){
         if(rlang::quo_is_missing(date_var)){
             stop(call. = FALSE, "(.date_col) must be supplied when passing a tibble.")
         }
-        date_val <- ts_obj %>% pull( {{ date_var }} )
+        date_val <- ts_obj %>% dplyr::pull( {{ date_var }} )
         tk_ts_sum <- timetk::tk_get_timeseries_summary(date_val)
 
         ts_info <- tibble::tibble(
