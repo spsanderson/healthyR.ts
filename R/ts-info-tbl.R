@@ -49,7 +49,7 @@
 #'
 #' ts_info_tbl(AirPassengers)
 #' ts_info_tbl(BJsales)
-#' ts_infro_tbl(data_tbl, date_col)
+#' ts_info_tbl(data_tbl, date_col)
 #'
 #' @return
 #' A tibble
