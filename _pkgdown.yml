@@ -60,3 +60,4 @@ reference:
   -  contents:
      -  "calibrate_and_plot"
      -  "model_extraction_helper"
+     -  "ts_info_tbl"
