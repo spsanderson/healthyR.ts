@@ -1,11 +1,11 @@
-ts_info_tbl <- function(.data){
+ts_info_tbl <- function(.data, .date_col){
 
     # Internal Data Var ----
     ts_obj <- .data
 
     # * Checks ----
-    if(!stats::is.ts(ts_obj) & !xts::is.xts(ts_obj) & !zoo::is.zoo(ts_obj)){
-        stop(call. = FALSE, "(.data) must be a valid time series object, ts, xts, mts, or zoo.")
+    if(!stats::is.ts(ts_obj) & !xts::is.xts(ts_obj) & !zoo::is.zoo(ts_obj) & !is.data.frame(ts_obj)){
+        stop(call. = FALSE, "(.data) must be a valid time series object, ts, xts, mts, zoo, or tibble/data.frame.")
     }
 
     ts_name <- NULL
@@ -80,6 +80,20 @@ ts_info_tbl <- function(.data){
             } else {
                 base::length(ts_obj)
             }
+        )
+    } else if(is.data.frame(ts_obj)){
+        date_var <- rlang::enquo(.date_col)
+        date_val <- ts_obj %>% pull( {{ date_var }} )
+        tk_ts_sum <- timetk::tk_get_timeseries_summary(date_val)
+
+        ts_info <- tibble::tibble(
+            name = ts_name,
+            class = "data.frame",
+            frequency = tk_ts_sum$scale,
+            start = tk_ts_sum$start,
+            end = tk_ts_sum$end,
+            var = base::ncol(ts_obj) - 1,
+            length = tk_ts_sum$n.obs
         )
     }
 
