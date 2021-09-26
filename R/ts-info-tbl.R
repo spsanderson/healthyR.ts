@@ -2,6 +2,8 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
+#' @family Utility
+#'
 #' @description
 #' This function will take in a data set and return to you a tibble of useful
 #' information.
