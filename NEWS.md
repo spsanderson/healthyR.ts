@@ -1,5 +1,16 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+1. Fix #90 - Add `tidy_fft()` function
+2. Fix #92 - Add `ts_info_tbl()` function
+3. Fix #98 - Add `ts_to_tbl()` function
+
+## Minor Fixes and Improvements
+None
+
 # healthyR.ts 0.1.3
 
 ## Breaking Changes
