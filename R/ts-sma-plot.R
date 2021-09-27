@@ -50,7 +50,7 @@ ts_sma_plot <- function(.data, .sma_order = 1, .func = mean, .align = "center",
     }
 
     if(!is.logical(sma_partial)){
-        stop(call. = FLASE, "(.partial) must be a logical value.")
+        stop(call. = FALSE, "(.partial) must be a logical value.")
     }
 
     # Get data object
