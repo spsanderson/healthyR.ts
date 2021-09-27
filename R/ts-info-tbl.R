@@ -1,4 +1,4 @@
-#' Get Time Series information
+#' Get Time Series Information
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
