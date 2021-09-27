@@ -10,7 +10,7 @@ ts_to_tbl(.data)
 \item{.data}{The time-series object you want transformed into a \code{tibble}}
 }
 \value{
-
+A tibble
 }
 \description{
 This function takes in a time-series object and returns it in a
