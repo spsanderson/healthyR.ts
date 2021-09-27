@@ -64,7 +64,7 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
     # We do this because we use timetk::slidify_vec
     if(stats::is.ts(ts_obj) | stats::is.mts(ts_obj) | xts::is.xts(ts_obj) | zoo::is.zoo(ts_obj)){
         message("Attempting to coerce to a tibble.")
-        ts_tbl <- timetk::tk_tbl(ts_obj) # change to internal ts_to_tbl() func
+        ts_tbl <- ts_to_tbl(ts_obj)
     } else {
         ts_tbl <- ts_obj
     }
