@@ -2,7 +2,7 @@
 % Please edit documentation in R/ts-info-tbl.R
 \name{ts_info_tbl}
 \alias{ts_info_tbl}
-\title{Get Time Series information}
+\title{Get Time Series Information}
 \usage{
 ts_info_tbl(.data, .date_col)
 }
@@ -62,6 +62,10 @@ ts_info_tbl(AirPassengers)
 ts_info_tbl(BJsales)
 ts_info_tbl(data_tbl, date_col)
 
+}
+\seealso{
+Other Utility: 
+\code{\link{ts_to_tbl}()}
 }
 \author{
 Steven P. Sanderson II, MPH
