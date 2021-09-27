@@ -30,6 +30,8 @@ ts_to_tbl(AirPassengers)
 }
 \seealso{
 Other Utility: 
+\code{\link{calibrate_and_plot}()},
+\code{\link{model_extraction_helper}()},
 \code{\link{ts_info_tbl}()}
 }
 \author{

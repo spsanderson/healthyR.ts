@@ -2,6 +2,8 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
+#' @family Utility
+#'
 #' @description
 #' This function is a helper function. It will take in a set of workflows and then
 #' perform the [modeltime::modeltime_calibrate()] and [modeltime::plot_modeltime_forecast()].
