@@ -14,6 +14,7 @@
 #' are called for, it will loop through and append data to a tibble and `ts` object.
 #'
 #' @param .data The data that you are passing, this can be either a `ts` object or a `tibble`
+#' @param .date_col This only needs to be used if you are passing a `tibble` object.
 #' @param .value_col This only needs to be used if you are passing a `tibble` object.
 #' @param .sma_order This will default to 1
 #' @param .centered This is a bool value of TRUE/FALSE, the default is TRUE
@@ -31,4 +32,10 @@
 #' @export ts_sma_plot
 #'
 
-ts_sma_plot <- function(.data, )
+ts_sma_plot <- function(.data, .value_col, .sma_order, .centered = TRUE,
+                        .multi_plot = FALSE, .ionteractive = FALSE){
+
+    # * Tidyeval ----
+    value_var <- rlang::enquo(.value_col)
+
+}
