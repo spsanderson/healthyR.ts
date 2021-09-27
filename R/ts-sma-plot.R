@@ -73,7 +73,7 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
     df <- data.frame(matrix(ncol = 0, nrow = 0))
     for(i in sma_vec){
         ret_tmp <- ts_tbl %>%
-            dplyr::mutate(sma_order = i) %>%
+            dplyr::mutate(sma_order = as.factor(i)) %>%
             dplyr::mutate(sma_value = timetk::slidify_vec(
                 .x       = value,
                 .f       = sma_fun,
@@ -85,9 +85,35 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
         df <- base::rbind(df, ret_tmp)
     }
 
+    date_col_exists <- "date_col" %in% base::names(df)
+
     # * Plots ----
+    g <- df %>%
+        ggplot2::ggplot(
+            ggplot2::aes(
+                x = if(date_col_exists){date_col} else {1:nrow(df)},
+                y = value,
+                group = sma_order,
+                color = sma_order
+            )
+        ) +
+        ggplot2::geom_line(color = "black") +
+        ggplot2::geom_line(
+            data = df,
+            ggplot2::aes(y = sma_value)
+        ) +
+        ggplot2::labs(
+            x = "Time",
+            y = "Value",
+            title = "SMA Plot",
+            subtitle = "Black line is original values.",
+            color = "SMA Order"
+        ) +
+        tidyquant::theme_tq()
 
     # * Return ----
+    print(g)
     return(df)
 
 }
+
