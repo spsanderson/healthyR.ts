@@ -17,8 +17,6 @@
 #' @param .sma_order This will default to 1. This can be a vector like c(2,4,6,12)
 #' @param .align This can be either "left", "center", "right"
 #' @param .partial This is a bool value of TRUE/FALSE, the default is TRUE
-#' @param .multi_plot This is a bool value of TRUE/FALSE, the default is FALSE.
-#' If this is set to TRUE, then all of the moving averages will be put on the plot.
 #' @param .interactive This is a bool value of TRUE/FALSE, the default is FALSE.
 #' If this is set to TRUE, then a `plotly::ggplotly` object will be returned.
 #'
@@ -32,8 +30,7 @@
 #'
 
 ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
-                        .partial = FALSE, .multi_plot = FALSE,
-                        .interactive = FALSE) {
+                        .partial = FALSE, .interactive = FALSE) {
 
     # * Tidyeval ----
     # slidify_vec parameters
