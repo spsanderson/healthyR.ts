@@ -100,7 +100,7 @@ ts_sma_plot <- function(.data, .sma_order = 1, .func = mean, .align = "center",
         ggplot2::labs(
             x = "Time",
             y = "Value",
-            title = "SMA Plot",
+            title = paste0("SMA Plot"),
             subtitle = "Black line is original values.",
             color = "SMA Order"
         ) +
