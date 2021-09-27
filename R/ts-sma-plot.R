@@ -22,7 +22,13 @@
 #' @param .partial This is a bool value of TRUE/FALSE, the default is TRUE
 #'
 #' @examples
-#' ts_sma_plot(AirPassengers)
+#' out <- ts_sma_plot(AirPassengers, .sma_order = c(3,6))
+#'
+#' out$data
+#'
+#' out$plots$static_plot
+#'
+#' out$plots$interactive_plot
 #'
 #' @return
 #' Will invisibly return a list object.
@@ -30,7 +36,7 @@
 #' @export ts_sma_plot
 #'
 
-ts_sma_plot <- function(.data, .sma_order = 1, .func = mean, .align = "center",
+ts_sma_plot <- function(.data, .sma_order = 2, .func = mean, .align = "center",
                         .partial = FALSE) {
 
     # * Tidyeval ----

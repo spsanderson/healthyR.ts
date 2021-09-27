@@ -6,7 +6,7 @@
 \usage{
 ts_sma_plot(
   .data,
-  .sma_order = 1,
+  .sma_order = 2,
   .func = mean,
   .align = "center",
   .partial = FALSE
@@ -40,7 +40,13 @@ It can only handle a single moving average at a time and therefore if multiple
 are called for, it will loop through and append data to a tibble or \code{ts} object.
 }
 \examples{
-ts_sma_plot(AirPassengers)
+out <- ts_sma_plot(AirPassengers, .sma_order = c(3,6))
+
+out$data
+
+out$plots$static_plot
+
+out$plots$interactive_plot
 
 }
 \author{
