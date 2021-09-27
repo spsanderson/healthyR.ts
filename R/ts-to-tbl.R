@@ -7,7 +7,9 @@
 #' @description This function takes in a time-series object and returns it in a
 #' `tibble` format.
 #'
-#' @details
+#' @details This function makes use of [timetk::tk_tbl()] under the hood to obtain
+#' the initial `tibble` object. After the inital object is obtained a new column
+#' called `date_col` is constructed from the `index` column using `lubridate`.
 #'
 #' @param
 #'
