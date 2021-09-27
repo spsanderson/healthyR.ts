@@ -8,7 +8,9 @@
 #' @details
 #' This function will accept a time series object or a tibble/data.frame. This is a
 #' simple wrapper around [timetk::slidify_vec()]. It uses that function to do the underlying
-#' moving average work.
+#' moving average work. Since the function [healthyR.ts::ts_to_tbl()] is called
+#' there is no need to supply a value column. This function will only work on a single
+#' value column
 #'
 #' It can only handle a single moving average at a time and therefore if multiple
 #' are called for, it will loop through and append data to a tibble or `ts` object.
@@ -17,8 +19,6 @@
 #' @param .sma_order This will default to 1. This can be a vector like c(2,4,6,12)
 #' @param .align This can be either "left", "center", "right"
 #' @param .partial This is a bool value of TRUE/FALSE, the default is TRUE
-#' @param .interactive This is a bool value of TRUE/FALSE, the default is FALSE.
-#' If this is set to TRUE, then a `plotly::ggplotly` object will be returned.
 #'
 #' @examples
 #' ts_sma_plot(AirPassengers)
@@ -30,7 +30,7 @@
 #'
 
 ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
-                        .partial = FALSE, .interactive = FALSE) {
+                        .partial = FALSE) {
 
     # * Tidyeval ----
     # slidify_vec parameters
@@ -38,7 +38,6 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
     sma_fun      <- .func
     sma_align    <- stringr::str_to_lower(as.character(.align))
     sma_partial  <- as.logical(.partial)
-    interactive  <- as.logical(.interactive)
 
     # * Checks ----
     if(!sma_align %in% c("center","left","right")){
@@ -49,8 +48,8 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
         stop(call. = FALSE, "(.sma_order) must be all numeric values, c(1,2,3,...)")
     }
 
-    if(!is.logical(sma_partial) & !is.logical(interactive)){
-        stop(call. = FLASE, "(.partial) (.multi_plot) and (.interactive) must all be logical values.")
+    if(!is.logical(sma_partial)){
+        stop(call. = FLASE, "(.partial) must be a logical value.")
     }
 
     # Get data object
@@ -107,9 +106,18 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
         ) +
         tidyquant::theme_tq()
 
+    i_plot <- plotly::ggplotly(g)
+
     # * Return ----
-    print(g)
-    return(df)
+    output <- list(
+        data = df,
+        plots = list(
+            static_plot      = g,
+            interactive_plot = i_plot
+        )
+    )
+
+    return(invisible(output))
 
 }
 
