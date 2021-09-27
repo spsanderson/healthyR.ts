@@ -17,6 +17,7 @@
 #'
 #' @param .data The data that you are passing, this can be either a `ts` object or a `tibble`
 #' @param .sma_order This will default to 1. This can be a vector like c(2,4,6,12)
+#' @param .func The unquoted function you want to pass, mean, median, etc
 #' @param .align This can be either "left", "center", "right"
 #' @param .partial This is a bool value of TRUE/FALSE, the default is TRUE
 #'
