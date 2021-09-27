@@ -34,6 +34,7 @@ reference:
      -  matches("_ggplot_layers")
      -  "ts_qc_run_chart"
      -  "ts_ma_plot"
+     -  "ts_sma_plot"
      -  "ts_calendar_heatmap_plot"
      -  "ts_splits_plot"
   -  title: Time Filtering Functions

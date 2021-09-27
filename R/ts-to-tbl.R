@@ -20,6 +20,7 @@
 #' ts_to_tbl(AirPassengers)
 #'
 #' @return
+#' A tibble
 #'
 #' @export ts_to_tbl
 #'
