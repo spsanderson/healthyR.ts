@@ -17,8 +17,10 @@
 #' @param .value_col This only needs to be used if you are passing a `tibble` object.
 #' @param .sma_order This will default to 1
 #' @param .centered This is a bool value of TRUE/FALSE, the default is TRUE
-#' @param .multi_plot
-#' @param .interactive
+#' @param .multi_plot This is a bool value of TRUE/FALSE, the default is FALSE.
+#' If this is set to TRUE, then all of the moving averages will be put on the plot.
+#' @param .interactive This is a bool value of TRUE/FALSE, the default is FALSE.
+#' If this is set to TRUE, then a `plotly::ggplotly` object will be returned.
 #'
 #'
 #' @examples
