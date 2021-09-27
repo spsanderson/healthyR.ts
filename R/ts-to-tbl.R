@@ -9,11 +9,13 @@
 #'
 #' @details This function makes use of [timetk::tk_tbl()] under the hood to obtain
 #' the initial `tibble` object. After the inital object is obtained a new column
-#' called `date_col` is constructed from the `index` column using `lubridate`.
+#' called `date_col` is constructed from the `index` column using `lubridate` if
+#' an index column is returned.
 #'
-#' @param
+#' @param .data The time-series object you want transformed into a `tibble`
 #'
 #' @examples
+#'
 #'
 #' @return
 #'
@@ -30,7 +32,8 @@ ts_to_tbl <- function(.data){
     }
 
     # * Manipulate ----
-    ts_tbl <- timetk::tk_tbl(ts_obj) %>%
+    ts_tbl <- timetk::tk_tbl(ts_obj, silent = TRUE, timetk_idx = TRUE)
+    %>%
         dplyr::mutate(
             date_col = base::paste0(
                 lubridate::year(index),
