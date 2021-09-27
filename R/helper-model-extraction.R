@@ -2,6 +2,8 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
+#' @family Utility
+#'
 #' @description This takes in a model fit and returns the method of the fit object.
 #'
 #' @details
