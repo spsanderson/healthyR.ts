@@ -38,7 +38,6 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
     sma_fun      <- .func
     sma_align    <- stringr::str_to_lower(as.character(.align))
     sma_partial  <- as.logical(.partial)
-    multi_plot   <- as.logical(.multi_plot)
     interactive  <- as.logical(.interactive)
 
     # * Checks ----
@@ -50,7 +49,7 @@ ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
         stop(call. = FALSE, "(.sma_order) must be all numeric values, c(1,2,3,...)")
     }
 
-    if(!is.logical(sma_partial) & !is.logical(multi_plot) & !is.logical(interactive)){
+    if(!is.logical(sma_partial) & !is.logical(interactive)){
         stop(call. = FLASE, "(.partial) (.multi_plot) and (.interactive) must all be logical values.")
     }
 
