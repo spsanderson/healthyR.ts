@@ -29,7 +29,7 @@
 #' @export ts_sma_plot
 #'
 
-ts_sma_plot <- function(.data, .sma_order, .func = mean, .align = "center",
+ts_sma_plot <- function(.data, .sma_order = 1, .func = mean, .align = "center",
                         .partial = FALSE) {
 
     # * Tidyeval ----
