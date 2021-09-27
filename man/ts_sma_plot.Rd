@@ -6,31 +6,20 @@
 \usage{
 ts_sma_plot(
   .data,
-  .value_col,
-  .sma_order,
-  .centered = TRUE,
-  .multi_plot = FALSE,
-  .ionteractive = FALSE
+  .sma_order = 1,
+  .func = mean,
+  .align = "center",
+  .partial = FALSE
 )
 }
 \arguments{
 \item{.data}{The data that you are passing, this can be either a \code{ts} object or a \code{tibble}}
 
-\item{.value_col}{This only needs to be used if you are passing a \code{tibble} object.}
-
 \item{.sma_order}{This will default to 1. This can be a vector like c(2,4,6,12)}
 
-\item{.multi_plot}{This is a bool value of TRUE/FALSE, the default is FALSE.
-If this is set to TRUE, then all of the moving averages will be put on the plot.}
-
-\item{.date_col}{This only needs to be used if you are passing a \code{tibble} object.}
-
-\item{.alignment}{This can be either "left", "center", "right"}
+\item{.align}{This can be either "left", "center", "right"}
 
 \item{.partial}{This is a bool value of TRUE/FALSE, the default is TRUE}
-
-\item{.interactive}{This is a bool value of TRUE/FALSE, the default is FALSE.
-If this is set to TRUE, then a \code{plotly::ggplotly} object will be returned.}
 }
 \value{
 Will invisibly return a list object.
@@ -41,12 +30,15 @@ This function will take in a value column and return any number \code{n} moving 
 \details{
 This function will accept a time series object or a tibble/data.frame. This is a
 simple wrapper around \code{\link[timetk:slidify_vec]{timetk::slidify_vec()}}. It uses that function to do the underlying
-moving average work.
+moving average work. Since the function \code{\link[=ts_to_tbl]{ts_to_tbl()}} is called
+there is no need to supply a value column. This function will only work on a single
+value column
 
 It can only handle a single moving average at a time and therefore if multiple
 are called for, it will loop through and append data to a tibble or \code{ts} object.
 }
 \examples{
+ts_sma_plot(AirPassengers)
 
 }
 \author{
