@@ -77,7 +77,6 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
             , tree_depth     = tune::tune()
             , learn_rate     = tune::tune()
             , loss_reduction = tune::tune()
-            , sample_size    = tune::tune()
             , stop_iter      = tune::tune()
         ) %>%
             parsnip::set_engine(pe)
@@ -155,7 +154,6 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
             , tree_depth               = tune::tune()
             , learn_rate               = tune::tune()
             , loss_reduction           = tune::tune()
-            , sample_size              = tune::tune()
             , stop_iter                = tune::tune()
         ) %>%
             parsnip::set_engine(pe)
@@ -199,7 +197,6 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
             , tree_depth     = tune::tune()
             , learn_rate     = tune::tune()
             , loss_reduction = tune::tune()
-            , sample_size    = tune::tune()
         ) %>%
             parsnip::set_engine(pe)
     }
