@@ -29,6 +29,8 @@
 #' -  "earth"
 #' -  "xgboost"
 #'
+#' This function returns a list object with several items inside of it.
+#'
 #' @param .modeltime_model_id The .model_id from a calibrated modeltime table.
 #' @param .calibration_tbl A calibrated modeltime table.
 #' @param .splits_obj The time_series_split object.
@@ -274,13 +276,13 @@ ts_model_auto_tune <- function(.modeltime_model_id, .calibration_tbl,
       tscv_obj               = tscv
     ),
     model_info = list(
-      model_spec          = model_spec,
-      model_spec_engine   = model_spec_engine,
-      model_spec_tuner    = model_spec_tuner,
-      plucked_model       = plucked_model,
-      wflw_tune_spec      = wflw_tune_spec,
-      grid_spec           = grid_spec,
-      wflw_tune_spec_tscv = wflw_tune_spec_tscv
+      model_spec           = model_spec,
+      model_spec_engine    = model_spec_engine,
+      model_spec_tuner     = model_spec_tuner,
+      plucked_model        = plucked_model,
+      wflw_tune_spec       = wflw_tune_spec,
+      grid_spec            = grid_spec,
+      tuned_tscv_wflw_spec = wflw_tune_spec_tscv
     ),
     plots = list(
       tune_results_plt = tune_results_plt,
