@@ -274,7 +274,7 @@ in a list.</p>
     , .pred_col <span class='op'>=</span> <span class='va'>value</span>
 <span class='op'>)</span>
 </div><div class='output co'>#&gt; $rec_base
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -283,7 +283,7 @@ in a list.</p>
 #&gt;  predictor          1
 #&gt; 
 #&gt; $rec_date
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -294,12 +294,12 @@ in a list.</p>
 #&gt; Operations:
 #&gt; 
 #&gt; Timeseries signature features from date_col
-#&gt; Centering and scaling for 2 items
-#&gt; Delete terms </div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; 1 items
+#&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
+#&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
 #&gt; 
 #&gt; $rec_date_fourier
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -310,14 +310,14 @@ in a list.</p>
 #&gt; Operations:
 #&gt; 
 #&gt; Timeseries signature features from date_col
-#&gt; Centering and scaling for 2 items
-#&gt; Delete terms </div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; 1 items
+#&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
+#&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
 #&gt; Fourier series features from date_col
 #&gt; Yeo-Johnson transformation on value_col
 #&gt; 
 #&gt; $rec_date_fourier_nzv
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -328,8 +328,8 @@ in a list.</p>
 #&gt; Operations:
 #&gt; 
 #&gt; Timeseries signature features from date_col
-#&gt; Centering and scaling for 2 items
-#&gt; Delete terms </div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; 1 items
+#&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
+#&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
 #&gt; Fourier series features from date_col
 #&gt; Yeo-Johnson transformation on value_col
@@ -341,7 +341,7 @@ in a list.</p>
   , .pred_col <span class='op'>=</span> <span class='va'>value</span>
 <span class='op'>)</span>
 </div><div class='output co'>#&gt; $rec_base
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -350,7 +350,7 @@ in a list.</p>
 #&gt;  predictor          1
 #&gt; 
 #&gt; $rec_date
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -361,12 +361,12 @@ in a list.</p>
 #&gt; Operations:
 #&gt; 
 #&gt; Timeseries signature features from date_col
-#&gt; Centering and scaling for 2 items
-#&gt; Delete terms </div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; 1 items
+#&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
+#&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
 #&gt; 
 #&gt; $rec_date_fourier
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -377,14 +377,14 @@ in a list.</p>
 #&gt; Operations:
 #&gt; 
 #&gt; Timeseries signature features from date_col
-#&gt; Centering and scaling for 2 items
-#&gt; Delete terms </div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; 1 items
+#&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
+#&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
 #&gt; Fourier series features from date_col
 #&gt; Yeo-Johnson transformation on value_col
 #&gt; 
 #&gt; $rec_date_fourier_nzv
-#&gt; Data Recipe
+#&gt; Recipe
 #&gt; 
 #&gt; Inputs:
 #&gt; 
@@ -395,8 +395,8 @@ in a list.</p>
 #&gt; Operations:
 #&gt; 
 #&gt; Timeseries signature features from date_col
-#&gt; Centering and scaling for 2 items
-#&gt; Delete terms </div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='output co'>#&gt; 1 items
+#&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
+#&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
 #&gt; Fourier series features from date_col
 #&gt; Yeo-Johnson transformation on value_col
