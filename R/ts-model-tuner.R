@@ -41,13 +41,13 @@
 #' @param .tscv_skip A character expression like "6 months". This gets passed to
 #' [timetk::time_series_cv()]
 #' @param .slice_limit An integer that gets passed to [timetk::time_series_cv()]
+#' @param .facet_ncol The number of faceted columns to be passed to plot_time_series_cv_plan
 #' @param .grid_size An integer that gets passed to the [dials::grid_latin_hypercube()]
 #' function.
 #' @param .num_cores The default is 1, you can set this to any integer value as long
 #' as it is equal to or less than the available cores on your machine.
 #' @param .best_metric The default is "rmse" and this can be set to any default dials
 #' metric. This must be passed as a character.
-#' @param .facet_ncol The number of faceted columns to be passed to plot_time_series_cv_plan
 #'
 #' @examples
 #' \dontrun{
@@ -141,153 +141,152 @@
 #'
 
 ts_model_auto_tune <- function(.modeltime_model_id, .calibration_tbl,
-                          .splits_obj, .drop_training_na = TRUE, .date_col,
-                          .value_col, .tscv_assess = "12 months",
-                          .tscv_skip = "6 months", .slice_limit = 6,
-                          .facet_ncol = 2, .grid_size = 30, .num_cores = 1,
-                          .best_metric = "rmse") {
+                               .splits_obj, .drop_training_na = TRUE, .date_col,
+                               .value_col, .tscv_assess = "12 months",
+                               .tscv_skip = "6 months", .slice_limit = 6,
+                               .facet_ncol = 2, .grid_size = 30, .num_cores = 1,
+                               .best_metric = "rmse") {
 
-    # * Tidyeval ----
-    model_number    <- base::as.integer(.modeltime_model_id)
-    calibration_tbl <- .calibration_tbl
-    splits_obj      <- .splits_obj
-    drop_na         <- base::as.logical(.drop_training_na)
-    date_col        <- rlang::enquo(.date_col)
-    value_col       <- rlang::enquo(.value_col)
-    assess          <- base::as.character(.tscv_assess)
-    skip            <- base::as.character(.tscv_skip)
-    slice_limit     <- .slice_limit
-    facet_ncol      <- base::as.integer(.facet_ncol)
-    grid_size       <- base::as.integer(.grid_size)
-    num_cores       <- base::as.integer(.num_cores)
-    best_metric     <- base::as.character(.best_metric)
+  # * Tidyeval ----
+  model_number <- base::as.integer(.modeltime_model_id)
+  calibration_tbl <- .calibration_tbl
+  splits_obj <- .splits_obj
+  drop_na <- base::as.logical(.drop_training_na)
+  date_col <- rlang::enquo(.date_col)
+  value_col <- rlang::enquo(.value_col)
+  assess <- base::as.character(.tscv_assess)
+  skip <- base::as.character(.tscv_skip)
+  slice_limit <- .slice_limit
+  facet_ncol <- base::as.integer(.facet_ncol)
+  grid_size <- base::as.integer(.grid_size)
+  num_cores <- base::as.integer(.num_cores)
+  best_metric <- base::as.character(.best_metric)
 
 
-    # * Checks ----
-    if(!modeltime::is_calibrated(calibration_tbl)){
-        stop(call. = FALSE, "(.calibration_tbl) must be a calibrated modeltime_table.")
-    }
+  # * Checks ----
+  if (!modeltime::is_calibrated(calibration_tbl)) {
+    stop(call. = FALSE, "(.calibration_tbl) must be a calibrated modeltime_table.")
+  }
 
-    if(!is.integer(model_number)){
-        stop(call. = FALSE, "(.modeltime_model_id) must be an integer.")
-    }
+  if (!is.integer(model_number)) {
+    stop(call. = FALSE, "(.modeltime_model_id) must be an integer.")
+  }
 
-    # * Manipulations ----
-    # Get Model
-    plucked_model <- calibration_tbl %>%
-        modeltime::pluck_modeltime_model(model_number)
+  # * Manipulations ----
+  # Get Model
+  plucked_model <- calibration_tbl %>%
+    modeltime::pluck_modeltime_model(model_number)
 
-    # Get Training Data
-    if(!drop_na){
-        training_data <- rsample::training(splits_obj)
-    } else {
-        training_data <- rsample::training(splits_obj) %>%
-            tidyr::drop_na()
-    }
+  # Get Training Data
+  if (!drop_na) {
+    training_data <- rsample::training(splits_obj)
+  } else {
+    training_data <- rsample::training(splits_obj) %>%
+      tidyr::drop_na()
+  }
 
-    # Make TSCV
-    tscv <- timetk::time_series_cv(
-        data        = training_data,
-        date_var    = {{ date_col }},
-        cumulative  = TRUE,
-        assess      = assess,
-        skip        = skip,
-        slice_limit = slice_limit
+  # Make TSCV
+  tscv <- timetk::time_series_cv(
+    data        = training_data,
+    date_var    = {{ date_col }},
+    cumulative  = TRUE,
+    assess      = assess,
+    skip        = skip,
+    slice_limit = slice_limit
+  )
+
+  # TSCV Data Plan Tibble
+  tscv_data_tbl <- tscv %>%
+    timetk::tk_time_series_cv_plan()
+
+  # TSCV Plot
+  tscv_plt <- tscv_data_tbl %>%
+    timetk::plot_time_series_cv_plan(
+      {{ date_col }}, {{ value_col }},
+      .facet_ncol = {{ facet_ncol }}
     )
 
-    # TSCV Data Plan Tibble
-    tscv_data_tbl <- tscv %>%
-        timetk::tk_time_series_cv_plan()
+  # * Tune Spec ----
+  # Model Spec
+  model_spec <- plucked_model %>% parsnip::extract_spec_parsnip()
+  model_spec_engine <- model_spec[["engine"]]
+  model_spec_tuner <- healthyR.ts::ts_model_spec_tune_template(model_spec_engine)
 
-    # TSCV Plot
-    tscv_plt <- tscv_data_tbl %>%
-        timetk::plot_time_series_cv_plan(
-            {{ date_col }}, {{ value_col }}, .facet_ncol = {{ facet_ncol }}
-        )
+  # * Grid Spec ----
+  grid_spec <- dials::grid_latin_hypercube(
+    tune::parameters(model_spec_tuner),
+    size = grid_size
+  )
 
-    # * Tune Spec ----
-    # Model Spec
-    model_spec        <- plucked_model %>% parsnip::extract_spec_parsnip()
-    model_spec_engine <- model_spec[["engine"]]
-    model_spec_tuner  <- healthyR.ts::ts_model_spec_tune_template(model_spec_engine)
+  # * Tune Model ----
+  wflw_tune_spec <- plucked_model %>%
+    workflows::update_model(model_spec_tuner)
 
-    # * Grid Spec ----
-    grid_spec <- dials::grid_latin_hypercube(
-        tune::parameters(model_spec_tuner)
-        , size = grid_size
+  # * Run Tuning Grid ----
+  modeltime::parallel_start(num_cores)
+
+  tune_results <- wflw_tune_spec %>%
+    tune::tune_grid(
+      resamples = tscv,
+      grid = grid_spec,
+      metrics = modeltime::default_forecast_accuracy_metric_set(),
+      control = tune::control_grid(
+        verbose = TRUE,
+        save_pred = TRUE
+      )
     )
 
-    # * Tune Model ----
-    wflw_tune_spec <- plucked_model %>%
-        workflows::update_model(model_spec_tuner)
+  modeltime::parallel_stop()
 
-    # * Run Tuning Grid ----
-    modeltime::parallel_start(num_cores)
+  # * Get best result
+  best_result_set <- tune_results %>%
+    tune::show_best(metric = best_metric, n = 1)
 
-    tune_results <- wflw_tune_spec %>%
-        tune::tune_grid(
-            resamples = tscv
-            , grid    = grid_spec
-            , metrics = modeltime::default_forecast_accuracy_metric_set()
-            , control = tune::control_grid(
-                verbose     = TRUE
-                , save_pred = TRUE
-            )
-        )
+  # * Viz results ----
+  tune_results_plt <- tune_results %>%
+    tune::autoplot() +
+    ggplot2::geom_smooth(se = FALSE)
 
-    modeltime::parallel_stop()
-
-    # * Get best result
-    best_result_set <- tune_results %>%
+  # * Retrain and Assess ----
+  wflw_tune_spec_tscv <- wflw_tune_spec %>%
+    workflows::update_model(model_spec_tuner) %>%
+    tune::finalize_workflow(
+      tune_results %>%
         tune::show_best(metric = best_metric, n = 1)
-
-    # * Viz results ----
-    tune_results_plt <- tune_results %>%
-        tune::autoplot() +
-        ggplot2::geom_smooth(se = FALSE)
-
-    # * Retrain and Assess ----
-    wflw_tune_spec_tscv <- wflw_tune_spec %>%
-        workflows::update_model(model_spec_tuner) %>%
-        tune::finalize_workflow(
-            tune_results %>%
-                tune::show_best(metric = best_metric, n = 1)
-        ) %>%
-        parsnip::fit(rsample::training(splits_obj))
-
-    # * Calibration Tuned tibble ----
-    calibration_tuned_tbl <- modeltime::modeltime_table(
-        wflw_tune_spec_tscv
     ) %>%
-        modeltime::modeltime_calibrate(rsample::testing(splits_obj))
+    parsnip::fit(rsample::training(splits_obj))
+
+  # * Calibration Tuned tibble ----
+  calibration_tuned_tbl <- modeltime::modeltime_table(
+    wflw_tune_spec_tscv
+  ) %>%
+    modeltime::modeltime_calibrate(rsample::testing(splits_obj))
 
 
-    # * Return ----
-    output <- list(
-        data = list(
-            calibration_tbl        = calibration_tbl,
-            calibration_tuned_tbl  = calibration_tuned_tbl,
-            tscv_data_tbl          = tscv_data_tbl,
-            tuned_results          = tune_results,
-            best_tuned_results_tbl = best_result_set,
-            tscv_obj               = tscv
-        ),
-        model_info = list(
-            model_spec          = model_spec,
-            model_spec_engine   = model_spec_engine,
-            model_spec_tuner    = model_spec_tuner,
-            plucked_model       = plucked_model,
-            wflw_tune_spec      = wflw_tune_spec,
-            grid_spec           = grid_spec,
-            wflw_tune_spec_tscv = wflw_tune_spec_tscv
-        ),
-        plots = list(
-            tune_results_plt = tune_results_plt,
-            tscv_plt         = tscv_plt
-        )
+  # * Return ----
+  output <- list(
+    data = list(
+      calibration_tbl        = calibration_tbl,
+      calibration_tuned_tbl  = calibration_tuned_tbl,
+      tscv_data_tbl          = tscv_data_tbl,
+      tuned_results          = tune_results,
+      best_tuned_results_tbl = best_result_set,
+      tscv_obj               = tscv
+    ),
+    model_info = list(
+      model_spec          = model_spec,
+      model_spec_engine   = model_spec_engine,
+      model_spec_tuner    = model_spec_tuner,
+      plucked_model       = plucked_model,
+      wflw_tune_spec      = wflw_tune_spec,
+      grid_spec           = grid_spec,
+      wflw_tune_spec_tscv = wflw_tune_spec_tscv
+    ),
+    plots = list(
+      tune_results_plt = tune_results_plt,
+      tscv_plt         = tscv_plt
     )
+  )
 
-    return(output)
-
+  return(output)
 }
-
