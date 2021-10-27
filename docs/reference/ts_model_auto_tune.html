@@ -254,6 +254,44 @@ metric. This must be passed as a character.</p></td>
 <li><p>"xgboost"</p></li>
 </ul>
 
+<p>This function returns a list object with several items inside of it. There are
+three categories of items that are inside of the list.</p><ul>
+<li><p><code>data</code></p></li>
+<li><p><code>model_info</code></p></li>
+<li><p><code>plots</code></p></li>
+</ul>
+
+<p>The <code>data</code> section has the following items:</p><ul>
+<li><p><code>calibration_tbl</code> This is the calibration data passed into the function.</p></li>
+<li><p><code>calibration_tuned_tbl</code> This is a calibration tibble that has used the
+tuned workflow.</p></li>
+<li><p><code>tscv_data_tbl</code> This is the tibble of the time series cross validation.</p></li>
+<li><p><code>tuned_results</code> This is a tuning results tibble with all slices from the
+time series cross validation.</p></li>
+<li><p><code>best_tuned_results_tbl</code> This is a tibble of the parameters for the best
+test set with the chosen metric.</p></li>
+<li><p><code>tscv_obj</code> This is the actual time series cross validation object returned
+from <code><a href='https://rdrr.io/pkg/timetk/man/time_series_cv.html'>timetk::time_series_cv()</a></code></p></li>
+</ul>
+
+<p>The <code>model_info</code> section has the following items:</p><ul>
+<li><p><code>model_spec</code> This is the original modeltime/parsnip model specification.</p></li>
+<li><p><code>model_spec_engine</code> This is the engine used for the model specification.</p></li>
+<li><p><code>model_spec_tuner</code> This is the tuning model template returned from <code><a href='ts_model_spec_tune_template.html'>ts_model_spec_tune_template()</a></code></p></li>
+<li><p><code>plucked_model</code> This is the model that we have plucked from the calibration tibble
+for tuning.</p></li>
+<li><p><code>wflw_tune_spec</code> This is a new workflow with the <code>model_spec_tuner</code> attached.</p></li>
+<li><p><code>grid_spec</code> This is the grid search specification for the tuning process.</p></li>
+<li><p><code>tuned_tscv_wflw_spec</code> This is the final tuned model where the workflow and
+model have been finalized. This would be the model that you would want to
+pull out if you are going to work with it further.</p></li>
+</ul>
+
+<p>The <code>plots</code> section has the following items:</p><ul>
+<li><p><code>tune_results_plt</code> This is a static ggplot of the grid search.</p></li>
+<li><p><code>tscv_pl</code> This is the time series cross validation plan plot.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other Model Tuning: 
