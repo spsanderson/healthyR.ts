@@ -36,19 +36,103 @@
 #' data
 #' @param .date_col The column that holds the date values.
 #' @param .value_col The column that holds the time series values.
-#' @param .tscv_asses A character expression like "12 months". This gets passed to
+#' @param .tscv_assess A character expression like "12 months". This gets passed to
 #' [timetk::time_series_cv()]
 #' @param .tscv_skip A character expression like "6 months". This gets passed to
 #' [timetk::time_series_cv()]
 #' @param .slice_limit An integer that gets passed to [timetk::time_series_cv()]
-#' @param .grid_size An integer that gets passed to the [dials::gird_latin_hypercube()]
+#' @param .grid_size An integer that gets passed to the [dials::grid_latin_hypercube()]
 #' function.
 #' @param .num_cores The default is 1, you can set this to any integer value as long
 #' as it is equal to or less than the available cores on your machine.
 #' @param .best_metric The default is "rmse" and this can be set to any default dials
 #' metric. This must be passed as a character.
+#' @param .facet_ncol The number of faceted columns to be passed to plot_time_series_cv_plan
 #'
 #' @examples
+#' \dontrun{
+#' suppressPackageStartupMessages(library(modeltime))
+#' suppressPackageStartupMessages(library(timetk))
+#' suppressPackageStartupMessages(library(dplyr))
+#' suppressPackageStartupMessages(library(healthyR.data))
+#' suppressPackageStartupMessages(library(tidymodels))
+#'
+#' data <- healthyR_data %>%
+#'     filter(ip_op_flag == "I") %>%
+#'     select(visit_end_date_time) %>%
+#'     rename(date_col = visit_end_date_time) %>%
+#'     summarise_by_time(
+#'         .date_var = date_col
+#'         , .by     = "month"
+#'         , value   = n()
+#'     ) %>%
+#'     mutate(date_col = as.Date(date_col)) %>%
+#'     filter_by_time(
+#'         .date_var     = date_col
+#'         , .start_date = "2012"
+#'         , .end_date   = "2019"
+#'     )
+#'
+#' splits <- time_series_split(
+#'     data
+#'     , date_col
+#'     , assess = 12
+#'     , skip = 3
+#'     , cumulative = TRUE
+#' )
+#'
+#' recipe_base <- recipe(value ~ ., data = training(splits))
+#'
+#' model_spec_prophet <- prophet_reg(
+#'     seasonality_yearly = "auto",
+#'     seasonality_weekly = "auto",
+#'     seasonality_daily = "auto"
+#' ) %>%
+#'     set_engine(engine = "prophet")
+#'
+#' model_spec_prophet_boost <- prophet_boost(
+#'     learn_rate = 0.1
+#'     , trees = 10
+#'     , seasonality_yearly = "auto"
+#'     , seasonality_weekly = "auto"
+#'     , seasonality_daily = "auto"
+#' ) %>%
+#'     set_engine("prophet_xgboost")
+#'
+#' wfsets <- workflow_set(
+#'     preproc = list(recipe_base),
+#'     models = list(
+#'         model_spec_prophet,
+#'         model_spec_prophet_boost
+#'     ),
+#'     cross = TRUE
+#' )
+#'
+#' wf_fits <- wfsets %>%
+#'     modeltime_fit_workflowset(
+#'         data = training(splits)
+#'         , control = control_fit_workflowset(
+#'             allow_par = FALSE
+#'             , verbose = TRUE
+#'         )
+#'     )
+#'
+#' models_tbl <- wf_fits %>%
+#'     filter(.model != "NULL")
+#'
+#' calibration_tbl <- models_tbl %>%
+#'     modeltime_calibrate(new_data = testing(splits))
+#'
+#' output <- ts_model_auto_tune(
+#'     .modeltime_model_id = 1,
+#'     .calibration_tbl = calibration_tbl,
+#'     .splits_obj = splits,
+#'     .drop_training_na = TRUE,
+#'     .date_col = date_col,
+#'     .value_col = value,
+#'     .num_cores = 4
+#' )
+#' }
 #'
 #' @return
 #' A list object with multiple items.
@@ -56,7 +140,7 @@
 #' @export
 #'
 
-ts_model_tune <- function(.modeltime_model_id, .calibration_tbl,
+ts_model_auto_tune <- function(.modeltime_model_id, .calibration_tbl,
                           .splits_obj, .drop_training_na = TRUE, .date_col,
                           .value_col, .tscv_assess = "12 months",
                           .tscv_skip = "6 months", .slice_limit = 6,
@@ -70,8 +154,8 @@ ts_model_tune <- function(.modeltime_model_id, .calibration_tbl,
     drop_na         <- base::as.logical(.drop_training_na)
     date_col        <- rlang::enquo(.date_col)
     value_col       <- rlang::enquo(.value_col)
-    assess          <- .tscv_assess
-    skip            <- .tscv_skip
+    assess          <- base::as.character(.tscv_assess)
+    skip            <- base::as.character(.tscv_skip)
     slice_limit     <- .slice_limit
     facet_ncol      <- base::as.integer(.facet_ncol)
     grid_size       <- base::as.integer(.grid_size)
