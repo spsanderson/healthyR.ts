@@ -82,6 +82,48 @@ This function can work with the following parsnip/modeltime engines:
 \item "earth"
 \item "xgboost"
 }
+
+This function returns a list object with several items inside of it. There are
+three categories of items that are inside of the list.
+\itemize{
+\item \code{data}
+\item \code{model_info}
+\item \code{plots}
+}
+
+The \code{data} section has the following items:
+\itemize{
+\item \code{calibration_tbl} This is the calibration data passed into the function.
+\item \code{calibration_tuned_tbl} This is a calibration tibble that has used the
+tuned workflow.
+\item \code{tscv_data_tbl} This is the tibble of the time series cross validation.
+\item \code{tuned_results} This is a tuning results tibble with all slices from the
+time series cross validation.
+\item \code{best_tuned_results_tbl} This is a tibble of the parameters for the best
+test set with the chosen metric.
+\item \code{tscv_obj} This is the actual time series cross validation object returned
+from \code{\link[timetk:time_series_cv]{timetk::time_series_cv()}}
+}
+
+The \code{model_info} section has the following items:
+\itemize{
+\item \code{model_spec} This is the original modeltime/parsnip model specification.
+\item \code{model_spec_engine} This is the engine used for the model specification.
+\item \code{model_spec_tuner} This is the tuning model template returned from \code{\link[=ts_model_spec_tune_template]{ts_model_spec_tune_template()}}
+\item \code{plucked_model} This is the model that we have plucked from the calibration tibble
+for tuning.
+\item \code{wflw_tune_spec} This is a new workflow with the \code{model_spec_tuner} attached.
+\item \code{grid_spec} This is the grid search specification for the tuning process.
+\item \code{tuned_tscv_wflw_spec} This is the final tuned model where the workflow and
+model have been finalized. This would be the model that you would want to
+pull out if you are going to work with it further.
+}
+
+The \code{plots} section has the following items:
+\itemize{
+\item \code{tune_results_plt} This is a static ggplot of the grid search.
+\item \code{tscv_pl} This is the time series cross validation plan plot.
+}
 }
 \examples{
 \dontrun{
