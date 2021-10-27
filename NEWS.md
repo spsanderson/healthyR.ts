@@ -8,6 +8,8 @@ None
 2. Fix #92 - Add `ts_info_tbl()` function
 3. Fix #96 - Add `ts_sma_plot()` function
 4. Fix #98 - Add `ts_to_tbl()` function
+5. Fix #103 - Add `ts_model_tuner()` function
+6. Fix #104 - Add `ts_model_spec_tune_template()` function
 
 ## Minor Fixes and Improvements
 None
