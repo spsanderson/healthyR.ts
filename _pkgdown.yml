@@ -63,3 +63,5 @@ reference:
      -  "model_extraction_helper"
      -  "ts_info_tbl"
      -  "ts_to_tbl"
+     -  "ts_model_auto_tune"
+     -  "ts_model_spec_tune_template"
