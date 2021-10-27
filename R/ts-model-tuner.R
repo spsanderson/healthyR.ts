@@ -29,7 +29,39 @@
 #' -  "earth"
 #' -  "xgboost"
 #'
-#' This function returns a list object with several items inside of it.
+#' This function returns a list object with several items inside of it. There are
+#' three categories of items that are inside of the list.
+#' -  `data`
+#' -  `model_info`
+#' -  `plots`
+#'
+#' The `data` section has the following items:
+#' -  `calibration_tbl` This is the calibration data passed into the function.
+#' -  `calibration_tuned_tbl` This is a calibration tibble that has used the
+#'    tuned workflow.
+#' -  `tscv_data_tbl` This is the tibble of the time series cross validation.
+#' -  `tuned_results` This is a tuning results tibble with all slices from the
+#'     time series cross validation.
+#' -  `best_tuned_results_tbl` This is a tibble of the parameters for the best
+#'     test set with the chosen metric.
+#' -  `tscv_obj` This is the actual time series cross validation object returned
+#'     from [timetk::time_series_cv()]
+#'
+#' The `model_info` section has the following items:
+#' -  `model_spec` This is the original modeltime/parsnip model specification.
+#' -  `model_spec_engine` This is the engine used for the model specification.
+#' -  `model_spec_tuner` This is the tuning model template returned from [healthyR.ts::ts_model_spec_tune_template()]
+#' -  `plucked_model` This is the model that we have plucked from the calibration tibble
+#'     for tuning.
+#' -  `wflw_tune_spec` This is a new workflow with the `model_spec_tuner` attached.
+#' -  `grid_spec` This is the grid search specification for the tuning process.
+#' -  `tuned_tscv_wflw_spec` This is the final tuned model where the workflow and
+#'    model have been finalized. This would be the model that you would want to
+#'    pull out if you are going to work with it further.
+#'
+#' The `plots` section has the following items:
+#' -  `tune_results_plt` This is a static ggplot of the grid search.
+#' -  `tscv_pl` This is the time series cross validation plan plot.
 #'
 #' @param .modeltime_model_id The .model_id from a calibrated modeltime table.
 #' @param .calibration_tbl A calibrated modeltime table.
