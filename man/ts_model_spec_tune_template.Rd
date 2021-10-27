@@ -14,7 +14,7 @@ A tuneable parsnip model specification.
 }
 \description{
 This function will create a generic tuneable model specification, this function
-can be used by itself and is called internally by \code{\link[=ts_model_tuner]{ts_model_tuner()}}.
+can be used by itself and is called internally by \code{\link[=ts_model_auto_tune]{ts_model_auto_tune()}}.
 }
 \details{
 This function takes in a single parameter and uses that to output a generic
@@ -44,10 +44,14 @@ parsnip/modeltime engines:
 \examples{
 ts_model_spec_tune_template("ets")
 ts_model_spec_tune_template("prophet")
-ts_model_spec_tune_template("lm")
 
+}
+\seealso{
+Other Model Tuning: 
+\code{\link{ts_model_auto_tune}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
 \concept{Helper}
+\concept{Model Tuning}
