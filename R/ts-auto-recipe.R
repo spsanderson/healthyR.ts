@@ -87,7 +87,7 @@ ts_auto_recipe <- function(.data
                            , .step_ts_rm_misc = TRUE
                            , .step_ts_dummy = TRUE
                            , .step_ts_fourier = TRUE
-                           , .step_ts_fourier_period = NULL
+                           , .step_ts_fourier_period = 365/12
                            , .K = 1
                            , .step_ts_yeo = TRUE
                            , .step_ts_nzv = TRUE) {
@@ -125,16 +125,18 @@ ts_auto_recipe <- function(.data
             {{ date_col_var_expr }}
             , {{ pred_col_var_expr }}
             , dplyr::everything()
-        ) %>%
-        dplyr::rename(
-            date_col    = {{ date_col_var_expr }}
-            , value_col = {{ pred_col_var_expr }}
         )
+
+    # * Orignal Cols and formula ----
+    ds <- rlang::sym(base::names(data_tbl)[[1]])
+    v  <- rlang::sym(base::names(data_tbl)[[2]])
+    f  <- stats::as.formula(base::paste(v, " ~ ."))
 
     # * Recipe Objects ----
     # ** Base recipe ----
     rec_base_obj <- recipes::recipe(
-        formula = date_col ~ .
+        #formula = date_col ~ .
+        formula = f
         , data = data_tbl
     )
 
@@ -142,7 +144,7 @@ ts_auto_recipe <- function(.data
     # ** ts signature and normalize ----
     if(step_ts_sig){
         rec_date_obj <- rec_base_obj %>%
-            timetk::step_timeseries_signature(date_col) %>%
+            timetk::step_timeseries_signature(ds) %>%
             recipes::step_normalize(
                 dplyr::contains("index.num")
                 , dplyr::contains("date_col_year")
@@ -165,7 +167,7 @@ ts_auto_recipe <- function(.data
     if(step_ts_fourier){
         rec_date_fourier_obj <- rec_date_obj %>%
             timetk::step_fourier(
-                date_col
+                ds
                 , period = step_ts_fourier_period
                 , K      = step_ts_fourier_k
             )
@@ -173,7 +175,7 @@ ts_auto_recipe <- function(.data
     # ** Step YeoJohnson ----
     if(step_ts_yeo){
         rec_date_fourier_obj <- rec_date_fourier_obj %>%
-            recipes::step_YeoJohnson(value_col, limits = c(0, 1))
+            recipes::step_YeoJohnson(!!v, limits = c(0, 1))
     }
 
     # ** Step NZV ----
