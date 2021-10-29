@@ -157,7 +157,7 @@ tibble.</p>
   .step_ts_rm_misc <span class='op'>=</span> <span class='cn'>TRUE</span>,
   .step_ts_dummy <span class='op'>=</span> <span class='cn'>TRUE</span>,
   .step_ts_fourier <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  .step_ts_fourier_period <span class='op'>=</span> <span class='cn'>NULL</span>,
+  .step_ts_fourier_period <span class='op'>=</span> <span class='fl'>365</span><span class='op'>/</span><span class='fl'>12</span>,
   .K <span class='op'>=</span> <span class='fl'>1</span>,
   .step_ts_yeo <span class='op'>=</span> <span class='cn'>TRUE</span>,
   .step_ts_nzv <span class='op'>=</span> <span class='cn'>TRUE</span>
@@ -293,7 +293,7 @@ in a list.</p>
 #&gt; 
 #&gt; Operations:
 #&gt; 
-#&gt; Timeseries signature features from date_col
+#&gt; Timeseries signature features from ds
 #&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
 #&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
@@ -309,12 +309,12 @@ in a list.</p>
 #&gt; 
 #&gt; Operations:
 #&gt; 
-#&gt; Timeseries signature features from date_col
+#&gt; Timeseries signature features from ds
 #&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
 #&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
-#&gt; Fourier series features from date_col
-#&gt; Yeo-Johnson transformation on value_col
+#&gt; Fourier series features from ds
+#&gt; Yeo-Johnson transformation on value
 #&gt; 
 #&gt; $rec_date_fourier_nzv
 #&gt; Recipe
@@ -327,12 +327,12 @@ in a list.</p>
 #&gt; 
 #&gt; Operations:
 #&gt; 
-#&gt; Timeseries signature features from date_col
+#&gt; Timeseries signature features from ds
 #&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
 #&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
-#&gt; Fourier series features from date_col
-#&gt; Yeo-Johnson transformation on value_col
+#&gt; Fourier series features from ds
+#&gt; Yeo-Johnson transformation on value
 #&gt; Sparse, unbalanced variable filter on recipes::all_predictors()
 #&gt; </div><div class='input'>
 <span class='fu'>ts_auto_recipe</span><span class='op'>(</span>
@@ -360,7 +360,7 @@ in a list.</p>
 #&gt; 
 #&gt; Operations:
 #&gt; 
-#&gt; Timeseries signature features from date_col
+#&gt; Timeseries signature features from ds
 #&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
 #&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
@@ -376,12 +376,12 @@ in a list.</p>
 #&gt; 
 #&gt; Operations:
 #&gt; 
-#&gt; Timeseries signature features from date_col
+#&gt; Timeseries signature features from ds
 #&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
 #&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
-#&gt; Fourier series features from date_col
-#&gt; Yeo-Johnson transformation on value_col
+#&gt; Fourier series features from ds
+#&gt; Yeo-Johnson transformation on value
 #&gt; 
 #&gt; $rec_date_fourier_nzv
 #&gt; Recipe
@@ -394,12 +394,12 @@ in a list.</p>
 #&gt; 
 #&gt; Operations:
 #&gt; 
-#&gt; Timeseries signature features from date_col
+#&gt; Timeseries signature features from ds
 #&gt; Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...
 #&gt; Delete terms dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")
 #&gt; Dummy variables from recipes::all_nominal_predictors()
-#&gt; Fourier series features from date_col
-#&gt; Yeo-Johnson transformation on value_col
+#&gt; Fourier series features from ds
+#&gt; Yeo-Johnson transformation on value
 #&gt; Sparse, unbalanced variable filter on recipes::all_predictors()
 #&gt; </div><div class='input'>
 </div></pre>
