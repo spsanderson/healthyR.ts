@@ -100,7 +100,14 @@ wf_sets
 \url{https://workflowsets.tidymodels.org/}
 
 \url{https://parsnip.tidymodels.org/reference/svm_rbf.html}
+
+Other Auto Workflowsets: 
+\code{\link{ts_wfs_auto_arima}()},
+\code{\link{ts_wfs_lin_reg}()},
+\code{\link{ts_wfs_mars}()},
+\code{\link{ts_wfs_svm_poly}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
+\concept{Auto Workflowsets}

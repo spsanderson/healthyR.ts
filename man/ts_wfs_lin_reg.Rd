@@ -82,7 +82,14 @@ wf_sets
 }
 \seealso{
 \url{https://workflowsets.tidymodels.org/}(workflowsets)
+
+Other Auto Workflowsets: 
+\code{\link{ts_wfs_auto_arima}()},
+\code{\link{ts_wfs_mars}()},
+\code{\link{ts_wfs_svm_poly}()},
+\code{\link{ts_wfs_svm_rbf}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
+\concept{Auto Workflowsets}

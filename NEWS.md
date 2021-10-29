@@ -10,6 +10,7 @@ None
 4. Fix #98 - Add `ts_to_tbl()` function
 5. Fix #103 - Add `ts_model_auto_tune()` function
 6. Fix #104 - Add `ts_model_spec_tune_template()` function
+7. Fix #114 - Add `ts_wfs_auto_arima()` function
 
 ## Minor Fixes and Improvements
 1. Fix #105 - Fix `ts_auto_recipe()` bug that forced the change of column names
