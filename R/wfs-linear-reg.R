@@ -1,5 +1,7 @@
 #' Linear Regression Workflowset Function
 #'
+#' @family Auto Workflowsets
+#'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
