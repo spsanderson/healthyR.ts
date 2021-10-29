@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Linear Regression Workflowset Function — ts_wfs_lin_reg • healthyR.ts</title>
+<title>Auto Arima (Forecast auto_arima) Workflowset Function — ts_wfs_auto_arima • healthyR.ts</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Linear Regression Workflowset Function — ts_wfs_lin_reg" />
+<meta property="og:title" content="Auto Arima (Forecast auto_arima) Workflowset Function — ts_wfs_auto_arima" />
 <meta property="og:description" content="This function is used to quickly create a workflowsets object." />
 
 
@@ -138,16 +138,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Linear Regression Workflowset Function</h1>
-    <small class="dont-index">Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/R/wfs-linear-reg.R'><code>R/wfs-linear-reg.R</code></a></small>
-    <div class="hidden name"><code>ts_wfs_lin_reg.Rd</code></div>
+    <h1>Auto Arima (Forecast auto_arima) Workflowset Function</h1>
+    <small class="dont-index">Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/R/wfs-arima-reg.R'><code>R/wfs-arima-reg.R</code></a></small>
+    <div class="hidden name"><code>ts_wfs_auto_arima.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function is used to quickly create a workflowsets object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ts_wfs_lin_reg</span><span class='op'>(</span><span class='va'>.model_type</span>, <span class='va'>.recipe_list</span>, .penalty <span class='op'>=</span> <span class='fl'>1</span>, .mixture <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ts_wfs_auto_arima</span><span class='op'>(</span>.model_type <span class='op'>=</span> <span class='st'>"kernlab"</span>, <span class='va'>.recipe_list</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,29 +155,13 @@
     <tr>
       <th>.model_type</th>
       <td><p>This is where you will set your engine. It uses
-<code><a href='https://parsnip.tidymodels.org/reference/linear_reg.html'>parsnip::linear_reg()</a></code> under the hood and can take one of the following:</p><ul>
-<li><p>"lm"</p></li>
-<li><p>"glmnet"</p></li>
-<li><p>"all_engines" - This will make a model spec for all available engines.</p></li>
-</ul>
-
-<p>Not yet implemented are:</p><ul>
-<li><p>"stan"</p></li>
-<li><p>"spark"</p></li>
-<li><p>"keras"</p></li>
+<a href='https://rdrr.io/pkg/modeltime/man/arima_reg.html'>modeltime::arima_reg</a> under the hood and can take one of the following:</p><ul>
+<li><p>"auto_arima"</p></li>
 </ul></td>
     </tr>
     <tr>
       <th>.recipe_list</th>
       <td><p>You must supply a list of recipes. list(rec_1, rec_2, ...)</p></td>
-    </tr>
-    <tr>
-      <th>.penalty</th>
-      <td><p>The penalty parameter of the glmnet. The default is 1</p></td>
-    </tr>
-    <tr>
-      <th>.mixture</th>
-      <td><p>The mixture parameter of the glmnet. The default is 0.5</p></td>
     </tr>
     </table>
 
@@ -188,13 +172,22 @@
 
     <p>This function expects to take in the recipes that you want to use in
 the modeling process. This is an automated workflow process. There are sensible
-defaults set for the <code>glmnet</code> model specification, but if you choose you can
-set them yourself if you have a good understanding of what they should be.</p>
+defaults set for the model specification, but if you choose you can set them
+yourself if you have a good understanding of what they should be. The mode is
+set to "regression".</p>
+<p>This only uses the option <code>set_engine("auto_arima")</code> and therefore the .model_type
+is not needed. The parameter is kept because it is possible in the future that
+this could change, and it keeps with the framework of how other functions
+are written.</p>
+<p><a href='https://rdrr.io/pkg/modeltime/man/arima_reg.html'>modeltime::arima_reg</a> arima_reg() is a way to generate a specification of
+an ARIMA model before fitting and allows the model to be created using
+different packages. Currently the only package is <code>forecast</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='https://workflowsets.tidymodels.org/'>https://workflowsets.tidymodels.org/</a>(workflowsets)</p>
+    <div class='dont-index'><p><a href='https://workflowsets.tidymodels.org/'>https://workflowsets.tidymodels.org/</a></p>
+<p><a href='https://business-science.github.io/modeltime/reference/arima_reg.html'>https://business-science.github.io/modeltime/reference/arima_reg.html</a></p>
 <p>Other Auto Workflowsets: 
-<code><a href='ts_wfs_auto_arima.html'>ts_wfs_auto_arima</a>()</code>,
+<code><a href='ts_wfs_lin_reg.html'>ts_wfs_lin_reg</a>()</code>,
 <code><a href='ts_wfs_mars.html'>ts_wfs_mars</a>()</code>,
 <code><a href='ts_wfs_svm_poly.html'>ts_wfs_svm_poly</a>()</code>,
 <code><a href='ts_wfs_svm_rbf.html'>ts_wfs_svm_rbf</a>()</code></p></div>
@@ -208,7 +201,7 @@ set them yourself if you have a good understanding of what they should be.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/spsanderson/healthyR.data'>healthyR.data</a></span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressPackageStartupMessages</a></span><span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span><span class='op'>)</span>
-
+</div><div class='output co'>#&gt; <span class='warning'>Warning: package 'workflows' was built under R version 4.1.1</span></div><div class='input'>
 <span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>healthyR_data</span> <span class='op'>%&gt;%</span>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ip_op_flag</span> <span class='op'>==</span> <span class='st'>"I"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>visit_end_date_time</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
@@ -238,19 +231,15 @@ set them yourself if you have a good understanding of what they should be.</p>
  , .pred_col <span class='op'>=</span> <span class='va'>value</span>
 <span class='op'>)</span>
 
-<span class='va'>wf_sets</span> <span class='op'>&lt;-</span> <span class='fu'>ts_wfs_lin_reg</span><span class='op'>(</span><span class='st'>"all_engines"</span>, <span class='va'>rec_objs</span><span class='op'>)</span>
+<span class='va'>wf_sets</span> <span class='op'>&lt;-</span> <span class='fu'>ts_wfs_auto_arima</span><span class='op'>(</span><span class='st'>"auto_arima"</span>, <span class='va'>rec_objs</span><span class='op'>)</span>
 <span class='va'>wf_sets</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A workflow set/tibble: 8 x 4</span>
-#&gt;   wflow_id                          info             option    result    
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                             <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    
-#&gt; <span style='color: #BCBCBC;'>1</span> rec_base_linear_reg_1             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>2</span> rec_base_linear_reg_2             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>3</span> rec_date_linear_reg_1             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>4</span> rec_date_linear_reg_2             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>5</span> rec_date_fourier_linear_reg_1     <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>6</span> rec_date_fourier_linear_reg_2     <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>7</span> rec_date_fourier_nzv_linear_reg_1 <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>8</span> rec_date_fourier_nzv_linear_reg_2 <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A workflow set/tibble: 4 x 4</span>
+#&gt;   wflow_id                       info             option    result    
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                          <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    
+#&gt; <span style='color: #BCBCBC;'>1</span> rec_base_arima_reg             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>2</span> rec_date_arima_reg             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>3</span> rec_date_fourier_arima_reg     <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>4</span> rec_date_fourier_nzv_arima_reg <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
