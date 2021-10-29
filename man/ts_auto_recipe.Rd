@@ -12,7 +12,7 @@ ts_auto_recipe(
   .step_ts_rm_misc = TRUE,
   .step_ts_dummy = TRUE,
   .step_ts_fourier = TRUE,
-  .step_ts_fourier_period = NULL,
+  .step_ts_fourier_period = 365/12,
   .K = 1,
   .step_ts_yeo = TRUE,
   .step_ts_nzv = TRUE
