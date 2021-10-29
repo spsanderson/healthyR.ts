@@ -12,7 +12,9 @@ None
 6. Fix #104 - Add `ts_model_spec_tune_template()` function
 
 ## Minor Fixes and Improvements
-None
+1. Fix #105 - Fix `ts_auto_recipe()` bug that forced the change of column names
+in the output. This has been fixed and the column names supplied will now be in
+the recipe terms.
 
 # healthyR.ts 0.1.3
 
