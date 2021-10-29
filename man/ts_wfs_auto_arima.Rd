@@ -4,7 +4,7 @@
 \alias{ts_wfs_auto_arima}
 \title{Auto Arima (Forecast auto_arima) Workflowset Function}
 \usage{
-ts_wfs_auto_arima(.model_type = "kernlab", .recipe_list)
+ts_wfs_auto_arima(.model_type = "auto_arima", .recipe_list)
 }
 \arguments{
 \item{.model_type}{This is where you will set your engine. It uses
@@ -83,6 +83,7 @@ wf_sets
 \url{https://business-science.github.io/modeltime/reference/arima_reg.html}
 
 Other Auto Workflowsets: 
+\code{\link{ts_wfs_arima_boost}()},
 \code{\link{ts_wfs_lin_reg}()},
 \code{\link{ts_wfs_mars}()},
 \code{\link{ts_wfs_svm_poly}()},
