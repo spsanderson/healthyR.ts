@@ -75,7 +75,7 @@
 #' @export
 #'
 
-ts_wfs_auto_arima <- function(.model_type = "kernlab", .recipe_list){
+ts_wfs_auto_arima <- function(.model_type = "auto_arima", .recipe_list){
 
     # * Tidyeval ---
     model_type   = .model_type
