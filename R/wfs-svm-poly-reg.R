@@ -1,5 +1,7 @@
 #' SVM Poly (Kernlab) Workflowset Function
 #'
+#' @family Auto Workflowsets
+#'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
