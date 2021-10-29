@@ -102,6 +102,7 @@ wf_sets
 \url{https://parsnip.tidymodels.org/reference/mars.html}
 
 Other Auto Workflowsets: 
+\code{\link{ts_wfs_arima_boost}()},
 \code{\link{ts_wfs_auto_arima}()},
 \code{\link{ts_wfs_lin_reg}()},
 \code{\link{ts_wfs_svm_poly}()},

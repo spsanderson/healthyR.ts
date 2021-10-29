@@ -57,6 +57,7 @@ reference:
      -  "ts_wfs_svm_poly"
      -  "ts_wfs_svm_rbf"
      -  "ts_wfs_auto_arima"
+     -  "ts_wfs_arima_boost"
   -  title: Time Series Helper functions
      desc: healthyR.ts helper functions
   -  contents:
