@@ -98,7 +98,7 @@
 #'     summarise_by_time(
 #'         .date_var = date_col
 #'         , .by     = "month"
-#'         , value   = n()
+#'         , visits  = n()
 #'     ) %>%
 #'     mutate(date_col = as.Date(date_col)) %>%
 #'     filter_by_time(
@@ -115,56 +115,42 @@
 #'     , cumulative = TRUE
 #' )
 #'
-#' recipe_base <- recipe(value ~ ., data = training(splits))
+#' rec_objs <- ts_auto_recipe(
+#'   .data = data
+#'   , .date_col = date_col
+#'   , .pred_col = visits
+#' )
 #'
-#' model_spec_prophet <- prophet_reg(
-#'     seasonality_yearly = "auto",
-#'     seasonality_weekly = "auto",
-#'     seasonality_daily = "auto"
-#' ) %>%
-#'     set_engine(engine = "prophet")
-#'
-#' model_spec_prophet_boost <- prophet_boost(
-#'     learn_rate = 0.1
-#'     , trees = 10
-#'     , seasonality_yearly = "auto"
-#'     , seasonality_weekly = "auto"
-#'     , seasonality_daily = "auto"
-#' ) %>%
-#'     set_engine("prophet_xgboost")
-#'
-#' wfsets <- workflow_set(
-#'     preproc = list(recipe_base),
-#'     models = list(
-#'         model_spec_prophet,
-#'         model_spec_prophet_boost
-#'     ),
-#'     cross = TRUE
+#' wfsets <- healthyR.ts::ts_wfs_mars(
+#'   .model_type = "earth"
+#'   , .recipe_list = rec_objs
 #' )
 #'
 #' wf_fits <- wfsets %>%
-#'     modeltime_fit_workflowset(
-#'         data = training(splits)
-#'         , control = control_fit_workflowset(
-#'             allow_par = FALSE
-#'             , verbose = TRUE
-#'         )
+#'   modeltime_fit_workflowset(
+#'     data = training(splits)
+#'     , control = control_fit_workflowset(
+#'      allow_par = TRUE
+#'      , verbose = TRUE
 #'     )
+#'   )
 #'
 #' models_tbl <- wf_fits %>%
-#'     filter(.model != "NULL")
+#'   filter(.model != "NULL")
 #'
 #' calibration_tbl <- models_tbl %>%
-#'     modeltime_calibrate(new_data = testing(splits))
+#'   modeltime_calibrate(new_data = testing(splits))
 #'
-#' output <- ts_model_auto_tune(
-#'     .modeltime_model_id = 1,
-#'     .calibration_tbl = calibration_tbl,
-#'     .splits_obj = splits,
-#'     .drop_training_na = TRUE,
-#'     .date_col = date_col,
-#'     .value_col = value,
-#'     .num_cores = 4
+#' output <- healthyR.ts::ts_model_auto_tune(
+#'   .modeltime_model_id = 1,
+#'   .calibration_tbl = calibration_tbl,
+#'   .splits_obj = splits,
+#'   .drop_training_na = TRUE,
+#'   .date_col = date_col,
+#'   .value_col = visits,
+#'   .tscv_assess = "12 months",
+#'   .tscv_skip = "3 months",
+#'   .num_cores = parallel::detectCores() - 1
 #' )
 #' }
 #'
