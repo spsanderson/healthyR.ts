@@ -29,6 +29,7 @@
 #' [modeltime::arima_boost] under the hood and can take one of the following:
 #'   * "arima_xgboost"
 #'   * "auto_arima_xgboost
+#'   * "all_engines" - This will make a model spec for all available engines.
 #' @param .recipe_list You must supply a list of recipes. list(rec_1, rec_2, ...)
 #' @param .seasonal_period Set to 0,
 #' @param .non_seasonal_ar Set to 0,
@@ -44,8 +45,6 @@
 #' (i.e. number of splits) (specific engines only).
 #' @param .learn_rate A number for the rate at which the boosting algorithm
 #' adapts from iteration-to-iteration (specific engines only).
-#' @param .loss_reduction A number for the reduction in the loss function
-#' required to split further (specific engines only).
 #' @param .stop_iter The number of iterations without improvement before
 #' stopping (xgboost only).
 #'
@@ -85,7 +84,7 @@
 #'  , .pred_col = value
 #' )
 #'
-#' wf_sets <- ts_wfs_arima_boost("auto_arima_xgboost", rec_objs)
+#' wf_sets <- ts_wfs_arima_boost("all_engines", rec_objs)
 #' wf_sets
 #'
 #' @return
@@ -94,9 +93,9 @@
 #' @export
 #'
 
-ts_wfs_arima_boost <- function(.model_type = "auto_arima_xgboost", .recipe_list,
+ts_wfs_arima_boost <- function(.model_type = "all_engines", .recipe_list,
                                .trees = 10, .min_node = 2, .tree_depth = 6,
-                               .learn_rate = 0.015, .loss_reduction = NULL,
+                               .learn_rate = 0.015,
                                .stop_iter = NULL, .seasonal_period = 0,
                                .non_seasonal_ar = 0,
                                .non_seasonal_differences = 0,
@@ -119,7 +118,6 @@ ts_wfs_arima_boost <- function(.model_type = "auto_arima_xgboost", .recipe_list,
     min_n                    = .min_node
     tree_depth               = .tree_depth
     learn_rate               = .learn_rate
-    loss_redcution           = .loss_reduction
     stop_iter                = .stop_iter
 
     # * Checks ----
@@ -127,8 +125,8 @@ ts_wfs_arima_boost <- function(.model_type = "auto_arima_xgboost", .recipe_list,
         stop(call. = FALSE, "(.model_type) must be set to a character string.")
     }
 
-    if (!model_type %in% c("arima_xgboost","auto_arima_xgboost")){
-        stop(call. = FALSE, "(.model_type) must be 'arima_xgboost' or 'auto_arima_xgboost'.")
+    if (!model_type %in% c("arima_xgboost","auto_arima_xgboost","all_engines")){
+        stop(call. = FALSE, "(.model_type) must be 'arima_xgboost','auto_arima_xgboost', or 'all_engines'.")
     }
 
     if (!is.list(recipe_list)){
@@ -138,12 +136,47 @@ ts_wfs_arima_boost <- function(.model_type = "auto_arima_xgboost", .recipe_list,
     # * Models ----
     model_spec_arima_boost <- modeltime::arima_boost(
         mode = "regression",
+
+        # ARIMA args
+        seasonal_period          = seasonal_period,
+        non_seasonal_ar          = non_seasonal_ar,
+        non_seasonal_differences = non_seasonal_differences,
+        non_seasonal_ma          = non_seasonal_ma,
+        seasonal_ar              = seasonal_ar,
+        seasonal_differences     = seasonal_differences,
+        seasonal_ma              = seasonal_ma,
+
+        # XGBoost Args
+        trees                    = trees,
+        min_n                    = min_node,
+        tree_depth               = tree_depth,
+        learn_rate               = learn_rate,
+        stop_iter                = stop_iter
     ) %>%
         parsnip::set_engine("arima_xgboost")
 
-    final_model_list <- list(
-        model_spec_auto_arima
-    )
+    model_sepc_auto_arima_boost <- modeltime::arima_boost(
+        mode = "regression",
+
+        # XGBoost Args
+        trees                    = trees,
+        min_n                    = min_node,
+        tree_depth               = tree_depth,
+        learn_rate               = learn_rate,
+        stop_iter                = stop_iter
+    ) %>%
+        parsnip::set_engine("auto_arima_xgboost")
+
+    final_model_list <- if (model_type == "arima_xgboost"){
+        fml <- list(model_spec_arima_boost)
+    } else if (model_type == "auto_arima_xgboost"){
+        fml <- list(model_sepc_auto_arima_boost)
+    } else {
+        fml <- list(
+            model_spec_arima_boost,
+            model_sepc_auto_arima_boost
+        )
+    }
 
     # * Workflow Sets ----
     wf_sets <- workflowsets::workflow_set(
