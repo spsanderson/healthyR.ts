@@ -21,12 +21,12 @@
 #' this could change, and it keeps with the framework of how other functions
 #' are written.
 #'
-#' [modeltime::arima_reg] arima_reg() is a way to generate a specification of
+#' [modeltime::arima_reg()] arima_reg() is a way to generate a specification of
 #' an ARIMA model before fitting and allows the model to be created using
 #' different packages. Currently the only package is `forecast`.
 #'
 #' @param .model_type This is where you will set your engine. It uses
-#' [modeltime::arima_reg] under the hood and can take one of the following:
+#' [modeltime::arima_reg()] under the hood and can take one of the following:
 #'   * "auto_arima"
 #' @param .recipe_list You must supply a list of recipes. list(rec_1, rec_2, ...)
 #'
