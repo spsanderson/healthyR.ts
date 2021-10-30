@@ -23,7 +23,7 @@ ts_wfs_arima_boost(
 }
 \arguments{
 \item{.model_type}{This is where you will set your engine. It uses
-\link[modeltime:arima_boost]{modeltime::arima_boost} under the hood and can take one of the following:
+\code{\link[modeltime:arima_boost]{modeltime::arima_boost()}} under the hood and can take one of the following:
 \itemize{
 \item "arima_xgboost"
 \item "auto_arima_xgboost
@@ -75,7 +75,7 @@ set to "regression".
 
 This uses the option \code{set_engine("auto_arima_xgboost")} or \code{set_engine("arima_xgboost")}
 
-\link[modeltime:arima_boost]{modeltime::arima_boost} arima_boost() is a way to generate a specification
+\code{\link[modeltime:arima_boost]{modeltime::arima_boost()}} arima_boost() is a way to generate a specification
 of a time series model that uses boosting to improve modeling errors
 (residuals) on Exogenous Regressors. It works with both "automated" ARIMA
 (auto.arima) and standard ARIMA (arima). The main algorithms are:
@@ -131,6 +131,7 @@ wf_sets
 
 Other Auto Workflowsets: 
 \code{\link{ts_wfs_auto_arima}()},
+\code{\link{ts_wfs_ets_reg}()},
 \code{\link{ts_wfs_lin_reg}()},
 \code{\link{ts_wfs_mars}()},
 \code{\link{ts_wfs_svm_poly}()},
