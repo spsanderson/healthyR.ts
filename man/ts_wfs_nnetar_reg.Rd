@@ -85,7 +85,7 @@ rec_objs <- ts_auto_recipe(
  , .pred_col = value
 )
 
-wf_sets <- ts_wfs_nnetar_reg("all_engines", rec_objs)
+wf_sets <- ts_wfs_nnetar_reg("nnetar", rec_objs)
 wf_sets
 
 }
