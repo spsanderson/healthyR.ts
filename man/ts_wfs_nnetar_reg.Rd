@@ -38,11 +38,6 @@ weights. These are then averaged when producing forecasts.}
 \item{.penalty}{A non-negative numeric value for the amount of weight decay.}
 
 \item{.epochs}{An integer for the number of training iterations.}
-
-\item{.seasonal_period}{A seasonal frequency. Uses "auto" by default.
-A character phrase of "auto" or time-based phrase of "2 weeks" can be used
-if a date or date-time variable is provided. See Fit Details below.
-\strong{This is set to "auto" under the hood and is hard coded}}
 }
 \value{
 Returns a workflowsets object.
