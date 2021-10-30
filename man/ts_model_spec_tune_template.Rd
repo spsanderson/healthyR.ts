@@ -26,6 +26,7 @@ parsnip/modeltime engines:
 \item "ets"
 \item "croston"
 \item "theta"
+\item "smooth_es"
 \item "stlm_ets"
 \item "tbats"
 \item "stlm_arima"
