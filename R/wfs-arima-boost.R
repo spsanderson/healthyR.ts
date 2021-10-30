@@ -18,7 +18,7 @@
 #'
 #' This uses the option `set_engine("auto_arima_xgboost")` or `set_engine("arima_xgboost")`
 #'
-#' [modeltime::arima_boost] arima_boost() is a way to generate a specification
+#' [modeltime::arima_boost()] arima_boost() is a way to generate a specification
 #' of a time series model that uses boosting to improve modeling errors
 #' (residuals) on Exogenous Regressors. It works with both "automated" ARIMA
 #' (auto.arima) and standard ARIMA (arima). The main algorithms are:
@@ -26,7 +26,7 @@
 #' -  ARIMA + XGBoost Errors (engine = arima_xgboost)
 #'
 #' @param .model_type This is where you will set your engine. It uses
-#' [modeltime::arima_boost] under the hood and can take one of the following:
+#' [modeltime::arima_boost()] under the hood and can take one of the following:
 #'   * "arima_xgboost"
 #'   * "auto_arima_xgboost
 #'   * "all_engines" - This will make a model spec for all available engines.
