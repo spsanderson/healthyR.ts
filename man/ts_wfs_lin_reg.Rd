@@ -88,6 +88,7 @@ Other Auto Workflowsets:
 \code{\link{ts_wfs_auto_arima}()},
 \code{\link{ts_wfs_ets_reg}()},
 \code{\link{ts_wfs_mars}()},
+\code{\link{ts_wfs_nnetar_reg}()},
 \code{\link{ts_wfs_svm_poly}()},
 \code{\link{ts_wfs_svm_rbf}()}
 }
