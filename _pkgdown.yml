@@ -52,12 +52,7 @@ reference:
   -  title: Time Series Auto Workflowsets
      desc: healthyR.ts automatic time series workflow set functions
   -  contents:
-     -  "ts_wfs_lin_reg"
-     -  "ts_wfs_mars"
-     -  "ts_wfs_svm_poly"
-     -  "ts_wfs_svm_rbf"
-     -  "ts_wfs_auto_arima"
-     -  "ts_wfs_arima_boost"
+     -  matches("ts_wfs")
   -  title: Time Series Helper functions
      desc: healthyR.ts helper functions
   -  contents:
