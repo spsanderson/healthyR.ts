@@ -160,7 +160,7 @@ ts_wfs_arima_boost <- function(.model_type = "all_engines", .recipe_list,
 
         # XGBoost Args
         trees                    = trees,
-        min_n                    = min_node,
+        min_n                    = min_n,
         tree_depth               = tree_depth,
         learn_rate               = learn_rate,
         stop_iter                = stop_iter
