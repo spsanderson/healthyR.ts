@@ -134,6 +134,71 @@ ts_wfs_ets_reg <- function(.model_type = "all_engines",
         stop(call. = FALSE, "(.recipe_list) must be a list of recipe objects")
     }
 
+    # * Models ----
+    model_spec_ets <- modeltime::exp_smoothing(
+        mode            = "regression",
+        seasonal_period = seasonal_period,
+        error           = error,
+        trend           = trend,
+        season          = season,
+        damping         = damping,
+        smooth_level    = smooth_level,
+        smooth_trend    = smooth_trend,
+        smooth_seasonal = smooth_season
+    ) %>%
+        parsnip::set_engine("ets")
 
+    model_spec_croston <- modeltime::exp_smoothing(
+        mode            = "regression",
+        seasonal_period = seasonal_period,
+        smooth_level    = smooth_level
+    ) %>%
+        parsnip::set_engine("croston")
+
+    model_spec_theta <- modeltime::exp_smoothing(
+        mode            = "regression",
+        seasonal_period = seasonal_period
+    ) %>%
+        parsnip::set_engine("theta")
+
+    model_spec_smooth_ets <- modeltime::exp_smoothing(
+        mode            = "regression",
+        seasonal_period = seasonal_period,
+        error           = error,
+        trend           = trend,
+        season          = season,
+        damping         = damping,
+        smooth_level    = smooth_level,
+        smooth_trend    = smooth_trend,
+        smooth_seasonal = smooth_season
+    ) %>%
+        parsnip::set_engine("smooth_es")
+
+    final_model_list <- if (model_type == "ets"){
+        fml <- list(model_spec_ets)
+    } else if (model_type == "croston"){
+        fml <- list(model_spec_croston)
+    } else if (model_type == "theta"){
+        fml <- list(model_spec_theta)
+    } else if (model_type == "smooth_es"){
+        fml <- list(model_spec_smooth_ets)
+    } else {
+        fml <- list(
+            model_spec_ets,
+            model_spec_croston,
+            model_spec_theta,
+            model_spec_smooth_ets
+        )
+    }
+
+    # * Workflow Sets ----
+    wf_sets <- workflowsets::workflow_set(
+        preproc = recipe_list,
+        models  = final_model_list,
+        cross   = TRUE
+    )
+
+    # * Return ---
+    return(wf_sets)
 
 }
