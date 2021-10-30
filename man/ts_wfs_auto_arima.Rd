@@ -8,7 +8,7 @@ ts_wfs_auto_arima(.model_type = "auto_arima", .recipe_list)
 }
 \arguments{
 \item{.model_type}{This is where you will set your engine. It uses
-\link[modeltime:arima_reg]{modeltime::arima_reg} under the hood and can take one of the following:
+\code{\link[modeltime:arima_reg]{modeltime::arima_reg()}} under the hood and can take one of the following:
 \itemize{
 \item "auto_arima"
 }}
@@ -33,7 +33,7 @@ is not needed. The parameter is kept because it is possible in the future that
 this could change, and it keeps with the framework of how other functions
 are written.
 
-\link[modeltime:arima_reg]{modeltime::arima_reg} arima_reg() is a way to generate a specification of
+\code{\link[modeltime:arima_reg]{modeltime::arima_reg()}} arima_reg() is a way to generate a specification of
 an ARIMA model before fitting and allows the model to be created using
 different packages. Currently the only package is \code{forecast}.
 }
@@ -84,6 +84,7 @@ wf_sets
 
 Other Auto Workflowsets: 
 \code{\link{ts_wfs_arima_boost}()},
+\code{\link{ts_wfs_ets_reg}()},
 \code{\link{ts_wfs_lin_reg}()},
 \code{\link{ts_wfs_mars}()},
 \code{\link{ts_wfs_svm_poly}()},
