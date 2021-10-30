@@ -76,12 +76,12 @@
 
 ts_wfs_nnetar_reg <- function(.model_type = "nnetar",
                            .recipe_list,
-                           .non_seasonal_ar = NULL,
-                           .seasonal_ar = NULL,
-                           .hidden_units = NULL,
-                           .num_networks = NULL,
-                           .penalty = NULL,
-                           .epochs = NULL
+                           .non_seasonal_ar = 0,
+                           .seasonal_ar = 0,
+                           .hidden_units = 5,
+                           .num_networks = 10,
+                           .penalty = .1,
+                           .epochs = 10
 ){
 
     # * Tidyeval ----
