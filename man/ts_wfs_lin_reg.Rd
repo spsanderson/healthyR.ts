@@ -2,7 +2,7 @@
 % Please edit documentation in R/wfs-linear-reg.R
 \name{ts_wfs_lin_reg}
 \alias{ts_wfs_lin_reg}
-\title{Linear Regression Workflowset Function}
+\title{Auto Linear Regression Workflowset Function}
 \usage{
 ts_wfs_lin_reg(.model_type, .recipe_list, .penalty = 1, .mixture = 0.5)
 }

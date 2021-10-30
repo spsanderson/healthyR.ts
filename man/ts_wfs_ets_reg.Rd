@@ -2,7 +2,7 @@
 % Please edit documentation in R/wfs-ets-reg.R
 \name{ts_wfs_ets_reg}
 \alias{ts_wfs_ets_reg}
-\title{Auto Arima XGBoost Workflowset Function}
+\title{Auto ETS Workflowset Function}
 \usage{
 ts_wfs_ets_reg(
   .model_type = "all_engines",

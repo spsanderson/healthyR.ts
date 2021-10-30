@@ -1,4 +1,4 @@
-#' Linear Regression Workflowset Function
+#' Auto Linear Regression Workflowset Function
 #'
 #' @family Auto Workflowsets
 #'
