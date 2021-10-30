@@ -107,13 +107,13 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
     } else if (pe == "theta"){
         mst <- modeltime::exp_smoothing(
             seasonal_period = "auto"
-            , error         = "auto"
-            , trend         = "auto"
-            , season        = "auto"
-            , damping       = "auto"
-            , smooth_level    = tune::tune()
-            , smooth_trend    = tune::tune()
-            , smooth_seasonal = tune::tune()
+            # , error         = "auto"
+            # , trend         = "auto"
+            # , season        = "auto"
+            # , damping       = "auto"
+            # , smooth_level    = tune::tune()
+            # , smooth_trend    = tune::tune()
+            # , smooth_seasonal = tune::tune()
         ) %>%
             parsnip::set_engine(pe)
     } else if (pe == "nnetar"){
