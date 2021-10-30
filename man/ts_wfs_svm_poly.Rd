@@ -107,6 +107,7 @@ wf_sets
 Other Auto Workflowsets: 
 \code{\link{ts_wfs_arima_boost}()},
 \code{\link{ts_wfs_auto_arima}()},
+\code{\link{ts_wfs_ets_reg}()},
 \code{\link{ts_wfs_lin_reg}()},
 \code{\link{ts_wfs_mars}()},
 \code{\link{ts_wfs_svm_rbf}()}
