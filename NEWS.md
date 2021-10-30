@@ -12,6 +12,7 @@ None
 6. Fix #104 - Add `ts_model_spec_tune_template()` function
 7. Fix #114 - Add `ts_wfs_auto_arima()` function
 8. Fix #117 - Add `ts_wfs_arima_boost()` function
+9. Fix #122 - Add `ts_wfs_ets_reg()` function
 
 ## Minor Fixes and Improvements
 1. Fix #105 - Fix `ts_auto_recipe()` bug that forced the change of column names

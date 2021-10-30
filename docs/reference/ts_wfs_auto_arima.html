@@ -155,7 +155,7 @@
     <tr>
       <th>.model_type</th>
       <td><p>This is where you will set your engine. It uses
-<a href='https://rdrr.io/pkg/modeltime/man/arima_reg.html'>modeltime::arima_reg</a> under the hood and can take one of the following:</p><ul>
+<code><a href='https://rdrr.io/pkg/modeltime/man/arima_reg.html'>modeltime::arima_reg()</a></code> under the hood and can take one of the following:</p><ul>
 <li><p>"auto_arima"</p></li>
 </ul></td>
     </tr>
@@ -179,7 +179,7 @@ set to "regression".</p>
 is not needed. The parameter is kept because it is possible in the future that
 this could change, and it keeps with the framework of how other functions
 are written.</p>
-<p><a href='https://rdrr.io/pkg/modeltime/man/arima_reg.html'>modeltime::arima_reg</a> arima_reg() is a way to generate a specification of
+<p><code><a href='https://rdrr.io/pkg/modeltime/man/arima_reg.html'>modeltime::arima_reg()</a></code> arima_reg() is a way to generate a specification of
 an ARIMA model before fitting and allows the model to be created using
 different packages. Currently the only package is <code>forecast</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -188,6 +188,7 @@ different packages. Currently the only package is <code>forecast</code>.</p>
 <p><a href='https://business-science.github.io/modeltime/reference/arima_reg.html'>https://business-science.github.io/modeltime/reference/arima_reg.html</a></p>
 <p>Other Auto Workflowsets: 
 <code><a href='ts_wfs_arima_boost.html'>ts_wfs_arima_boost</a>()</code>,
+<code><a href='ts_wfs_ets_reg.html'>ts_wfs_ets_reg</a>()</code>,
 <code><a href='ts_wfs_lin_reg.html'>ts_wfs_lin_reg</a>()</code>,
 <code><a href='ts_wfs_mars.html'>ts_wfs_mars</a>()</code>,
 <code><a href='ts_wfs_svm_poly.html'>ts_wfs_svm_poly</a>()</code>,
