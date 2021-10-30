@@ -111,7 +111,7 @@ ts_wfs_nnetar_reg <- function(.model_type = "nnetar",
     model_spec_nnetar <- modeltime::nnetar_reg(
         seasonal_period   = "auto"
         , non_seasonal_ar = non_seasonal_ar
-        , seasonal_ar     = seaonsal_ar
+        , seasonal_ar     = seasonal_ar
         , hidden_units    = hidden_units
         , num_networks    = num_networks
         , penalty         = penalty
