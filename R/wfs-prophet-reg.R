@@ -1,4 +1,4 @@
-#' Auto Linear Regression Workflowset Function
+#' Auto PROPHET Regression Workflowset Function
 #'
 #' @family Auto Workflowsets
 #'
@@ -8,11 +8,14 @@
 #' This function is used to quickly create a workflowsets object.
 #'
 #' @seealso \url{https://workflowsets.tidymodels.org/}(workflowsets)
+#' @seealso \url{https://business-science.github.io/modeltime/reference/prophet_reg.html}
+#' @seealso \url{https://business-science.github.io/modeltime/reference/prophet_boost.html}
 #'
 #' @details This function expects to take in the recipes that you want to use in
 #' the modeling process. This is an automated workflow process. There are sensible
-#' defaults set for the `glmnet` model specification, but if you choose you can
-#' set them yourself if you have a good understanding of what they should be.
+#' defaults set for the `prophet` and 'prophet_xgboost`` model specification,
+#' but if you choose you can set them yourself if you have a good understanding
+#' of what they should be.
 #'
 #' @param .model_type This is where you will set your engine. It uses
 #' [parsnip::linear_reg()] under the hood and can take one of the following:
@@ -52,7 +55,7 @@
 #'  , .pred_col = value
 #' )
 #'
-#' wf_sets <- ts_wfs_lin_reg("all_engines", rec_objs)
+#' wf_sets <- ts_wfs_prophet_reg("nnetar", rec_objs)
 #' wf_sets
 #'
 #' @return
@@ -61,7 +64,15 @@
 #' @export
 #'
 
-ts_wfs_lin_reg <- function(.model_type, .recipe_list, .penalty = 1, .mixture = 0.5){
+ts_wfs_prophet_reg <- function(.model_type = "all_engines",
+                               .recipe_list,
+                               .non_seasonal_ar = 0,
+                               .seasonal_ar = 0,
+                               .hidden_units = 5,
+                               .num_networks = 10,
+                               .penalty = .1,
+                               .epochs = 10
+){
 
     # * Tidyeval ---
     model_type  = .model_type
