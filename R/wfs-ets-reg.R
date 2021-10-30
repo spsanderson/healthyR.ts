@@ -1,4 +1,4 @@
-#' Auto Arima XGBoost Workflowset Function
+#' Auto ETS Workflowset Function
 #'
 #' @family Auto Workflowsets
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/wfs-mars-reg.R
 \name{ts_wfs_mars}
 \alias{ts_wfs_mars}
-\title{MARS (Earth) Workflowset Function}
+\title{Auto MARS (Earth) Workflowset Function}
 \usage{
 ts_wfs_mars(
   .model_type = "earth",

@@ -1,4 +1,4 @@
-#' SVM Poly (Kernlab) Workflowset Function
+#' Auto SVM Poly (Kernlab) Workflowset Function
 #'
 #' @family Auto Workflowsets
 #'

@@ -1,4 +1,4 @@
-#' SVM RBF (Kernlab) Workflowset Function
+#' Auto SVM RBF (Kernlab) Workflowset Function
 #'
 #' @family Auto Workflowsets
 #'

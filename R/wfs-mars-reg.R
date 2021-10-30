@@ -1,4 +1,4 @@
-#' MARS (Earth) Workflowset Function
+#' Auto MARS (Earth) Workflowset Function
 #'
 #' @family Auto Workflowsets
 #'
