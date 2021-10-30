@@ -18,6 +18,7 @@
 #' -  "ets"
 #' -  "croston"
 #' -  "theta"
+#' -  "smooth_es"
 #' -  "stlm_ets"
 #' -  "tbats"
 #' -  "stlm_arima"
@@ -52,7 +53,7 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
 
     # * Checks ----
     if(!pe %in% c("auto_arima","auto_arima_xgboost",
-                  "ets","croston","theta",
+                  "ets","croston","theta","smooth_es",
                   "stlm_ets","tbats","stlm_arima",
                   "nnetar",
                   "prophet","prophet_xgboost",
@@ -95,25 +96,25 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
     } else if (pe == "croston"){
         mst <- modeltime::exp_smoothing(
             seasonal_period = "auto"
-            # , error         = "auto"
-            # , trend         = "auto"
-            # , season        = "auto"
-            # , damping       = "auto"
             , smooth_level    = tune::tune()
-            # , smooth_trend    = tune::tune()
-            # , smooth_seasonal = tune::tune()
         ) %>%
             parsnip::set_engine(pe)
     } else if (pe == "theta"){
         mst <- modeltime::exp_smoothing(
             seasonal_period = "auto"
-            # , error         = "auto"
-            # , trend         = "auto"
-            # , season        = "auto"
-            # , damping       = "auto"
-            # , smooth_level    = tune::tune()
-            # , smooth_trend    = tune::tune()
-            # , smooth_seasonal = tune::tune()
+        ) %>%
+            parsnip::set_engine(pe)
+    } else if (pe == "smooth_es"){
+        mst <- modeltime::exp_smoothing(
+            mode            = "regression",
+            seasonal_period = seasonal_period,
+            error           = error,
+            trend           = trend,
+            season          = season,
+            damping         = damping,
+            smooth_level    = smooth_level,
+            smooth_trend    = smooth_trend,
+            smooth_seasonal = smooth_seasonal
         ) %>%
             parsnip::set_engine(pe)
     } else if (pe == "nnetar"){
