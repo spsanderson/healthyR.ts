@@ -27,10 +27,6 @@
 #' [modeltime::nnetar_reg()] under the hood and can take one of the following:
 #'   * "nnetar"
 #' @param .recipe_list You must supply a list of recipes. list(rec_1, rec_2, ...)
-#' @param .seasonal_period A seasonal frequency. Uses "auto" by default.
-#' A character phrase of "auto" or time-based phrase of "2 weeks" can be used
-#' if a date or date-time variable is provided. See Fit Details below.
-#' __This is set to "auto" under the hood and is hard coded__
 #' @param .non_seasonal_ar The order of the non-seasonal auto-regressive (AR) terms.
 #' Often denoted "p" in pdq-notation.
 #' @param .seasonal_ar The order of the seasonal auto-regressive (SAR) terms.
@@ -65,7 +61,7 @@
 #'  , .pred_col = value
 #' )
 #'
-#' wf_sets <- ts_wfs_nnetar_reg("all_engines", rec_objs)
+#' wf_sets <- ts_wfs_nnetar_reg("nnetar", rec_objs)
 #' wf_sets
 #'
 #' @return
@@ -100,7 +96,7 @@ ts_wfs_nnetar_reg <- function(.model_type = "nnetar",
     }
 
     if (!model_type %in% c("nnetar")){
-        stop(call. = FALSE, "(.model_type) must be one of the following, 'netar'")
+        stop(call. = FALSE, "(.model_type) must be one of the following, 'nnetar'")
     }
 
     if (!is.list(recipe_list)){
