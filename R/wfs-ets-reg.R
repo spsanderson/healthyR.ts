@@ -111,7 +111,7 @@ ts_wfs_ets_reg <- function(.model_type = "all_engines",
 
     # * Tidyeval ----
     model_type      = .model_type
-    recipe_list     = recipe_list
+    recipe_list     = .recipe_list
     seasonal_period = .seasonal_period
     error           = .error
     trend           = .trend
@@ -144,7 +144,7 @@ ts_wfs_ets_reg <- function(.model_type = "all_engines",
         damping         = damping,
         smooth_level    = smooth_level,
         smooth_trend    = smooth_trend,
-        smooth_seasonal = smooth_season
+        smooth_seasonal = smooth_seasonal
     ) %>%
         parsnip::set_engine("ets")
 
@@ -170,7 +170,7 @@ ts_wfs_ets_reg <- function(.model_type = "all_engines",
         damping         = damping,
         smooth_level    = smooth_level,
         smooth_trend    = smooth_trend,
-        smooth_seasonal = smooth_season
+        smooth_seasonal = smooth_seasonal
     ) %>%
         parsnip::set_engine("smooth_es")
 
