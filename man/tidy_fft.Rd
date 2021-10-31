@@ -91,7 +91,7 @@ data <- AirPassengers \%>\%
 a <- tidy_fft(
   .data = data,
   .value_col = value,
-  .date_col = visit_end_date_time,
+  .date_col = value,
   .harmonics = 3,
   .frequency = 12
 )
