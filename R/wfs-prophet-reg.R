@@ -18,9 +18,11 @@
 #' of what they should be.
 #'
 #' @param .model_type This is where you will set your engine. It uses
-#' [modeltime::prophet_boost()] under the hood and can take one of the following:
+#' [modeltime::prophet_reg()] under the hood and can take one of the following:
 #'   * "prophet"
+#' Or [modeltime::prophet_boost()] under the hood and can take one of the following:
 #'   * "prophet_xgboost"
+#' You can also choose:
 #'   * "all_engines" - This will make a model spec for all available engines.
 #' @param .recipe_list You must supply a list of recipes. list(rec_1, rec_2, ...)
 #' @param .growth String 'linear' or 'logistic' to specify a linear or logistic trend.

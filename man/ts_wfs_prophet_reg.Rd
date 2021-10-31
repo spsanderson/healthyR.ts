@@ -29,10 +29,12 @@ ts_wfs_prophet_reg(
 }
 \arguments{
 \item{.model_type}{This is where you will set your engine. It uses
-\code{\link[modeltime:prophet_boost]{modeltime::prophet_boost()}} under the hood and can take one of the following:
+\code{\link[modeltime:prophet_reg]{modeltime::prophet_reg()}} under the hood and can take one of the following:
 \itemize{
 \item "prophet"
+Or \code{\link[modeltime:prophet_boost]{modeltime::prophet_boost()}} under the hood and can take one of the following:
 \item "prophet_xgboost"
+You can also choose:
 \item "all_engines" - This will make a model spec for all available engines.
 }}
 
