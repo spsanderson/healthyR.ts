@@ -79,7 +79,10 @@ model_extraction_helper <- function(.fit_object){
             ar_D <- ar_order[["D"]]
             ar_Q <- ar_order[["Q"]]
             ar_F <- ar_order[["Frequency"]]
-            ar_drift <- tryCatch({ifelse(fit_object$coef[["drift"]], "with drift", "")},error = function(e){e=NULL})
+            ar_drift <- tryCatch(
+                {ifelse(fit_object$coef[["drift"]], "with drift", "")}
+                ,error = function(e){e=NULL}
+            )
             ar_model <- paste0(
                 "ARIMA",
                 "(", ar_p, ",", ar_d, ",", ar_q, ")",
