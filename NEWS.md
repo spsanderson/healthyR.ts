@@ -14,6 +14,7 @@ None
 8. Fix #117  - Add `ts_wfs_arima_boost()` function
 9. Fix #122  - Add `ts_wfs_ets_reg()` function
 10. Fix #125 - Add `ts_wfs_nnetar_reg()` function
+11. Fix #128 - Add `ts_wfs_prophet_reg()` function
 
 ## Minor Fixes and Improvements
 1. Fix #105 - Fix `ts_auto_recipe()` bug that forced the change of column names

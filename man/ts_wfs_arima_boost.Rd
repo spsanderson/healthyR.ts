@@ -88,23 +88,11 @@ of a time series model that uses boosting to improve modeling errors
 suppressPackageStartupMessages(library(modeltime))
 suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(healthyR.data))
 suppressPackageStartupMessages(library(tidymodels))
 
-data <- healthyR_data \%>\%
- filter(ip_op_flag == "I") \%>\%
-   select(visit_end_date_time) \%>\%
-   rename(date_col = visit_end_date_time) \%>\%
-   summarise_by_time(
-       .date_var = date_col
-       , .by     = "month"
-       , value   = n()
-  ) \%>\%
-   filter_by_time(
-       .date_var     = date_col
-       , .start_date = "2012"
-       , .end_date   = "2019"
-   )
+data <- AirPassengers \%>\%
+  ts_to_tbl() \%>\%
+  select(-index)
 
 splits <- time_series_split(
    data
@@ -135,6 +123,7 @@ Other Auto Workflowsets:
 \code{\link{ts_wfs_lin_reg}()},
 \code{\link{ts_wfs_mars}()},
 \code{\link{ts_wfs_nnetar_reg}()},
+\code{\link{ts_wfs_prophet_reg}()},
 \code{\link{ts_wfs_svm_poly}()},
 \code{\link{ts_wfs_svm_rbf}()}
 }

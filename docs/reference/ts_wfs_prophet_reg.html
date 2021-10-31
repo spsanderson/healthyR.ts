@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Auto SVM RBF (Kernlab) Workflowset Function — ts_wfs_svm_rbf • healthyR.ts</title>
+<title>Auto PROPHET Regression Workflowset Function — ts_wfs_prophet_reg • healthyR.ts</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Auto SVM RBF (Kernlab) Workflowset Function — ts_wfs_svm_rbf" />
+<meta property="og:title" content="Auto PROPHET Regression Workflowset Function — ts_wfs_prophet_reg" />
 <meta property="og:description" content="This function is used to quickly create a workflowsets object." />
 
 
@@ -138,21 +138,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Auto SVM RBF (Kernlab) Workflowset Function</h1>
-    <small class="dont-index">Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/R/wfs-svm-rbf.R'><code>R/wfs-svm-rbf.R</code></a></small>
-    <div class="hidden name"><code>ts_wfs_svm_rbf.Rd</code></div>
+    <h1>Auto PROPHET Regression Workflowset Function</h1>
+    <small class="dont-index">Source: <a href='https://github.com/spsanderson/healthyR.ts/blob/master/R/wfs-prophet-reg.R'><code>R/wfs-prophet-reg.R</code></a></small>
+    <div class="hidden name"><code>ts_wfs_prophet_reg.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function is used to quickly create a workflowsets object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ts_wfs_svm_rbf</span><span class='op'>(</span>
-  .model_type <span class='op'>=</span> <span class='st'>"kernlab"</span>,
+    <pre class="usage"><span class='fu'>ts_wfs_prophet_reg</span><span class='op'>(</span>
+  .model_type <span class='op'>=</span> <span class='st'>"all_engines"</span>,
   <span class='va'>.recipe_list</span>,
-  .cost <span class='op'>=</span> <span class='fl'>1</span>,
-  .rbf_sigma <span class='op'>=</span> <span class='fl'>0.01</span>,
-  .margin <span class='op'>=</span> <span class='fl'>0.1</span>
+  .growth <span class='op'>=</span> <span class='cn'>NULL</span>,
+  .changepoint_num <span class='op'>=</span> <span class='fl'>25</span>,
+  .changepoint_range <span class='op'>=</span> <span class='fl'>0.8</span>,
+  .seasonality_yearly <span class='op'>=</span> <span class='st'>"auto"</span>,
+  .seasonality_weekly <span class='op'>=</span> <span class='st'>"auto"</span>,
+  .seasonality_daily <span class='op'>=</span> <span class='st'>"auto"</span>,
+  .season <span class='op'>=</span> <span class='st'>"additive"</span>,
+  .prior_scale_changepoints <span class='op'>=</span> <span class='fl'>25</span>,
+  .prior_scale_seasonality <span class='op'>=</span> <span class='fl'>1</span>,
+  .prior_scale_holidays <span class='op'>=</span> <span class='fl'>1</span>,
+  .logistic_cap <span class='op'>=</span> <span class='cn'>NULL</span>,
+  .logistic_floor <span class='op'>=</span> <span class='cn'>NULL</span>,
+  .trees <span class='op'>=</span> <span class='fl'>50</span>,
+  .min_n <span class='op'>=</span> <span class='fl'>10</span>,
+  .tree_depth <span class='op'>=</span> <span class='fl'>5</span>,
+  .learn_rate <span class='op'>=</span> <span class='fl'>0.01</span>,
+  .loss_reduction <span class='op'>=</span> <span class='cn'>NULL</span>,
+  .stop_iter <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -161,8 +176,12 @@
     <tr>
       <th>.model_type</th>
       <td><p>This is where you will set your engine. It uses
-<code><a href='https://parsnip.tidymodels.org/reference/svm_rbf.html'>parsnip::svm_rbf()</a></code> under the hood and can take one of the following:</p><ul>
-<li><p>"kernlab"</p></li>
+<code><a href='https://rdrr.io/pkg/modeltime/man/prophet_reg.html'>modeltime::prophet_reg()</a></code> under the hood and can take one of the following:</p><ul>
+<li><p>"prophet"
+Or <code><a href='https://rdrr.io/pkg/modeltime/man/prophet_boost.html'>modeltime::prophet_boost()</a></code> under the hood and can take one of the following:</p></li>
+<li><p>"prophet_xgboost"
+You can also choose:</p></li>
+<li><p>"all_engines" - This will make a model spec for all available engines.</p></li>
 </ul></td>
     </tr>
     <tr>
@@ -170,18 +189,91 @@
       <td><p>You must supply a list of recipes. list(rec_1, rec_2, ...)</p></td>
     </tr>
     <tr>
-      <th>.cost</th>
-      <td><p>A positive number for the cost of predicting a sample within or
-on the wrong side of the margin.</p></td>
+      <th>.growth</th>
+      <td><p>String 'linear' or 'logistic' to specify a linear or logistic trend.</p></td>
     </tr>
     <tr>
-      <th>.rbf_sigma</th>
-      <td><p>A positive number for the radial basis function.</p></td>
+      <th>.changepoint_num</th>
+      <td><p>Number of potential changepoints to include for modeling trend.</p></td>
     </tr>
     <tr>
-      <th>.margin</th>
-      <td><p>A positive number for the epsilon in the SVM insensitive loss
-function (regression only).</p></td>
+      <th>.changepoint_range</th>
+      <td><p>Adjusts the flexibility of the trend component by
+limiting to a percentage of data before the end of the time series. 0.80
+means that a changepoint cannot exist after the first 80% of the data.</p></td>
+    </tr>
+    <tr>
+      <th>.seasonality_yearly</th>
+      <td><p>One of "auto", TRUE or FALSE. Set to FALSE for <code>prophet_xgboost</code>.
+Toggles on/off a seasonal component that models year-over-year seasonality.</p></td>
+    </tr>
+    <tr>
+      <th>.seasonality_weekly</th>
+      <td><p>One of "auto", TRUE or FALSE. Toggles on/off a
+seasonal component that models week-over-week seasonality. Set to FALSE for <code>prophet_xgboost</code></p></td>
+    </tr>
+    <tr>
+      <th>.seasonality_daily</th>
+      <td><p>One of "auto", TRUE or FALSE. Toggles on/off a
+seasonal componet that models day-over-day seasonality. Set to FALSE for <code>prophet_xgboost</code></p></td>
+    </tr>
+    <tr>
+      <th>.season</th>
+      <td><p>'additive' (default) or 'multiplicative'.</p></td>
+    </tr>
+    <tr>
+      <th>.prior_scale_changepoints</th>
+      <td><p>Parameter modulating the flexibility of the
+automatic changepoint selection. Large values will allow many changepoints,
+small values will allow few changepoints.</p></td>
+    </tr>
+    <tr>
+      <th>.prior_scale_seasonality</th>
+      <td><p>Parameter modulating the strength of the
+seasonality model. Larger values allow the model to fit larger seasonal
+fluctuations, smaller values dampen the seasonality.</p></td>
+    </tr>
+    <tr>
+      <th>.prior_scale_holidays</th>
+      <td><p>Parameter modulating the strength of the holiday
+components model, unless overridden in the holidays input.</p></td>
+    </tr>
+    <tr>
+      <th>.logistic_cap</th>
+      <td><p>When growth is logistic, the upper-bound for "saturation".</p></td>
+    </tr>
+    <tr>
+      <th>.logistic_floor</th>
+      <td><p>When growth is logistic, the lower-bound for "saturation"</p></td>
+    </tr>
+    <tr>
+      <th>.trees</th>
+      <td><p>An integer for the number of trees contained in the ensemble.</p></td>
+    </tr>
+    <tr>
+      <th>.min_n</th>
+      <td><p>An integer for the minimum number of data points in a node
+that is required for the node to be split further.</p></td>
+    </tr>
+    <tr>
+      <th>.tree_depth</th>
+      <td><p>An integer for the maximum depth of the tree
+(i.e. number of splits) (specific engines only).</p></td>
+    </tr>
+    <tr>
+      <th>.learn_rate</th>
+      <td><p>A number for the rate at which the boosting algorithm
+adapts from iteration-to-iteration (specific engines only).</p></td>
+    </tr>
+    <tr>
+      <th>.loss_reduction</th>
+      <td><p>A number for the reduction in the loss function
+required to split further (specific engines only).</p></td>
+    </tr>
+    <tr>
+      <th>.stop_iter</th>
+      <td><p>The number of iterations without improvement before
+stopping (xgboost only).</p></td>
     </tr>
     </table>
 
@@ -192,23 +284,14 @@ function (regression only).</p></td>
 
     <p>This function expects to take in the recipes that you want to use in
 the modeling process. This is an automated workflow process. There are sensible
-defaults set for the model specification, but if you choose you can set them
-yourself if you have a good understanding of what they should be. The mode is
-set to "regression".</p>
-<p>This only uses the option <code>set_engine("kernlab")</code> and therefore the .model_type
-is not needed. The parameter is kept because it is possible in the future that
-this could change, and it keeps with the framework of how other functions
-are written.</p>
-<p><code><a href='https://parsnip.tidymodels.org/reference/svm_rbf.html'>parsnip::svm_rbf()</a></code> svm_rbf() defines a support vector machine model.
-For classification, the model tries to maximize the width of the margin
-between classes. For regression, the model optimizes a robust loss function
-that is only affected by very large model residuals.</p>
-<p>This SVM model uses a nonlinear function, specifically a polynomial function,
-to create the decision boundary or regression line.</p>
+defaults set for the <code>prophet</code> and <code>prophet_xgboost</code> model specification,
+but if you choose you can set them yourself if you have a good understanding
+of what they should be.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='https://workflowsets.tidymodels.org/'>https://workflowsets.tidymodels.org/</a></p>
-<p><a href='https://parsnip.tidymodels.org/reference/svm_rbf.html'>https://parsnip.tidymodels.org/reference/svm_rbf.html</a></p>
+    <div class='dont-index'><p><a href='https://workflowsets.tidymodels.org/'>https://workflowsets.tidymodels.org/</a>(workflowsets)</p>
+<p><a href='https://business-science.github.io/modeltime/reference/prophet_reg.html'>https://business-science.github.io/modeltime/reference/prophet_reg.html</a></p>
+<p><a href='https://business-science.github.io/modeltime/reference/prophet_boost.html'>https://business-science.github.io/modeltime/reference/prophet_boost.html</a></p>
 <p>Other Auto Workflowsets: 
 <code><a href='ts_wfs_arima_boost.html'>ts_wfs_arima_boost</a>()</code>,
 <code><a href='ts_wfs_auto_arima.html'>ts_wfs_auto_arima</a>()</code>,
@@ -216,8 +299,8 @@ to create the decision boundary or regression line.</p>
 <code><a href='ts_wfs_lin_reg.html'>ts_wfs_lin_reg</a>()</code>,
 <code><a href='ts_wfs_mars.html'>ts_wfs_mars</a>()</code>,
 <code><a href='ts_wfs_nnetar_reg.html'>ts_wfs_nnetar_reg</a>()</code>,
-<code><a href='ts_wfs_prophet_reg.html'>ts_wfs_prophet_reg</a>()</code>,
-<code><a href='ts_wfs_svm_poly.html'>ts_wfs_svm_poly</a>()</code></p></div>
+<code><a href='ts_wfs_svm_poly.html'>ts_wfs_svm_poly</a>()</code>,
+<code><a href='ts_wfs_svm_rbf.html'>ts_wfs_svm_rbf</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Steven P. Sanderson II, MPH</p>
@@ -247,15 +330,19 @@ to create the decision boundary or regression line.</p>
  , .pred_col <span class='op'>=</span> <span class='va'>value</span>
 <span class='op'>)</span>
 
-<span class='va'>wf_sets</span> <span class='op'>&lt;-</span> <span class='fu'>ts_wfs_svm_rbf</span><span class='op'>(</span><span class='st'>"kernlab"</span>, <span class='va'>rec_objs</span><span class='op'>)</span>
+<span class='va'>wf_sets</span> <span class='op'>&lt;-</span> <span class='fu'>ts_wfs_prophet_reg</span><span class='op'>(</span><span class='st'>"all_engines"</span>, <span class='va'>rec_objs</span><span class='op'>)</span>
 <span class='va'>wf_sets</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A workflow set/tibble: 4 x 4</span>
-#&gt;   wflow_id                     info             option    result    
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                        <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    
-#&gt; <span style='color: #BCBCBC;'>1</span> rec_base_svm_rbf             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>2</span> rec_date_svm_rbf             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>3</span> rec_date_fourier_svm_rbf     <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>4</span> rec_date_fourier_nzv_svm_rbf <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A workflow set/tibble: 8 x 4</span>
+#&gt;   wflow_id                           info             option    result    
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                              <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>    
+#&gt; <span style='color: #BCBCBC;'>1</span> rec_base_prophet_reg               <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>2</span> rec_base_prophet_boost             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>3</span> rec_date_prophet_reg               <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>4</span> rec_date_prophet_boost             <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>5</span> rec_date_fourier_prophet_reg       <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>6</span> rec_date_fourier_prophet_boost     <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>7</span> rec_date_fourier_nzv_prophet_reg   <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>8</span> rec_date_fourier_nzv_prophet_boost <span style='color: #949494;'>&lt;tibble [1 x 4]&gt;</span> <span style='color: #949494;'>&lt;opts[0]&gt;</span> <span style='color: #949494;'>&lt;list [0]&gt;</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
