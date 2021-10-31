@@ -113,26 +113,27 @@ ts_wfs_prophet_reg <- function(.model_type = "all_engines",
 ){
 
     # * Tidyeval ---
-    model_type  = .model_type
-    recipe_list = .recipe_list
-    growth      = .growth
-    changepoint_num = .changepoint_num
-    changepoint_range = .changepoint_range
-    seasonality_yearly = .seasonality_yearly
-    seasonality_weekly = .seasonality_weekly
-    seasonality_daily = .seasonality_daily
-    season = .season
+    model_type               = .model_type
+    recipe_list              = .recipe_list
+    growth                   = .growth
+    changepoint_num          = .changepoint_num
+    changepoint_range        = .changepoint_range
+    seasonality_yearly       = .seasonality_yearly
+    seasonality_weekly       = .seasonality_weekly
+    seasonality_daily        = .seasonality_daily
+    season                   = .season
     prior_scale_changepoints = .prior_scale_changepoints
-    prior_scale_seasonality = .prior_scale_seasonality
-    prior_scale_holidays = .prior_scale_holidays
-    logistic_cap = .logistic_cap
-    logistic_floor = .logistic_floor
-    trees = .trees
-    min_n = .min_n
-    tree_depth = .tree_depth
-    learn_rate = .learn_rate
+    prior_scale_seasonality  = .prior_scale_seasonality
+    prior_scale_holidays     = .prior_scale_holidays
+    logistic_cap             = .logistic_cap
+    logistic_floor           = .logistic_floor
+    # XGBOOST Parameters
+    trees          = .trees
+    min_n          = .min_n
+    tree_depth     = .tree_depth
+    learn_rate     = .learn_rate
     loss_reduction = .loss_reduction
-    stop_iter = .stop_iter
+    stop_iter      = .stop_iter
 
     # * Checks ----
     if (!is.character(model_type)) {
