@@ -127,6 +127,7 @@ ts_wfs_prophet_reg <- function(.model_type = "all_engines",
     prior_scale_holidays     = .prior_scale_holidays
     logistic_cap             = .logistic_cap
     logistic_floor           = .logistic_floor
+
     # XGBOOST Parameters
     trees          = .trees
     min_n          = .min_n
@@ -165,7 +166,7 @@ ts_wfs_prophet_reg <- function(.model_type = "all_engines",
     ) %>%
         parsnip::set_engine("prophet")
 
-    model_spec_prophet_boost <- modeltime::prophet_reg(
+    model_spec_prophet_boost <- modeltime::prophet_boost(
         changepoint_num            = changepoint_num
         , changepoint_range        = changepoint_range
         , seasonality_yearly       = FALSE
@@ -178,18 +179,25 @@ ts_wfs_prophet_reg <- function(.model_type = "all_engines",
         , logistic_cap             = logistic_cap
         , logistic_floor           = logistic_floor
         , season                   = season
+
         # XGBoost Parameters
+        , trees                    = trees
+        , min_n                    = min_n
+        , tree_depth               = tree_depth
+        , learn_rate               = learn_rate
+        , loss_reduction           = loss_reduction
+        , stop_iter                = stop_iter
     ) %>%
         parsnip::set_engine("prophet_xgboost")
 
-    final_model_list <- if (model_type == "lm"){
-        fml <- list(model_spec_lm)
-    } else if (model_type == "glmnet"){
-        fml <- list(model_spec_glmnet)
+    final_model_list <- if (model_type == "prophet"){
+        fml <- list(model_spec_prophet)
+    } else if (model_type == "prophet_xgboost"){
+        fml <- list(model_spec_prophet_boost)
     } else {
         fml <- list(
-            model_spec_lm,
-            model_spec_glmnet
+            model_spec_prophet,
+            model_spec_prophet_boost
         )
     }
 
