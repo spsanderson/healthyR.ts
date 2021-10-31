@@ -61,26 +61,16 @@
 #' @param .upsampling The up sampling of the time series.
 #'
 #' @examples
-#' library(healthyR.data)
 #' library(dplyr)
 #' library(ggplot2)
 #' library(timetk)
 #'
-#' dat <- healthyR_data%>%
-#'     filter(ip_op_flag == 'I') %>%
-#'     summarise_by_time(
-#'         .date_var = visit_end_date_time,
-#'         .by = "month",
-#'         value = n()
-#'     ) %>%
-#'     filter_by_time(
-#'         .date_var = visit_end_date_time,
-#'         .start_date = "2015",
-#'         .end_date = "2019"
-#'    )
+#' data <- AirPassengers %>%
+#'   ts_to_tbl() %>%
+#'   select(-index)
 #'
 #' a <- tidy_fft(
-#'   .data = dat,
+#'   .data = data,
 #'   .value_col = value,
 #'   .date_col = visit_end_date_time,
 #'   .harmonics = 3,
