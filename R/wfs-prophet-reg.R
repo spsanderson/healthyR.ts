@@ -150,23 +150,37 @@ ts_wfs_prophet_reg <- function(.model_type = "all_engines",
 
     # * Models ----
     model_spec_prophet <- modeltime::prophet_reg(
-        changepoint_num      = tune::tune()
-        , changepoint_range  = tune::tune()
-        , seasonality_yearly = "auto"
-        , seasonality_weekly = "auto"
-        , seasonality_daily  = "auto"
-        , prior_scale_changepoints = tune::tune()
-        , prior_scale_seasonality  = tune::tune()
-        , prior_scale_holidays     = tune::tune()
+        changepoint_num            = changepoint_num
+        , changepoint_range        = changepoint_range
+        , seasonality_yearly       = seasonality_yearly
+        , seasonality_weekly       = seasonality_weekly
+        , seasonality_daily        = seasonality_daily
+        , prior_scale_changepoints = prior_scale_changepoints
+        , prior_scale_seasonality  = prior_scale_seasonality
+        , prior_scale_holidays     = prior_scale_holidays
+        , growth                   = growth
+        , logistic_cap             = logistic_cap
+        , logistic_floor           = logistic_floor
+        , season                   = season
     ) %>%
-        parsnip::set_engine(pe)
+        parsnip::set_engine("prophet")
 
-    model_spec_glmnet <- parsnip::linear_reg(
-        mode    = "regression",
-        penalty = .penalty,
-        mixture = .mixture
+    model_spec_prophet_boost <- modeltime::prophet_reg(
+        changepoint_num            = changepoint_num
+        , changepoint_range        = changepoint_range
+        , seasonality_yearly       = FALSE
+        , seasonality_weekly       = FALSE
+        , seasonality_daily        = FALSE
+        , prior_scale_changepoints = prior_scale_changepoints
+        , prior_scale_seasonality  = prior_scale_seasonality
+        , prior_scale_holidays     = prior_scale_holidays
+        , growth                   = growth
+        , logistic_cap             = logistic_cap
+        , logistic_floor           = logistic_floor
+        , season                   = season
+        # XGBoost Parameters
     ) %>%
-        parsnip::set_engine("glmnet")
+        parsnip::set_engine("prophet_xgboost")
 
     final_model_list <- if (model_type == "lm"){
         fml <- list(model_spec_lm)
