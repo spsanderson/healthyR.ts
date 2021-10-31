@@ -137,19 +137,15 @@ ts_wfs_prophet_reg <- function(.model_type = "all_engines",
 
     # * Checks ----
     if (!is.character(model_type)) {
-        stop(call. = FALSE, "(.model_type) must be a character like 'lm', 'glmnet'")
+        stop(call. = FALSE, "(.model_type) must be a character like 'prophet','prophet_xgboost'")
     }
 
-    if (!model_type %in% c("lm","glmnet","all_engines")){
-        stop(call. = FALSE, "(.model_type) must be one of the following, 'lm','glmnet', or 'all_engines'")
+    if (!model_type %in% c("prophet","prophet_xgboost","all_engines")){
+        stop(call. = FALSE, "(.model_type) must be one of the following, 'prophet','prophet_xgboost','all_engines'")
     }
 
     if (!is.list(recipe_list)){
         stop(call. = FALSE, "(.recipe_list) must be a list of recipe objects")
-    }
-
-    if (!is.numeric(.penalty) | !is.numeric(.mixture)){
-        stop(call. = FALSE, "Both the .penalty and .mixture parameters must be numeric.")
     }
 
     # * Models ----
