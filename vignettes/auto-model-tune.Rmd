@@ -1,0 +1,292 @@
+---
+title: "Automatic Model Tuning"
+author: "Steven P. Sanderson II, MPH"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Automatic Model Tuning}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(healthyR.ts)
+
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(timetk))
+suppressPackageStartupMessages(library(tidymodels))
+suppressPackageStartupMessages(library(modeltime))
+suppressPackageStartupMessages(library(parallel))
+```
+
+# Idea
+
+This vignette is going to go through a workflow of automatically tuning a timeseries
+model. The workflow is simple even though the concepts can be seeming difficult. 
+We are going to use the built in dataset of `AirPassengers` that comes standard shipped
+with `R`.
+
+The function is called `ts_model_auto_tune()` and as it's simple name implies, it
+will tune a timeseries model. This function although helpful does come with minor
+limitations. The `healthyR.ts` package is designed to sit on top of and work with
+[`modeltime`](https://business-science.github.io/modeltime/)
+
+It is also important to note that the model itself should be infact tuneable, like 
+an `xgboost` model or a `prophet` model. If the model is not tunable, or not meant
+to be tuned like a standard `lm` model or an `auto.arima` model (where the tuning is
+done for you) then the model will get rejected from the function as there will be
+no model template returned.
+
+The function is called like so (defaults are shown):
+
+```{r main_func, eval=FALSE}
+ts_model_auto_tune(
+  .modeltime_model_id,
+  .calibration_tbl,
+  .splits_obj,
+  .drop_training_na = TRUE,
+  .date_col,
+  .value_col,
+  .tscv_assess = "12 months",
+  .tscv_skip = "6 months",
+  .slice_limit = 6,
+  .facet_ncol = 2,
+  .grid_size = 30,
+  .num_cores = 1,
+  .best_metric = "rmse"
+)
+```
+
+## Function Details
+
+This function will create a tuned model. It uses the `[healthyR.ts::ts_model_spec_tune_template()]` under the hood to get the generic template that is used in the grid search. The tuning template will return a generic model template
+where tunable parameters are set to `[tune::tune()]` using the [tune package from tidymodels](https://tune.tidymodels.org/). There is a single parameter to this function
+called `.parsnip_engine`. It pulls the engine from the model and returns the appropriate
+template to tune.
+
+Here is an example:
+
+```{r tune_template}
+ts_model_spec_tune_template("prophet")
+```
+
+Now if you want to do a Prophet model with XGBoost errors in the model:
+
+```{r pxgb}
+ts_model_spec_tune_template("prophet_xgboost")
+```
+
+As you notice the seasonality features are set to FALSE so that the XGBoost model
+is used to predict them from the data.
+
+# Example Workflow
+
+This section will work through a simple example workflow using several different
+`healthyR.ts` functions to prepare data. Since I don't want this vignette to have
+to run for a long time to compile everytime I rebuild the package and the site,
+I have chosen to use the MARS algorithm with the `earth` engine for a grid size
+of only 5. The default is a grid size of 30 and a slice limit of 6, which for this
+will be 3.
+
+## Get Data
+
+As previously mentioned, we will be using the default `AirPassengers` dataset
+that comes shipped with `R`.
+
+```{r data}
+data_ts <- AirPassengers
+
+data_ts
+```
+
+Now lets transform the data from a a `ts` object into a tibble using the `[healthyR.ts::ts_to_tbl()]` function.
+
+```{r ts_to_tbl}
+data_tbl <- ts_to_tbl(data_ts) %>%
+  select(-index)
+
+data_tbl
+```
+
+## Splits Object
+
+You will notice that the `ts_to_tbl()` function gave us the names of `date_col` and `value`. We can now pass this `tibble` into the `[timetk::time_series_split()]` function. This will make our `splits` object.
+
+```{r ts_split}
+splits <- time_series_split(
+    data_tbl
+    , date_col
+    , assess = 12
+    , skip = 3
+    , cumulative = TRUE
+)
+
+splits
+
+head(training(splits))
+head(testing(splits))
+```
+
+## Recipe Object
+
+We are now going to employ `[healthR.ts::ts_auto_recipe()]` in order to generate four distinct generalized recipes.
+
+```{r rec_objs}
+rec_objs <- ts_auto_recipe(
+  .data       = data_tbl
+  , .date_col = date_col
+  , .pred_col = value
+)
+
+rec_objs[[4]]
+```
+
+## Workflowsets Object
+
+Now that we have our data and our recipe, we can make our automatic workflowsets object. As mentioned at the top we are going to use the `MARS` algorithm with the `earth` engine. This function from `healthyR.ts` will take in a list of recipes and a `.model_type` parameter, and create a workflowsets tibble, where cross is set to TRUE
+
+```{r wfsets}
+wfsets <- healthyR.ts::ts_wfs_mars(
+  .model_type = "earth"
+  , .recipe_list = rec_objs
+)
+
+wfsets
+```
+
+We see above that we have a total of four combinations of model spec and recipe. That is because we used a single engine to get a model specification and the automatic recipe function creates four distinct but related recipes.
+
+## Modeltime Workflow
+
+### Fit the data
+
+First we will fit the data using the `[modeltime::modeltime_fit_workflowset()]` function.
+
+```{r wf_fits}
+wf_fits <- wfsets %>%
+  modeltime_fit_workflowset(
+    data = training(splits)
+    , control = control_fit_workflowset(
+     allow_par = TRUE
+     , verbose = TRUE
+    )
+  )
+
+models_tbl <- wf_fits %>%
+  filter(.model != "NULL")
+
+
+models_tbl
+```
+
+It can happen from time to time that a model will be `NULL` hence we drop any that might be.
+
+### Calibration Tibble
+
+Now it is time to calibrate the data with the testing set.
+
+```{r calibration_tbl}
+calibration_tbl <- models_tbl %>%
+  modeltime_calibrate(new_data = testing(splits))
+
+calibration_tbl
+```
+
+# Automatic Tuning
+
+Now that we have gone through getting our data, making the models, fitting the models and calibrating them, we can choose one to put through the automatic tuner.
+
+We will use the first model.
+
+```{r tune_the_model}
+output <- healthyR.ts::ts_model_auto_tune(
+  .modeltime_model_id = 1,
+  .calibration_tbl    = calibration_tbl,
+  .splits_obj         = splits,
+  .drop_training_na   = TRUE,
+  .date_col           = date_col,
+  .value_col          = value,
+  .tscv_assess        = "12 months",
+  .tscv_skip          = "3 months",
+  .num_cores          = detectCores() - 1
+)
+```
+
+Now lets explore the output of the function.
+
+## Data
+
+The function outputs a list object, part of that output is data. Lets take a look at each piece of the data.
+
+The data section has the following items:
+-  calibration_tbl This is the calibration data passed into the function.
+-  calibration_tuned_tbl This is a calibration tibble that has used the tuned workflow.
+-  tscv_data_tbl This is the tibble of the time series cross validation.
+-  tuned_results This is a tuning results tibble with all slices from the time series cross validation.
+-  best_tuned_results_tbl This is a tibble of the parameters for the best test set with the chosen metric.
+-  tscv_obj This is the actual time series cross validation object returned from timetk::time_series_cv()
+
+```{r output_data}
+output$data$calibration_tbl
+
+output$data$calibration_tuned_tbl
+
+output$data$tscv_data_tbl
+
+output$data$tuned_results
+
+output$data$best_tuned_results
+
+output$data$tscv_obj
+```
+
+## Model Info
+
+The model_info section has the following items:
+-  model_spec This is the original modeltime/parsnip model specification.
+-  model_spec_engine This is the engine used for the model specification.
+-  model_spec_tuner This is the tuning model template returned from ts_model_spec_tune_template()
+-  plucked_model This is the model that we have plucked from the calibration tibble for tuning.
+-  wflw_tune_spec This is a new workflow with the model_spec_tuner attached.
+-  grid_spec This is the grid search specification for the tuning process.
+-  tuned_tscv_wflw_spec This is the final tuned model where the workflow and model have been finalized. This would be the model that you would want to pull out if you are going to work with it further.
+
+```{r output_model_info}
+output$model_info$model_spec
+
+output$model_info$model_spec_engine
+
+output$model_info$model_spec_tuner
+
+output$model_info$plucked_model
+
+output$model_info$wflw_tune_spec
+
+output$model_info$grid_spec
+
+output$model_info$tuned_tscv_wflw_spec
+```
+
+## Plots
+
+The plots section has the following items:
+-  tune_results_plt This is a static ggplot of the grid search.
+-  tscv_pl This is the time series cross validation plan plot.
+
+```{r output_plots, message=FALSE, warning=FALSE}
+output$plots$tune_results_plt
+
+output$plots$tscv_plt
+```
+
+That is it, this simple workflow has shown you how to make a model and use the automatic tuner to get a tuned version of that model.
