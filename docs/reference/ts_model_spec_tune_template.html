@@ -83,7 +83,7 @@ can be used by itself and is called internally by ts_model_auto_tune()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -202,36 +202,38 @@ parsnip/modeltime engines:</p><ul>
     <p>Steven P. Sanderson II, MPH</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ts_model_spec_tune_template</span><span class='op'>(</span><span class='st'>"ets"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Exponential Smoothing State Space Model Specification (regression)
-#&gt; 
-#&gt; Main Arguments:
-#&gt;   seasonal_period = auto
-#&gt;   error = auto
-#&gt;   trend = auto
-#&gt;   season = auto
-#&gt;   damping = auto
-#&gt;   smooth_level = tune::tune()
-#&gt;   smooth_trend = tune::tune()
-#&gt;   smooth_seasonal = tune::tune()
-#&gt; 
-#&gt; Computational engine: ets 
-#&gt; </div><div class='input'><span class='fu'>ts_model_spec_tune_template</span><span class='op'>(</span><span class='st'>"prophet"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; PROPHET Regression Model Specification (regression)
-#&gt; 
-#&gt; Main Arguments:
-#&gt;   changepoint_num = tune::tune()
-#&gt;   changepoint_range = tune::tune()
-#&gt;   seasonality_yearly = auto
-#&gt;   seasonality_weekly = auto
-#&gt;   seasonality_daily = auto
-#&gt;   prior_scale_changepoints = tune::tune()
-#&gt;   prior_scale_seasonality = tune::tune()
-#&gt;   prior_scale_holidays = tune::tune()
-#&gt; 
-#&gt; Computational engine: prophet 
-#&gt; </div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>ts_model_spec_tune_template</span><span class='op'>(</span><span class='st'>"ets"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Exponential Smoothing State Space Model Specification (regression)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Main Arguments:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seasonal_period = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   error = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   trend = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   season = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   damping = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   smooth_level = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   smooth_trend = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   smooth_seasonal = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Computational engine: ets </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>ts_model_spec_tune_template</span><span class='op'>(</span><span class='st'>"prophet"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> PROPHET Regression Model Specification (regression)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Main Arguments:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   changepoint_num = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   changepoint_range = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seasonality_yearly = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seasonality_weekly = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seasonality_daily = auto</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   prior_scale_changepoints = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   prior_scale_seasonality = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   prior_scale_holidays = tune::tune()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Computational engine: prophet </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
