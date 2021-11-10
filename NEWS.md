@@ -1,4 +1,16 @@
-# healthyR.ts (development version)
+# healthyR.ts 0.1.5
+
+# healthyR.ts 0.1.5
+
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+Fix #143 - Drop `mtry = tune::tune()` from `ts_model_spec_tune_template` as it 
+causes issues downstream.
 
 # healthyR.ts 0.1.4
 
