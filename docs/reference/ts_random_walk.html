@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -206,28 +206,29 @@ are not taken too seriously.</p>
     <p>Steven P. Sanderson II, MPH</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ts_random_walk</span><span class='op'>(</span>
-.mean <span class='op'>=</span> <span class='fl'>6</span>,
-.sd <span class='op'>=</span> <span class='fl'>1</span>,
-.num_walks <span class='op'>=</span> <span class='fl'>25</span>,
-.periods <span class='op'>=</span> <span class='fl'>180</span>,
-.initial_value <span class='op'>=</span> <span class='fl'>6</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 4,500 x 4</span>
-#&gt;      run     x     y        cum_y
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>     1     1  5.05         36.3
-#&gt; <span style='color: #BCBCBC;'> 2</span>     1     2  5.92        252. 
-#&gt; <span style='color: #BCBCBC;'> 3</span>     1     3  6.19       <span style='text-decoration: underline;'>1</span>808. 
-#&gt; <span style='color: #BCBCBC;'> 4</span>     1     4  7.25      <span style='text-decoration: underline;'>14</span>914. 
-#&gt; <span style='color: #BCBCBC;'> 5</span>     1     5  5.45      <span style='text-decoration: underline;'>96</span>214. 
-#&gt; <span style='color: #BCBCBC;'> 6</span>     1     6  4.29     <span style='text-decoration: underline;'>508</span>938. 
-#&gt; <span style='color: #BCBCBC;'> 7</span>     1     7  5.30    3<span style='text-decoration: underline;'>205</span>806. 
-#&gt; <span style='color: #BCBCBC;'> 8</span>     1     8  7.90   28<span style='text-decoration: underline;'>524</span>708. 
-#&gt; <span style='color: #BCBCBC;'> 9</span>     1     9  7.11  231<span style='text-decoration: underline;'>457</span>139. 
-#&gt; <span style='color: #BCBCBC;'>10</span>     1    10  6.85 <span style='text-decoration: underline;'>1</span>816<span style='text-decoration: underline;'>235</span>320. 
-#&gt; <span style='color: #949494;'># ... with 4,490 more rows</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>ts_random_walk</span><span class='op'>(</span></span>
+<span class='r-in'>.mean <span class='op'>=</span> <span class='fl'>6</span>,</span>
+<span class='r-in'>.sd <span class='op'>=</span> <span class='fl'>1</span>,</span>
+<span class='r-in'>.num_walks <span class='op'>=</span> <span class='fl'>25</span>,</span>
+<span class='r-in'>.periods <span class='op'>=</span> <span class='fl'>180</span>,</span>
+<span class='r-in'>.initial_value <span class='op'>=</span> <span class='fl'>6</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 4,500 x 4</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      run     x     y        cum_y</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>     1     1  5.05         36.3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>     1     2  5.92        252. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>     1     3  6.19       <span style='text-decoration: underline;'>1</span>808. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>     1     4  7.25      <span style='text-decoration: underline;'>14</span>914. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>     1     5  5.45      <span style='text-decoration: underline;'>96</span>214. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>     1     6  4.29     <span style='text-decoration: underline;'>508</span>938. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>     1     7  5.30    3<span style='text-decoration: underline;'>205</span>806. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>     1     8  7.90   28<span style='text-decoration: underline;'>524</span>708. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>     1     9  7.11  231<span style='text-decoration: underline;'>457</span>139. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>     1    10  6.85 <span style='text-decoration: underline;'>1</span>816<span style='text-decoration: underline;'>235</span>320. </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 4,490 more rows</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

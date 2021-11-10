@@ -83,7 +83,7 @@ tibble format." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -184,38 +184,41 @@ an index column is returned.</p>
     <p>Steven P. Sanderson II, MPH</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>ts_to_tbl</span><span class='op'>(</span><span class='va'>BJsales</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 150 x 1</span>
-#&gt;    value
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>  200.
-#&gt; <span style='color: #BCBCBC;'> 2</span>  200.
-#&gt; <span style='color: #BCBCBC;'> 3</span>  199.
-#&gt; <span style='color: #BCBCBC;'> 4</span>  199.
-#&gt; <span style='color: #BCBCBC;'> 5</span>  199 
-#&gt; <span style='color: #BCBCBC;'> 6</span>  200.
-#&gt; <span style='color: #BCBCBC;'> 7</span>  199.
-#&gt; <span style='color: #BCBCBC;'> 8</span>  200 
-#&gt; <span style='color: #BCBCBC;'> 9</span>  200.
-#&gt; <span style='color: #BCBCBC;'>10</span>  201.
-#&gt; <span style='color: #949494;'># ... with 140 more rows</span></div><div class='input'><span class='fu'>ts_to_tbl</span><span class='op'>(</span><span class='va'>AirPassengers</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: `type_convert()` only converts columns of type 'character'.</span>
-#&gt; <span class='warning'>- `df` has no columns of type 'character'</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 144 x 3</span>
-#&gt;    index     date_col   value
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;yearmon&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> Jan 1949  1949-01-01   112
-#&gt; <span style='color: #BCBCBC;'> 2</span> Feb 1949  1949-02-01   118
-#&gt; <span style='color: #BCBCBC;'> 3</span> Mar 1949  1949-03-01   132
-#&gt; <span style='color: #BCBCBC;'> 4</span> Apr 1949  1949-04-01   129
-#&gt; <span style='color: #BCBCBC;'> 5</span> May 1949  1949-05-01   121
-#&gt; <span style='color: #BCBCBC;'> 6</span> Jun 1949  1949-06-01   135
-#&gt; <span style='color: #BCBCBC;'> 7</span> Jul 1949  1949-07-01   148
-#&gt; <span style='color: #BCBCBC;'> 8</span> Aug 1949  1949-08-01   148
-#&gt; <span style='color: #BCBCBC;'> 9</span> Sep 1949  1949-09-01   136
-#&gt; <span style='color: #BCBCBC;'>10</span> Oct 1949  1949-10-01   119
-#&gt; <span style='color: #949494;'># ... with 134 more rows</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='fu'>ts_to_tbl</span><span class='op'>(</span><span class='va'>BJsales</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 150 x 1</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>  200.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>  200.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>  199.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>  199.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>  199 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>  200.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>  199.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>  200 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>  200.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>  201.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 140 more rows</span></span>
+<span class='r-in'><span class='fu'>ts_to_tbl</span><span class='op'>(</span><span class='va'>AirPassengers</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`type_convert()` only converts columns of type 'character'.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> - `df` has no columns of type 'character'</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 144 x 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    index     date_col   value</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;yearmon&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Jan 1949  1949-01-01   112</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Feb 1949  1949-02-01   118</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Mar 1949  1949-03-01   132</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Apr 1949  1949-04-01   129</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> May 1949  1949-05-01   121</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Jun 1949  1949-06-01   135</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Jul 1949  1949-07-01   148</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Aug 1949  1949-08-01   148</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sep 1949  1949-09-01   136</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Oct 1949  1949-10-01   119</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 134 more rows</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
