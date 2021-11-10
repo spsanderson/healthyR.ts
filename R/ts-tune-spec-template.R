@@ -192,8 +192,7 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
             parsnip::set_engine(pe)
     } else if (pe == "xgboost"){
         mst <- parsnip::boost_tree(
-            mtry             = tune::tune()
-            , trees          = tune::tune()
+            trees          = tune::tune()
             , min_n          = tune::tune()
             , tree_depth     = tune::tune()
             , learn_rate     = tune::tune()
