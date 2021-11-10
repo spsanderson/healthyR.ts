@@ -177,7 +177,7 @@ wf_fits <- wfsets %>%
   modeltime_fit_workflowset(
     data = training(splits)
     , control = control_fit_workflowset(
-     allow_par = TRUE
+     allow_par = FALSE
      , verbose = TRUE
     )
   )
@@ -218,7 +218,7 @@ output <- healthyR.ts::ts_model_auto_tune(
   .value_col          = value,
   .tscv_assess        = "12 months",
   .tscv_skip          = "3 months",
-  .num_cores          = detectCores() - 1
+  .num_cores          = 1
 )
 ```
 
