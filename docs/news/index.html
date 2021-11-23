@@ -149,11 +149,6 @@
 <h1 class="page-header" data-toc-text="development version">
 <a href="#healthyrts-development-version" class="anchor"></a>healthyR.ts (development version)<small> Unreleased </small>
 </h1>
-</div>
-    <div id="healthyrts-015" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.5">
-<a href="#healthyrts-015" class="anchor"></a>healthyR.ts 0.1.5<small> 2021-11-10 </small>
-</h1>
 <div id="breaking-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking Changes</h2>
@@ -167,12 +162,12 @@
 <div id="minor-fixes-and-improvements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-fixes-and-improvements" class="anchor"></a>Minor Fixes and Improvements</h2>
-<p>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/143'>#143</a> - Drop <code>mtry = tune::tune()</code> from <code>ts_model_spec_tune_template</code> as it causes issues downstream.</p>
+<p>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/159'>#159</a> - Add parameter <code>.date_col</code> to <code><a href="../reference/ts_sma_plot.html">ts_sma_plot()</a></code> so that if a tibble is passed the appropriate column is passed to the <code>ggplot</code> object.</p>
 </div>
 </div>
-    <div id="healthyrts-014" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.4">
-<a href="#healthyrts-014" class="anchor"></a>healthyR.ts 0.1.4<small> 2021-10-31 </small>
+    <div id="healthyrts-015" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.5">
+<a href="#healthyrts-015" class="anchor"></a>healthyR.ts 0.1.5<small> 2021-11-10 </small>
 </h1>
 <div id="breaking-changes-1" class="section level2">
 <h2 class="hasAnchor">
@@ -182,6 +177,26 @@
 <div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features-1" class="anchor"></a>New Features</h2>
+<p>None</p>
+</div>
+<div id="minor-fixes-and-improvements-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-fixes-and-improvements-1" class="anchor"></a>Minor Fixes and Improvements</h2>
+<p>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/143'>#143</a> - Drop <code>mtry = tune::tune()</code> from <code>ts_model_spec_tune_template</code> as it causes issues downstream.</p>
+</div>
+</div>
+    <div id="healthyrts-014" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.4">
+<a href="#healthyrts-014" class="anchor"></a>healthyR.ts 0.1.4<small> 2021-10-31 </small>
+</h1>
+<div id="breaking-changes-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes-2" class="anchor"></a>Breaking Changes</h2>
+<p>None</p>
+</div>
+<div id="new-features-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-2" class="anchor"></a>New Features</h2>
 <ol>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/90'>#90</a> - Add <code><a href="../reference/tidy_fft.html">tidy_fft()</a></code> function</li>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/92'>#92</a> - Add <code><a href="../reference/ts_info_tbl.html">ts_info_tbl()</a></code> function</li>
@@ -196,9 +211,9 @@
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/128'>#128</a> - Add <code><a href="../reference/ts_wfs_prophet_reg.html">ts_wfs_prophet_reg()</a></code> function</li>
 </ol>
 </div>
-<div id="minor-fixes-and-improvements-1" class="section level2">
+<div id="minor-fixes-and-improvements-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-fixes-and-improvements-1" class="anchor"></a>Minor Fixes and Improvements</h2>
+<a href="#minor-fixes-and-improvements-2" class="anchor"></a>Minor Fixes and Improvements</h2>
 <ol>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/105'>#105</a> - Fix <code><a href="../reference/ts_auto_recipe.html">ts_auto_recipe()</a></code> bug that forced the change of column names in the output. This has been fixed and the column names supplied will now be in the recipe terms.</li>
 </ol>
@@ -208,14 +223,14 @@
 <h1 class="page-header" data-toc-text="0.1.3">
 <a href="#healthyrts-013" class="anchor"></a>healthyR.ts 0.1.3<small> 2021-08-23 </small>
 </h1>
-<div id="breaking-changes-2" class="section level2">
+<div id="breaking-changes-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes-2" class="anchor"></a>Breaking Changes</h2>
+<a href="#breaking-changes-3" class="anchor"></a>Breaking Changes</h2>
 <p>None</p>
 </div>
-<div id="new-features-2" class="section level2">
+<div id="new-features-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-2" class="anchor"></a>New Features</h2>
+<a href="#new-features-3" class="anchor"></a>New Features</h2>
 <ol>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/36'>#36</a> - Add <code><a href="../reference/ts_forecast_simulator.html">ts_forecast_simulator()</a></code> function</li>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/45'>#45</a> - Add <code><a href="../reference/calibrate_and_plot.html">calibrate_and_plot()</a></code> helper function</li>
@@ -227,9 +242,9 @@
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/65'>#65</a> - Add <code><a href="../reference/ts_splits_plot.html">ts_splits_plot()</a></code> plotting function</li>
 </ol>
 </div>
-<div id="minor-fixes-and-improvements-2" class="section level2">
+<div id="minor-fixes-and-improvements-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-fixes-and-improvements-2" class="anchor"></a>Minor Fixes and Improvements</h2>
+<a href="#minor-fixes-and-improvements-3" class="anchor"></a>Minor Fixes and Improvements</h2>
 <ol>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/40'>#40</a> - Add ggplot object</li>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/54'>#54</a> - Drop xts::legend and add .align = “right” to slidify_vec function</li>
@@ -241,14 +256,14 @@
 <h1 class="page-header" data-toc-text="0.1.2">
 <a href="#healthyrts-012" class="anchor"></a>healthyR.ts 0.1.2<small> 2021-06-25 </small>
 </h1>
-<div id="breaking-changes-3" class="section level2">
+<div id="breaking-changes-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes-3" class="anchor"></a>Breaking Changes</h2>
+<a href="#breaking-changes-4" class="anchor"></a>Breaking Changes</h2>
 <p>None</p>
 </div>
-<div id="new-features-3" class="section level2">
+<div id="new-features-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-3" class="anchor"></a>New Features</h2>
+<a href="#new-features-4" class="anchor"></a>New Features</h2>
 <ol>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/16'>#16</a> - Add <code><a href="../reference/ts_auto_recipe.html">ts_auto_recipe()</a></code> function</li>
 </ol>
