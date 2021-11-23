@@ -16,6 +16,10 @@
 #' are called for, it will loop through and append data to a tibble or `ts` object.
 #'
 #' @param .data The data that you are passing, this can be either a `ts` object or a `tibble`
+#' @param .date_col This is used if you know the name of the datetime column. The function
+#' `ts_to_tbl()` will make a column called `date_col` only if a `ts` object is passed, if
+#' a `tibble` is passed then the `.date_col` parameter is needed or the function will error
+#' out.
 #' @param .sma_order This will default to 1. This can be a vector like c(2,4,6,12)
 #' @param .func The unquoted function you want to pass, mean, median, etc
 #' @param .align This can be either "left", "center", "right"
@@ -28,7 +32,6 @@
 #'
 #' out$plots$static_plot
 #'
-#' out$plots$interactive_plot
 #'
 #' @return
 #' Will invisibly return a list object.
@@ -36,10 +39,12 @@
 #' @export ts_sma_plot
 #'
 
-ts_sma_plot <- function(.data, .sma_order = 2, .func = mean, .align = "center",
-                        .partial = FALSE) {
+ts_sma_plot <- function(.data, .date_col = NULL, .sma_order = 2, .func = mean
+                        , .align = "center", .partial = FALSE) {
 
     # * Tidyeval ----
+    date_col_var_expr <- rlang::enquos(.date_col)
+
     # slidify_vec parameters
     sma_vec      <- as.vector(.sma_order)
     sma_fun      <- .func
@@ -93,7 +98,7 @@ ts_sma_plot <- function(.data, .sma_order = 2, .func = mean, .align = "center",
     g <- df %>%
         ggplot2::ggplot(
             ggplot2::aes(
-                x = if(date_col_exists){date_col} else {1:nrow(df)},
+                x = if(date_col_exists){date_col} else {!!!date_col_var_expr},
                 y = value,
                 group = sma_order,
                 color = sma_order

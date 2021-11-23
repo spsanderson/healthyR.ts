@@ -6,6 +6,7 @@
 \usage{
 ts_sma_plot(
   .data,
+  .date_col = NULL,
   .sma_order = 2,
   .func = mean,
   .align = "center",
@@ -14,6 +15,11 @@ ts_sma_plot(
 }
 \arguments{
 \item{.data}{The data that you are passing, this can be either a \code{ts} object or a \code{tibble}}
+
+\item{.date_col}{This is used if you know the name of the datetime column. The function
+\code{ts_to_tbl()} will make a column called \code{date_col} only if a \code{ts} object is passed, if
+a \code{tibble} is passed then the \code{.date_col} parameter is needed or the function will error
+out.}
 
 \item{.sma_order}{This will default to 1. This can be a vector like c(2,4,6,12)}
 
@@ -46,7 +52,6 @@ out$data
 
 out$plots$static_plot
 
-out$plots$interactive_plot
 
 }
 \author{

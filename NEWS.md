@@ -1,5 +1,15 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+Fix #159 - Add parameter `.date_col` to `ts_sma_plot()` so that if a tibble is passed
+the appropriate column is passed to the `ggplot` object.
+
 # healthyR.ts 0.1.5
 
 ## Breaking Changes
