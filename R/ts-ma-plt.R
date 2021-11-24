@@ -83,7 +83,7 @@
 #' output$data_summary_tbl %>% head()
 #'
 #' @return
-#' The original time series, the simulated values and a some plots
+#' A few time series data sets and two plots.
 #'
 #' @export ts_ma_plot
 
