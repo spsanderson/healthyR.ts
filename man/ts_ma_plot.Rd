@@ -33,7 +33,7 @@ function be in either a weekly or monthly aggregation.}
 \item{.tertiary_title}{The title of the third plot.}
 }
 \value{
-The original time series, the simulated values and a some plots
+A few time series data sets and two plots.
 }
 \description{
 This function will produce two plots. Both of these are moving average plots.
