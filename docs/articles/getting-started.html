@@ -101,7 +101,7 @@
             <h3 class="subtitle">A Quick Introduction</h3>
                         <h4 class="author">Steven P. Sanderson II, MPH</h4>
             
-            <h4 class="date">2021-11-23</h4>
+            <h4 class="date">2021-11-24</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/spsanderson/healthyR.ts/blob/master/vignettes/getting-started.Rmd"><code>vignettes/getting-started.Rmd</code></a></small>
       <div class="hidden name"><code>getting-started.Rmd</code></div>
@@ -120,21 +120,21 @@
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ts_random_walk.html">ts_random_walk</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 x 4</span>
-<span class="co">#&gt;     run     x       y cum_y</span>
-<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1     1  0.0480 1048.</span>
-<span class="co">#&gt; 2     1     2  0.0143 1063.</span>
-<span class="co">#&gt; 3     1     3  0.0360 1101.</span>
-<span class="co">#&gt; 4     1     4  0.0591 1166.</span>
-<span class="co">#&gt; 5     1     5 -0.0273 1134.</span>
-<span class="co">#&gt; 6     1     6 -0.0497 1078.</span>
+<span class="co">#&gt;     run     x        y cum_y</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     1     1 -0.109    891.</span>
+<span class="co">#&gt; 2     1     2  0.0690   952.</span>
+<span class="co">#&gt; 3     1     3  0.307   1244.</span>
+<span class="co">#&gt; 4     1     4 -0.102   1117.</span>
+<span class="co">#&gt; 5     1     5 -0.0571  1054.</span>
+<span class="co">#&gt; 6     1     6  0.00302 1057.</span>
 <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 10,000</span>
 <span class="co">#&gt; Columns: 4</span>
 <span class="co">#&gt; $ run   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~</span>
 <span class="co">#&gt; $ x     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1~</span>
-<span class="co">#&gt; $ y     &lt;dbl&gt; 0.0480458520, 0.0143190798, 0.0359877206, 0.0590535346, -0.02730~</span>
-<span class="co">#&gt; $ cum_y &lt;dbl&gt; 1048.046, 1063.053, 1101.310, 1166.346, 1134.497, 1078.106, 1147~</span></code></pre></div>
+<span class="co">#&gt; $ y     &lt;dbl&gt; -0.109316368, 0.068964442, 0.306636759, -0.101853564, -0.0571068~</span>
+<span class="co">#&gt; $ cum_y &lt;dbl&gt; 890.6836, 952.1091, 1244.0608, 1117.3488, 1053.5405, 1056.7203, ~</span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span>

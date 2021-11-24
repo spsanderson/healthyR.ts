@@ -40,6 +40,7 @@ reference:
      -  "ts_sma_plot"
      -  "ts_calendar_heatmap_plot"
      -  "ts_splits_plot"
+     -  "ts_vva_plot"
   -  title: Time Filtering Functions
      desc: healthyR.ts time based filtering functions
   -  contents:
@@ -65,3 +66,4 @@ reference:
      -  "ts_to_tbl"
      -  "ts_model_auto_tune"
      -  "ts_model_spec_tune_template"
+     -  "ts_model_compare"

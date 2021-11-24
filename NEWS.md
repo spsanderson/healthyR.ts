@@ -4,10 +4,11 @@
 None
 
 ## New Features
-None
+1. Fix #157 - Add function `ts_vva_plot()`
+2. Fix #149 - Add function `ts_model_compare()`
 
 ## Minor Fixes and Improvements
-Fix #159 - Add parameter `.date_col` to `ts_sma_plot()` so that if a tibble is passed
+1. Fix #159 - Add parameter `.date_col` to `ts_sma_plot()` so that if a tibble is passed
 the appropriate column is passed to the `ggplot` object.
 
 # healthyR.ts 0.1.5
