@@ -37,6 +37,8 @@ the function. If your data is a ts, xts, zoo or mts then use \code{ts_to_tbl()} 
 convert it to a tibble.
 }
 \examples{
+suppressPackageStartupMessages(library(dplyr))
+
 data_tbl <- ts_to_tbl(AirPassengers) \%>\%
   select(-index)
 
