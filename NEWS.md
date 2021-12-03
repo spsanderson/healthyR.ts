@@ -6,6 +6,10 @@ None
 ## New Features
 1. Fix #157 - Add function `ts_vva_plot()`
 2. Fix #149 - Add function `ts_model_compare()`
+3. Fix #156 - Add functions:
+-  `ts_acceleration_vec()`
+-  `ts_acceleration_augment()`
+-  `step_ts_accleration()`
 
 ## Minor Fixes and Improvements
 1. Fix #159 - Add parameter `.date_col` to `ts_sma_plot()` so that if a tibble is passed
