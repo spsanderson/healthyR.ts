@@ -32,7 +32,8 @@ ts_to_tbl(AirPassengers)
 Other Utility: 
 \code{\link{calibrate_and_plot}()},
 \code{\link{model_extraction_helper}()},
-\code{\link{ts_info_tbl}()}
+\code{\link{ts_info_tbl}()},
+\code{\link{ts_model_compare}()}
 }
 \author{
 Steven P. Sanderson II, MPH

@@ -67,6 +67,7 @@ ts_info_tbl(data_tbl, date_col)
 Other Utility: 
 \code{\link{calibrate_and_plot}()},
 \code{\link{model_extraction_helper}()},
+\code{\link{ts_model_compare}()},
 \code{\link{ts_to_tbl}()}
 }
 \author{
