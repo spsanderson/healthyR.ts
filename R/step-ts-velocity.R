@@ -71,7 +71,7 @@
 #' # Bake the recipe object - Adds the Time Series Signature
 #' bake(prep(rec_obj), data_tbl)
 #'
-#' rec_obj %>% get_juiced_data()
+#' rec_obj %>% prep() %>% juice()
 #'
 #' @export
 #'

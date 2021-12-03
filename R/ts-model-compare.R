@@ -221,7 +221,7 @@ ts_model_compare <- function(.model_1, .model_2, .type = "testing", .splits_obj
             caption  = caption_string
         ) +
         ggplot2::theme(
-            plot.caption = element_text(face = "bold")
+            plot.caption = ggplot2::element_text(face = "bold")
         )
 
     p <- plotly::ggplotly(g)

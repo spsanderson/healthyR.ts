@@ -22,6 +22,8 @@
 #' @param .value_col The value column from the `.data` argument
 #'
 #' @examples
+#' suppressPackageStartupMessages(library(dplyr))
+#'
 #' data_tbl <- ts_to_tbl(AirPassengers) %>%
 #'   select(-index)
 #'
@@ -57,8 +59,8 @@ ts_vva_plot <- function(.data, .date_col, .value_col){
     data_diff_tbl <- data_tbl %>%
         timetk::tk_augment_differences(.value = {{value_col_var_expr}}, .differences = 1) %>%
         timetk::tk_augment_differences(.value = {{value_col_var_expr}}, .differences = 2) %>%
-        dplyr::rename(velocity = contains("_diff1")) %>%
-        dplyr::rename(acceleration = contains("_diff2")) %>%
+        dplyr::rename(velocity = dplyr::contains("_diff1")) %>%
+        dplyr::rename(acceleration = dplyr::contains("_diff2")) %>%
         tidyr::pivot_longer(-{{date_col_var_expr}}) %>%
         dplyr::mutate(name = stringr::str_to_title(name)) %>%
         dplyr::mutate(name = forcats::as_factor(name))
@@ -80,8 +82,7 @@ ts_vva_plot <- function(.data, .date_col, .value_col){
             x = "Date",
             y = "",
             color = ""
-        ) +
-        tidyquant::scale_color_tq()
+        )
 
     p <- plotly::ggplotly(g)
 

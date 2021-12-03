@@ -30,7 +30,7 @@
 #'   b    = runif(len_out)
 #' )
 #'
-#' vec_1 <- ts_accleration_vec(data_tbl$b)
+#' vec_1 <- ts_acceleration_vec(data_tbl$b)
 #'
 #' plot(data_tbl$b)
 #' lines(data_tbl$b)
