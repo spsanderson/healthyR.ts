@@ -109,6 +109,7 @@ model_extraction_helper <- function(.fit_object){
 
     mod_obj_workflow <- function(model_fit_type){
         wflw_mod <- fit_object$fit$fit$fit$desc
+        return(wflw_mod)
     }
 
     final_mod_method <- if (model_fit_type == "arima"){
