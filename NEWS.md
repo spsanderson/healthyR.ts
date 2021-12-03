@@ -18,6 +18,8 @@ None
 ## Minor Fixes and Improvements
 1. Fix #159 - Add parameter `.date_col` to `ts_sma_plot()` so that if a tibble is passed
 the appropriate column is passed to the `ggplot` object.
+2. Fix #164 - Update `model_extraction_helper()` function to extract workflow fit
+models.
 
 # healthyR.ts 0.1.5
 

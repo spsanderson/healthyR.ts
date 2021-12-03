@@ -23,6 +23,7 @@ Currently supports forecasting model of one of the following from the
 \item \code{\link[forecast]{auto.arima}}
 \item \code{\link[forecast]{ets}}
 \item \code{\link[forecast]{nnetar}}
+\item \code{workflow} fitted models.
 }
 }
 \examples{
