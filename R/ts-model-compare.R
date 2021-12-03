@@ -2,6 +2,8 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
+#' @family Utility
+#'
 #' @description
 #' This function will expect to take in two models that will be used for comparison.
 #' It is useful to use this after appropriately following the modeltime workflow and

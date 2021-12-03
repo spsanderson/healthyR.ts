@@ -111,6 +111,14 @@ ts_model_compare(
 }
 
 }
+\seealso{
+Other Utility: 
+\code{\link{calibrate_and_plot}()},
+\code{\link{model_extraction_helper}()},
+\code{\link{ts_info_tbl}()},
+\code{\link{ts_to_tbl}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
+\concept{Utility}

@@ -62,6 +62,7 @@ model_extraction_helper(fit_arima)
 Other Utility: 
 \code{\link{calibrate_and_plot}()},
 \code{\link{ts_info_tbl}()},
+\code{\link{ts_model_compare}()},
 \code{\link{ts_to_tbl}()}
 }
 \author{
