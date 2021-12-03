@@ -90,7 +90,7 @@ step_ts_velocity <- function(recipe,
 
     recipes::add_step(
         recipe,
-        step_hai_hyperbolic_new(
+        step_hai_velocity_new(
             terms      = terms,
             role       = role,
             trained    = trained,
