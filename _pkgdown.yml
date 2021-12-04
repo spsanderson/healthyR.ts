@@ -57,8 +57,20 @@ reference:
      desc: healthyR.ts automatic time series workflow set functions
   -  contents:
      -  matches("ts_wfs")
-  -  title: Time Series Helper functions
-     desc: healthyR.ts helper functions
+  -  title: Time Series Vector Functions
+     desc: healthyR.ts vectorized Functions
+  -  contents:
+     -  matches("_vec()")
+  -  title: Time Series Augment Functions
+     desc: healthyR.ts augmenting Functions
+  -  contents:
+     -  matches("_augment()")
+  -  title: Time Series Recipe Step Functions
+     desc: healthyR.ts step functions
+  -  contents:
+     -  matches("step_ts_")
+  -  title: Time Series Helper Functions
+     desc: healthyR.ts helper Functions
   -  contents:
      -  "calibrate_and_plot"
      -  "model_extraction_helper"

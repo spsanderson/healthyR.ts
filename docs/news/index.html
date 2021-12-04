@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.6.9000</span>
       </span>
     </div>
 
@@ -149,6 +149,11 @@
 <h1 class="page-header" data-toc-text="development version">
 <a href="#healthyrts-development-version" class="anchor"></a>healthyR.ts (development version)<small> Unreleased </small>
 </h1>
+</div>
+    <div id="healthyrts-016" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.6">
+<a href="#healthyrts-016" class="anchor"></a>healthyR.ts 0.1.6<small> 2021-12-04 </small>
+</h1>
 <div id="breaking-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking Changes</h2>
@@ -162,13 +167,28 @@
 </li>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/149'>#149</a> - Add function <code><a href="../reference/ts_model_compare.html">ts_model_compare()</a></code>
 </li>
+<li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/156'>#156</a> - Add functions:</li>
 </ol>
+<ul>
+<li><code><a href="../reference/ts_acceleration_vec.html">ts_acceleration_vec()</a></code></li>
+<li><code><a href="../reference/ts_acceleration_augment.html">ts_acceleration_augment()</a></code></li>
+<li><code>step_ts_accleration()</code></li>
+</ul>
+<ol>
+<li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/155'>#155</a> - Add functions:</li>
+</ol>
+<ul>
+<li><code><a href="../reference/ts_velocity_vec.html">ts_velocity_vec()</a></code></li>
+<li><code><a href="../reference/ts_velocity_augment.html">ts_velocity_augment()</a></code></li>
+<li><code><a href="../reference/step_ts_velocity.html">step_ts_velocity()</a></code></li>
+</ul>
 </div>
 <div id="minor-fixes-and-improvements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-fixes-and-improvements" class="anchor"></a>Minor Fixes and Improvements</h2>
 <ol>
 <li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/159'>#159</a> - Add parameter <code>.date_col</code> to <code><a href="../reference/ts_sma_plot.html">ts_sma_plot()</a></code> so that if a tibble is passed the appropriate column is passed to the <code>ggplot</code> object.</li>
+<li>Fix <a href='https://github.com/spsanderson/healthyR.ts/issues/164'>#164</a> - Update <code><a href="../reference/model_extraction_helper.html">model_extraction_helper()</a></code> function to extract workflow fit models.</li>
 </ol>
 </div>
 </div>
