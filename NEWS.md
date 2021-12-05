@@ -11,7 +11,7 @@ None
 3. Fix #156 - Add functions:
 -  `ts_acceleration_vec()`
 -  `ts_acceleration_augment()`
--  `step_ts_accleration()`
+-  `step_ts_acceleration()`
 4. Fix #155 - Add functions:
 -  `ts_velocity_vec()`
 -  `ts_velocity_augment()`
