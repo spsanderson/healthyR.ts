@@ -1,5 +1,13 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+
+## New Features
+
+## Minor Fixes and Improvments
+1. Fix #178 - Extend `model_extraction_helper()` to grab `workflow` `model_spec`
+and `model_fit` objects.
+
 # healthyR.ts 0.1.6
 
 ## Breaking Changes
