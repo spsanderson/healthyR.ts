@@ -65,10 +65,8 @@ model_extraction_helper <- function(.fit_object){
         "nnetar"
     } else if (forecast::is.ets(fit_object)){
         "ets"
-    } else if (class(fit_object) == "workflow"){
-        "workflow"
     } else {
-        stop(call. = FALSE, "(.fit_object) is not of type Arima, auto.arima, nnetar, ets or a fitted workflow.")
+        "workflow"
     }
 
     # * Function Factory ----
@@ -108,7 +106,7 @@ model_extraction_helper <- function(.fit_object){
     }
 
     mod_obj_workflow <- function(model_fit_type){
-        wflw_mod <- fit_object$fit$fit$fit$desc
+        wflw_mod <- modeltime::get_model_description(fit_object)
         return(wflw_mod)
     }
 
@@ -124,4 +122,5 @@ model_extraction_helper <- function(.fit_object){
 
     # * Return ----
     return(mod_method)
+
 }
