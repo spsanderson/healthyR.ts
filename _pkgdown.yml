@@ -42,7 +42,7 @@ reference:
      -  "ts_splits_plot"
      -  "ts_vva_plot"
      -  "ts_qq_plot"
-     -  "ts_skedacity_scatter_plot"
+     -  "ts_scedacity_scatter_plot"
   -  title: Time Filtering Functions
      desc: healthyR.ts time based filtering functions
   -  contents:
