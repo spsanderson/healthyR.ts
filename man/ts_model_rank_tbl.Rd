@@ -85,6 +85,7 @@ Other Utility:
 \code{\link{ts_info_tbl}()},
 \code{\link{ts_model_compare}()},
 \code{\link{ts_qq_plot}()},
+\code{\link{ts_scedacity_scatter_plot}()},
 \code{\link{ts_to_tbl}()}
 }
 \author{
