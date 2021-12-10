@@ -91,7 +91,7 @@ ts_model_rank_tbl <- function(.calibration_tbl){
             mase_rank = dplyr::min_rank(`mase`),
             smape_rank = dplyr::min_rank(`smape`),
             rmse_rank = dplyr::min_rank(`rmse`),
-            rsq_rank = dplyr::min_rank(desc(`rsq`))
+            rsq_rank = dplyr::min_rank(dplyr::desc(`rsq`))
         ) %>%
         dplyr::mutate(
             model_score = base::rowSums(
