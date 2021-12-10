@@ -6,6 +6,7 @@ globalVariables(
         "dff_trans","sma_order","sma_value","min_node","seasonal_period",
         "error","trend","season","damping","smooth_level","smooth_trend",
         "smooth_seasonal","name","printer","mae","mape","mase","smape","rmse","rsq",
-        "model_score",".model",".type",".calibration_data",".residuals",".model_desc"
+        "model_score",".model",".type",".calibration_data",".residuals",".model_desc",
+        ".prediction"
     )
 )
