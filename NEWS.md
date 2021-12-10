@@ -5,8 +5,8 @@ None
 
 ## New Features
 1. Fix #181 - Add function `ts_qq_plot()`
-2. Fix #180 - Add function `ts_skedacity_scatter_plot()`
-3. Fix #179 - Add function `ts_model_rank()`
+2. Fix #180 - Add function `ts_scedacity_scatter_plot()`
+3. Fix #179 - Add function `ts_model_rank_tbl()`
 
 ## Minor Fixes and Improvments
 1. Fix #178 - Extend `model_extraction_helper()` to grab `workflow` `model_spec`

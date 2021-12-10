@@ -81,4 +81,4 @@ reference:
      -  "ts_model_auto_tune"
      -  "ts_model_spec_tune_template"
      -  "ts_model_compare"
-     -  "ts_model_rank"
+     -  "ts_model_rank_tbl"
