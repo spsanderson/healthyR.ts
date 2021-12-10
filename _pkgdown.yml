@@ -41,6 +41,8 @@ reference:
      -  "ts_calendar_heatmap_plot"
      -  "ts_splits_plot"
      -  "ts_vva_plot"
+     -  "ts_qq_plot"
+     -  "ts_skedacity_scatter_plot"
   -  title: Time Filtering Functions
      desc: healthyR.ts time based filtering functions
   -  contents:
@@ -79,3 +81,4 @@ reference:
      -  "ts_model_auto_tune"
      -  "ts_model_spec_tune_template"
      -  "ts_model_compare"
+     -  "ts_model_rank"
