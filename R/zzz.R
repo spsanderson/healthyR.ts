@@ -2,16 +2,21 @@
 .onAttach <- function(libname, pkgname) {
 
     msg <- paste0(
-        "Welcome to healthyR.ts! ---------------------------------------------",
-        "\nIf you find this package useful, please leave a star: https://github.com/spsanderson/healthyR.ts'",
+        "\n",
+        "== Welcome to healthyR.ts ===========================================================================",
+        "\nIf you find this package useful, please leave a star: ",
+        "\n   https://github.com/spsanderson/healthyR.ts'",
+        "\n",
         "\nIf you encounter a bug or want to request an enhancement please file an issue at:",
         "\n   https://github.com/spsanderson/healthyR.ts/issues",
-        "\nThank you for using healthyR.ts!"
+        "\n",
+        "\nThank you for using healthyR.ts"
     )
 
     packageStartupMessage(msg)
 
 }
+
 
 .onLoad = function(libname, pkgname) {
     maybe_register_s3_methods()
