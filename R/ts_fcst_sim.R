@@ -186,7 +186,7 @@ ts_forecast_simulator <- function(.model,
   end_mo <- lubridate::month(end_date)
 
   if(ncol(model_ts_tbl) == 1) {
-    model_ts_tbl <- ts(
+    model_ts_tbl <- stats::ts(
       model_ts_tbl,
       start = c(start_yr, start_mo),
       frequency = freq
