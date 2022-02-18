@@ -82,7 +82,7 @@ perform the modeltime::modeltime_calibrate() and modeltime::plot_modeltime_forec
 
     <div class="ref-description">
     <p>This function is a helper function. It will take in a set of workflows and then
-perform the <code><a href="https://rdrr.io/pkg/modeltime/man/modeltime_calibrate.html" class="external-link">modeltime::modeltime_calibrate()</a></code> and <code><a href="https://rdrr.io/pkg/modeltime/man/plot_modeltime_forecast.html" class="external-link">modeltime::plot_modeltime_forecast()</a></code>.</p>
+perform the <code><a href="https://business-science.github.io/modeltime/reference/modeltime_calibrate.html" class="external-link">modeltime::modeltime_calibrate()</a></code> and <code><a href="https://business-science.github.io/modeltime/reference/plot_modeltime_forecast.html" class="external-link">modeltime::plot_modeltime_forecast()</a></code>.</p>
     </div>
 
     <div id="ref-usage">
@@ -149,18 +149,18 @@ is interactive or not via plotly.</p></dd>
 <span class="r-in"> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">ip_op_flag</span> <span class="op">==</span> <span class="st">"I"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">visit_end_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>date_col <span class="op">=</span> <span class="va">visit_end_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">   <span class="fu">timetk</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/timetk/man/filter_by_time.html" class="external-link">filter_by_time</a></span><span class="op">(</span></span>
+<span class="r-in">   <span class="fu">timetk</span><span class="fu">::</span><span class="fu"><a href="https://business-science.github.io/timetk/reference/filter_by_time.html" class="external-link">filter_by_time</a></span><span class="op">(</span></span>
 <span class="r-in">       .date_var <span class="op">=</span> <span class="va">date_col</span></span>
 <span class="r-in">     , .start_date <span class="op">=</span> <span class="st">"2015"</span></span>
 <span class="r-in">     , .end_date   <span class="op">=</span> <span class="st">"2019"</span></span>
 <span class="r-in">   <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">   <span class="fu">timetk</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/timetk/man/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
+<span class="r-in">   <span class="fu">timetk</span><span class="fu">::</span><span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
 <span class="r-in">       .date_var <span class="op">=</span> <span class="va">date_col</span></span>
 <span class="r-in">       , .by     <span class="op">=</span> <span class="st">"month"</span></span>
 <span class="r-in">       , value   <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in">  <span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu">timetk</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
+<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu">timetk</span><span class="fu">::</span><span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
 <span class="r-in">   <span class="va">data</span></span>
 <span class="r-in">  , <span class="va">date_col</span></span>
 <span class="r-in">  , assess <span class="op">=</span> <span class="fl">12</span></span>
@@ -206,7 +206,7 @@ is interactive or not via plotly.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

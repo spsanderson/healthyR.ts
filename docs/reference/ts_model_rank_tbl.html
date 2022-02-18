@@ -140,7 +140,7 @@ on <code>rsq</code>:</p><ul><li><p>"rmse"</p></li>
 <span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
+<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="va">data_tbl</span>,</span>
 <span class="r-in">  date_var <span class="op">=</span> <span class="va">date_col</span>,</span>
 <span class="r-in">  assess <span class="op">=</span> <span class="st">"12 months"</span>,</span>
@@ -149,7 +149,7 @@ on <code>rsq</code>:</p><ul><li><p>"rmse"</p></li>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">value</span> <span class="op">~</span> <span class="va">.</span>, <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">training</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">model_spec_arima</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/modeltime/man/arima_reg.html" class="external-link">arima_reg</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in"><span class="va">model_spec_arima</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/modeltime/reference/arima_reg.html" class="external-link">arima_reg</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://parsnip.tidymodels.org/reference/set_engine.html" class="external-link">set_engine</a></span><span class="op">(</span>engine <span class="op">=</span> <span class="st">"auto_arima"</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">model_spec_mars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://parsnip.tidymodels.org/reference/mars.html" class="external-link">mars</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="st">"regression"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
@@ -165,10 +165,10 @@ on <code>rsq</code>:</p><ul><li><p>"rmse"</p></li>
 <span class="r-in">  <span class="fu"><a href="https://workflows.tidymodels.org//reference/add_model.html" class="external-link">add_model</a></span><span class="op">(</span><span class="va">model_spec_mars</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://generics.r-lib.org/reference/fit.html" class="external-link">fit</a></span><span class="op">(</span><span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">training</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">model_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/modeltime/man/modeltime_table.html" class="external-link">modeltime_table</a></span><span class="op">(</span><span class="va">wflw_fit_arima</span>, <span class="va">wflw_fit_mars</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">model_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/modeltime/reference/modeltime_table.html" class="external-link">modeltime_table</a></span><span class="op">(</span><span class="va">wflw_fit_arima</span>, <span class="va">wflw_fit_mars</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">calibration_tbl</span> <span class="op">&lt;-</span> <span class="va">model_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/modeltime/man/modeltime_calibrate.html" class="external-link">modeltime_calibrate</a></span><span class="op">(</span>new_data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">testing</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/modeltime/reference/modeltime_calibrate.html" class="external-link">modeltime_calibrate</a></span><span class="op">(</span>new_data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">testing</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">ts_model_rank_tbl</span><span class="op">(</span><span class="va">calibration_tbl</span><span class="op">)</span></span>
 <span class="r-in"></span>
@@ -188,7 +188,7 @@ on <code>rsq</code>:</p><ul><li><p>"rmse"</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

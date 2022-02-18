@@ -106,7 +106,7 @@
     <h2>Arguments</h2>
     <dl><dt>.model_type</dt>
 <dd><p>This is where you will set your engine. It uses
-<code><a href="https://rdrr.io/pkg/modeltime/man/arima_boost.html" class="external-link">modeltime::arima_boost()</a></code> under the hood and can take one of the following:</p><ul><li><p>"arima_xgboost"</p></li>
+<code><a href="https://business-science.github.io/modeltime/reference/arima_boost.html" class="external-link">modeltime::arima_boost()</a></code> under the hood and can take one of the following:</p><ul><li><p>"arima_xgboost"</p></li>
 <li><p>"auto_arima_xgboost</p></li>
 <li><p>"all_engines" - This will make a model spec for all available engines.</p></li>
 </ul></dd>
@@ -153,7 +153,7 @@ defaults set for the model specification, but if you choose you can set them
 yourself if you have a good understanding of what they should be. The mode is
 set to "regression".</p>
 <p>This uses the option <code>set_engine("auto_arima_xgboost")</code> or <code>set_engine("arima_xgboost")</code></p>
-<p><code><a href="https://rdrr.io/pkg/modeltime/man/arima_boost.html" class="external-link">modeltime::arima_boost()</a></code> arima_boost() is a way to generate a specification
+<p><code><a href="https://business-science.github.io/modeltime/reference/arima_boost.html" class="external-link">modeltime::arima_boost()</a></code> arima_boost() is a way to generate a specification
 of a time series model that uses boosting to improve modeling errors
 (residuals) on Exogenous Regressors. It works with both "automated" ARIMA
 (auto.arima) and standard ARIMA (arima). The main algorithms are:</p><ul><li><p>Auto ARIMA + XGBoost Errors (engine = auto_arima_xgboost, default)</p></li>
@@ -184,14 +184,16 @@ of a time series model that uses boosting to improve modeling errors
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org" class="external-link">tidymodels</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'broom' was built under R version 4.1.1</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'broom' was built under R version 4.1.2</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'dials' was built under R version 4.1.2</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'parsnip' was built under R version 4.1.2</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'workflows' was built under R version 4.1.1</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">AirPassengers</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
+<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
 <span class="r-in">   <span class="va">data</span></span>
 <span class="r-in">  , <span class="va">date_col</span></span>
 <span class="r-in">  , assess <span class="op">=</span> <span class="fl">12</span></span>
@@ -233,7 +235,7 @@ of a time series model that uses boosting to improve modeling errors
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>
