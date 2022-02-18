@@ -6,11 +6,14 @@
 \usage{
 ts_forecast_simulator(
   .model,
+  .data,
+  .ext_reg = NULL,
+  .frequency = NULL,
+  .bootstrap = TRUE,
   .horizon = 4,
   .iterations = 25,
   .sim_color = "steelblue",
-  .alpha = 0.05,
-  .data
+  .alpha = 0.05
 )
 }
 \arguments{
@@ -20,7 +23,20 @@ ts_forecast_simulator(
 \item \code{\link[forecast]{auto.arima}}
 \item \code{\link[forecast]{ets}}
 \item \code{\link[forecast]{nnetar}}
+\item \code{Arima()} with xreg
 }}
+
+\item{.data}{The data that is used for the \code{.model} parameter. This is used with
+\code{\link[timetk:tk_index]{timetk::tk_index()}}}
+
+\item{.ext_reg}{A \code{tibble} or \code{matrix} of future xregs that should be the same
+length as the horizon you want to forecast.}
+
+\item{.frequency}{This is for the conversion of an internal table and should
+match the time frequency of the data.}
+
+\item{.bootstrap}{A boolean value of TRUE/FALSE. From \code{\link[forecast:simulate.ets]{forecast::simulate.Arima()}}
+Do simulation using resampled errors rather than normally distributed errors.}
 
 \item{.horizon}{An integer defining the forecast horizon.}
 
@@ -29,9 +45,6 @@ ts_forecast_simulator(
 \item{.sim_color}{Set the color of the simulation paths lines.}
 
 \item{.alpha}{Set the opacity level of the simulation path lines.}
-
-\item{.data}{The data that is used for the \code{.model} parameter. This is used with
-\code{\link[timetk:tk_index]{timetk::tk_index()}}}
 }
 \value{
 The original time series, the simulated values and a some plots
@@ -43,7 +56,8 @@ by utilizing the underlying model distribution with the \code{\link[stats]{simul
 \details{
 This function expects to take in a model of either \code{Arima},
 \code{auto.arima}, \code{ets} or \code{nnetar} from the \code{forecast} package. You can supply a
-forecasting horizon, iterations and a few other items.
+forecasting horizon, iterations and a few other items. You may also specify
+an Arima() model using xregs.
 }
 \examples{
 suppressPackageStartupMessages(library(forecast))
