@@ -221,15 +221,17 @@ ts_forecast_simulator <- function(.model,
       )
 
   output <- list(
-      plotly_plot         = p
-      , ggplot            = g
-      , forecast_sim      = sim_output
-      , forecast_sim_tbl  = s_tbl
-      , time_series       = .model$x
-      , fitted_values     = .model$fitted
-      , fitted_values_tbl = .model$fitted %>% timetk::tk_tbl()
-      , input_data        = model_ts_tbl
-      , sim_ts_tbl        = s_joined_tbl
+      plotly_plot           = p
+      , ggplot              = g
+      , forecast_sim        = sim_output
+      , forecast_sim_tbl    = s_tbl
+      , time_series         = .model$x
+      , fitted_values       = .model$fitted
+      , fitted_values_tbl   = .model$fitted %>% timetk::tk_tbl()
+      , residual_values     = .model$residuals
+      , residual_values_tbl = .model$residuals %>% timetk::tk_tbl()
+      , input_data          = model_ts_tbl
+      , sim_ts_tbl          = s_joined_tbl
   )
 
   # Return ----
