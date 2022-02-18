@@ -71,7 +71,7 @@ model_extraction_helper <- function(.fit_object){
 
     # * Function Factory ----
     mod_obj_arima <- function(model_fit_type){
-        ar_mod <- forecast:::arima.string(fit_object)
+        ar_mod <- healthyR.ts:::arima_string(fit_object)
         return(ar_mod)
     }
 
