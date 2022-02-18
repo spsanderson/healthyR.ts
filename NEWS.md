@@ -6,6 +6,7 @@ None
 ## New Features
 1. Fix #201 - Add Fitted `ts` and Fitted `tibble` data to output.
 2. Fix #202 - Add Residuals `ts` and Residuals `tibble` data to output.
+3. Fix #204 - Add `Arima()` models with xreg to `ts_forecast_simulator()`
 
 ## Minor Fixes and Improvements
 1. Fix #199 - Update `model_extraction_helper()` to utilize `forecast:::arima.string()`

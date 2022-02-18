@@ -88,11 +88,14 @@ by utilizing the underlying model distribution with the <code><a href="https://r
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_forecast_simulator</span><span class="op">(</span>
   <span class="va">.model</span>,
+  <span class="va">.data</span>,
+  .ext_reg <span class="op">=</span> <span class="cn">NULL</span>,
+  .frequency <span class="op">=</span> <span class="cn">NULL</span>,
+  .bootstrap <span class="op">=</span> <span class="cn">TRUE</span>,
   .horizon <span class="op">=</span> <span class="fl">4</span>,
   .iterations <span class="op">=</span> <span class="fl">25</span>,
   .sim_color <span class="op">=</span> <span class="st">"steelblue"</span>,
-  .alpha <span class="op">=</span> <span class="fl">0.05</span>,
-  <span class="va">.data</span>
+  .alpha <span class="op">=</span> <span class="fl">0.05</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
@@ -103,7 +106,20 @@ by utilizing the underlying model distribution with the <code><a href="https://r
 <li><p><code><a href="https://pkg.robjhyndman.com/forecast/reference/auto.arima.html" class="external-link">auto.arima</a></code></p></li>
 <li><p><code><a href="https://pkg.robjhyndman.com/forecast/reference/ets.html" class="external-link">ets</a></code></p></li>
 <li><p><code><a href="https://pkg.robjhyndman.com/forecast/reference/nnetar.html" class="external-link">nnetar</a></code></p></li>
+<li><p><code><a href="https://pkg.robjhyndman.com/forecast/reference/Arima.html" class="external-link">Arima()</a></code> with xreg</p></li>
 </ul></dd>
+<dt>.data</dt>
+<dd><p>The data that is used for the <code>.model</code> parameter. This is used with
+<code><a href="https://business-science.github.io/timetk/reference/tk_index.html" class="external-link">timetk::tk_index()</a></code></p></dd>
+<dt>.ext_reg</dt>
+<dd><p>A <code>tibble</code> or <code>matrix</code> of future xregs that should be the same
+length as the horizon you want to forecast.</p></dd>
+<dt>.frequency</dt>
+<dd><p>This is for the conversion of an internal table and should
+match the time frequency of the data.</p></dd>
+<dt>.bootstrap</dt>
+<dd><p>A boolean value of TRUE/FALSE. From <code><a href="https://pkg.robjhyndman.com/forecast/reference/simulate.ets.html" class="external-link">forecast::simulate.Arima()</a></code>
+Do simulation using resampled errors rather than normally distributed errors.</p></dd>
 <dt>.horizon</dt>
 <dd><p>An integer defining the forecast horizon.</p></dd>
 <dt>.iterations</dt>
@@ -112,9 +128,6 @@ by utilizing the underlying model distribution with the <code><a href="https://r
 <dd><p>Set the color of the simulation paths lines.</p></dd>
 <dt>.alpha</dt>
 <dd><p>Set the opacity level of the simulation path lines.</p></dd>
-<dt>.data</dt>
-<dd><p>The data that is used for the <code>.model</code> parameter. This is used with
-<code><a href="https://business-science.github.io/timetk/reference/tk_index.html" class="external-link">timetk::tk_index()</a></code></p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -124,7 +137,8 @@ by utilizing the underlying model distribution with the <code><a href="https://r
     <h2>Details</h2>
     <p>This function expects to take in a model of either <code>Arima</code>,
 <code>auto.arima</code>, <code>ets</code> or <code>nnetar</code> from the <code>forecast</code> package. You can supply a
-forecasting horizon, iterations and a few other items.</p>
+forecasting horizon, iterations and a few other items. You may also specify
+an Arima() model using xregs.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
