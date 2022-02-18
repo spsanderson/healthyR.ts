@@ -125,9 +125,9 @@ are collapsed using <code><a href="https://lubridate.tidyverse.org/reference/rou
     <div id="details">
     <h2>Details</h2>
     
-<ul><li><p>Uses the <code><a href="https://rdrr.io/pkg/timetk/man/filter_by_time.html" class="external-link">timetk::filter_by_time()</a></code> function in order to filter the date
+<ul><li><p>Uses the <code><a href="https://business-science.github.io/timetk/reference/filter_by_time.html" class="external-link">timetk::filter_by_time()</a></code> function in order to filter the date
 column.</p></li>
-<li><p>Uses the <code><a href="https://rdrr.io/pkg/timetk/man/time_arithmetic.html" class="external-link">timetk::subtract_time()</a></code> function to subtract time from the start date.</p></li>
+<li><p>Uses the <code><a href="https://business-science.github.io/timetk/reference/time_arithmetic.html" class="external-link">timetk::subtract_time()</a></code> function to subtract time from the start date.</p></li>
 </ul></div>
     <div id="author">
     <h2>Author</h2>
@@ -147,7 +147,7 @@ column.</p></li>
 <span class="r-in">  , .periods_back <span class="op">=</span> <span class="st">"2 years"</span></span>
 <span class="r-in">  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">visit_start_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
+<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
 <span class="r-in">    .date_var <span class="op">=</span> <span class="va">visit_start_date_time</span></span>
 <span class="r-in">    , .by     <span class="op">=</span> <span class="st">"year"</span></span>
 <span class="r-in">    , visits  <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -199,7 +199,7 @@ column.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

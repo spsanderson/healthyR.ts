@@ -120,12 +120,12 @@ data</p></dd>
 <dd><p>The column that holds the time series values.</p></dd>
 <dt>.tscv_assess</dt>
 <dd><p>A character expression like "12 months". This gets passed to
-<code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+<code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
 <dt>.tscv_skip</dt>
 <dd><p>A character expression like "6 months". This gets passed to
-<code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+<code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
 <dt>.slice_limit</dt>
-<dd><p>An integer that gets passed to <code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+<dd><p>An integer that gets passed to <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
 <dt>.facet_ncol</dt>
 <dd><p>The number of faceted columns to be passed to plot_time_series_cv_plan</p></dd>
 <dt>.grid_size</dt>
@@ -175,7 +175,7 @@ time series cross validation.</p></li>
 <li><p><code>best_tuned_results_tbl</code> This is a tibble of the parameters for the best
 test set with the chosen metric.</p></li>
 <li><p><code>tscv_obj</code> This is the actual time series cross validation object returned
-from <code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></li>
+from <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></li>
 </ul><p>The <code>model_info</code> section has the following items:</p><ul><li><p><code>model_spec</code> This is the original modeltime/parsnip model specification.</p></li>
 <li><p><code>model_spec_engine</code> This is the engine used for the model specification.</p></li>
 <li><p><code>model_spec_tuner</code> This is the tuning model template returned from <code><a href="ts_model_spec_tune_template.html">ts_model_spec_tune_template()</a></code></p></li>
@@ -212,19 +212,19 @@ pull out if you are going to work with it further.</p></li>
 <span class="r-in">    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">ip_op_flag</span> <span class="op">==</span> <span class="st">"I"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">visit_end_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>date_col <span class="op">=</span> <span class="va">visit_end_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
+<span class="r-in">    <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
 <span class="r-in">        .date_var <span class="op">=</span> <span class="va">date_col</span></span>
 <span class="r-in">        , .by     <span class="op">=</span> <span class="st">"month"</span></span>
 <span class="r-in">        , visits  <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in">    <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>date_col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="va">date_col</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">    <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/filter_by_time.html" class="external-link">filter_by_time</a></span><span class="op">(</span></span>
+<span class="r-in">    <span class="fu"><a href="https://business-science.github.io/timetk/reference/filter_by_time.html" class="external-link">filter_by_time</a></span><span class="op">(</span></span>
 <span class="r-in">        .date_var     <span class="op">=</span> <span class="va">date_col</span></span>
 <span class="r-in">        , .start_date <span class="op">=</span> <span class="st">"2012"</span></span>
 <span class="r-in">        , .end_date   <span class="op">=</span> <span class="st">"2019"</span></span>
 <span class="r-in">    <span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
+<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
 <span class="r-in">    <span class="va">data</span></span>
 <span class="r-in">    , <span class="va">date_col</span></span>
 <span class="r-in">    , assess <span class="op">=</span> <span class="fl">12</span></span>
@@ -244,9 +244,9 @@ pull out if you are going to work with it further.</p></li>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">wf_fits</span> <span class="op">&lt;-</span> <span class="va">wfsets</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/modeltime/man/modeltime_fit_workflowset.html" class="external-link">modeltime_fit_workflowset</a></span><span class="op">(</span></span>
+<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/modeltime/reference/modeltime_fit_workflowset.html" class="external-link">modeltime_fit_workflowset</a></span><span class="op">(</span></span>
 <span class="r-in">    data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">training</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span></span>
-<span class="r-in">    , control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/modeltime/man/control_modeltime.html" class="external-link">control_fit_workflowset</a></span><span class="op">(</span></span>
+<span class="r-in">    , control <span class="op">=</span> <span class="fu"><a href="https://business-science.github.io/modeltime/reference/control_modeltime.html" class="external-link">control_fit_workflowset</a></span><span class="op">(</span></span>
 <span class="r-in">     allow_par <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span class="r-in">     , verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span class="r-in">    <span class="op">)</span></span>
@@ -256,7 +256,7 @@ pull out if you are going to work with it further.</p></li>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.model</span> <span class="op">!=</span> <span class="st">"NULL"</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">calibration_tbl</span> <span class="op">&lt;-</span> <span class="va">models_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/modeltime/man/modeltime_calibrate.html" class="external-link">modeltime_calibrate</a></span><span class="op">(</span>new_data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">testing</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/modeltime/reference/modeltime_calibrate.html" class="external-link">modeltime_calibrate</a></span><span class="op">(</span>new_data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">testing</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">healthyR.ts</span><span class="fu">::</span><span class="fu">ts_model_auto_tune</span><span class="op">(</span></span>
 <span class="r-in">  .modeltime_model_id <span class="op">=</span> <span class="fl">1</span>,</span>
@@ -285,7 +285,7 @@ pull out if you are going to work with it further.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

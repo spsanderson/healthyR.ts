@@ -91,7 +91,7 @@
     <h2>Arguments</h2>
     <dl><dt>.model_type</dt>
 <dd><p>This is where you will set your engine. It uses
-<code><a href="https://rdrr.io/pkg/modeltime/man/arima_reg.html" class="external-link">modeltime::arima_reg()</a></code> under the hood and can take one of the following:</p><ul><li><p>"auto_arima"</p></li>
+<code><a href="https://business-science.github.io/modeltime/reference/arima_reg.html" class="external-link">modeltime::arima_reg()</a></code> under the hood and can take one of the following:</p><ul><li><p>"auto_arima"</p></li>
 </ul></dd>
 <dt>.recipe_list</dt>
 <dd><p>You must supply a list of recipes. list(rec_1, rec_2, ...)</p></dd>
@@ -111,7 +111,7 @@ set to "regression".</p>
 is not needed. The parameter is kept because it is possible in the future that
 this could change, and it keeps with the framework of how other functions
 are written.</p>
-<p><code><a href="https://rdrr.io/pkg/modeltime/man/arima_reg.html" class="external-link">modeltime::arima_reg()</a></code> arima_reg() is a way to generate a specification of
+<p><code><a href="https://business-science.github.io/modeltime/reference/arima_reg.html" class="external-link">modeltime::arima_reg()</a></code> arima_reg() is a way to generate a specification of
 an ARIMA model before fitting and allows the model to be created using
 different packages. Currently the only package is <code>forecast</code>.</p>
     </div>
@@ -145,7 +145,7 @@ different packages. Currently the only package is <code>forecast</code>.</p>
 <span class="r-in">  <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
+<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span>
 <span class="r-in">   <span class="va">data</span></span>
 <span class="r-in">  , <span class="va">date_col</span></span>
 <span class="r-in">  , assess <span class="op">=</span> <span class="fl">12</span></span>
@@ -183,7 +183,7 @@ different packages. Currently the only package is <code>forecast</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

@@ -206,7 +206,7 @@ ts_forecast_simulator <- function(.model,
   p <- p %>% plotly::add_lines(
     x = s1$x, y = s1$p50,
     line = list(
-      color = "#00526d",
+      color = "red",
       dash = "dash",
       width = 3
     ), name = "Median"
