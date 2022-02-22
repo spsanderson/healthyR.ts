@@ -8,12 +8,11 @@ navbar:
   left:
     - icon: "fa-home"
       href: index.html
-    - text: "Documentation"
+    - text: "Getting Started"
+      href: articles/getting-started.html
+    - text: "Articles"
       href: articles/index.html
       menu:
-        -  text: "Getting Started"
-        -  text: "Getting Started with healthyR.ts"
-           href: articles/getting-started.html
         -  text: "Tidy FFT Analysis"
         -  text: "Using tidy_fft"
            href: articles/using-tidy-fft.html

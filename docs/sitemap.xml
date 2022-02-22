@@ -31,6 +31,9 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
+    <loc>/reference/arima_string.html</loc>
+  </url>
+  <url>
     <loc>/reference/calibrate_and_plot.html</loc>
   </url>
   <url>
