@@ -14,6 +14,7 @@ under the hood for `Arima` `arima` and `auto.arima` models produced by the `fore
 package.
 2. Fix #195 - Drop need for `crayon`, `cli`, and `rstudioapi` since all it did was
 make a welcome message that can be done with regular `print()` method.
+3. Fix #213 - Update navigation bar.
 
 # healthyR.ts 0.1.7
 
