@@ -79,9 +79,7 @@ ts_random_walk_ggplot_layers <- function(.data) {
       ),
       x = "Days into future", y = "Value"
     ),
-    tidyquant::scale_colour_tq(),
-    tidyquant::scale_fill_tq(),
-    tidyquant::theme_tq(),
+    ggplot2::theme_minimal(),
     ggplot2::theme(legend.position = "none")
   )
   return(gg_layers)
