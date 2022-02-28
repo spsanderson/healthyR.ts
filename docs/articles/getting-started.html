@@ -100,9 +100,10 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting Started with healthyR.ts</h1>
             <h3 data-toc-skip class="subtitle">A Quick Introduction</h3>
-                        <h4 data-toc-skip class="author">Steven P. Sanderson II, MPH</h4>
+                        <h4 data-toc-skip class="author">Steven P.
+Sanderson II, MPH</h4>
             
-            <h4 data-toc-skip class="date">2022-02-25</h4>
+            <h4 data-toc-skip class="date">2022-02-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/spsanderson/healthyR.ts/blob/HEAD/vignettes/getting-started.Rmd" class="external-link"><code>vignettes/getting-started.Rmd</code></a></small>
       <div class="hidden name"><code>getting-started.Rmd</code></div>
@@ -123,19 +124,19 @@
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 x 4</span></span>
 <span class="co">#&gt;     run     x       y cum_y</span>
 <span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1     1 -<span style="color: #BB0000;">0.099</span><span style="color: #BB0000; text-decoration: underline;">3</span>  901.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1     2 -<span style="color: #BB0000;">0.016</span><span style="color: #BB0000; text-decoration: underline;">2</span>  886.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     1     3 -<span style="color: #BB0000;">0.089</span><span style="color: #BB0000; text-decoration: underline;">2</span>  807.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     1     4 -<span style="color: #BB0000;">0.010</span><span style="color: #BB0000; text-decoration: underline;">6</span>  799.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     1     5 -<span style="color: #BB0000;">0.163</span>   668.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     1     6  0.109   741.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1     1  0.093<span style="text-decoration: underline;">6</span> <span style="text-decoration: underline;">1</span>094.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1     2 -<span style="color: #BB0000;">0.078</span><span style="color: #BB0000; text-decoration: underline;">4</span> <span style="text-decoration: underline;">1</span>008.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     1     3  0.118  <span style="text-decoration: underline;">1</span>127.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     1     4 -<span style="color: #BB0000;">0.016</span><span style="color: #BB0000; text-decoration: underline;">6</span> <span style="text-decoration: underline;">1</span>108.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     1     5 -<span style="color: #BB0000;">0.011</span><span style="color: #BB0000; text-decoration: underline;">9</span> <span style="text-decoration: underline;">1</span>095.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     1     6 -<span style="color: #BB0000;">0.052</span><span style="color: #BB0000; text-decoration: underline;">2</span> <span style="text-decoration: underline;">1</span>038.</span>
 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 10,000</span>
 <span class="co">#&gt; Columns: 4</span>
 <span class="co">#&gt; $ run   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~</span>
 <span class="co">#&gt; $ x     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1~</span>
-<span class="co">#&gt; $ y     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -0.099285749, -0.016225914, -0.089182278, -0.010599308, -0.16313~</span>
-<span class="co">#&gt; $ cum_y <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 900.7143, 886.0993, 807.0750, 798.5205, 668.2546, 741.2147, 643.~</span></code></pre></div>
+<span class="co">#&gt; $ y     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.09358827, -0.07837622, 0.11782722, -0.01661499, -0.01185038, -~</span>
+<span class="co">#&gt; $ cum_y <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1093.5883, 1007.8770, 1126.6323, 1107.9133, 1094.7841, 1037.6439~</span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
@@ -150,7 +151,9 @@
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="../reference/ts_random_walk_ggplot_layers.html">ts_random_walk_ggplot_layers</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></code></pre></div>
 <p><img src="getting-started_files/figure-html/ts_random_walk_ggplot_layers-1.png" width="95%" style="display: block; margin: auto;"></p>
-<p>That is still pretty noisy, so lets see this in a different way. Lets clear this up a bit to make it easier to see the full range of the possible volatility of the random walks.</p>
+<p>That is still pretty noisy, so lets see this in a different way. Lets
+clear this up a bit to make it easier to see the full range of the
+possible volatility of the random walks.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
@@ -218,7 +221,8 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
