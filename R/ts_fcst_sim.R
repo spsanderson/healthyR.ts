@@ -1,5 +1,7 @@
 #' Time-series Forecasting Simulator
 #'
+#' @family Simulator
+#'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description Creating different forecast paths for forecast objects (when applicable),
