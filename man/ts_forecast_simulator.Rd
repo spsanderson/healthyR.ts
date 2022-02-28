@@ -101,6 +101,11 @@ output <- ts_forecast_simulator(
 output$ggplot
 
 }
+\seealso{
+Other Simulator: 
+\code{\link{ts_arima_simulator}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
+\concept{Simulator}

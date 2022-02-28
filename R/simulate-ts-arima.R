@@ -22,8 +22,8 @@
 #' simulated data)
 #'
 #' The plots section of the output contains the following:
-#' -  g The `ggplot2` plot
-#' -  p The `plotly` plot
+#' -  static_plot The `ggplot2` plot
+#' -  plotly_plot The `plotly` plot
 #'
 #' @param .n The number of points to be simulated.
 #' @param .num_sims The number of different simulations to be run.
@@ -41,7 +41,7 @@
 #' library(dplyr)
 #'
 #' output <- ts_arima_simulator()
-#' output$plots$g
+#' output$plots$static_plot
 #'
 #' @return
 #' A list object.

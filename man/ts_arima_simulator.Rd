@@ -63,8 +63,8 @@ simulated data)
 
 The plots section of the output contains the following:
 \itemize{
-\item g The \code{ggplot2} plot
-\item p The \code{plotly} plot
+\item static_plot The \code{ggplot2} plot
+\item plotly_plot The \code{plotly} plot
 }
 }
 \details{
@@ -75,11 +75,14 @@ is passed to \code{\link[stats:arima.sim]{stats::arima.sim()}}
 library(dplyr)
 
 output <- ts_arima_simulator()
-output$plots$g
+output$plots$static_plot
 
 }
 \seealso{
 \url{https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/}
+
+Other Simulator: 
+\code{\link{ts_forecast_simulator}()}
 }
 \author{
 Steven P. Sanderson II, MPH
