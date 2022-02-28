@@ -1,5 +1,12 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+
+## New Features
+
+## Minor Fixes and Improvements
+1. Fix #212 - update recipes to use the new [recipes::print_step()] method.
+
 # healthyR.ts 0.1.8
 
 ## Breaking Changes

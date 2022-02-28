@@ -170,17 +170,9 @@ bake.step_ts_acceleration <- function(object, new_data, ...){
 #' @export
 print.step_ts_acceleration <-
     function(x, width = max(20, options()$width - 35), ...) {
-        cat("Time Series Acceleration transformation on ", sep = "")
-        printer(
-            # Names before prep (could be selectors)
-            untr_obj = x$terms,
-            # Names after prep:
-            tr_obj = names(x$columns),
-            # Has it been prepped?
-            trained = x$trained,
-            # An estimate of how many characters to print on a line:
-            width = width
-        )
+        title <- "Time Series Acceleration transformation on "
+        recipes::print_step(x$terms, x$columns, x$trained, width = width,
+                            title = title)
         invisible(x)
     }
 
