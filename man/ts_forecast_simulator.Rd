@@ -61,41 +61,18 @@ an Arima() model using xregs.
 }
 \examples{
 suppressPackageStartupMessages(library(forecast))
-suppressPackageStartupMessages(library(healthyR.data))
 suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(timetk))
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(plotly))
-suppressPackageStartupMessages(library(purrr))
-suppressPackageStartupMessages(library(tidyquant))
-suppressPackageStartupMessages(library(tidyr))
-
-data <- healthyR_data \%>\%
- filter(ip_op_flag == "I") \%>\%
-   select(visit_end_date_time) \%>\%
-   rename(date_col = visit_end_date_time) \%>\%
-   summarise_by_time(
-       .date_var = date_col
-       , .by     = "month"
-       , value   = n()
-  ) \%>\%
-   filter_by_time(
-       .date_var     = date_col
-       , .start_date = "2012"
-       , .end_date   = "2019"
-   )
-
-data_ts <- tk_ts(data = data, frequency = 12)
 
 # Create a model
-fit <- auto.arima(data_ts)
+fit <- auto.arima(AirPassengers)
+data_tbl <- ts_to_tbl(AirPassengers)
 
 # Simulate 50 possible forecast paths, with .horizon of 12 months
 output <- ts_forecast_simulator(
   .model        = fit
   , .horizon    = 12
   , .iterations = 50
-  , .data       = data
+  , .data       = data_tbl
 )
 
 output$ggplot
