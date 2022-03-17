@@ -6,7 +6,8 @@
 1. Fix #223 - Add function `ts_arima_simulator()`
 
 ## Minor Fixes and Improvements
-1. Fix #212 - update recipes to use the new [recipes::print_step()] method.
+1. Fix #212 - Update recipes to use the new [recipes::print_step()] method.
+2. Fix #229 - Change all plots to  `ggplot2::theme_minimal()`
 
 # healthyR.ts 0.1.8
 
