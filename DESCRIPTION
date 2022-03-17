@@ -23,7 +23,6 @@ Imports:
     tibble,
     timetk,
     tidyr,
-    tidyquant,
     dplyr,
     purrr,
     ggplot2,
