@@ -107,6 +107,5 @@ df_merged %>%
     labs(title = "", x = "", y = "") +
     facet_wrap(~ver, scales = "free") +
     scale_y_continuous(labels = scales::comma) +
-    theme_tq() +
     theme(legend.position = "none")
 ```
