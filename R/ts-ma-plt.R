@@ -28,7 +28,6 @@
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(purrr))
 #' suppressPackageStartupMessages(library(ggplot2))
-#' suppressPackageStartupMessages(library(tidyquant))
 #' suppressPackageStartupMessages(library(xts))
 #' suppressPackageStartupMessages(library(cowplot))
 #' suppressPackageStartupMessages(library(healthyR.data))
@@ -216,7 +215,7 @@ ts_ma_plot <- function(.data,
             size = 1
         ) +
         ggplot2::scale_y_continuous(labels = scales::label_number_si()) +
-        tidyquant::theme_tq() +
+        ggplot2::theme_minimal() +
         ggplot2::labs(
             title = .main_title,
             x = "",
@@ -240,8 +239,8 @@ ts_ma_plot <- function(.data,
         ggplot2::scale_y_continuous(
             labels = scales::label_percent(scale = 1, accuracy = 0.1)
         ) +
-        tidyquant::theme_tq() +
-        tidyquant::scale_fill_tq() +
+        ggplot2::theme_minimal() +
+        ggplot2::scale_fill_manual(values = c("red"="red","green"="green")) +
         ggplot2::labs(
             title = .secondary_title,
             x = "",
@@ -273,8 +272,8 @@ ts_ma_plot <- function(.data,
             labels = scales::label_date("'%y"),
             breaks = scales::breaks_width("2 years")
         ) +
-        tidyquant::theme_tq() +
-        tidyquant::scale_fill_tq() +
+        ggplot2::theme_minimal() +
+        ggplot2::scale_fill_manual(values = c("red"="red","green"="green")) +
         ggplot2::labs(
             title = .tertiary_title,
             x = "",
