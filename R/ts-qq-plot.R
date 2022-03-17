@@ -113,7 +113,6 @@ ts_qq_plot <- function(.calibration_tbl, .model_id = NULL
             ~ .model_desc
             , scales = "free"
         ) +
-        tidyquant::scale_color_tq() +
         ggplot2::theme_minimal() +
         ggplot2::theme(legend.position = "none") +
         ggplot2::labs(
