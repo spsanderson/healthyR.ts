@@ -209,7 +209,7 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
             x = "Time",
             y = "Measurement"
         ) +
-        tidyquant::theme_tq() +
+        ggplot2::theme_minimal() +
         ggplot2::theme(
             legend.position = "none"
         )
@@ -224,7 +224,7 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
             , x = "Time"
             , y = "Lag 1 Difference"
         ) +
-        tidyquant::theme_tq()
+        ggplotw::theme_minimal()
 
     # Maximum Harmonic Plot
     max_har_plt <- data_tbl %>%
@@ -244,7 +244,7 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
             x = "Time",
             y = "Measurement"
         ) +
-        tidyquant::theme_tq()
+        ggplot2::theme_minimal()
 
     # * Return ----
     output_list <- list(
