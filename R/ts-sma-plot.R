@@ -116,7 +116,7 @@ ts_sma_plot <- function(.data, .date_col = NULL, .sma_order = 2, .func = mean
             subtitle = "Black line is original values.",
             color = "SMA Order"
         ) +
-        tidyquant::theme_tq()
+        ggplot2::theme_minimal()
 
     i_plot <- plotly::ggplotly(g)
 
