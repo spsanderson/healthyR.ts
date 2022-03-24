@@ -3,7 +3,8 @@
 ## Breaking Changes
 
 ## New Features
-1. Fix #223 - Add function `ts_arima_simulator()`
+1. Fix #223 - Add function `ts_arima_simulator()` 
+2. Fix #227 - Add function `ts_feature_cluster()`
 
 ## Minor Fixes and Improvements
 1. Fix #212 - Update recipes to use the new [recipes::print_step()] method.
