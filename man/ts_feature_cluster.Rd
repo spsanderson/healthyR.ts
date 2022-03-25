@@ -72,6 +72,7 @@ The output of this function includes the following:
 \item user_item_matrix_tbl
 \item mapped_tbl
 \item scree_data_tbl
+\item input_data_tbl (the original data)
 }
 
 \strong{Plots}
@@ -98,6 +99,9 @@ ts_feature_cluster(
 }
 \seealso{
 \url{"https://pkg.robjhyndman.com/tsfeatures/"}
+
+Other Clustering: 
+\code{\link{ts_feature_cluster_plot}()}
 }
 \author{
 Steven P. Sanderson II, MPH
