@@ -30,6 +30,7 @@
 #' -  user_item_matrix_tbl
 #' -  mapped_tbl
 #' -  scree_data_tbl
+#' -  input_data_tbl (the original data)
 #'
 #' __Plots__
 #' -  static_plot
@@ -164,7 +165,7 @@ ts_feature_cluster <- function(.data, .date_col, .value_col, ...,
     # * Scree data and plot
     kmm_scree_data <- healthyR::kmeans_scree_data_tbl(kmm_tbl)
     scree_plt <- healthyR::kmeans_scree_plt(kmm_tbl)
-    scree_plotly_plt <- plotly::ggplotly(scree_plt)
+    scree_plotly_plt <- suppressWarnings(plotly::ggplotly(scree_plt))
 
     # * Return ----
     output <- list(
@@ -172,7 +173,8 @@ ts_feature_cluster <- function(.data, .date_col, .value_col, ...,
             ts_feature_tbl       = data_feature_tbl,
             user_item_matrix_tbl = ui_tbl,
             mapped_tbl           = kmm_tbl,
-            scree_data_tbl       = kmm_scree_data
+            scree_data_tbl       = kmm_scree_data,
+            input_data_tbl       = data_tbl
         ),
         plots = list(
             static_plot = scree_plt,

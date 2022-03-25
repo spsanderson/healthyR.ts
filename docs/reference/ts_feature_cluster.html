@@ -145,12 +145,15 @@ return(ret)</p>
 <li><p>user_item_matrix_tbl</p></li>
 <li><p>mapped_tbl</p></li>
 <li><p>scree_data_tbl</p></li>
+<li><p>input_data_tbl (the original data)</p></li>
 </ul><p><strong>Plots</strong></p><ul><li><p>static_plot</p></li>
 <li><p>plotly_plot</p></li>
 </ul></div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><a href="%22https://pkg.robjhyndman.com/tsfeatures/%22" class="external-link">"https://pkg.robjhyndman.com/tsfeatures/"</a></p></div>
+    <div class="dont-index"><p><a href="%22https://pkg.robjhyndman.com/tsfeatures/%22" class="external-link">"https://pkg.robjhyndman.com/tsfeatures/"</a></p>
+<p>Other Clustering: 
+<code><a href="ts_feature_cluster_plot.html">ts_feature_cluster_plot</a>()</code></p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -172,14 +175,6 @@ return(ret)</p>
 <span class="r-in">  .prefix <span class="op">=</span> <span class="st">"ts_"</span>,</span>
 <span class="r-in">  .centers <span class="op">=</span> <span class="fl">3</span></span>
 <span class="r-in"><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`gather_()` was deprecated in tidyr 1.2.0.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `gather()` instead.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>geom_GeomLabelRepel() has yet to be implemented in plotly.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   If you'd like to see this geom implemented,</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   Please open an issue with your example code at</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   https://github.com/ropensci/plotly/issues</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data$ts_feature_tbl</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 x 8</span></span>
@@ -232,6 +227,22 @@ return(ret)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>       1        1.83 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>       2        0.736</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>       3        0.457</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $data$input_data_tbl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 144 x 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    index     date_col   value group_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;yearmon&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jan 1949  1949-01-01   112        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Feb 1949  1949-02-01   118        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Mar 1949  1949-03-01   132        3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Apr 1949  1949-04-01   129        4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> May 1949  1949-05-01   121        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Jun 1949  1949-06-01   135        6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Jul 1949  1949-07-01   148        7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Aug 1949  1949-08-01   148        8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sep 1949  1949-09-01   136        9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Oct 1949  1949-10-01   119       10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ... with 134 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $plots</span>
