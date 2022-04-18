@@ -62,6 +62,10 @@ reference:
      desc: healthyR.ts automatic time series workflow set functions
   -  contents:
      -  matches("ts_wfs")
+  -  title: Time Series Boiler Plate Functions
+     desc: healthyR.ts automatic time series functions to create in a single call a Recipe, Model Specification, Workflow, Model Fit, Tuned Model and Calibration object.
+  -  contents:
+     -  has_concept("Boiler_Plate")
   -  title: Time Series Vector Functions
      desc: healthyR.ts vectorized Functions
   -  contents:

@@ -40,6 +40,9 @@
     <loc>/reference/get_gg_layers.html</loc>
   </url>
   <url>
+    <loc>/reference/get_recipe_call.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
@@ -73,7 +76,13 @@
     <loc>/reference/ts_arima_simulator.html</loc>
   </url>
   <url>
+    <loc>/reference/ts_auto_glmnet.html</loc>
+  </url>
+  <url>
     <loc>/reference/ts_auto_recipe.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_auto_xgboost.html</loc>
   </url>
   <url>
     <loc>/reference/ts_calendar_heatmap_plot.html</loc>
