@@ -9,6 +9,8 @@
 ## Minor Fixes and Improvements
 1. Fix #212 - Update recipes to use the new [recipes::print_step()] method.
 2. Fix #229 - Change all plots to  `ggplot2::theme_minimal()`
+3. Fix #242 - Add `hardhat` to DESCRIPTION since functionality like extracting
+dials parameters was taken out of dials and moved to hardhat.
 
 # healthyR.ts 0.1.8
 

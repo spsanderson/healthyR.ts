@@ -36,7 +36,8 @@ Imports:
     stringi,
     parsnip,
     workflowsets,
-    earth
+    earth,
+    hardhat
 Suggests: 
     knitr,
     rmarkdown,
