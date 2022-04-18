@@ -5,6 +5,8 @@
 ## New Features
 1. Fix #223 - Add function `ts_arima_simulator()` 
 2. Fix #227 - Add function `ts_feature_cluster()`
+3. Fix #228 - Add function `ts_feature_cluster_plot()`
+4. Fix #241 - Add function `ts_auto_glmnet()`
 
 ## Minor Fixes and Improvements
 1. Fix #212 - Update recipes to use the new [recipes::print_step()] method.
