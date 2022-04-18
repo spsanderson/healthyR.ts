@@ -201,33 +201,33 @@ used for this purpose.</p>
 <span class="r-in"><span class="co"># Bake the recipe object - Adds the Time Series Signature</span></span>
 <span class="r-in"><span class="fu"><a href="https://recipes.tidymodels.org/reference/bake.html" class="external-link">bake</a></span><span class="op">(</span><span class="fu"><a href="https://recipes.tidymodels.org/reference/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="va">rec_obj</span><span class="op">)</span>, <span class="va">data_tbl</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 x 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col        b        a acceleration_b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.341  -<span style="color: #BB0000;">2.42</span>           <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.096<span style="text-decoration: underline;">3</span>  0.485          <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.539   0.426           0.687 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.808   1.65           -<span style="color: #BB0000;">0.174</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.365   0.887          -<span style="color: #BB0000;">0.711</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.366  -<span style="color: #BB0000;">0.770</span>           0.443 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.880  -<span style="color: #BB0000;">0.604</span>           0.514 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.810   0.007<span style="text-decoration: underline;">87</span>        -<span style="color: #BB0000;">0.585</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.686   0.318          -<span style="color: #BB0000;">0.053</span><span style="color: #BB0000; text-decoration: underline;">4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.852  -<span style="color: #BB0000;">1.01</span>            0.290 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col       b      a acceleration_b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.638  0.783         <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.775  0.508         <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.463  2.34          -<span style="color: #BB0000;">0.450</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.761 -<span style="color: #BB0000;">0.534</span>          0.610</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.169 -<span style="color: #BB0000;">1.56</span>          -<span style="color: #BB0000;">0.890</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.401 -<span style="color: #BB0000;">0.314</span>          0.825</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.267  2.02          -<span style="color: #BB0000;">0.367</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.768  1.32           0.636</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.570  2.42          -<span style="color: #BB0000;">0.700</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.728 -<span style="color: #BB0000;">1.49</span>           0.357</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">rec_obj</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/juice.html" class="external-link">juice</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 x 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col        b        a acceleration_b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.341  -<span style="color: #BB0000;">2.42</span>           <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.096<span style="text-decoration: underline;">3</span>  0.485          <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.539   0.426           0.687 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.808   1.65           -<span style="color: #BB0000;">0.174</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.365   0.887          -<span style="color: #BB0000;">0.711</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.366  -<span style="color: #BB0000;">0.770</span>           0.443 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.880  -<span style="color: #BB0000;">0.604</span>           0.514 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.810   0.007<span style="text-decoration: underline;">87</span>        -<span style="color: #BB0000;">0.585</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.686   0.318          -<span style="color: #BB0000;">0.053</span><span style="color: #BB0000; text-decoration: underline;">4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.852  -<span style="color: #BB0000;">1.01</span>            0.290 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col       b      a acceleration_b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.638  0.783         <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.775  0.508         <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.463  2.34          -<span style="color: #BB0000;">0.450</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.761 -<span style="color: #BB0000;">0.534</span>          0.610</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.169 -<span style="color: #BB0000;">1.56</span>          -<span style="color: #BB0000;">0.890</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.401 -<span style="color: #BB0000;">0.314</span>          0.825</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.267  2.02          -<span style="color: #BB0000;">0.367</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.768  1.32           0.636</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.570  2.42          -<span style="color: #BB0000;">0.700</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.728 -<span style="color: #BB0000;">1.49</span>           0.357</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
