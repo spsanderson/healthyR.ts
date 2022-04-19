@@ -68,6 +68,7 @@ This is a boilerplate function to create automatically the following:
 
 }
 \examples{
+\dontrun{
 library(dplyr)
 
 data <- AirPassengers \%>\%
@@ -92,12 +93,15 @@ ts_glmnet <- ts_auto_glmnet(
   .grid_size = 20
 )
 
-ts_glmnet$recipe_info
+ts_glmnet$recipe_infos
+}
 
 }
 \seealso{
 Other Boiler_Plate: 
 \code{\link{ts_auto_arima_xgboost}()},
+\code{\link{ts_auto_exp_smoothing}()},
+\code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_xgboost}()}
 }
 \author{
