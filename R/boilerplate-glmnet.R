@@ -31,6 +31,7 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #'
 #' data <- AirPassengers %>%
@@ -55,7 +56,8 @@
 #'   .grid_size = 20
 #' )
 #'
-#' ts_glmnet$model_info
+#' ts_glmnet$recipe_infos
+#' }
 #'
 #' @return
 #' A list
