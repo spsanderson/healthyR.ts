@@ -109,6 +109,7 @@ Other Boiler_Plate:
 \code{\link{ts_auto_glmnet}()},
 \code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_nnetar}()},
+\code{\link{ts_auto_prophet_reg}()},
 \code{\link{ts_auto_xgboost}()}
 
 Other exp_smoothing: 
