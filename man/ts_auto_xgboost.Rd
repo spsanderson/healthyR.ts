@@ -92,11 +92,12 @@ ts_xgboost <- ts_auto_xgboost(
   .grid_size = 2
 )
 
-ts_xgboost$model_info
+ts_xgboost$recipe_info
 
 }
 \seealso{
 Other Boiler_Plate: 
+\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_glmnet}()}
 }
 \author{

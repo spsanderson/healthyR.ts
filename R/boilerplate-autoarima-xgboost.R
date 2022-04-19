@@ -1,7 +1,7 @@
 #' Boilerplate Workflow
 #'
 #' @family Boiler_Plate
-#' @family xgboost
+#' @family arima_xgboost
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
@@ -19,7 +19,7 @@
 #' @param .value_col The column that has the value
 #' @param .formula The formula that is passed to the recipe like `value ~ .`
 #' @param .rsamp_obj The rsample splits object
-#' @param .prefix Default is `ts_xgboost`
+#' @param .prefix Default is `ts_arima_boost`
 #' @param .tune Defaults to TRUE, this creates a tuning grid and tuned model.
 #' @param .grid_size If `.tune` is TRUE then the `.grid_size` is the size of the
 #' tuning grid.
@@ -46,17 +46,18 @@
 #'   , cumulative = TRUE
 #' )
 #'
-#' ts_xgboost <- ts_auto_xgboost(
+#' ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
 #'   .data = data,
 #'   .num_cores = 1,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 2
+#'   .grid_size = 2,
+#'   .cv_slice_limit = 2
 #' )
 #'
-#' ts_xgboost$recipe_info
+#' ts_auto_arima_xgboost$recipe_info
 #' }
 #'
 #' @return
@@ -65,11 +66,11 @@
 #' @export
 #'
 
-ts_auto_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
-                            .prefix = "ts_xgboost", .tune = TRUE, .grid_size = 10,
-                            .num_cores = 1, .cv_assess = 12, .cv_skip = 3,
-                            .cv_slice_limit = 6, .best_metric = "rmse",
-                            .bootstrap_final = FALSE){
+ts_auto_arima_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
+                                  .prefix = "ts_arima_boost", .tune = TRUE, .grid_size = 10,
+                                  .num_cores = 1, .cv_assess = 12, .cv_skip = 3,
+                                  .cv_slice_limit = 6, .best_metric = "rmse",
+                                  .bootstrap_final = FALSE){
 
     # Tidyeval ----
     date_col_var_expr <- rlang::enquo(.date_col)
@@ -124,18 +125,19 @@ ts_auto_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         recipes::step_novel(recipes::all_nominal_predictors()) %>%
         recipes::step_mutate_at(tidyselect::vars_select_helpers$where(is.character)
                                 , fn = ~ as.factor(.)) %>%
-        recipes::step_rm({{date_col_var_expr}}) %>%
         recipes::step_dummy(recipes::all_nominal(), one_hot = TRUE) %>%
-        recipes::step_zv(recipes::all_predictors(), -date_col_index.num)
+        recipes::step_zv(recipes::all_predictors(), -date_col_index.num) %>%
+        recipes::step_normalize(recipes::all_numeric_predictors())
 
     # Tune/Spec ----
     if (.tune){
-        model_spec <- parsnip::boost_tree(
-            trees = tune::tune(),
-            min_n = tune::tune(),
-            tree_depth = tune::tune(),
-            learn_rate = tune::tune(),
-            loss_reduction = tune::tune()
+        model_spec <- modeltime::arima_boost(
+            trees            = tune::tune()
+            , min_n          = tune::tune()
+            , tree_depth     = tune::tune()
+            , learn_rate     = tune::tune()
+            , loss_reduction = tune::tune()
+            , stop_iter      = tune::tune()
         )
     } else {
         model_spec <- parsnip::boost_tree()
@@ -143,7 +145,7 @@ ts_auto_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
 
     model_spec <- model_spec %>%
         parsnip::set_mode(mode = "regression") %>%
-        parsnip::set_engine("xgboost")
+        parsnip::set_engine("auto_arima_xgboost")
 
     # Workflow ----
     wflw <- workflows::workflow() %>%

@@ -76,6 +76,9 @@
     <loc>/reference/ts_arima_simulator.html</loc>
   </url>
   <url>
+    <loc>/reference/ts_auto_arima_xgboost.html</loc>
+  </url>
+  <url>
     <loc>/reference/ts_auto_glmnet.html</loc>
   </url>
   <url>

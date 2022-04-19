@@ -8,6 +8,7 @@
 3. Fix #228 - Add function `ts_feature_cluster_plot()`
 4. Fix #241 - Add function `ts_auto_glmnet()`
 5. Fix #243 - Add function `ts_auto_xgboost()`
+6. Fix #255 - Add function `ts_auto_arima_xgboost()`
 
 ## Minor Fixes and Improvements
 1. Fix #212 - Update recipes to use the new [recipes::print_step()] method.

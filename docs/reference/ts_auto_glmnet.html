@@ -157,6 +157,7 @@ tuning grid.</p></dd>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p>Other Boiler_Plate: 
+<code><a href="ts_auto_arima_xgboost.html">ts_auto_arima_xgboost</a>()</code>,
 <code><a href="ts_auto_xgboost.html">ts_auto_xgboost</a>()</code></p></div>
     </div>
     <div id="author">
@@ -191,118 +192,35 @@ tuning grid.</p></dd>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">ts_glmnet</span><span class="op">$</span><span class="va">model_info</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $model_spec</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear Regression Model Specification (regression)</span>
+<span class="r-in"><span class="va">ts_glmnet</span><span class="op">$</span><span class="va">recipe_info</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_call</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> recipe(.data = data, .date_col = date_col, .value_col = value, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     .formula = value ~ ., .rsamp_obj = splits, .grid_size = 20, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     .num_cores = 1)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Main Arguments:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   penalty = tune::tune()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   mixture = tune::tune()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_syntax</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ts_glmnet_recipe &lt;-"                                                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "\n  recipe(.data = data, .date_col = date_col, .value_col = value, .formula = value ~ \n    ., .rsamp_obj = splits, .grid_size = 20, .num_cores = 1)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Computational engine: glmnet </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rec_obj</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $wflw</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> == Workflow ====================================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-style: italic;">Preprocessor:</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-style: italic;">Model:</span> linear_reg()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- Preprocessor ----------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 Recipe Steps</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_timeseries_signature()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_holiday_signature()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_novel()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_mutate_at()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_rm()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_dummy()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_zv()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_normalize()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- Model -----------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear Regression Model Specification (regression)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Main Arguments:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   penalty = tune::tune()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   mixture = tune::tune()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Computational engine: glmnet </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $fitted_wflw</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> == Workflow [trained] ==========================================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-style: italic;">Preprocessor:</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-style: italic;">Model:</span> linear_reg()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- Preprocessor ----------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 Recipe Steps</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_timeseries_signature()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_holiday_signature()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_novel()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_mutate_at()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_rm()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_dummy()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_zv()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * step_normalize()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -- Model -----------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Call:  glmnet::glmnet(x = maybe_matrix(x), y = y, family = "gaussian",      alpha = ~0.05) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Df  %Dev  Lambda</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   0  0.00 1954.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   3  2.34 1780.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   3  4.82 1622.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   3  7.42 1478.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   3 10.13 1347.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   3 12.94 1227.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   3 15.84 1118.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   3 18.83 1019.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   3 21.89  928.20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  3 25.01  845.70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  3 28.18  770.60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  3 31.37  702.10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  3 34.57  639.70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  3 37.76  582.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  4 40.97  531.10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  4 44.30  483.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  4 47.58  441.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  4 50.78  401.80</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  9 53.99  366.10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 10 57.40  333.60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 10 60.67  303.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 10 63.78  276.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 10 66.70  252.30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 11 69.47  229.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 18 72.13  209.50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 18 74.62  190.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 18 76.90  173.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 20 79.03  158.50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 20 80.97  144.40</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 27 82.75  131.60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 28 84.34  119.90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 28 85.77  109.20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 28 87.04   99.52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 28 88.16   90.68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 29 89.15   82.63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 29 90.02   75.29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 29 90.78   68.60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 29 91.44   62.50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 30 92.02   56.95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 30 92.53   51.89</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 33 92.97   47.28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 35 93.36   43.08</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 35 93.70   39.25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 35 93.99   35.77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 37 94.24   32.59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 38 94.45   29.69</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> and 42 more lines.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $was_tuned</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "tuned"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from date_col</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Holiday signature features from date_col</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Novel factor level assignment for recipes::all_nominal_predictors()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Variable mutation for tidyselect::vars_select_helpers$where(is.c...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed date_col</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Zero variance filter on recipes::all_predictors(), -date_col_in...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for recipes::all_numeric_predictors(), -date_col_in...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
 </code></pre></div>
