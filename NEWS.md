@@ -9,10 +9,11 @@
 4. Fix #241 - Add function `ts_auto_glmnet()`
 5. Fix #243 - Add function `ts_auto_xgboost()`
 6. Fix #244 - Add function `ts_auto_arima_xgboost()`
-7. Fox #245 - Add function `ts_auto_mars()`
+7. Fix #245 - Add function `ts_auto_mars()`
+8. Fix #246 - Add function `ts_auto_exp_smoothing()`
 
 ## Minor Fixes and Improvements
-1. Fix #212 - Update recipes to use the new [recipes::print_step()] method.
+1. Fix #212 - Update recipes to use the new `[recipes::print_step()]` method.
 2. Fix #229 - Change all plots to  `ggplot2::theme_minimal()`
 3. Fix #242 - Add `hardhat` to DESCRIPTION since functionality like extracting
 dials parameters was taken out of dials and moved to hardhat.

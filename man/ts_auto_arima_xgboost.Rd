@@ -100,6 +100,7 @@ ts_auto_arima_xgboost$recipe_info
 }
 \seealso{
 Other Boiler_Plate: 
+\code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},
 \code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_xgboost}()}
