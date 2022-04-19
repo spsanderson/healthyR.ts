@@ -135,7 +135,6 @@ ts_auto_recipe <- function(.data
     # * Recipe Objects ----
     # ** Base recipe ----
     rec_base_obj <- recipes::recipe(
-        #formula = date_col ~ .
         formula = f
         , data = data_tbl
     )

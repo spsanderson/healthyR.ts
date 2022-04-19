@@ -1,13 +1,17 @@
 #' Boilerplate Workflow
 #'
 #' @family Boiler_Plate
-#' @family arima_xgboost
+#' @family exp_smoothing
+#' @family croston
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details This uses the `modeltime::arima_boost()` with the `engine` set to `xgboost`
+#' @details This uses the `forecast::croston()` for the `parsnip` engine. This
+#' model does not use exogenous regressors, so only a univariate model of: value ~ date
+#' will be used from the `.date_col` and `.value_col` that you provide.
 #'
-#' @seealso \url{https://business-science.github.io/modeltime/reference/arima_boost.html}
+#' @seealso \url{https://business-science.github.io/modeltime/reference/exp_smoothing.html#engine-details}
+#' @seealso \url{https://pkg.robjhyndman.com/forecast/reference/croston.html}
 #'
 #' @description This is a boilerplate function to create automatically the following:
 #' -  recipe
@@ -21,7 +25,7 @@
 #' @param .value_col The column that has the value
 #' @param .formula The formula that is passed to the recipe like `value ~ .`
 #' @param .rsamp_obj The rsample splits object
-#' @param .prefix Default is `ts_arima_boost`
+#' @param .prefix Default is `ts_exp_smooth`
 #' @param .tune Defaults to TRUE, this creates a tuning grid and tuned model.
 #' @param .grid_size If `.tune` is TRUE then the `.grid_size` is the size of the
 #' tuning grid.
@@ -48,18 +52,17 @@
 #'   , cumulative = TRUE
 #' )
 #'
-#' ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
+#' ts_exp <- ts_auto_croston(
 #'   .data = data,
-#'   .num_cores = 1,
+#'   .num_cores = 5,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 2,
-#'   .cv_slice_limit = 2
+#'   .grid_size = 20
 #' )
 #'
-#' ts_auto_arima_xgboost$recipe_info
+#' ts_exp$recipe_info
 #' }
 #'
 #' @return
@@ -68,11 +71,11 @@
 #' @export
 #'
 
-ts_auto_arima_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
-                                  .prefix = "ts_arima_boost", .tune = TRUE, .grid_size = 10,
-                                  .num_cores = 1, .cv_assess = 12, .cv_skip = 3,
-                                  .cv_slice_limit = 6, .best_metric = "rmse",
-                                  .bootstrap_final = FALSE){
+ts_auto_croston <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
+                            .prefix = "ts_croston", .tune = TRUE, .grid_size = 10,
+                            .num_cores = 1, .cv_assess = 12, .cv_skip = 3,
+                            .cv_slice_limit = 6, .best_metric = "rmse",
+                            .bootstrap_final = FALSE){
 
     # Tidyeval ----
     date_col_var_expr <- rlang::enquo(.date_col)
@@ -114,40 +117,38 @@ ts_auto_arima_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp
 
     # Recipe ----
     # Get the initial recipe call
+    data_tbl <- data_tbl %>%
+        dplyr::select(
+            {{ date_col_var_expr }}
+            , {{ value_col_var_expr }}
+            , dplyr::everything()
+        )
+
+    # * Orignal Cols and formula ----
+    ds <- rlang::sym(base::names(data_tbl)[[1]])
+    v  <- rlang::sym(base::names(data_tbl)[[2]])
+    f  <- stats::as.formula(base::paste(v, " ~ ."))
+
     recipe_call <- get_recipe_call(match.call())
 
     rec_syntax <- paste0(.prefix, "_recipe") %>%
         assign_value(!!recipe_call)
 
-    rec_obj <- recipes::recipe(formula = .formula, data = data_tbl)
-
-    rec_obj <- rec_obj %>%
-        timetk::step_timeseries_signature({{date_col_var_expr}}) %>%
-        timetk::step_holiday_signature({{date_col_var_expr}}) %>%
-        recipes::step_novel(recipes::all_nominal_predictors()) %>%
-        recipes::step_mutate_at(tidyselect::vars_select_helpers$where(is.character)
-                                , fn = ~ as.factor(.)) %>%
-        recipes::step_dummy(recipes::all_nominal(), one_hot = TRUE) %>%
-        recipes::step_zv(recipes::all_predictors(), -date_col_index.num) %>%
-        recipes::step_normalize(recipes::all_numeric_predictors())
+    rec_obj <- recipes::recipe(formula = f, data = data_tbl)
 
     # Tune/Spec ----
     if (.tune){
-        model_spec <- modeltime::arima_boost(
-            trees            = tune::tune()
-            , min_n          = tune::tune()
-            , tree_depth     = tune::tune()
-            , learn_rate     = tune::tune()
-            , loss_reduction = tune::tune()
-            , stop_iter      = tune::tune()
+        model_spec <- modeltime::exp_smoothing(
+            seasonal_period = "auto"
+            , smooth_level    = tune::tune()
         )
     } else {
-        model_spec <- parsnip::boost_tree()
+        model_spec <- parsnip::exp_smoothing()
     }
 
     model_spec <- model_spec %>%
         parsnip::set_mode(mode = "regression") %>%
-        parsnip::set_engine("auto_arima_xgboost")
+        parsnip::set_engine("croston")
 
     # Workflow ----
     wflw <- workflows::workflow() %>%

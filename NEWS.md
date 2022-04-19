@@ -11,6 +11,7 @@
 6. Fix #244 - Add function `ts_auto_arima_xgboost()`
 7. Fix #245 - Add function `ts_auto_mars()`
 8. Fix #246 - Add function `ts_auto_exp_smoothing()`
+9. Fix #247 - Add function `ts_auto_croston()`
 
 ## Minor Fixes and Improvements
 1. Fix #212 - Update recipes to use the new `[recipes::print_step()]` method.

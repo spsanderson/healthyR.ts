@@ -65,7 +65,8 @@ This is a boilerplate function to create automatically the following:
 }
 }
 \details{
-
+This uses \code{modeltime::exp_smoothing()} under the hood with the \code{engine}
+set to \code{ets}
 }
 \examples{
 \dontrun{
@@ -85,7 +86,7 @@ splits <- time_series_split(
 
 ts_exp <- ts_auto_exp_smoothing(
   .data = data,
-  .num_cores = 6,
+  .num_cores = 1,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
@@ -93,19 +94,28 @@ ts_exp <- ts_auto_exp_smoothing(
   .grid_size = 20
 )
 
-ts_auto_mars$recipe_info
+ts_exp$recipe_info
 }
 
 }
 \seealso{
+\url{https://business-science.github.io/modeltime/reference/exp_smoothing.html#engine-details}
+
+\url{https://pkg.robjhyndman.com/forecast/reference/ets.html}
+
 Other Boiler_Plate: 
 \code{\link{ts_auto_arima_xgboost}()},
+\code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_glmnet}()},
 \code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_xgboost}()}
+
+Other exp_smoothing: 
+\code{\link{ts_auto_croston}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
 \concept{Boiler_Plate}
+\concept{ets}
 \concept{exp_smoothing}
