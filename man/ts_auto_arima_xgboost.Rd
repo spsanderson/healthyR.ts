@@ -68,6 +68,7 @@ This is a boilerplate function to create automatically the following:
 
 }
 \examples{
+\dontrun{
 library(dplyr)
 
 data <- AirPassengers \%>\%
@@ -94,12 +95,17 @@ ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
 )
 
 ts_auto_arima_xgboost$recipe_info
+}
 
 }
 \seealso{
 Other Boiler_Plate: 
 \code{\link{ts_auto_glmnet}()},
+\code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_xgboost}()}
+
+Other arima_xgboost: 
+\code{\link{ts_auto_mars}()}
 }
 \author{
 Steven P. Sanderson II, MPH
