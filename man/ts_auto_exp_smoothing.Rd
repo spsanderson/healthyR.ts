@@ -86,7 +86,7 @@ splits <- time_series_split(
 
 ts_exp <- ts_auto_exp_smoothing(
   .data = data,
-  .num_cores = 1,
+  .num_cores = 5,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
@@ -108,6 +108,7 @@ Other Boiler_Plate:
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_glmnet}()},
 \code{\link{ts_auto_mars}()},
+\code{\link{ts_auto_nnetar}()},
 \code{\link{ts_auto_xgboost}()}
 
 Other exp_smoothing: 

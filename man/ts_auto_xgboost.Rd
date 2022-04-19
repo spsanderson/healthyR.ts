@@ -103,7 +103,8 @@ Other Boiler_Plate:
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},
-\code{\link{ts_auto_mars}()}
+\code{\link{ts_auto_mars}()},
+\code{\link{ts_auto_nnetar}()}
 }
 \author{
 Steven P. Sanderson II, MPH
