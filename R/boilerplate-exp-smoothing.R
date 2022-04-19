@@ -2,10 +2,15 @@
 #'
 #' @family Boiler_Plate
 #' @family exp_smoothing
+#' @family ets
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details
+#' @details This uses `modeltime::exp_smoothing()` under the hood with the `engine`
+#' set to `ets`
+#'
+#' @seealso \url{https://business-science.github.io/modeltime/reference/exp_smoothing.html#engine-details}
+#' @seealso \url{https://pkg.robjhyndman.com/forecast/reference/ets.html}
 #'
 #' @description This is a boilerplate function to create automatically the following:
 #' -  recipe
@@ -48,7 +53,7 @@
 #'
 #' ts_exp <- ts_auto_exp_smoothing(
 #'   .data = data,
-#'   .num_cores = 6,
+#'   .num_cores = 1,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
@@ -56,7 +61,7 @@
 #'   .grid_size = 20
 #' )
 #'
-#' ts_auto_mars$recipe_info
+#' ts_exp$recipe_info
 #' }
 #'
 #' @return

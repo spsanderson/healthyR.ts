@@ -5,7 +5,9 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details
+#' @details This uses `parsnip::linear_reg()` and sets the `engine` to `glmnet`
+#'
+#' @seealso \url{https://parsnip.tidymodels.org/reference/linear_reg.html}
 #'
 #' @description This is a boilerplate function to create automatically the following:
 #' -  recipe

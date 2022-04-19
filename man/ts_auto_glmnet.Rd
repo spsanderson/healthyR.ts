@@ -65,7 +65,7 @@ This is a boilerplate function to create automatically the following:
 }
 }
 \details{
-
+This uses \code{parsnip::linear_reg()} and sets the \code{engine} to \code{glmnet}
 }
 \examples{
 \dontrun{
@@ -98,8 +98,11 @@ ts_glmnet$recipe_infos
 
 }
 \seealso{
+\url{https://parsnip.tidymodels.org/reference/linear_reg.html}
+
 Other Boiler_Plate: 
 \code{\link{ts_auto_arima_xgboost}()},
+\code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_xgboost}()}

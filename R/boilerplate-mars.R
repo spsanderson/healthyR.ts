@@ -5,7 +5,9 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details
+#' @details This uses the `parsnip::mars()` function with the `engine` set to `earth`.
+#'
+#' @seealso \url{https://parsnip.tidymodels.org/reference/mars.html}
 #'
 #' @description This is a boilerplate function to create automatically the following:
 #' -  recipe

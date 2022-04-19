@@ -65,7 +65,7 @@ This is a boilerplate function to create automatically the following:
 }
 }
 \details{
-
+This uses the \code{modeltime::arima_boost()} with the \code{engine} set to \code{xgboost}
 }
 \examples{
 \dontrun{
@@ -99,7 +99,10 @@ ts_auto_arima_xgboost$recipe_info
 
 }
 \seealso{
+\url{https://business-science.github.io/modeltime/reference/arima_boost.html}
+
 Other Boiler_Plate: 
+\code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},
 \code{\link{ts_auto_mars}()},
