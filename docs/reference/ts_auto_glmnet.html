@@ -150,14 +150,19 @@ tuning grid.</p></dd>
     </div>
     <div id="details">
     <h2>Details</h2>
-    
-
-
+    <p>This uses <code><a href="https://parsnip.tidymodels.org/reference/linear_reg.html" class="external-link">parsnip::linear_reg()</a></code> and sets the <code>engine</code> to <code>glmnet</code></p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p>Other Boiler_Plate: 
+    <div class="dont-index"><p><a href="https://parsnip.tidymodels.org/reference/linear_reg.html" class="external-link">https://parsnip.tidymodels.org/reference/linear_reg.html</a></p>
+<p>Other Boiler_Plate: 
 <code><a href="ts_auto_arima_xgboost.html">ts_auto_arima_xgboost</a>()</code>,
+<code><a href="ts_auto_croston.html">ts_auto_croston</a>()</code>,
+<code><a href="ts_auto_exp_smoothing.html">ts_auto_exp_smoothing</a>()</code>,
+<code><a href="ts_auto_mars.html">ts_auto_mars</a>()</code>,
+<code><a href="ts_auto_nnetar.html">ts_auto_nnetar</a>()</code>,
+<code><a href="ts_auto_prophet_boost.html">ts_auto_prophet_boost</a>()</code>,
+<code><a href="ts_auto_prophet_reg.html">ts_auto_prophet_reg</a>()</code>,
 <code><a href="ts_auto_xgboost.html">ts_auto_xgboost</a>()</code></p></div>
     </div>
     <div id="author">
@@ -167,7 +172,8 @@ tuning grid.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">AirPassengers</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
@@ -183,45 +189,16 @@ tuning grid.</p></dd>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">ts_glmnet</span> <span class="op">&lt;-</span> <span class="fu">ts_auto_glmnet</span><span class="op">(</span></span>
 <span class="r-in">  .data <span class="op">=</span> <span class="va">data</span>,</span>
-<span class="r-in">  .num_cores <span class="op">=</span> <span class="fl">1</span>,</span>
+<span class="r-in">  .num_cores <span class="op">=</span> <span class="fl">5</span>,</span>
 <span class="r-in">  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
 <span class="r-in">  .value_col <span class="op">=</span> <span class="va">value</span>,</span>
 <span class="r-in">  .rsamp_obj <span class="op">=</span> <span class="va">splits</span>,</span>
 <span class="r-in">  .formula <span class="op">=</span> <span class="va">value</span> <span class="op">~</span> <span class="va">.</span>,</span>
 <span class="r-in">  .grid_size <span class="op">=</span> <span class="fl">20</span></span>
 <span class="r-in"><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">ts_glmnet</span><span class="op">$</span><span class="va">recipe_info</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_call</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> recipe(.data = data, .date_col = date_col, .value_col = value, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     .formula = value ~ ., .rsamp_obj = splits, .grid_size = 20, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     .num_cores = 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_syntax</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ts_glmnet_recipe &lt;-"                                                                                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "\n  recipe(.data = data, .date_col = date_col, .value_col = value, .formula = value ~ \n    ., .rsamp_obj = splits, .grid_size = 20, .num_cores = 1)"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $rec_obj</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from date_col</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Holiday signature features from date_col</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Novel factor level assignment for recipes::all_nominal_predictors()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variable mutation for tidyselect::vars_select_helpers$where(is.c...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed date_col</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Zero variance filter on recipes::all_predictors(), -date_col_in...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for recipes::all_numeric_predictors(), -date_col_in...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span class="va">ts_glmnet</span><span class="op">$</span><span class="va">recipe_infos</span></span>
+<span class="r-in"><span class="op">}</span></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
