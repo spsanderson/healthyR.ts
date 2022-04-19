@@ -1,13 +1,13 @@
 #' Boilerplate Workflow
 #'
 #' @family Boiler_Plate
-#' @family glmnet
+#' @family nnetar
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details This uses `parsnip::linear_reg()` and sets the `engine` to `glmnet`
+#' @details This uses the `modeltime::nnetar_reg()` function with the `engine` set to `nnetar`.
 #'
-#' @seealso \url{https://parsnip.tidymodels.org/reference/linear_reg.html}
+#' @seealso \url{https://business-science.github.io/modeltime/reference/nnetar_reg.html}
 #'
 #' @description This is a boilerplate function to create automatically the following:
 #' -  recipe
@@ -21,7 +21,7 @@
 #' @param .value_col The column that has the value
 #' @param .formula The formula that is passed to the recipe like `value ~ .`
 #' @param .rsamp_obj The rsample splits object
-#' @param .prefix Default is `ts_glmnet`
+#' @param .prefix Default is `ts_nnetar`
 #' @param .tune Defaults to TRUE, this creates a tuning grid and tuned model.
 #' @param .grid_size If `.tune` is TRUE then the `.grid_size` is the size of the
 #' tuning grid.
@@ -48,7 +48,7 @@
 #'   , cumulative = TRUE
 #' )
 #'
-#' ts_glmnet <- ts_auto_glmnet(
+#' ts_nnetar <- ts_auto_nnetar(
 #'   .data = data,
 #'   .num_cores = 5,
 #'   .date_col = date_col,
@@ -58,7 +58,7 @@
 #'   .grid_size = 20
 #' )
 #'
-#' ts_glmnet$recipe_infos
+#' ts_nnetar$recipe_info
 #' }
 #'
 #' @return
@@ -67,8 +67,8 @@
 #' @export
 #'
 
-ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
-                           .prefix = "ts_glmnet", .tune = TRUE, .grid_size = 10,
+ts_auto_nnetar <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
+                           .prefix = "ts_nnetar", .tune = TRUE, .grid_size = 10,
                            .num_cores = 1, .cv_assess = 12, .cv_skip = 3,
                            .cv_slice_limit = 6, .best_metric = "rmse",
                            .bootstrap_final = FALSE){
@@ -126,25 +126,29 @@ ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         recipes::step_novel(recipes::all_nominal_predictors()) %>%
         recipes::step_mutate_at(tidyselect::vars_select_helpers$where(is.character)
                                 , fn = ~ as.factor(.)) %>%
-        recipes::step_rm({{date_col_var_expr}}) %>%
+        #recipes::step_rm({{date_col_var_expr}}) %>%
         recipes::step_dummy(recipes::all_nominal(), one_hot = TRUE) %>%
         recipes::step_zv(recipes::all_predictors(), -date_col_index.num) %>%
-        recipes::step_normalize(recipes::all_numeric_predictors(), -date_col_index.num)
+        recipes::step_normalize(recipes::all_numeric_predictors())
 
     # Tune/Spec ----
     if (.tune){
-        model_spec <- parsnip::linear_reg(
-            penalty = tune::tune(),
-            mixture = tune::tune(),
-            mode    = "regression",
-            engine  = "glmnet"
+        model_spec <- modeltime::nnetar_reg(
+            seasonal_period   = "auto"
+            , non_seasonal_ar = tune::tune()
+            , seasonal_ar     = tune::tune()
+            , hidden_units    = tune::tune()
+            , num_networks    = tune::tune()
+            , penalty         = tune::tune()
+            , epochs          = tune::tune()
         )
     } else {
-        model_spec <- parsnip::linear_reg(
-            mode   = "regression",
-            engine = "glmnet"
-        )
+        model_spec <- modeltime::nnetar_reg()
     }
+
+    model_spec <- model_spec %>%
+        parsnip::set_mode(mode = "regression") %>%
+        parsnip::set_engine("nnetar")
 
     # Workflow ----
     wflw <- workflows::workflow() %>%
@@ -157,11 +161,10 @@ ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         # Start parallel backend
         modeltime::parallel_start(num_cores)
 
-        tuning_grid_spec <- tidyr::crossing(
-            penalty = 10^seq(-6, -1, length.out = 20),
-            mixture = c(0.05,0.2,0.4,0.6,0.8,1)
-        ) %>%
-            dplyr::slice_sample(n = grid_size)
+        tuning_grid_spec <- dials::grid_latin_hypercube(
+            hardhat::extract_parameter_set_dials(model_spec),
+            size = grid_size
+        )
 
         # Make TS CV ----
         tscv <- timetk::time_series_cv(
@@ -214,7 +217,7 @@ ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         .splits_obj  = splits,
         .data        = data_tbl,
         .interactive = TRUE,
-        .print_info = FALSE
+        .print_info  = FALSE
     )
 
     # Return ----

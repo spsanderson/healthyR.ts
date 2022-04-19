@@ -85,12 +85,12 @@ splits <- time_series_split(
 
 ts_mars <- ts_auto_mars(
   .data = data,
-  .num_cores = 1,
+  .num_cores = 5,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 2
+  .grid_size = 20
 )
 
 ts_auto_mars$recipe_info
@@ -105,13 +105,11 @@ Other Boiler_Plate:
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},
+\code{\link{ts_auto_nnetar}()},
 \code{\link{ts_auto_xgboost}()}
-
-Other arima_xgboost: 
-\code{\link{ts_auto_arima_xgboost}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
 \concept{Boiler_Plate}
-\concept{arima_xgboost}
+\concept{mars}

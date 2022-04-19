@@ -1,7 +1,7 @@
 #' Boilerplate Workflow
 #'
 #' @family Boiler_Plate
-#' @family arima_xgboost
+#' @family mars
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
@@ -50,12 +50,12 @@
 #'
 #' ts_mars <- ts_auto_mars(
 #'   .data = data,
-#'   .num_cores = 1,
+#'   .num_cores = 5,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 2
+#'   .grid_size = 20
 #' )
 #'
 #' ts_auto_mars$recipe_info

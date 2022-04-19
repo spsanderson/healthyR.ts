@@ -50,12 +50,12 @@
 #'
 #' ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
 #'   .data = data,
-#'   .num_cores = 1,
+#'   .num_cores = 5,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 2,
+#'   .grid_size = 20,
 #'   .cv_slice_limit = 2
 #' )
 #'
