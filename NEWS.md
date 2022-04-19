@@ -13,6 +13,7 @@
 8. Fix #246 - Add function `ts_auto_exp_smoothing()`
 9. Fix #247 - Add function `ts_auto_croston()`
 10. Fix #248 - Add function `ts_auto_nnetar()`
+11. Fix #250 - Add function `ts_auto_prophet_reg()`
 
 ## Minor Fixes and Improvements
 1. Fix #212 - Update recipes to use the new `[recipes::print_step()]` method.
