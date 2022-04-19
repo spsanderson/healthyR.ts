@@ -107,7 +107,11 @@ Other Boiler_Plate:
 \code{\link{ts_auto_glmnet}()},
 \code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_nnetar}()},
+\code{\link{ts_auto_prophet_boost}()},
 \code{\link{ts_auto_xgboost}()}
+
+Other prophet: 
+\code{\link{ts_auto_prophet_boost}()}
 }
 \author{
 Steven P. Sanderson II, MPH
