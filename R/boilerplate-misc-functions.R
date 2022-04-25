@@ -1,4 +1,5 @@
 #' Misc for boilerplate
+#' @keywords internal
 #' @export
 get_recipe_call <- function(.rec_call){
     cl <- .rec_call
@@ -11,6 +12,8 @@ get_recipe_call <- function(.rec_call){
     rec_cl
 }
 
+#' Misc for boilerplat
+#' @keywords internal
 #' @export
 assign_value <- function(name, value, cr = TRUE) {
     value <- rlang::enexpr(value)
@@ -18,6 +21,8 @@ assign_value <- function(name, value, cr = TRUE) {
     chr_assign(name, value, cr)
 }
 
+#' Misc for boilerplate
+#' @keywords internal
 #' @export
 chr_assign <- function(name, value, cr = TRUE) {
     name <- paste(name, "<-")

@@ -82,6 +82,7 @@ The output of this function includes the following:
 }
 }
 \examples{
+library(dplyr)
 data_tbl <- ts_to_tbl(AirPassengers) \%>\%
   mutate(group_id = rep(1:12, 12))
 
