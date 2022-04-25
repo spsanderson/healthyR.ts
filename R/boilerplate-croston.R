@@ -143,7 +143,7 @@ ts_auto_croston <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
             , smooth_level    = tune::tune()
         )
     } else {
-        model_spec <- parsnip::exp_smoothing()
+        model_spec <- modeltime::exp_smoothing()
     }
 
     model_spec <- model_spec %>%
