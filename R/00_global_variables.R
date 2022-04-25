@@ -7,6 +7,6 @@ globalVariables(
         "error","trend","season","damping","smooth_level","smooth_trend",
         "smooth_seasonal","name","printer","mae","mape","mase","smape","rmse","rsq",
         "model_score",".model",".type",".calibration_data",".residuals",".model_desc",
-        ".prediction"
+        ".prediction",".sd","centers","cluster","date_col_index.num","recipe","y"
     )
 )

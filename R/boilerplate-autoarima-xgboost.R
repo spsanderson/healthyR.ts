@@ -5,7 +5,8 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details This uses the `modeltime::arima_boost()` with the `engine` set to `xgboost`
+#' @details
+#' This uses the `modeltime::arima_boost()` with the `engine` set to `xgboost`
 #'
 #' @seealso \url{https://business-science.github.io/modeltime/reference/arima_boost.html}
 #'
