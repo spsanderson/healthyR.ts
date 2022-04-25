@@ -98,7 +98,7 @@ ts_feature_cluster(
 
 }
 \seealso{
-\url{"https://pkg.robjhyndman.com/tsfeatures/"}
+\url{https://pkg.robjhyndman.com/tsfeatures/index.html}
 
 Other Clustering: 
 \code{\link{ts_feature_cluster_plot}()}
