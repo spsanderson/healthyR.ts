@@ -1,6 +1,7 @@
 # healthyR.ts (development version)
 
 ## Breaking Changes
+None
 
 ## New Features
 1. Fix #223 - Add function `ts_arima_simulator()` 
