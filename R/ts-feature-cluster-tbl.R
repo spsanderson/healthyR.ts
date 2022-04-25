@@ -36,7 +36,7 @@
 #' -  static_plot
 #' -  plotly_plot
 #'
-#' @seealso \url{"https://pkg.robjhyndman.com/tsfeatures/"}
+#' @seealso \url{"https://pkg.robjhyndman.com/tsfeatures/index.html"}
 #'
 #' @description This function returns an output list of data and plots that
 #' come from using the `K-Means` clustering algorithm on a time series data.
