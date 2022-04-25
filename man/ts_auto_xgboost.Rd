@@ -65,7 +65,7 @@ This is a boilerplate function to create automatically the following:
 }
 }
 \details{
-
+This uses the \code{parsnip::boost_tree()} with the \code{engine} set to \code{xgboost}
 }
 \examples{
 \dontrun{

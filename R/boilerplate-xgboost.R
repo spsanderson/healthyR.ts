@@ -5,7 +5,7 @@
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
-#' @details
+#' @details This uses the `parsnip::boost_tree()` with the `engine` set to `xgboost`
 #'
 #' @description This is a boilerplate function to create automatically the following:
 #' -  recipe
