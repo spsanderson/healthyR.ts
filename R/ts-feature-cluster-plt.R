@@ -40,6 +40,9 @@
 #' to `dplyr::group_by()`
 #'
 #' @examples
+#'
+#' library(dplyr)
+#'
 #' data_tbl <- ts_to_tbl(AirPassengers) %>%
 #'   mutate(group_id = rep(1:12, 12))
 #'
