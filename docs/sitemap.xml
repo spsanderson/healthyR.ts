@@ -34,7 +34,13 @@
     <loc>/reference/arima_string.html</loc>
   </url>
   <url>
+    <loc>/reference/assign_value.html</loc>
+  </url>
+  <url>
     <loc>/reference/calibrate_and_plot.html</loc>
+  </url>
+  <url>
+    <loc>/reference/chr_assign.html</loc>
   </url>
   <url>
     <loc>/reference/get_gg_layers.html</loc>
