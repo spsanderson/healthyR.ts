@@ -1,6 +1,6 @@
 Package: healthyR.ts
 Title: The Time Series Modeling Companion to 'healthyR'
-Version: 0.1.9
+Version: 0.1.9.9000
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
     person("Steven Sanderson", role = "cph"))
@@ -36,7 +36,6 @@ Imports:
     stringi,
     parsnip,
     workflowsets,
-    earth,
     hardhat
 Suggests: 
     knitr,
