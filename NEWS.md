@@ -5,6 +5,7 @@
 ## New Features
 
 ## Minor Fixes and Improvements
+1. Fix #275 - Correct `ts_auto_arima_xgboots()` when `.tune` is FALSE.
 
 # healthyR.ts 0.1.9
 

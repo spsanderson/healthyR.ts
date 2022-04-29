@@ -143,7 +143,7 @@ ts_auto_arima_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp
             , stop_iter      = tune::tune()
         )
     } else {
-        model_spec <- parsnip::boost_tree()
+        model_spec <- modeltime::arima_boost()
     }
 
     model_spec <- model_spec %>%
