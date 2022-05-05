@@ -3,6 +3,7 @@
 ## Breaking Changes
 
 ## New Features
+1. Fix @277 - Add function `ts_auto_arima()` boiler plate function.
 
 ## Minor Fixes and Improvements
 1. Fix #275 - Correct `ts_auto_arima_xgboots()` when `.tune` is FALSE.
