@@ -93,7 +93,7 @@ ts_glmnet <- ts_auto_glmnet(
   .grid_size = 20
 )
 
-ts_glmnet$recipe_infos
+ts_glmnet$recipe_info
 }
 
 }

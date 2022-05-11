@@ -9,6 +9,8 @@
 
 ## Minor Fixes and Improvements
 1. Fix #275 - Correct `ts_auto_arima_xgboots()` when `.tune` is FALSE.
+2. Fix #286 - Change the boilerplate recipe to keep the date column and change
+it to a numeric rather than using step_rm() instead use step_mutate(as.numeric())
 
 # healthyR.ts 0.1.9
 
