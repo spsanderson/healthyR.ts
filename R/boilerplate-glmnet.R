@@ -58,7 +58,7 @@
 #'   .grid_size = 20
 #' )
 #'
-#' ts_glmnet$recipe_infos
+#' ts_glmnet$recipe_info
 #' }
 #'
 #' @return
@@ -126,7 +126,8 @@ ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         recipes::step_novel(recipes::all_nominal_predictors()) %>%
         recipes::step_mutate_at(tidyselect::vars_select_helpers$where(is.character)
                                 , fn = ~ as.factor(.)) %>%
-        recipes::step_rm({{date_col_var_expr}}) %>%
+        #recipes::step_rm({{date_col_var_expr}}) %>%
+        recipes::step_mutate({{date_col_var_expr}} := as.numeric({{date_col_var_expr}})) %>%
         recipes::step_dummy(recipes::all_nominal(), one_hot = TRUE) %>%
         recipes::step_zv(recipes::all_predictors(), -date_col_index.num) %>%
         recipes::step_normalize(recipes::all_numeric_predictors(), -date_col_index.num)
