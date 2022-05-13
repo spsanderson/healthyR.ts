@@ -11,6 +11,7 @@
 1. Fix #275 - Correct `ts_auto_arima_xgboots()` when `.tune` is FALSE.
 2. Fix #286 - Change the boilerplate recipe to keep the date column and change
 it to a numeric rather than using step_rm() instead use step_mutate(as.numeric())
+3. Fix #288 - Update tune template helper function smooth_es to use `tune::tune()`
 
 # healthyR.ts 0.1.9
 

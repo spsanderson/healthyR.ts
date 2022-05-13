@@ -107,14 +107,14 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
     } else if (pe == "smooth_es"){
         mst <- modeltime::exp_smoothing(
             mode            = "regression",
-            seasonal_period = seasonal_period,
-            error           = error,
-            trend           = trend,
-            season          = season,
-            damping         = damping,
-            smooth_level    = smooth_level,
-            smooth_trend    = smooth_trend,
-            smooth_seasonal = smooth_seasonal
+            seasonal_period = tune::tune(),
+            error           = tune::tune(),
+            trend           = tune::tune(),
+            season          = tune::tune(),
+            damping         = tune::tune(),
+            smooth_level    = tune::tune(),
+            smooth_trend    = tune::tune(),
+            smooth_seasonal = tune::tune()
         ) %>%
             parsnip::set_engine(pe)
     } else if (pe == "nnetar"){
