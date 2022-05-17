@@ -9,3 +9,8 @@ ts_scale_color_colorblind(..., theme = "ts")
 \description{
 Provide Colorblind Compliant Colors
 }
+\seealso{
+Other Color_Blind: 
+\code{\link{ts_scale_fill_colorblind}()}
+}
+\concept{Color_Blind}

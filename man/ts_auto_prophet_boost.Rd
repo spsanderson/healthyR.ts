@@ -107,9 +107,14 @@ Other Boiler_Plate:
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},
+\code{\link{ts_auto_lm}()},
 \code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_nnetar}()},
 \code{\link{ts_auto_prophet_reg}()},
+\code{\link{ts_auto_smooth_es}()},
+\code{\link{ts_auto_svm_poly}()},
+\code{\link{ts_auto_svm_rbf}()},
+\code{\link{ts_auto_theta}()},
 \code{\link{ts_auto_xgboost}()}
 
 Other prophet: 

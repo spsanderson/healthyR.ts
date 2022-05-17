@@ -1,5 +1,7 @@
 #' Provide Colorblind Compliant Colors
 #'
+#' @family Color_Blind
+#'
 #' 8 Hex RGB color definitions suitable for charts for colorblind people.
 #'
 #' @export
@@ -10,6 +12,9 @@ color_blind <- function(){
 }
 
 #' Provide Colorblind Compliant Colors
+#'
+#' @family Color_Blind
+#'
 #' @export
 ts_scale_fill_colorblind <- function(..., theme = "ts") {
 
@@ -21,6 +26,9 @@ ts_scale_fill_colorblind <- function(..., theme = "ts") {
 }
 
 #' Provide Colorblind Compliant Colors
+#'
+#' @family Color_Blind
+#'
 #' @export
 ts_scale_color_colorblind = function(..., theme = "ts") {
 
