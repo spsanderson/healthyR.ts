@@ -9,3 +9,4 @@ ts_scale_fill_colorblind(..., theme = "ts")
 \description{
 Provide Colorblind Compliant Colors
 }
+\concept{Color_Bline}

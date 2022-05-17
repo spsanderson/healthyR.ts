@@ -3,6 +3,9 @@
 \name{ts_scale_color_colorblind}
 \alias{ts_scale_color_colorblind}
 \title{Provide Colorblind Compliant Colors}
+\format{
+Color_Blind
+}
 \usage{
 ts_scale_color_colorblind(..., theme = "ts")
 }

@@ -42,6 +42,7 @@ reference:
      -  "ts_vva_plot"
      -  "ts_qq_plot"
      -  "ts_scedacity_scatter_plot"
+     -  has_concept("Color_Blind")
   -  title: Time Series Clustering
      desc: Time Series Clustering Functions
   -  contents:
