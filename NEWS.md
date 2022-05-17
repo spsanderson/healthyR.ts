@@ -11,6 +11,7 @@ None
 4. Fix #279 - Add function `ts_auto_theta()`
 5. Fix #280 - Add function `ts_auto_lm()`
 6. Fix #281 - Add function `ts_auto_svm_poly()`
+7. Fix #282 - Add function `ts_auto_svm_rbf()`
 
 ## Minor Fixes and Improvements
 1. Fix #275 - Correct `ts_auto_arima_xgboots()` when `.tune` is FALSE.

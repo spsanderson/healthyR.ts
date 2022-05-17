@@ -112,6 +112,7 @@ Other Boiler_Plate:
 \code{\link{ts_auto_prophet_boost}()},
 \code{\link{ts_auto_smooth_es}()},
 \code{\link{ts_auto_svm_poly}()},
+\code{\link{ts_auto_svm_rbf}()},
 \code{\link{ts_auto_theta}()},
 \code{\link{ts_auto_xgboost}()}
 
