@@ -43,6 +43,9 @@
     <loc>/reference/chr_assign.html</loc>
   </url>
   <url>
+    <loc>/reference/color_blind.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_gg_layers.html</loc>
   </url>
   <url>
@@ -82,6 +85,9 @@
     <loc>/reference/ts_arima_simulator.html</loc>
   </url>
   <url>
+    <loc>/reference/ts_auto_arima.html</loc>
+  </url>
+  <url>
     <loc>/reference/ts_auto_arima_xgboost.html</loc>
   </url>
   <url>
@@ -92,6 +98,9 @@
   </url>
   <url>
     <loc>/reference/ts_auto_glmnet.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_auto_lm.html</loc>
   </url>
   <url>
     <loc>/reference/ts_auto_mars.html</loc>
@@ -107,6 +116,18 @@
   </url>
   <url>
     <loc>/reference/ts_auto_recipe.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_auto_smooth_es.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_auto_svm_poly.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_auto_svm_rbf.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_auto_theta.html</loc>
   </url>
   <url>
     <loc>/reference/ts_auto_xgboost.html</loc>
@@ -158,6 +179,12 @@
   </url>
   <url>
     <loc>/reference/ts_random_walk_ggplot_layers.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_scale_color_colorblind.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_scale_fill_colorblind.html</loc>
   </url>
   <url>
     <loc>/reference/ts_scedacity_scatter_plot.html</loc>

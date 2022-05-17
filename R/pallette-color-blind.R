@@ -13,7 +13,7 @@ color_blind <- function(){
 
 #' Provide Colorblind Compliant Colors
 #'
-#' @family Color_Bline
+#' @family Color_Blind
 #'
 #' @export
 ts_scale_fill_colorblind <- function(..., theme = "ts") {
@@ -27,7 +27,7 @@ ts_scale_fill_colorblind <- function(..., theme = "ts") {
 
 #' Provide Colorblind Compliant Colors
 #'
-#' @format Color_Blind
+#' @family Color_Blind
 #'
 #' @export
 ts_scale_color_colorblind = function(..., theme = "ts") {
