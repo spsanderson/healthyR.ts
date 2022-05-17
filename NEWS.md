@@ -7,6 +7,7 @@
 2. Fix #284 - Add functions `color_blind()` `ts_scale_fill_colorblind()` and
 `ts_scale_color_colorblind()`
 3. Fix #278 - Add function `ts_auto_smooth_es()`
+4. Fix #279 - Add function `ts_auto_theta()`
 
 ## Minor Fixes and Improvements
 1. Fix #275 - Correct `ts_auto_arima_xgboots()` when `.tune` is FALSE.
