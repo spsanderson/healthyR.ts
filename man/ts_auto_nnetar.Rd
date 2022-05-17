@@ -106,6 +106,7 @@ Other Boiler_Plate:
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},
+\code{\link{ts_auto_lm}()},
 \code{\link{ts_auto_mars}()},
 \code{\link{ts_auto_prophet_boost}()},
 \code{\link{ts_auto_prophet_reg}()},
