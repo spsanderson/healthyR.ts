@@ -137,27 +137,10 @@ from there.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org" class="external-link">purrr</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/joshuaulrich/xts" class="external-link">xts</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/" class="external-link">cowplot</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/spsanderson/healthyR.data" class="external-link">healthyR.data</a></span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="va">healthyR_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">visit_end_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">    .date_var <span class="op">=</span> <span class="va">visit_end_date_time</span>,</span>
-<span class="r-in">    .by       <span class="op">=</span> <span class="st">"month"</span>,</span>
-<span class="r-in">    value     <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://purrr.tidyverse.org/reference/set_names.html" class="external-link">set_names</a></span><span class="op">(</span><span class="st">"date_col"</span>,<span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/filter_by_time.html" class="external-link">filter_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">    .date_var <span class="op">=</span> <span class="va">date_col</span>,</span>
-<span class="r-in">    .start_date <span class="op">=</span> <span class="st">"2013"</span>,</span>
-<span class="r-in">    .end_date <span class="op">=</span> <span class="st">"2020"</span></span>
-<span class="r-in">  <span class="op">)</span></span>
+<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">ts_ma_plot</span><span class="op">(</span></span>
 <span class="r-in">  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span>
@@ -178,29 +161,15 @@ from there.</p>
 <span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">xts_plt</span></span>
 <span class="r-plt img"><img src="ts_ma_plot-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">data_summary_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 x 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   date_col   value  ma12 diff_a diff_b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2013-01-01  <span style="text-decoration: underline;">2</span>082    <span style="color: #BB0000;">NA</span>   0         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2013-02-01  <span style="text-decoration: underline;">1</span>719    <span style="color: #BB0000;">NA</span> -<span style="color: #BB0000;">17.4</span>       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2013-03-01  <span style="text-decoration: underline;">1</span>796    <span style="color: #BB0000;">NA</span>   4.48      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 2013-04-01  <span style="text-decoration: underline;">1</span>865    <span style="color: #BB0000;">NA</span>   3.84      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 2013-05-01  <span style="text-decoration: underline;">2</span>028    <span style="color: #BB0000;">NA</span>   8.74      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 2013-06-01  <span style="text-decoration: underline;">1</span>813    <span style="color: #BB0000;">NA</span> -<span style="color: #BB0000;">10.6</span>       0</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="va">healthyR_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">visit_end_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">    .date_var <span class="op">=</span> <span class="va">visit_end_date_time</span>,</span>
-<span class="r-in">    .by <span class="op">=</span> <span class="st">"week"</span>,</span>
-<span class="r-in">    value <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://purrr.tidyverse.org/reference/set_names.html" class="external-link">set_names</a></span><span class="op">(</span><span class="st">"date_col"</span>,<span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/filter_by_time.html" class="external-link">filter_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">    .date_var <span class="op">=</span> <span class="va">date_col</span>,</span>
-<span class="r-in">    .start_date <span class="op">=</span> <span class="st">"2013"</span>,</span>
-<span class="r-in">    .end_date <span class="op">=</span> <span class="st">"2020"</span></span>
-<span class="r-in">  <span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1949-01-01   112    <span style="color: #BB0000;">NA</span>   0         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1949-02-01   118    <span style="color: #BB0000;">NA</span>   5.36      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 1949-03-01   132    <span style="color: #BB0000;">NA</span>  11.9       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 1949-04-01   129    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">2.27</span>      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 1949-05-01   121    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">6.20</span>      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 1949-06-01   135    <span style="color: #BB0000;">NA</span>  11.6       0</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">ts_ma_plot</span><span class="op">(</span></span>
 <span class="r-in">  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span>
@@ -218,15 +187,15 @@ from there.</p>
 <span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">xts_plt</span></span>
 <span class="r-plt img"><img src="ts_ma_plot-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">data_summary_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 x 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   date_col   value  ma12  diff_a diff_b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2013-01-06   527    <span style="color: #BB0000;">NA</span>   0          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2013-01-13   491    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">6.83</span>       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2013-01-20   418    <span style="color: #BB0000;">NA</span> -<span style="color: #BB0000;">14.9</span>        0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 2013-01-27   440    <span style="color: #BB0000;">NA</span>   5.26       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 2013-02-03   438    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">0.455</span>      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 2013-02-10   432    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">1.37</span>       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   date_col   value  ma12 diff_a diff_b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1949-01-01   112    <span style="color: #BB0000;">NA</span>   0         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1949-02-01   118    <span style="color: #BB0000;">NA</span>   5.36      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 1949-03-01   132    <span style="color: #BB0000;">NA</span>  11.9       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 1949-04-01   129    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">2.27</span>      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 1949-05-01   121    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">6.20</span>      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 1949-06-01   135    <span style="color: #BB0000;">NA</span>  11.6       0</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

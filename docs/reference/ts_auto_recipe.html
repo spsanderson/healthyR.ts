@@ -153,37 +153,13 @@ in a list.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/spsanderson/healthyR.data" class="external-link">healthyR.data</a></span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> == Welcome to healthyR.data ===========================================================================</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> If you find this package useful, please leave a star: </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>    https://github.com/spsanderson/healthyR.data'</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> If you encounter a bug or want to request an enhancement please file an issue at:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>    https://github.com/spsanderson/healthyR.data/issues</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Thank you for using healthyR.data</span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/spsanderson/healthyR.ts" class="external-link">healthyR.ts</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/recipes" class="external-link">recipes</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org" class="external-link">rsample</a></span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org" class="external-link">rsample</a></span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="va">healthyR_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu"><a href="https://business-science.github.io/timetk/reference/filter_by_time.html" class="external-link">filter_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">    .date_var  <span class="op">=</span> <span class="va">visit_end_date_time</span></span>
-<span class="r-in"> , .start_date <span class="op">=</span> <span class="st">"2012"</span></span>
-<span class="r-in"> , .end_date   <span class="op">=</span> <span class="st">"2020"</span></span>
-<span class="r-in"><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">payer_grouping</span> <span class="op">!=</span> <span class="st">"?"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">visit_end_date_time</span>, <span class="va">ip_op_flag</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"> <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">     .date_var <span class="op">=</span> <span class="va">visit_end_date_time</span></span>
-<span class="r-in">     , .by     <span class="op">=</span> <span class="st">"week"</span></span>
-<span class="r-in">     , value   <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">initial_time_split</a></span><span class="op">(</span></span>
+<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">initial_time_split</a></span><span class="op">(</span></span>
 <span class="r-in"> <span class="va">data_tbl</span></span>
 <span class="r-in"> , prop <span class="op">=</span> <span class="fl">0.8</span></span>
 <span class="r-in"> , cumulative <span class="op">=</span> <span class="cn">TRUE</span></span>
@@ -191,7 +167,7 @@ in a list.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">ts_auto_recipe</span><span class="op">(</span></span>
 <span class="r-in">    .data <span class="op">=</span> <span class="va">data_tbl</span></span>
-<span class="r-in">    , .date_col <span class="op">=</span> <span class="va">visit_end_date_time</span></span>
+<span class="r-in">    , .date_col <span class="op">=</span> <span class="va">date_col</span></span>
 <span class="r-in">    , .pred_col <span class="op">=</span> <span class="va">value</span></span>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_base</span>
@@ -259,7 +235,7 @@ in a list.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">ts_auto_recipe</span><span class="op">(</span></span>
 <span class="r-in">  .data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">training</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span></span>
-<span class="r-in">  , .date_col <span class="op">=</span> <span class="va">visit_end_date_time</span></span>
+<span class="r-in">  , .date_col <span class="op">=</span> <span class="va">date_col</span></span>
 <span class="r-in">  , .pred_col <span class="op">=</span> <span class="va">value</span></span>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_base</span>
