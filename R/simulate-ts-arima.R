@@ -38,8 +38,6 @@
 #' @param ... Any other additional arguments for [stats::arima.sim]
 #'
 #' @examples
-#' library(dplyr)
-#'
 #' output <- ts_arima_simulator()
 #' output$plots$static_plot
 #'

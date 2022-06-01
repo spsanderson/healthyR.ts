@@ -40,27 +40,8 @@ The function will return the following pieces of information in a tibble:
 }
 }
 \examples{
-
-library(healthyR.data)
-library(dplyr)
-library(timetk)
-data_tbl <- healthyR_data\%>\%
-    filter(ip_op_flag == 'I') \%>\%
-    summarise_by_time(
-        .date_var = visit_end_date_time,
-        .by = "month",
-        value = n()
-    ) \%>\%
-    filter_by_time(
-        .date_var = visit_end_date_time,
-        .start_date = "2015",
-        .end_date = "2019"
-    ) \%>\%
-    rename(date_col = visit_end_date_time)
-
 ts_info_tbl(AirPassengers)
 ts_info_tbl(BJsales)
-ts_info_tbl(data_tbl, date_col)
 
 }
 \seealso{

@@ -60,7 +60,6 @@ information to the console or not. A static \code{ggplot2} polot and an interact
 }
 \examples{
 \dontrun{
-suppressPackageStartupMessages(library(healthyR.ts))
 suppressPackageStartupMessages(library(modeltime))
 suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(rsample))

@@ -37,30 +37,21 @@
 #' A tibble.
 #'
 #' @examples
-#' suppressPackageStartupMessages(library(healthyR.data))
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(timetk))
-#' ts_compare_data(
-#'   .data           = healthyR_data
-#'   , .date_col     = visit_start_date_time
-#'   , .start_date   = "2019-01-01"
-#'   , .end_date     = "2019-12-31"
-#'   , .periods_back = "2 years"
-#'   ) %>%
-#'   select(visit_start_date_time) %>%
-#'   summarise_by_time(
-#'     .date_var = visit_start_date_time
-#'     , .by     = "year"
-#'     , visits  = n()
-#'   )
 #'
 #' ts_compare_data(
-#'  .data = healthyR_data
-#'  , .date_col     = visit_end_date_time
-#'  , .start_date   = "2019-01-01"
-#'  , .end_date     = "2019-12-31"
-#'  , .periods_back = "2 years"
-#' )
+#'   .data           = data_tbl
+#'   , .date_col     = date_col
+#'   , .start_date   = "1955-01-01"
+#'   , .end_date     = "1955-12-31"
+#'   , .periods_back = "2 years"
+#'   ) %>%
+#'   summarise_by_time(
+#'     .date_var = date_col
+#'     , .by     = "year"
+#'     , visits  = sum(value)
+#'   )
 #'
 #' @export
 #'

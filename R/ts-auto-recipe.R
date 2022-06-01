@@ -38,28 +38,13 @@
 #' on all predictors.
 #'
 #' @examples
-#' library(healthyR.data)
-#' library(timetk)
-#' library(healthyR.ts)
-#' library(recipes)
-#' library(dplyr)
-#' library(rsample)
+#' suppressPackageStartupMessages(library(dplyr))
+#' suppressPackageStartupMessages(library(rsample))
 #'
-#' data_tbl <- healthyR_data %>%
-#' filter_by_time(
-#'     .date_var  = visit_end_date_time
-#'  , .start_date = "2012"
-#'  , .end_date   = "2020"
-#' ) %>%
-#'  filter(payer_grouping != "?") %>%
-#'  select(visit_end_date_time, ip_op_flag) %>%
-#'  summarise_by_time(
-#'      .date_var = visit_end_date_time
-#'      , .by     = "week"
-#'      , value   = n()
-#' )
+#' data_tbl <- ts_to_tbl(AirPassengers) %>%
+#'   select(-index)
 #'
-#' splits <- rsample::initial_time_split(
+#' splits <- initial_time_split(
 #'  data_tbl
 #'  , prop = 0.8
 #'  , cumulative = TRUE
@@ -67,13 +52,13 @@
 #'
 #' ts_auto_recipe(
 #'     .data = data_tbl
-#'     , .date_col = visit_end_date_time
+#'     , .date_col = date_col
 #'     , .pred_col = value
 #' )
 #'
 #' ts_auto_recipe(
 #'   .data = training(splits)
-#'   , .date_col = visit_end_date_time
+#'   , .date_col = date_col
 #'   , .pred_col = value
 #' )
 #'

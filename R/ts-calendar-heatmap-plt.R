@@ -25,49 +25,17 @@
 #' It can be set to FALSE to get a ggplot plot.
 #'
 #' @examples
-#' suppressPackageStartupMessages(library(dplyr))
-#' suppressPackageStartupMessages(library(ggplot2))
-#' suppressPackageStartupMessages(library(timetk))
-#' suppressPackageStartupMessages(library(lubridate))
-#' suppressPackageStartupMessages(library(zoo))
-#' suppressPackageStartupMessages(library(healthyR.data))
-#' suppressPackageStartupMessages(library(stringi))
-#' suppressPackageStartupMessages(library(plotly))
-#' suppressPackageStartupMessages(library(purrr))
-#' suppressPackageStartupMessages(library(forcats))
-#'
-#' data <- healthyR_data %>%
-#'    filter(ip_op_flag == "O") %>%
-#'    filter(substr(visit_id, 1, 1) == "8") %>%
-#'    select(visit_start_date_time) %>%
-#'    filter_by_time(
-#'        .date_var     = visit_start_date_time
-#'        , .start_date = "2014"
-#'        , .end_date   = "2016"
-#'    ) %>%
-#'    summarise_by_time(
-#'        .date_var = visit_start_date_time
-#'        , value   = n()
-#'    ) %>%
-#'    set_names("date_col","value") %>%
-#'    tk_augment_timeseries_signature(.date_var = date_col) %>%
-#'    select(
-#'        date_col
-#'        , value
-#'        , year
-#'        , month
-#'        , week
-#'        , wday.lbl
-#'    ) %>%
-#'    mutate(yearmonth_fct = as.yearmon(date_col) %>% factor()) %>%
-#'    mutate(wday.lbl = fct_rev(wday.lbl)) %>%
-#'    select(date_col, year, yearmonth_fct, everything()) %>%
-#'    arrange(date_col) %>%
-#'    mutate(week_of_month = stri_datetime_fields(date_col)$WeekOfMonth) %>%
-#'    rename("week_day" = "wday.lbl")
+#' data_tbl <- data.frame(
+#'   date_col = seq.Date(
+#'     from = as.Date("2020-01-01"),
+#'     to   = as.Date("2022-06-01"),
+#'     length.out = 365*2 + 180
+#'     ),
+#'   value = rnorm(365*2+180, mean = 100)
+#' )
 #'
 #' ts_calendar_heatmap_plot(
-#'   .data          = data
+#'   .data          = data_tbl
 #'   , .date_col    = date_col
 #'   , .value_col   = value
 #'   , .interactive = FALSE

@@ -65,7 +65,7 @@ different packages. Currently the only package is forecast.
 suppressPackageStartupMessages(library(modeltime))
 suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidymodels))
+suppressPackageStartupMessages(library(rsample))
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

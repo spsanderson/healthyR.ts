@@ -37,7 +37,6 @@
 #'
 #' @examples
 #' \dontrun{
-#' suppressPackageStartupMessages(library(healthyR.ts))
 #' suppressPackageStartupMessages(library(modeltime))
 #' suppressPackageStartupMessages(library(timetk))
 #' suppressPackageStartupMessages(library(rsample))

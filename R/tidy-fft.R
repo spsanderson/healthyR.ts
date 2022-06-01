@@ -61,18 +61,16 @@
 #' @param .upsampling The up sampling of the time series.
 #'
 #' @examples
-#' library(dplyr)
-#' library(ggplot2)
-#' library(timetk)
+#' suppressPackageStartupMessages(library(dplyr))
 #'
-#' data <- AirPassengers %>%
+#' data_tbl <- AirPassengers %>%
 #'   ts_to_tbl() %>%
 #'   select(-index)
 #'
 #' a <- tidy_fft(
-#'   .data = data,
+#'   .data = data_tbl,
 #'   .value_col = value,
-#'   .date_col = value,
+#'   .date_col = date_col,
 #'   .harmonics = 3,
 #'   .frequency = 12
 #' )

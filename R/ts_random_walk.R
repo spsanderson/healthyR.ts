@@ -3,7 +3,7 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
-#' This function takes in four arguments and retunrs a tibble of random walks.
+#' This function takes in four arguments and returns a tibble of random walks.
 #'
 #' @details
 #' Monte Carlo simulations were first formally designed in the 1940’s while
@@ -13,7 +13,7 @@
 #' how assets with certain characteristics might behave in the future.
 #' While there are more complex and sophisticated financial forecasting methods
 #' such as ARIMA (Auto-Regressive Integrated Moving Average) and
-#' GARCH (Generalised Auto-Regressive Conditional Heteroskedasticity)
+#' GARCH (Generalized Auto-Regressive Conditional Heteroskedasticity)
 #' which attempt to model not only the randomness but underlying macro factors
 #' such as seasonality and volatility clustering, Monte Carlo random walks work
 #' surprisingly well in illustrating market volatility as long as the results
@@ -23,11 +23,11 @@
 #' @param .sd The standard deviation of the random walks
 #' @param .num_walks The number of random walks you want generated
 #' @param .periods The length of the random walk(s) you want generated
-#' @param .initial_value The intial value where the random walks should start
+#' @param .initial_value The initial value where the random walks should start
 #'
 #' @examples
 #' ts_random_walk(
-#' .mean = 6,
+#' .mean = 0,
 #' .sd = 1,
 #' .num_walks = 25,
 #' .periods = 180,

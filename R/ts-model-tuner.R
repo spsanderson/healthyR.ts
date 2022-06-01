@@ -88,24 +88,9 @@
 #' suppressPackageStartupMessages(library(modeltime))
 #' suppressPackageStartupMessages(library(timetk))
 #' suppressPackageStartupMessages(library(dplyr))
-#' suppressPackageStartupMessages(library(healthyR.data))
-#' suppressPackageStartupMessages(library(tidymodels))
 #'
-#' data <- healthyR_data %>%
-#'     filter(ip_op_flag == "I") %>%
-#'     select(visit_end_date_time) %>%
-#'     rename(date_col = visit_end_date_time) %>%
-#'     summarise_by_time(
-#'         .date_var = date_col
-#'         , .by     = "month"
-#'         , visits  = n()
-#'     ) %>%
-#'     mutate(date_col = as.Date(date_col)) %>%
-#'     filter_by_time(
-#'         .date_var     = date_col
-#'         , .start_date = "2012"
-#'         , .end_date   = "2019"
-#'     )
+#' data <- ts_to_tbl(AirPassengers) %>%
+#'   select(-index)
 #'
 #' splits <- time_series_split(
 #'     data
@@ -118,10 +103,10 @@
 #' rec_objs <- ts_auto_recipe(
 #'   .data = data
 #'   , .date_col = date_col
-#'   , .pred_col = visits
+#'   , .pred_col = value
 #' )
 #'
-#' wfsets <- healthyR.ts::ts_wfs_mars(
+#' wfsets <- ts_wfs_mars(
 #'   .model_type = "earth"
 #'   , .recipe_list = rec_objs
 #' )
@@ -141,13 +126,13 @@
 #' calibration_tbl <- models_tbl %>%
 #'   modeltime_calibrate(new_data = testing(splits))
 #'
-#' output <- healthyR.ts::ts_model_auto_tune(
+#' output <- ts_model_auto_tune(
 #'   .modeltime_model_id = 1,
 #'   .calibration_tbl = calibration_tbl,
 #'   .splits_obj = splits,
 #'   .drop_training_na = TRUE,
 #'   .date_col = date_col,
-#'   .value_col = visits,
+#'   .value_col = value,
 #'   .tscv_assess = "12 months",
 #'   .tscv_skip = "3 months",
 #'   .num_cores = parallel::detectCores() - 1
