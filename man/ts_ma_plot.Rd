@@ -47,27 +47,10 @@ a list object so it is a good idea to save the output to a variable and extract
 from there.
 }
 \examples{
-suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(purrr))
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(xts))
-suppressPackageStartupMessages(library(cowplot))
-suppressPackageStartupMessages(library(healthyR.data))
 
-data_tbl <- healthyR_data \%>\%
-  select(visit_end_date_time) \%>\%
-  summarise_by_time(
-    .date_var = visit_end_date_time,
-    .by       = "month",
-    value     = n()
-  ) \%>\%
-  set_names("date_col","value") \%>\%
-  filter_by_time(
-    .date_var = date_col,
-    .start_date = "2013",
-    .end_date = "2020"
-  )
+data_tbl <- ts_to_tbl(AirPassengers) \%>\%
+  select(-index)
 
 output <- ts_ma_plot(
   .data = data_tbl,
@@ -78,20 +61,6 @@ output <- ts_ma_plot(
 output$pgrid
 output$xts_plt
 output$data_summary_tbl \%>\% head()
-
-data_tbl <- healthyR_data \%>\%
-  select(visit_end_date_time) \%>\%
-  summarise_by_time(
-    .date_var = visit_end_date_time,
-    .by = "week",
-    value = n()
-  ) \%>\%
-  set_names("date_col","value") \%>\%
-  filter_by_time(
-    .date_var = date_col,
-    .start_date = "2013",
-    .end_date = "2020"
-  )
 
 output <- ts_ma_plot(
   .data = data_tbl,

@@ -42,8 +42,10 @@ This function expects to take in workflows fitted with training data.
 \dontrun{
 suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(healthyR.data))
-suppressPackageStartupMessages(library(tidymodels))
+suppressPackageStartupMessages(library(recipes))
+suppressPackageStartupMessages(library(rsample))
+suppressPackageStartupMessages(library(parsnip))
+suppressPackageStartupMessages(library(workflows))
 
 data <- healthyR_data \%>\%
  filter(ip_op_flag == "I") \%>\%

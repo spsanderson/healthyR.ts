@@ -72,8 +72,6 @@ This function takes in a user specified arima model. The specification
 is passed to \code{\link[stats:arima.sim]{stats::arima.sim()}}
 }
 \examples{
-library(dplyr)
-
 output <- ts_arima_simulator()
 output$plots$static_plot
 

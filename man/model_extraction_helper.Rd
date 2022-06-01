@@ -30,29 +30,9 @@ Currently supports forecasting model of one of the following from the
 # NOT RUN
 \dontrun{
 suppressPackageStartupMessages(library(forecast))
-suppressPackageStartupMessages(library(healthyR.data))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(timetk))
-
-data <- healthyR_data \%>\%
-    filter(ip_op_flag == "I") \%>\%
-    select(visit_end_date_time) \%>\%
-    rename(date_col = visit_end_date_time) \%>\%
-    summarise_by_time(
-        .date_var = date_col
-        , .by     = "month"
-        , value   = n()
-    ) \%>\%
-    filter_by_time(
-       .date_var     = date_col
-       , .start_date = "2012"
-       , .end_date   = "2019"
-    )
-
-data_ts <- tk_ts(data = data, frequency = 12)
 
 # Create a model
-fit_arima  <- auto.arima(data_ts)
+fit_arima  <- auto.arima(AirPassengers)
 
 model_extraction_helper(fit_arima)
 }

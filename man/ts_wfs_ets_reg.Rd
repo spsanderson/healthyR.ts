@@ -84,7 +84,7 @@ Several algorithms are implemented:
 suppressPackageStartupMessages(library(modeltime))
 suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidymodels))
+suppressPackageStartupMessages(library(rsample))
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

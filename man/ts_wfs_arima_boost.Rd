@@ -88,7 +88,7 @@ of a time series model that uses boosting to improve modeling errors
 suppressPackageStartupMessages(library(modeltime))
 suppressPackageStartupMessages(library(timetk))
 suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidymodels))
+suppressPackageStartupMessages(library(rsample))
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
