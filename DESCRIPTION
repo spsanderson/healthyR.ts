@@ -44,7 +44,7 @@ Suggests:
     scales,
     rsample,
     healthyR.data,
-    healthyR,
+    healthyR.ai,
     stringr,
     forecast,
     tidymodels,

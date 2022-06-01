@@ -163,11 +163,11 @@ ts_feature_cluster <- function(.data, .date_col, .value_col, ...,
     ui_tbl <- data_feature_tbl
 
     # * Kmeans Mapped Tibble ----
-    kmm_tbl <- healthyR::kmeans_mapped_tbl(ui_tbl, .centers = centers)
+    kmm_tbl <- healthyR.ai::hai_kmeans_mapped_tbl(ui_tbl, .centers = centers)
 
     # * Scree data and plot
-    kmm_scree_data <- healthyR::kmeans_scree_data_tbl(kmm_tbl)
-    scree_plt <- healthyR::kmeans_scree_plt(kmm_tbl)
+    kmm_scree_data <- healthyR.ai::hai_kmeans_scree_data_tbl(kmm_tbl)
+    scree_plt <- healthyR.ai::hai_kmeans_scree_plt(kmm_tbl)
     scree_plotly_plt <- suppressWarnings(plotly::ggplotly(scree_plt))
 
     # * Return ----

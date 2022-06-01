@@ -18,6 +18,8 @@ None
 2. Fix #286 - Change the boilerplate recipe to keep the date column and change
 it to a numeric rather than using step_rm() instead use step_mutate(as.numeric())
 3. Fix #288 - Update tune template helper function smooth_es to use `tune::tune()`
+4. Fix #291 - Move kmeans functions from using `healthyR` to `healthyR.ai` in
+anticipation of dropping `kmeans` functionality from `healthyR`
 
 # healthyR.ts 0.1.9
 
