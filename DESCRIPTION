@@ -43,7 +43,6 @@ Suggests:
     roxygen2,
     scales,
     rsample,
-    healthyR.data,
     healthyR.ai,
     stringr,
     forecast,
