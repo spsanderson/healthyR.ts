@@ -135,54 +135,22 @@ column.</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/spsanderson/healthyR.data" class="external-link">healthyR.data</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">ts_compare_data</span><span class="op">(</span></span>
-<span class="r-in">  .data           <span class="op">=</span> <span class="va">healthyR_data</span></span>
-<span class="r-in">  , .date_col     <span class="op">=</span> <span class="va">visit_start_date_time</span></span>
-<span class="r-in">  , .start_date   <span class="op">=</span> <span class="st">"2019-01-01"</span></span>
-<span class="r-in">  , .end_date     <span class="op">=</span> <span class="st">"2019-12-31"</span></span>
-<span class="r-in">  , .periods_back <span class="op">=</span> <span class="st">"2 years"</span></span>
-<span class="r-in">  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">visit_start_date_time</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">    .date_var <span class="op">=</span> <span class="va">visit_start_date_time</span></span>
-<span class="r-in">    , .by     <span class="op">=</span> <span class="st">"year"</span></span>
-<span class="r-in">    , visits  <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 x 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   visit_start_date_time visits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2017-01-01 <span style="color: #949494;">00:00:00</span>    <span style="text-decoration: underline;">18</span>873</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2019-01-01 <span style="color: #949494;">00:00:00</span>    <span style="text-decoration: underline;">17</span>457</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">ts_compare_data</span><span class="op">(</span></span>
-<span class="r-in"> .data <span class="op">=</span> <span class="va">healthyR_data</span></span>
-<span class="r-in"> , .date_col     <span class="op">=</span> <span class="va">visit_end_date_time</span></span>
-<span class="r-in"> , .start_date   <span class="op">=</span> <span class="st">"2019-01-01"</span></span>
-<span class="r-in"> , .end_date     <span class="op">=</span> <span class="st">"2019-12-31"</span></span>
-<span class="r-in"> , .periods_back <span class="op">=</span> <span class="st">"2 years"</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 36,335 x 17</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    mrn      visit_id   visit_start_date_ti~ visit_end_date_time total_charge_am~</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 12437877 8607556387 2016-12-31 <span style="color: #949494;">14:36:00</span>  2017-01-01 <span style="color: #949494;">00:00:00</span>           <span style="text-decoration: underline;">13</span>279.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 54652951 8715051466 2016-12-31 <span style="color: #949494;">13:25:00</span>  2017-01-01 <span style="color: #949494;">00:00:00</span>           <span style="text-decoration: underline;">12</span>596.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 79070190 8324482206 2016-12-30 <span style="color: #949494;">10:14:00</span>  2017-01-01 <span style="color: #949494;">00:00:00</span>           <span style="text-decoration: underline;">34</span>243.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 36365280 8952156137 2016-12-31 <span style="color: #949494;">18:37:00</span>  2017-01-01 <span style="color: #949494;">00:00:00</span>            <span style="text-decoration: underline;">9</span>825.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 26710950 8838409607 2017-01-01 <span style="color: #949494;">18:01:00</span>  2017-01-01 <span style="color: #949494;">00:00:00</span>           <span style="text-decoration: underline;">18</span>094.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 31297793 1399983322 2016-12-28 <span style="color: #949494;">08:43:00</span>  2017-01-01 <span style="color: #949494;">10:11:00</span>           <span style="text-decoration: underline;">52</span>360.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 92856112 1341515963 2016-12-27 <span style="color: #949494;">09:44:00</span>  2017-01-01 <span style="color: #949494;">10:45:00</span>           <span style="text-decoration: underline;">94</span>073.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 75781185 1691222926 2016-12-28 <span style="color: #949494;">17:04:00</span>  2017-01-01 <span style="color: #949494;">11:57:00</span>           <span style="text-decoration: underline;">51</span>282.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 36570101 1859045312 2016-12-21 <span style="color: #949494;">16:45:00</span>  2017-01-01 <span style="color: #949494;">12:39:00</span>           <span style="text-decoration: underline;">72</span>660.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 40236197 1471200535 2016-12-27 <span style="color: #949494;">10:59:00</span>  2017-01-01 <span style="color: #949494;">13:41:00</span>           <span style="text-decoration: underline;">59</span>725.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ... with 36,325 more rows, and 12 more variables: total_amount_due &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_adjustment_amount &lt;dbl&gt;, payer_grouping &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_payment_amount &lt;dbl&gt;, ip_op_flag &lt;chr&gt;, service_line &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   length_of_stay &lt;dbl&gt;, expected_length_of_stay &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   length_of_stay_threshold &lt;lgl&gt;, los_outlier_flag &lt;dbl&gt;, readmit_flag &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   readmit_expectation &lt;lgl&gt;</span></span>
+<span class="r-in">  .data           <span class="op">=</span> <span class="va">data_tbl</span></span>
+<span class="r-in">  , .date_col     <span class="op">=</span> <span class="va">date_col</span></span>
+<span class="r-in">  , .start_date   <span class="op">=</span> <span class="st">"1955-01-01"</span></span>
+<span class="r-in">  , .end_date     <span class="op">=</span> <span class="st">"1955-12-31"</span></span>
+<span class="r-in">  , .periods_back <span class="op">=</span> <span class="st">"2 years"</span></span>
+<span class="r-in">  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
+<span class="r-in">    .date_var <span class="op">=</span> <span class="va">date_col</span></span>
+<span class="r-in">    , .by     <span class="op">=</span> <span class="st">"year"</span></span>
+<span class="r-in">    , visits  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span></span>
+<span class="r-in">  <span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.data.frame(.data):</span> object 'data_tbl' not found</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
