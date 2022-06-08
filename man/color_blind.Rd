@@ -20,12 +20,6 @@ are color blind.
 color_blind()
 
 }
-\seealso{
-Other Color_Blind: 
-\code{\link{ts_scale_color_colorblind}()},
-\code{\link{ts_scale_fill_colorblind}()}
-}
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Color_Blind}

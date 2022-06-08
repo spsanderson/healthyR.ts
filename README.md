@@ -46,15 +46,15 @@ library(ggplot2)
 df <- ts_random_walk()
 
 head(df)
-#> # A tibble: 6 x 4
+#> # A tibble: 6 × 4
 #>     run     x        y cum_y
 #>   <dbl> <dbl>    <dbl> <dbl>
-#> 1     1     1  0.0320  1032.
-#> 2     1     2 -0.182    844.
-#> 3     1     3 -0.0834   773.
-#> 4     1     4  0.00564  778.
-#> 5     1     5 -0.00322  775.
-#> 6     1     6  0.00357  778.
+#> 1     1     1  0.0216  1022.
+#> 2     1     2 -0.0666   954.
+#> 3     1     3  0.00278  956.
+#> 4     1     4 -0.0565   902.
+#> 5     1     5 -0.0701   839.
+#> 6     1     6 -0.0159   826.
 ```
 
 Now that the data has been generated, lets take a look at it.

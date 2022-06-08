@@ -10,10 +10,6 @@ ts_auto_theta(
   .value_col,
   .rsamp_obj,
   .prefix = "ts_theta",
-  .grid_size = 10,
-  .cv_assess = 12,
-  .cv_skip = 3,
-  .cv_slice_limit = 6,
   .bootstrap_final = FALSE
 )
 }
@@ -24,15 +20,9 @@ ts_auto_theta(
 
 \item{.value_col}{The column that has the value}
 
-\item{.rsamp_obj}{The rsample splits object}
+\item{.rsamp_obj}{The splits object}
 
 \item{.prefix}{Default is \code{ts_theta}}
-
-\item{.cv_assess}{How many observations for assess. See \code{\link[timetk:time_series_cv]{timetk::time_series_cv()}}}
-
-\item{.cv_skip}{How many observations to skip. See \code{\link[timetk:time_series_cv]{timetk::time_series_cv()}}}
-
-\item{.cv_slice_limit}{How many slices to return. See \code{\link[timetk:time_series_cv]{timetk::time_series_cv()}}}
 
 \item{.bootstrap_final}{Not yet implemented.}
 }

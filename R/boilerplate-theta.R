@@ -22,11 +22,8 @@
 #' @param .data The data being passed to the function. The time-series object.
 #' @param .date_col The column that holds the datetime.
 #' @param .value_col The column that has the value
-#' @param .rsamp_obj The rsample splits object
+#' @param .rsamp_obj The splits object
 #' @param .prefix Default is `ts_theta`
-#' @param .cv_assess How many observations for assess. See [timetk::time_series_cv()]
-#' @param .cv_skip How many observations to skip. See [timetk::time_series_cv()]
-#' @param .cv_slice_limit How many slices to return. See [timetk::time_series_cv()]
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
@@ -62,19 +59,11 @@
 #'
 
 ts_auto_theta <- function(.data, .date_col, .value_col, .rsamp_obj,
-                          .prefix = "ts_theta", .grid_size = 10, .cv_assess = 12,
-                          .cv_skip = 3, .cv_slice_limit = 6,
-                          .bootstrap_final = FALSE){
+                          .prefix = "ts_theta", .bootstrap_final = FALSE){
 
     # Tidyeval ----
     date_col_var_expr <- rlang::enquo(.date_col)
     value_col_var_expr <- rlang::enquo(.value_col)
-    sampling_object <- .rsamp_obj
-
-    # Cross Validation
-    cv_assess = as.numeric(.cv_assess)
-    cv_skip   = as.numeric(.cv_skip)
-    cv_slice  = as.numeric(.cv_slice_limit)
 
     # Data and splits
     splits <- .rsamp_obj

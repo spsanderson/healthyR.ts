@@ -40,6 +40,9 @@
 #' suppressPackageStartupMessages(library(dplyr))
 #' suppressPackageStartupMessages(library(timetk))
 #'
+#' data_tbl <- ts_to_tbl(AirPassengers) %>%
+#'   select(-index)
+#'
 #' ts_compare_data(
 #'   .data           = data_tbl
 #'   , .date_col     = date_col
