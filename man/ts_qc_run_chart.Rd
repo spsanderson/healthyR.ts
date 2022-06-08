@@ -59,33 +59,15 @@ process behavior over time.
 }
 }
 \examples{
-library(healthyR.data)
-library(timetk)
 library(dplyr)
-library(stringr)
 
-df <- healthyR_data
+data_tbl <- ts_to_tbl(AirPassengers) \%>\%
+  select(-index)
 
-df_monthly_tbl <- df \%>\%
-   mutate(ip_op_flag = str_squish(ip_op_flag)) \%>\%
-   filter(ip_op_flag == "I") \%>\%
-   select(visit_end_date_time, length_of_stay) \%>\%
-   arrange(visit_end_date_time) \%>\%
-   summarise_by_time(
-       .date_var = visit_end_date_time
-       , .by = "month"
-       , alos = round(mean(length_of_stay, na.rm = TRUE), 2)
-       , .type = "ceiling"
-   ) \%>\%
-   mutate(
-     visit_end_date_time = visit_end_date_time \%>\%
-       subtract_time("1 day")
-   )
-
-df_monthly_tbl \%>\%
+data_tbl \%>\%
   ts_qc_run_chart(
-    .date_col    = visit_end_date_time
-    , .value_col = alos
+    .date_col    = date_col
+    , .value_col = value
     , .llcl      = TRUE
   )
 
