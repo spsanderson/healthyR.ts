@@ -28,20 +28,8 @@
 #' suppressPackageStartupMessages(library(parsnip))
 #' suppressPackageStartupMessages(library(workflows))
 #'
-#' data <- healthyR_data %>%
-#'  filter(ip_op_flag == "I") %>%
-#'    select(visit_end_date_time) %>%
-#'    rename(date_col = visit_end_date_time) %>%
-#'    timetk::filter_by_time(
-#'        .date_var = date_col
-#'      , .start_date = "2015"
-#'      , .end_date   = "2019"
-#'    ) %>%
-#'    timetk::summarise_by_time(
-#'        .date_var = date_col
-#'        , .by     = "month"
-#'        , value   = n()
-#'   )
+#' data <- ts_to_tbl(AirPassengers) %>%
+#'   select(-index)
 #'
 #' splits <- timetk::time_series_split(
 #'    data
