@@ -16,9 +16,6 @@ navbar:
         -  text: "Tidy FFT Analysis"
         -  text: "Using tidy_fft"
            href: articles/using-tidy-fft.html
-        -  text: "Automatic Timeseries Model Tuning"
-        -  text: "Auto Tuning"
-           href: articles/auto-model-tune.html
     - text: "Reference"
       href: reference/index.html
     - text: "News"
