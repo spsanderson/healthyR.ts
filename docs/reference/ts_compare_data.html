@@ -26,7 +26,7 @@ this function."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.9.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
       </span>
     </div>
 
@@ -49,10 +49,6 @@ this function."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
   <ul class="dropdown-menu" role="menu"><li class="dropdown-header">Tidy FFT Analysis</li>
     <li>
       <a href="../articles/using-tidy-fft.html">Using tidy_fft</a>
-    </li>
-    <li class="dropdown-header">Automatic Timeseries Model Tuning</li>
-    <li>
-      <a href="../articles/auto-model-tune.html">Auto Tuning</a>
     </li>
   </ul></li>
 <li>
@@ -77,7 +73,7 @@ this function."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Compare data over time periods</h1>
-    <small class="dont-index">Source: <a href="https://github.com/spsanderson/healthyR.ts/blob/HEAD/R/ts_functions.R" class="external-link"><code>R/ts_functions.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/spsanderson/healthyR.ts/blob/HEAD/R/ts-compare-data.R" class="external-link"><code>R/ts-compare-data.R</code></a></small>
     <div class="hidden name"><code>ts_compare_data.Rd</code></div>
     </div>
 
@@ -138,6 +134,9 @@ column.</p></li>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
+<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
+<span class="r-in"></span>
 <span class="r-in"><span class="fu">ts_compare_data</span><span class="op">(</span></span>
 <span class="r-in">  .data           <span class="op">=</span> <span class="va">data_tbl</span></span>
 <span class="r-in">  , .date_col     <span class="op">=</span> <span class="va">date_col</span></span>
@@ -150,7 +149,11 @@ column.</p></li>
 <span class="r-in">    , .by     <span class="op">=</span> <span class="st">"year"</span></span>
 <span class="r-in">    , visits  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span></span>
 <span class="r-in">  <span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.data.frame(.data):</span> object 'data_tbl' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   date_col   visits</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1953-01-01   <span style="text-decoration: underline;">2</span>700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1955-01-01   <span style="text-decoration: underline;">3</span>408</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
