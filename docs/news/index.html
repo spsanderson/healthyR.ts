@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.9.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
       </span>
     </div>
 
@@ -46,10 +46,6 @@
   <ul class="dropdown-menu" role="menu"><li class="dropdown-header">Tidy FFT Analysis</li>
     <li>
       <a href="../articles/using-tidy-fft.html">Using tidy_fft</a>
-    </li>
-    <li class="dropdown-header">Automatic Timeseries Model Tuning</li>
-    <li>
-      <a href="../articles/auto-model-tune.html">Auto Tuning</a>
     </li>
   </ul></li>
 <li>
@@ -79,12 +75,15 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="development version" id="healthyrts-development-version">healthyR.ts (development version)<a class="anchor" aria-label="anchor" href="#healthyrts-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.2.0" id="healthyrts-020">healthyR.ts 0.2.0<a class="anchor" aria-label="anchor" href="#healthyrts-020"></a></h2>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<h3 id="breaking-changes-0-2-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
 <p>None</p>
 </div>
 <div class="section level3">
-<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="new-features-0-2-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/277" class="external-link">#277</a> - Add function <code><a href="../reference/ts_auto_arima.html">ts_auto_arima()</a></code> boiler plate function.</li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/284" class="external-link">#284</a> - Add functions <code><a href="../reference/color_blind.html">color_blind()</a></code> <code><a href="../reference/ts_scale_fill_colorblind.html">ts_scale_fill_colorblind()</a></code> and <code><a href="../reference/ts_scale_color_colorblind.html">ts_scale_color_colorblind()</a></code>
 </li>
@@ -100,10 +99,10 @@
 </li>
 </ol></div>
 <div class="section level3">
-<h3 id="minor-fixes-and-improvements-development-version">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-development-version"></a></h3>
+<h3 id="minor-fixes-and-improvements-0-2-0">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-0-2-0"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/275" class="external-link">#275</a> - Correct <code>ts_auto_arima_xgboots()</code> when <code>.tune</code> is FALSE.</li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/286" class="external-link">#286</a> - Change the boilerplate recipe to keep the date column and change it to a numeric rather than using step_rm() instead use step_mutate(as.numeric())</li>
-<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/288" class="external-link">#288</a> - Update tune template helper function smooth_es to use <code><a href="https://rdrr.io/pkg/hardhat/man/tune.html" class="external-link">tune::tune()</a></code>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/288" class="external-link">#288</a> - Update tune template helper function smooth_es to use <code><a href="https://hardhat.tidymodels.org/reference/tune.html" class="external-link">tune::tune()</a></code>
 </li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/291" class="external-link">#291</a> - Move kmeans functions from using <code>healthyR</code> to <code>healthyR.ai</code> in anticipation of dropping <code>kmeans</code> functionality from <code>healthyR</code>
 </li>

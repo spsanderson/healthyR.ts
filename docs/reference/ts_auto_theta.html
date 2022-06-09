@@ -29,7 +29,7 @@ calibration tibble and plot
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">healthyR.ts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.9.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
       </span>
     </div>
 
@@ -52,10 +52,6 @@ calibration tibble and plot
   <ul class="dropdown-menu" role="menu"><li class="dropdown-header">Tidy FFT Analysis</li>
     <li>
       <a href="../articles/using-tidy-fft.html">Using tidy_fft</a>
-    </li>
-    <li class="dropdown-header">Automatic Timeseries Model Tuning</li>
-    <li>
-      <a href="../articles/auto-model-tune.html">Auto Tuning</a>
     </li>
   </ul></li>
 <li>
@@ -98,10 +94,6 @@ calibration tibble and plot
   <span class="va">.value_col</span>,
   <span class="va">.rsamp_obj</span>,
   .prefix <span class="op">=</span> <span class="st">"ts_theta"</span>,
-  .grid_size <span class="op">=</span> <span class="fl">10</span>,
-  .cv_assess <span class="op">=</span> <span class="fl">12</span>,
-  .cv_skip <span class="op">=</span> <span class="fl">3</span>,
-  .cv_slice_limit <span class="op">=</span> <span class="fl">6</span>,
   .bootstrap_final <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
     </div>
@@ -115,15 +107,9 @@ calibration tibble and plot
 <dt>.value_col</dt>
 <dd><p>The column that has the value</p></dd>
 <dt>.rsamp_obj</dt>
-<dd><p>The rsample splits object</p></dd>
+<dd><p>The splits object</p></dd>
 <dt>.prefix</dt>
 <dd><p>Default is <code>ts_theta</code></p></dd>
-<dt>.cv_assess</dt>
-<dd><p>How many observations for assess. See <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
-<dt>.cv_skip</dt>
-<dd><p>How many observations to skip. See <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
-<dt>.cv_slice_limit</dt>
-<dd><p>How many slices to return. See <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
 <dt>.bootstrap_final</dt>
 <dd><p>Not yet implemented.</p></dd>
 </dl></div>
