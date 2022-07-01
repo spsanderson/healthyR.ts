@@ -42,6 +42,7 @@ model_extraction_helper(fit_arima)
 Other Utility: 
 \code{\link{calibrate_and_plot}()},
 \code{\link{internal_ts_backward_event_tbl}()},
+\code{\link{internal_ts_both_event_tbl}()},
 \code{\link{internal_ts_forward_event_tbl}()},
 \code{\link{ts_info_tbl}()},
 \code{\link{ts_model_auto_tune}()},
