@@ -1,5 +1,7 @@
 #' Compare data over time periods
 #'
+#' @family Time_Filtering
+#'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
