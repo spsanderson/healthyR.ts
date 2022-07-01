@@ -70,6 +70,11 @@ ts_compare_data(
   )
 
 }
+\seealso{
+Other Time_Filtering: 
+\code{\link{ts_time_event_analysis_tbl}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
+\concept{Time_Filtering}

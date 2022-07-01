@@ -2,6 +2,7 @@
 #'
 #' @family Helper
 #' @family Model Tuning
+#' @family Utility
 #'
 #' @author Steven P. Sanderson II, MPH
 #'

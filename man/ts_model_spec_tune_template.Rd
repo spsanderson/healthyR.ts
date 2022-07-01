@@ -50,9 +50,21 @@ ts_model_spec_tune_template("prophet")
 \seealso{
 Other Model Tuning: 
 \code{\link{ts_model_auto_tune}()}
+
+Other Utility: 
+\code{\link{calibrate_and_plot}()},
+\code{\link{model_extraction_helper}()},
+\code{\link{ts_info_tbl}()},
+\code{\link{ts_model_auto_tune}()},
+\code{\link{ts_model_compare}()},
+\code{\link{ts_model_rank_tbl}()},
+\code{\link{ts_qq_plot}()},
+\code{\link{ts_scedacity_scatter_plot}()},
+\code{\link{ts_to_tbl}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
 \concept{Helper}
 \concept{Model Tuning}
+\concept{Utility}

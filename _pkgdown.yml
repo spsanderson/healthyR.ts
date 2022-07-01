@@ -48,7 +48,7 @@ reference:
   -  title: Time Filtering Functions
      desc: healthyR.ts time based filtering functions
   -  contents:
-     -  matches("ts_compare_data")
+     -  has_concept("Time_Filtering")
   -  title: Time Series Forecasting and Simulation
      desc: healthyR.ts time series forecasting and simulation functions
   -  contents:
@@ -80,11 +80,4 @@ reference:
   -  title: Time Series Helper Functions
      desc: healthyR.ts helper Functions
   -  contents:
-     -  "calibrate_and_plot"
-     -  "model_extraction_helper"
-     -  "ts_info_tbl"
-     -  "ts_to_tbl"
-     -  "ts_model_auto_tune"
-     -  "ts_model_spec_tune_template"
-     -  "ts_model_compare"
-     -  "ts_model_rank_tbl"
+     -  has_concept("Utility")
