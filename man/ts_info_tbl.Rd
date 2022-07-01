@@ -47,6 +47,7 @@ ts_info_tbl(BJsales)
 \seealso{
 Other Utility: 
 \code{\link{calibrate_and_plot}()},
+\code{\link{internal_ts_forward_event_tbl}()},
 \code{\link{model_extraction_helper}()},
 \code{\link{ts_model_auto_tune}()},
 \code{\link{ts_model_compare}()},
