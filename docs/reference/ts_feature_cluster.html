@@ -97,29 +97,46 @@ come from using the <code>K-Means</code> clustering algorithm on a time series d
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>The data passed must be a <code>data.frame/tibble</code> only.</p></dd>
+
+
 <dt>.date_col</dt>
 <dd><p>The date column.</p></dd>
+
+
 <dt>.value_col</dt>
 <dd><p>The column that holds the value of the time series where you
 want the features and clustering performed on.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>This is where you can place grouping variables that are passed off
 to <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code></p></dd>
+
+
 <dt>.features</dt>
 <dd><p>This is a quoted string vector using c() of features that you
 would like to pass. You can pass any feature you make or those from the <code>tsfeatures</code>
 package.</p></dd>
+
+
 <dt>.scale</dt>
 <dd><p>If TRUE, time series are scaled to mean 0 and sd 1 before features are computed</p></dd>
+
+
 <dt>.prefix</dt>
 <dd><p>A prefix to prefix the feature columns. Default: "ts_"</p></dd>
+
+
 <dt>.centers</dt>
 <dd><p>An integer of how many different centers you would like to generate.
 The default is 3.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list output</p>
+    
+
+<p>A list output</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -268,7 +285,7 @@ return(ret)</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

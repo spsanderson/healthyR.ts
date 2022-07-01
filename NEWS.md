@@ -1,5 +1,14 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+1. Fix #306 - Add function `ts_time_event_analysis_tbl()`
+
+## Minor Fixes and Improvements
+None
+
 # healthyR.ts 0.2.0
 
 ## Breaking Changes

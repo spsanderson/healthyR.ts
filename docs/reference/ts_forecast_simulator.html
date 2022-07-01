@@ -103,30 +103,49 @@ by utilizing the underlying model distribution with the <code><a href="https://r
 <li><p><code><a href="https://pkg.robjhyndman.com/forecast/reference/nnetar.html" class="external-link">nnetar</a></code></p></li>
 <li><p><code><a href="https://pkg.robjhyndman.com/forecast/reference/Arima.html" class="external-link">Arima()</a></code> with xreg</p></li>
 </ul></dd>
+
+
 <dt>.data</dt>
 <dd><p>The data that is used for the <code>.model</code> parameter. This is used with
 <code><a href="https://business-science.github.io/timetk/reference/tk_index.html" class="external-link">timetk::tk_index()</a></code></p></dd>
+
+
 <dt>.ext_reg</dt>
 <dd><p>A <code>tibble</code> or <code>matrix</code> of future xregs that should be the same
 length as the horizon you want to forecast.</p></dd>
+
+
 <dt>.frequency</dt>
 <dd><p>This is for the conversion of an internal table and should
 match the time frequency of the data.</p></dd>
+
+
 <dt>.bootstrap</dt>
 <dd><p>A boolean value of TRUE/FALSE. From <code><a href="https://pkg.robjhyndman.com/forecast/reference/simulate.ets.html" class="external-link">forecast::simulate.Arima()</a></code>
 Do simulation using resampled errors rather than normally distributed errors.</p></dd>
+
+
 <dt>.horizon</dt>
 <dd><p>An integer defining the forecast horizon.</p></dd>
+
+
 <dt>.iterations</dt>
 <dd><p>An integer, set the number of iterations of the simulation.</p></dd>
+
+
 <dt>.sim_color</dt>
 <dd><p>Set the color of the simulation paths lines.</p></dd>
+
+
 <dt>.alpha</dt>
 <dd><p>Set the opacity level of the simulation path lines.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The original time series, the simulated values and a some plots</p>
+    
+
+<p>The original time series, the simulated values and a some plots</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -179,7 +198,7 @@ an Arima() model using xregs.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

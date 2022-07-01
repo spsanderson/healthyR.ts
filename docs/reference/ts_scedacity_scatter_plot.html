@@ -90,17 +90,24 @@
     <h2>Arguments</h2>
     <dl><dt>.calibration_tbl</dt>
 <dd><p>A calibrated modeltime table.</p></dd>
+
+
 <dt>.model_id</dt>
 <dd><p>The id of a particular model from a calibration tibble. If
 there are multiple models in the tibble and this remains <strong>NULL</strong> then the
 plot will be returned using <code>ggplot2::facet_grid(~ .model_id)</code></p></dd>
+
+
 <dt>.interactive</dt>
 <dd><p>A boolean with a default value of FALSE. TRUE will produce
 an interactive <code>plotly</code> plot.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A QQ plot.</p>
+    
+
+<p>A QQ plot.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -115,10 +122,15 @@ pass in a <code>model_id</code> and a boolean for <code>interactive</code> which
 <code><a href="ts_qq_plot.html">ts_qq_plot</a>()</code></p>
 <p>Other Utility: 
 <code><a href="calibrate_and_plot.html">calibrate_and_plot</a>()</code>,
+<code><a href="internal_ts_backward_event_tbl.html">internal_ts_backward_event_tbl</a>()</code>,
+<code><a href="internal_ts_both_event_tbl.html">internal_ts_both_event_tbl</a>()</code>,
+<code><a href="internal_ts_forward_event_tbl.html">internal_ts_forward_event_tbl</a>()</code>,
 <code><a href="model_extraction_helper.html">model_extraction_helper</a>()</code>,
 <code><a href="ts_info_tbl.html">ts_info_tbl</a>()</code>,
+<code><a href="ts_model_auto_tune.html">ts_model_auto_tune</a>()</code>,
 <code><a href="ts_model_compare.html">ts_model_compare</a>()</code>,
 <code><a href="ts_model_rank_tbl.html">ts_model_rank_tbl</a>()</code>,
+<code><a href="ts_model_spec_tune_template.html">ts_model_spec_tune_template</a>()</code>,
 <code><a href="ts_qq_plot.html">ts_qq_plot</a>()</code>,
 <code><a href="ts_to_tbl.html">ts_to_tbl</a>()</code></p></div>
     </div>
@@ -190,7 +202,7 @@ pass in a <code>model_id</code> and a boolean for <code>interactive</code> which
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

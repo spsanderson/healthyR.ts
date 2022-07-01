@@ -52,6 +52,15 @@
     <loc>/reference/index.html</loc>
   </url>
   <url>
+    <loc>/reference/internal_ts_backward_event_tbl.html</loc>
+  </url>
+  <url>
+    <loc>/reference/internal_ts_both_event_tbl.html</loc>
+  </url>
+  <url>
+    <loc>/reference/internal_ts_forward_event_tbl.html</loc>
+  </url>
+  <url>
     <loc>/reference/model_extraction_helper.html</loc>
   </url>
   <url>
@@ -191,6 +200,9 @@
   </url>
   <url>
     <loc>/reference/ts_splits_plot.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_time_event_analysis_tbl.html</loc>
   </url>
   <url>
     <loc>/reference/ts_to_tbl.html</loc>

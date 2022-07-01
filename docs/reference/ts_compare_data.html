@@ -92,15 +92,23 @@ this function.</p>
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>The date.frame/tibble that holds the data</p></dd>
+
+
 <dt>.date_col</dt>
 <dd><p>The column with the date value</p></dd>
+
+
 <dt>.start_date</dt>
 <dd><p>The start of the period you want to analyze</p></dd>
+
+
 <dt>.end_date</dt>
 <dd><p>The end of the period you want to analyze</p></dd>
+
+
 <dt>.periods_back</dt>
 <dd><p>How long ago do you want to compare data too. Time units
-are collapsed using <code><a href="https://lubridate.tidyverse.org/reference/round_date.html" class="external-link">lubridate::floor_date()</a></code>. The value can be:</p><ul><li><p>second</p></li>
+are collapsed using <code><a href="https://rdrr.io/pkg/lubridate/man/round_date.html" class="external-link">lubridate::floor_date()</a></code>. The value can be:</p><ul><li><p>second</p></li>
 <li><p>minute</p></li>
 <li><p>hour</p></li>
 <li><p>day</p></li>
@@ -111,11 +119,14 @@ are collapsed using <code><a href="https://lubridate.tidyverse.org/reference/rou
 <li><p>season</p></li>
 <li><p>halfyear</p></li>
 <li><p>year</p></li>
-</ul><p>Arbitrary unique English abbreviations as in the <code><a href="https://lubridate.tidyverse.org/reference/period.html" class="external-link">lubridate::period()</a></code> constructor are allowed.</p></dd>
+</ul><p>Arbitrary unique English abbreviations as in the <code><a href="https://rdrr.io/pkg/lubridate/man/period.html" class="external-link">lubridate::period()</a></code> constructor are allowed.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A tibble.</p>
+    
+
+<p>A tibble.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -124,6 +135,11 @@ are collapsed using <code><a href="https://lubridate.tidyverse.org/reference/rou
 column.</p></li>
 <li><p>Uses the <code><a href="https://business-science.github.io/timetk/reference/time_arithmetic.html" class="external-link">timetk::subtract_time()</a></code> function to subtract time from the start date.</p></li>
 </ul></div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p>Other Time_Filtering: 
+<code><a href="ts_time_event_analysis_tbl.html">ts_time_event_analysis_tbl</a>()</code></p></div>
+    </div>
     <div id="author">
     <h2>Author</h2>
     <p>Steven P. Sanderson II, MPH</p>
@@ -169,7 +185,7 @@ column.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

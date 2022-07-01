@@ -102,40 +102,67 @@ under the hood to get the generic template that is used in the grid search.</p>
     <h2>Arguments</h2>
     <dl><dt>.modeltime_model_id</dt>
 <dd><p>The .model_id from a calibrated modeltime table.</p></dd>
+
+
 <dt>.calibration_tbl</dt>
 <dd><p>A calibrated modeltime table.</p></dd>
+
+
 <dt>.splits_obj</dt>
 <dd><p>The time_series_split object.</p></dd>
+
+
 <dt>.drop_training_na</dt>
 <dd><p>A boolean that will drop NA values from the training(splits)
 data</p></dd>
+
+
 <dt>.date_col</dt>
 <dd><p>The column that holds the date values.</p></dd>
+
+
 <dt>.value_col</dt>
 <dd><p>The column that holds the time series values.</p></dd>
+
+
 <dt>.tscv_assess</dt>
 <dd><p>A character expression like "12 months". This gets passed to
 <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+
+
 <dt>.tscv_skip</dt>
 <dd><p>A character expression like "6 months". This gets passed to
 <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+
+
 <dt>.slice_limit</dt>
 <dd><p>An integer that gets passed to <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+
+
 <dt>.facet_ncol</dt>
 <dd><p>The number of faceted columns to be passed to plot_time_series_cv_plan</p></dd>
+
+
 <dt>.grid_size</dt>
 <dd><p>An integer that gets passed to the <code><a href="https://dials.tidymodels.org/reference/grid_max_entropy.html" class="external-link">dials::grid_latin_hypercube()</a></code>
 function.</p></dd>
+
+
 <dt>.num_cores</dt>
 <dd><p>The default is 1, you can set this to any integer value as long
 as it is equal to or less than the available cores on your machine.</p></dd>
+
+
 <dt>.best_metric</dt>
 <dd><p>The default is "rmse" and this can be set to any default dials
 metric. This must be passed as a character.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list object with multiple items.</p>
+    
+
+<p>A list object with multiple items.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -187,7 +214,20 @@ pull out if you are going to work with it further.</p></li>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p>Other Model Tuning: 
-<code><a href="ts_model_spec_tune_template.html">ts_model_spec_tune_template</a>()</code></p></div>
+<code><a href="ts_model_spec_tune_template.html">ts_model_spec_tune_template</a>()</code></p>
+<p>Other Utility: 
+<code><a href="calibrate_and_plot.html">calibrate_and_plot</a>()</code>,
+<code><a href="internal_ts_backward_event_tbl.html">internal_ts_backward_event_tbl</a>()</code>,
+<code><a href="internal_ts_both_event_tbl.html">internal_ts_both_event_tbl</a>()</code>,
+<code><a href="internal_ts_forward_event_tbl.html">internal_ts_forward_event_tbl</a>()</code>,
+<code><a href="model_extraction_helper.html">model_extraction_helper</a>()</code>,
+<code><a href="ts_info_tbl.html">ts_info_tbl</a>()</code>,
+<code><a href="ts_model_compare.html">ts_model_compare</a>()</code>,
+<code><a href="ts_model_rank_tbl.html">ts_model_rank_tbl</a>()</code>,
+<code><a href="ts_model_spec_tune_template.html">ts_model_spec_tune_template</a>()</code>,
+<code><a href="ts_qq_plot.html">ts_qq_plot</a>()</code>,
+<code><a href="ts_scedacity_scatter_plot.html">ts_scedacity_scatter_plot</a>()</code>,
+<code><a href="ts_to_tbl.html">ts_to_tbl</a>()</code></p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -265,7 +305,7 @@ pull out if you are going to work with it further.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
