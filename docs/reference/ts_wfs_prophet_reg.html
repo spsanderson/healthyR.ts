@@ -113,63 +113,104 @@ Or <code><a href="https://business-science.github.io/modeltime/reference/prophet
 You can also choose:</p></li>
 <li><p>"all_engines" - This will make a model spec for all available engines.</p></li>
 </ul></dd>
+
+
 <dt>.recipe_list</dt>
 <dd><p>You must supply a list of recipes. list(rec_1, rec_2, ...)</p></dd>
+
+
 <dt>.growth</dt>
 <dd><p>String 'linear' or 'logistic' to specify a linear or logistic trend.</p></dd>
+
+
 <dt>.changepoint_num</dt>
 <dd><p>Number of potential changepoints to include for modeling trend.</p></dd>
+
+
 <dt>.changepoint_range</dt>
 <dd><p>Adjusts the flexibility of the trend component by
 limiting to a percentage of data before the end of the time series. 0.80
 means that a changepoint cannot exist after the first 80% of the data.</p></dd>
+
+
 <dt>.seasonality_yearly</dt>
 <dd><p>One of "auto", TRUE or FALSE. Set to FALSE for <code>prophet_xgboost</code>.
 Toggles on/off a seasonal component that models year-over-year seasonality.</p></dd>
+
+
 <dt>.seasonality_weekly</dt>
 <dd><p>One of "auto", TRUE or FALSE. Toggles on/off a
 seasonal component that models week-over-week seasonality. Set to FALSE for <code>prophet_xgboost</code></p></dd>
+
+
 <dt>.seasonality_daily</dt>
 <dd><p>One of "auto", TRUE or FALSE. Toggles on/off a
 seasonal componet that models day-over-day seasonality. Set to FALSE for <code>prophet_xgboost</code></p></dd>
+
+
 <dt>.season</dt>
 <dd><p>'additive' (default) or 'multiplicative'.</p></dd>
+
+
 <dt>.prior_scale_changepoints</dt>
 <dd><p>Parameter modulating the flexibility of the
 automatic changepoint selection. Large values will allow many changepoints,
 small values will allow few changepoints.</p></dd>
+
+
 <dt>.prior_scale_seasonality</dt>
 <dd><p>Parameter modulating the strength of the
 seasonality model. Larger values allow the model to fit larger seasonal
 fluctuations, smaller values dampen the seasonality.</p></dd>
+
+
 <dt>.prior_scale_holidays</dt>
 <dd><p>Parameter modulating the strength of the holiday
 components model, unless overridden in the holidays input.</p></dd>
+
+
 <dt>.logistic_cap</dt>
 <dd><p>When growth is logistic, the upper-bound for "saturation".</p></dd>
+
+
 <dt>.logistic_floor</dt>
 <dd><p>When growth is logistic, the lower-bound for "saturation"</p></dd>
+
+
 <dt>.trees</dt>
 <dd><p>An integer for the number of trees contained in the ensemble.</p></dd>
+
+
 <dt>.min_n</dt>
 <dd><p>An integer for the minimum number of data points in a node
 that is required for the node to be split further.</p></dd>
+
+
 <dt>.tree_depth</dt>
 <dd><p>An integer for the maximum depth of the tree
 (i.e. number of splits) (specific engines only).</p></dd>
+
+
 <dt>.learn_rate</dt>
 <dd><p>A number for the rate at which the boosting algorithm
 adapts from iteration-to-iteration (specific engines only).</p></dd>
+
+
 <dt>.loss_reduction</dt>
 <dd><p>A number for the reduction in the loss function
 required to split further (specific engines only).</p></dd>
+
+
 <dt>.stop_iter</dt>
 <dd><p>The number of iterations without improvement before
 stopping (xgboost only).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Returns a workflowsets object.</p>
+    
+
+<p>Returns a workflowsets object.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -252,7 +293,7 @@ of what they should be.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

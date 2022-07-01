@@ -93,23 +93,36 @@
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>The data that you are passing, this can be either a <code>ts</code> object or a <code>tibble</code></p></dd>
+
+
 <dt>.date_col</dt>
 <dd><p>This is used if you know the name of the datetime column. The function
 <code><a href="ts_to_tbl.html">ts_to_tbl()</a></code> will make a column called <code>date_col</code> only if a <code>ts</code> object is passed, if
 a <code>tibble</code> is passed then the <code>.date_col</code> parameter is needed or the function will error
 out.</p></dd>
+
+
 <dt>.sma_order</dt>
 <dd><p>This will default to 1. This can be a vector like c(2,4,6,12)</p></dd>
+
+
 <dt>.func</dt>
 <dd><p>The unquoted function you want to pass, mean, median, etc</p></dd>
+
+
 <dt>.align</dt>
 <dd><p>This can be either "left", "center", "right"</p></dd>
+
+
 <dt>.partial</dt>
 <dd><p>This is a bool value of TRUE/FALSE, the default is TRUE</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Will invisibly return a list object.</p>
+    
+
+<p>Will invisibly return a list object.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -166,7 +179,7 @@ are called for, it will loop through and append data to a tibble or <code>ts</co
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

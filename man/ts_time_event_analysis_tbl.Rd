@@ -64,7 +64,8 @@ suppressPackageStartupMessages(library(ggplot2))
 
 df_tbl <- ts_to_tbl(AirPassengers) \%>\% select(-index)
 
-tst <- ts_time_event_analysis_tbl(df_tbl, date_col, value_col, .direction = "both")
+tst <- ts_time_event_analysis_tbl(df_tbl, date_col, value, .direction = "both",
+.horizon = 6)
 
 glimpse(tst)
 
@@ -73,7 +74,7 @@ tst \%>\%
   geom_line() +
   geom_line(aes(y = event_change_ci_high), color = "blue", linetype = "dashed") +
   geom_line(aes(y = event_change_ci_low), color = "blue", linetype = "dashed") +
-  geom_vline(xintercept = (horizon + 1), color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 7, color = "red", linetype = "dashed") +
   theme_minimal() +
   labs(
     title = "'AirPassengers' Event Analysis at 5\% Increase",

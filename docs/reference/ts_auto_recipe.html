@@ -100,13 +100,21 @@ tibble.</p>
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>The data that is going to be modeled. You must supply a tibble.</p></dd>
+
+
 <dt>.date_col</dt>
 <dd><p>The column that holds the date for the time series.</p></dd>
+
+
 <dt>.pred_col</dt>
 <dd><p>The column that is to be predicted.</p></dd>
+
+
 <dt>.step_ts_sig</dt>
 <dd><p>A Boolean indicating should the <code><a href="https://business-science.github.io/timetk/reference/step_timeseries_signature.html" class="external-link">timetk::step_timeseries_signature()</a></code>
 be added, default is TRUE.</p></dd>
+
+
 <dt>.step_ts_rm_misc</dt>
 <dd><p>A Boolean indicating should the following items be removed from
 the time series signature, default is TRUE.</p><ul><li><p>iso$</p></li>
@@ -116,26 +124,39 @@ the time series signature, default is TRUE.</p><ul><li><p>iso$</p></li>
 <li><p>sec</p></li>
 <li><p>am.pm</p></li>
 </ul></dd>
+
+
 <dt>.step_ts_dummy</dt>
 <dd><p>A Boolean indicating if all_nominal_predictors() should
 be dummied and with one hot encoding.</p></dd>
+
+
 <dt>.step_ts_fourier</dt>
 <dd><p>A Boolean indicating if <code><a href="https://business-science.github.io/timetk/reference/step_fourier.html" class="external-link">timetk::step_fourier()</a></code> should
 be added to the recipe.</p></dd>
+
+
 <dt>.step_ts_fourier_period</dt>
 <dd><p>A number such as 365/12, 365/4 or 365 indicting
 the period of the fourier term. The numeric period for the oscillation frequency.</p></dd>
+
+
 <dt>.K</dt>
 <dd><p>The number of orders to include for each sine/cosine fourier series.
 More orders increase the number of fourier terms and therefore the variance
 of the fitted model at the expense of bias. See details for examples of K
 specification.</p></dd>
+
+
 <dt>.step_ts_yeo</dt>
 <dd><p>A Boolean indicating if the <code><a href="https://recipes.tidymodels.org/reference/step_YeoJohnson.html" class="external-link">recipes::step_YeoJohnson()</a></code> should
 be added to the recipe.</p></dd>
+
+
 <dt>.step_ts_nzv</dt>
 <dd><p>A Boolean indicating if the <code><a href="https://recipes.tidymodels.org/reference/step_nzv.html" class="external-link">recipes::step_nzv()</a></code> should be run
 on all predictors.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -311,7 +332,7 @@ in a list.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
