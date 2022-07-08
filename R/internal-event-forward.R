@@ -47,6 +47,7 @@ internal_ts_forward_event_tbl <- function(.data, .horizon){
         dplyr::group_by(x) %>%
         dplyr::mutate(
             mean_event_change = mean(event_base_change, na.rm = TRUE),
+            median_event_change = stats::median(event_base_change, na.rm = TRUE),
             event_change_ci_low = unname(stats::quantile(event_base_change, 0.025, na.rm = TRUE)),
             event_change_ci_high = unname(stats::quantile(event_base_change, 0.975, na.rm = TRUE))
         ) %>%
