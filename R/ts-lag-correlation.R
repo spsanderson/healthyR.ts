@@ -46,7 +46,7 @@
 #' )
 #'
 #' output$data$correlation_lag_matrix
-#' otuput$plots$lag_plot
+#' output$plots$lag_plot
 #'
 #' @return
 #' A list object

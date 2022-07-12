@@ -79,14 +79,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_sma_plot</span><span class="op">(</span>
-  <span class="va">.data</span>,
-  .date_col <span class="op">=</span> <span class="cn">NULL</span>,
-  .sma_order <span class="op">=</span> <span class="fl">2</span>,
-  .func <span class="op">=</span> <span class="va">mean</span>,
-  .align <span class="op">=</span> <span class="st">"center"</span>,
-  .partial <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_sma_plot</span><span class="op">(</span></span>
+<span>  <span class="va">.data</span>,</span>
+<span>  .date_col <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  .sma_order <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  .func <span class="op">=</span> <span class="va">mean</span>,</span>
+<span>  .align <span class="op">=</span> <span class="st">"center"</span>,</span>
+<span>  .partial <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -141,10 +141,10 @@ are called for, it will loop through and append data to a tibble or <code>ts</co
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">ts_sma_plot</span><span class="op">(</span><span class="va">AirPassengers</span>, .sma_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">ts_sma_plot</span><span class="op">(</span><span class="va">AirPassengers</span>, .sma_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attempting to coerce to a tibble.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">out</span><span class="op">$</span><span class="va">data</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">out</span><span class="op">$</span><span class="va">data</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 288 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    index     date_col   value sma_order sma_value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;yearmon&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -159,12 +159,12 @@ are called for, it will loop through and append data to a tibble or <code>ts</co
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sep 1949  1949-09-01   136 3              134.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Oct 1949  1949-10-01   119 3              120.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 278 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">out</span><span class="op">$</span><span class="va">plots</span><span class="op">$</span><span class="va">static_plot</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">out</span><span class="op">$</span><span class="va">plots</span><span class="op">$</span><span class="va">static_plot</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 7 row(s) containing missing values (geom_path).</span>
 <span class="r-plt img"><img src="ts_sma_plot-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

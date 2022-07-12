@@ -81,19 +81,19 @@ tibble.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_auto_recipe</span><span class="op">(</span>
-  <span class="va">.data</span>,
-  <span class="va">.date_col</span>,
-  <span class="va">.pred_col</span>,
-  .step_ts_sig <span class="op">=</span> <span class="cn">TRUE</span>,
-  .step_ts_rm_misc <span class="op">=</span> <span class="cn">TRUE</span>,
-  .step_ts_dummy <span class="op">=</span> <span class="cn">TRUE</span>,
-  .step_ts_fourier <span class="op">=</span> <span class="cn">TRUE</span>,
-  .step_ts_fourier_period <span class="op">=</span> <span class="fl">365</span><span class="op">/</span><span class="fl">12</span>,
-  .K <span class="op">=</span> <span class="fl">1</span>,
-  .step_ts_yeo <span class="op">=</span> <span class="cn">TRUE</span>,
-  .step_ts_nzv <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_auto_recipe</span><span class="op">(</span></span>
+<span>  <span class="va">.data</span>,</span>
+<span>  <span class="va">.date_col</span>,</span>
+<span>  <span class="va">.pred_col</span>,</span>
+<span>  .step_ts_sig <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .step_ts_rm_misc <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .step_ts_dummy <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .step_ts_fourier <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .step_ts_fourier_period <span class="op">=</span> <span class="fl">365</span><span class="op">/</span><span class="fl">12</span>,</span>
+<span>  .K <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  .step_ts_yeo <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .step_ts_nzv <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -170,23 +170,23 @@ in a list.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org" class="external-link">rsample</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">initial_time_split</a></span><span class="op">(</span></span>
-<span class="r-in"> <span class="va">data_tbl</span></span>
-<span class="r-in"> , prop <span class="op">=</span> <span class="fl">0.8</span></span>
-<span class="r-in"> , cumulative <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">ts_auto_recipe</span><span class="op">(</span></span>
-<span class="r-in">    .data <span class="op">=</span> <span class="va">data_tbl</span></span>
-<span class="r-in">    , .date_col <span class="op">=</span> <span class="va">date_col</span></span>
-<span class="r-in">    , .pred_col <span class="op">=</span> <span class="va">value</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org" class="external-link">rsample</a></span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">initial_time_split</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span> <span class="va">data_tbl</span></span></span>
+<span class="r-in"><span> , prop <span class="op">=</span> <span class="fl">0.8</span></span></span>
+<span class="r-in"><span> , cumulative <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">ts_auto_recipe</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    .data <span class="op">=</span> <span class="va">data_tbl</span></span></span>
+<span class="r-in"><span>    , .date_col <span class="op">=</span> <span class="va">date_col</span></span></span>
+<span class="r-in"><span>    , .pred_col <span class="op">=</span> <span class="va">value</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_base</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -249,12 +249,12 @@ in a list.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Yeo-Johnson transformation on value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sparse, unbalanced variable filter on recipes::all_predictors()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">ts_auto_recipe</span><span class="op">(</span></span>
-<span class="r-in">  .data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">training</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span></span>
-<span class="r-in">  , .date_col <span class="op">=</span> <span class="va">date_col</span></span>
-<span class="r-in">  , .pred_col <span class="op">=</span> <span class="va">value</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">ts_auto_recipe</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  .data <span class="op">=</span> <span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">training</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  , .date_col <span class="op">=</span> <span class="va">date_col</span></span></span>
+<span class="r-in"><span>  , .pred_col <span class="op">=</span> <span class="va">value</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_base</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -317,7 +317,7 @@ in a list.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Yeo-Johnson transformation on value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Sparse, unbalanced variable filter on recipes::all_predictors()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

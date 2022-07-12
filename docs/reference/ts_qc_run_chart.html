@@ -89,19 +89,19 @@ process behavior over time.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_qc_run_chart</span><span class="op">(</span>
-  <span class="va">.data</span>,
-  <span class="va">.date_col</span>,
-  <span class="va">.value_col</span>,
-  .interactive <span class="op">=</span> <span class="cn">FALSE</span>,
-  .median <span class="op">=</span> <span class="cn">TRUE</span>,
-  .cl <span class="op">=</span> <span class="cn">TRUE</span>,
-  .mcl <span class="op">=</span> <span class="cn">TRUE</span>,
-  .ucl <span class="op">=</span> <span class="cn">TRUE</span>,
-  .lc <span class="op">=</span> <span class="cn">FALSE</span>,
-  .lmcl <span class="op">=</span> <span class="cn">FALSE</span>,
-  .llcl <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_qc_run_chart</span><span class="op">(</span></span>
+<span>  <span class="va">.data</span>,</span>
+<span>  <span class="va">.date_col</span>,</span>
+<span>  <span class="va">.value_col</span>,</span>
+<span>  .interactive <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  .median <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .cl <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .mcl <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .ucl <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .lc <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  .lmcl <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  .llcl <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -169,19 +169,19 @@ process behavior over time.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">ts_qc_run_chart</span><span class="op">(</span></span>
-<span class="r-in">    .date_col    <span class="op">=</span> <span class="va">date_col</span></span>
-<span class="r-in">    , .value_col <span class="op">=</span> <span class="va">value</span></span>
-<span class="r-in">    , .llcl      <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in">  <span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">data_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">ts_qc_run_chart</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    .date_col    <span class="op">=</span> <span class="va">date_col</span></span></span>
+<span class="r-in"><span>    , .value_col <span class="op">=</span> <span class="va">value</span></span></span>
+<span class="r-in"><span>    , .llcl      <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ts_qc_run_chart-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

@@ -81,7 +81,7 @@ tibble format."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_to_tbl</span><span class="op">(</span><span class="va">.data</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_to_tbl</span><span class="op">(</span><span class="va">.data</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -112,6 +112,7 @@ an index column is returned.</p>
 <code><a href="internal_ts_forward_event_tbl.html">internal_ts_forward_event_tbl</a>()</code>,
 <code><a href="model_extraction_helper.html">model_extraction_helper</a>()</code>,
 <code><a href="ts_info_tbl.html">ts_info_tbl</a>()</code>,
+<code><a href="ts_lag_correlation.html">ts_lag_correlation</a>()</code>,
 <code><a href="ts_model_auto_tune.html">ts_model_auto_tune</a>()</code>,
 <code><a href="ts_model_compare.html">ts_model_compare</a>()</code>,
 <code><a href="ts_model_rank_tbl.html">ts_model_rank_tbl</a>()</code>,
@@ -126,8 +127,8 @@ an index column is returned.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">ts_to_tbl</span><span class="op">(</span><span class="va">BJsales</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">ts_to_tbl</span><span class="op">(</span><span class="va">BJsales</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 150 × 1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -142,7 +143,7 @@ an index column is returned.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  200.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  201.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 140 more rows</span></span>
-<span class="r-in"><span class="fu">ts_to_tbl</span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ts_to_tbl</span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 144 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    index     date_col   value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;yearmon&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -157,7 +158,7 @@ an index column is returned.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sep 1949  1949-09-01   136</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Oct 1949  1949-10-01   119</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 134 more rows</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
