@@ -85,7 +85,7 @@ this function.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_compare_data</span><span class="op">(</span><span class="va">.data</span>, <span class="va">.date_col</span>, <span class="va">.start_date</span>, <span class="va">.end_date</span>, <span class="va">.periods_back</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_compare_data</span><span class="op">(</span><span class="va">.data</span>, <span class="va">.date_col</span>, <span class="va">.start_date</span>, <span class="va">.end_date</span>, <span class="va">.periods_back</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -108,7 +108,7 @@ this function.</p>
 
 <dt>.periods_back</dt>
 <dd><p>How long ago do you want to compare data too. Time units
-are collapsed using <code><a href="https://rdrr.io/pkg/lubridate/man/round_date.html" class="external-link">lubridate::floor_date()</a></code>. The value can be:</p><ul><li><p>second</p></li>
+are collapsed using <code><a href="https://lubridate.tidyverse.org/reference/round_date.html" class="external-link">lubridate::floor_date()</a></code>. The value can be:</p><ul><li><p>second</p></li>
 <li><p>minute</p></li>
 <li><p>hour</p></li>
 <li><p>day</p></li>
@@ -119,7 +119,7 @@ are collapsed using <code><a href="https://rdrr.io/pkg/lubridate/man/round_date.
 <li><p>season</p></li>
 <li><p>halfyear</p></li>
 <li><p>year</p></li>
-</ul><p>Arbitrary unique English abbreviations as in the <code><a href="https://rdrr.io/pkg/lubridate/man/period.html" class="external-link">lubridate::period()</a></code> constructor are allowed.</p></dd>
+</ul><p>Arbitrary unique English abbreviations as in the <code><a href="https://lubridate.tidyverse.org/reference/period.html" class="external-link">lubridate::period()</a></code> constructor are allowed.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -147,30 +147,30 @@ column.</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">ts_compare_data</span><span class="op">(</span></span>
-<span class="r-in">  .data           <span class="op">=</span> <span class="va">data_tbl</span></span>
-<span class="r-in">  , .date_col     <span class="op">=</span> <span class="va">date_col</span></span>
-<span class="r-in">  , .start_date   <span class="op">=</span> <span class="st">"1955-01-01"</span></span>
-<span class="r-in">  , .end_date     <span class="op">=</span> <span class="st">"1955-12-31"</span></span>
-<span class="r-in">  , .periods_back <span class="op">=</span> <span class="st">"2 years"</span></span>
-<span class="r-in">  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span>
-<span class="r-in">    .date_var <span class="op">=</span> <span class="va">date_col</span></span>
-<span class="r-in">    , .by     <span class="op">=</span> <span class="st">"year"</span></span>
-<span class="r-in">    , visits  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">ts_compare_data</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  .data           <span class="op">=</span> <span class="va">data_tbl</span></span></span>
+<span class="r-in"><span>  , .date_col     <span class="op">=</span> <span class="va">date_col</span></span></span>
+<span class="r-in"><span>  , .start_date   <span class="op">=</span> <span class="st">"1955-01-01"</span></span></span>
+<span class="r-in"><span>  , .end_date     <span class="op">=</span> <span class="st">"1955-12-31"</span></span></span>
+<span class="r-in"><span>  , .periods_back <span class="op">=</span> <span class="st">"2 years"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://business-science.github.io/timetk/reference/summarise_by_time.html" class="external-link">summarise_by_time</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    .date_var <span class="op">=</span> <span class="va">date_col</span></span></span>
+<span class="r-in"><span>    , .by     <span class="op">=</span> <span class="st">"year"</span></span></span>
+<span class="r-in"><span>    , visits  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   date_col   visits</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1953-01-01   <span style="text-decoration: underline;">2</span>700</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1955-01-01   <span style="text-decoration: underline;">3</span>408</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

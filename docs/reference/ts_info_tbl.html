@@ -81,7 +81,7 @@ information.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_info_tbl</span><span class="op">(</span><span class="va">.data</span>, <span class="va">.date_col</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_info_tbl</span><span class="op">(</span><span class="va">.data</span>, <span class="va">.date_col</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -123,6 +123,7 @@ information.</p>
 <code><a href="internal_ts_both_event_tbl.html">internal_ts_both_event_tbl</a>()</code>,
 <code><a href="internal_ts_forward_event_tbl.html">internal_ts_forward_event_tbl</a>()</code>,
 <code><a href="model_extraction_helper.html">model_extraction_helper</a>()</code>,
+<code><a href="ts_lag_correlation.html">ts_lag_correlation</a>()</code>,
 <code><a href="ts_model_auto_tune.html">ts_model_auto_tune</a>()</code>,
 <code><a href="ts_model_compare.html">ts_model_compare</a>()</code>,
 <code><a href="ts_model_rank_tbl.html">ts_model_rank_tbl</a>()</code>,
@@ -138,17 +139,17 @@ information.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ts_info_tbl</span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ts_info_tbl</span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   name          class frequency start  end     var        length</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> AirPassengers ts           12 1949 1 1960 12 univariate    144</span>
-<span class="r-in"><span class="fu">ts_info_tbl</span><span class="op">(</span><span class="va">BJsales</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ts_info_tbl</span><span class="op">(</span><span class="va">BJsales</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   name    class frequency start end   var        length</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> BJsales ts            1 1 1   150 1 univariate    150</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

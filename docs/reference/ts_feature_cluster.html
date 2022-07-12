@@ -81,16 +81,16 @@ come from using the <code>K-Means</code> clustering algorithm on a time series d
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_feature_cluster</span><span class="op">(</span>
-  <span class="va">.data</span>,
-  <span class="va">.date_col</span>,
-  <span class="va">.value_col</span>,
-  <span class="va">...</span>,
-  .features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"frequency"</span>, <span class="st">"entropy"</span>, <span class="st">"acf_features"</span><span class="op">)</span>,
-  .scale <span class="op">=</span> <span class="cn">TRUE</span>,
-  .prefix <span class="op">=</span> <span class="st">"ts_"</span>,
-  .centers <span class="op">=</span> <span class="fl">3</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_feature_cluster</span><span class="op">(</span></span>
+<span>  <span class="va">.data</span>,</span>
+<span>  <span class="va">.date_col</span>,</span>
+<span>  <span class="va">.value_col</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  .features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"frequency"</span>, <span class="st">"entropy"</span>, <span class="st">"acf_features"</span><span class="op">)</span>,</span>
+<span>  .scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .prefix <span class="op">=</span> <span class="st">"ts_"</span>,</span>
+<span>  .centers <span class="op">=</span> <span class="fl">3</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -175,22 +175,22 @@ return(ret)</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, <span class="fl">12</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">ts_feature_cluster</span><span class="op">(</span></span>
-<span class="r-in">  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span>
-<span class="r-in">  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
-<span class="r-in">  .value_col <span class="op">=</span> <span class="va">value</span>,</span>
-<span class="r-in">  <span class="va">group_id</span>,</span>
-<span class="r-in">  .features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"acf_features"</span>,<span class="st">"entropy"</span><span class="op">)</span>,</span>
-<span class="r-in">  .scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">  .prefix <span class="op">=</span> <span class="st">"ts_"</span>,</span>
-<span class="r-in">  .centers <span class="op">=</span> <span class="fl">3</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, <span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">ts_feature_cluster</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span></span>
+<span class="r-in"><span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span></span>
+<span class="r-in"><span>  .value_col <span class="op">=</span> <span class="va">value</span>,</span></span>
+<span class="r-in"><span>  <span class="va">group_id</span>,</span></span>
+<span class="r-in"><span>  .features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"acf_features"</span>,<span class="st">"entropy"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  .scale <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  .prefix <span class="op">=</span> <span class="st">"ts_"</span>,</span></span>
+<span class="r-in"><span>  .centers <span class="op">=</span> <span class="fl">3</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data$ts_feature_tbl</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 8</span></span>
@@ -270,7 +270,7 @@ return(ret)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"output_type")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ts_feature_cluster"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

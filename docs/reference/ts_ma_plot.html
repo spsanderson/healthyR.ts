@@ -85,15 +85,15 @@ stacked so each graph is on top of the other.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_ma_plot</span><span class="op">(</span>
-  <span class="va">.data</span>,
-  <span class="va">.date_col</span>,
-  <span class="va">.value_col</span>,
-  .ts_frequency <span class="op">=</span> <span class="st">"monthly"</span>,
-  .main_title <span class="op">=</span> <span class="cn">NULL</span>,
-  .secondary_title <span class="op">=</span> <span class="cn">NULL</span>,
-  .tertiary_title <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_ma_plot</span><span class="op">(</span></span>
+<span>  <span class="va">.data</span>,</span>
+<span>  <span class="va">.date_col</span>,</span>
+<span>  <span class="va">.value_col</span>,</span>
+<span>  .ts_frequency <span class="op">=</span> <span class="st">"monthly"</span>,</span>
+<span>  .main_title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  .secondary_title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  .tertiary_title <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -148,16 +148,16 @@ from there.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">ts_ma_plot</span><span class="op">(</span></span>
-<span class="r-in">  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span>
-<span class="r-in">  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
-<span class="r-in">  .value_col <span class="op">=</span> <span class="va">value</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">ts_ma_plot</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span></span>
+<span class="r-in"><span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span></span>
+<span class="r-in"><span>  .value_col <span class="op">=</span> <span class="va">value</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Non-numeric columns being dropped: date_col</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Non-numeric columns being dropped: date_col</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Non-numeric columns being dropped: date_col</span>
@@ -166,12 +166,12 @@ from there.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 11 row(s) containing missing values (geom_path).</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">pgrid</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">pgrid</span></span></span>
 <span class="r-plt img"><img src="ts_ma_plot-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">xts_plt</span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">xts_plt</span></span></span>
 <span class="r-plt img"><img src="ts_ma_plot-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">data_summary_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">data_summary_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   date_col   value  ma12 diff_a diff_b</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -181,23 +181,23 @@ from there.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 1949-04-01   129    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">2.27</span>      0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 1949-05-01   121    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">6.20</span>      0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 1949-06-01   135    <span style="color: #BB0000;">NA</span>  11.6       0</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">ts_ma_plot</span><span class="op">(</span></span>
-<span class="r-in">  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span>
-<span class="r-in">  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
-<span class="r-in">  .value_col <span class="op">=</span> <span class="va">value</span>,</span>
-<span class="r-in">  .ts_frequency <span class="op">=</span> <span class="st">"week"</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu">ts_ma_plot</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span></span>
+<span class="r-in"><span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span></span>
+<span class="r-in"><span>  .value_col <span class="op">=</span> <span class="va">value</span>,</span></span>
+<span class="r-in"><span>  .ts_frequency <span class="op">=</span> <span class="st">"week"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Non-numeric columns being dropped: date_col</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Non-numeric columns being dropped: date_col</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Non-numeric columns being dropped: date_col</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 51 row(s) containing missing values (geom_path).</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">pgrid</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">pgrid</span></span></span>
 <span class="r-plt img"><img src="ts_ma_plot-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">xts_plt</span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">xts_plt</span></span></span>
 <span class="r-plt img"><img src="ts_ma_plot-4.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="va">output</span><span class="op">$</span><span class="va">data_summary_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">output</span><span class="op">$</span><span class="va">data_summary_tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   date_col   value  ma12 diff_a diff_b</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -207,7 +207,7 @@ from there.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 1949-04-01   129    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">2.27</span>      0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 1949-05-01   121    <span style="color: #BB0000;">NA</span>  -<span style="color: #BB0000;">6.20</span>      0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 1949-06-01   135    <span style="color: #BB0000;">NA</span>  11.6       0</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

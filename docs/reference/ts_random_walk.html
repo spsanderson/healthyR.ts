@@ -79,13 +79,13 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_random_walk</span><span class="op">(</span>
-  .mean <span class="op">=</span> <span class="fl">0</span>,
-  .sd <span class="op">=</span> <span class="fl">0.1</span>,
-  .num_walks <span class="op">=</span> <span class="fl">100</span>,
-  .periods <span class="op">=</span> <span class="fl">100</span>,
-  .initial_value <span class="op">=</span> <span class="fl">1000</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_random_walk</span><span class="op">(</span></span>
+<span>  .mean <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  .sd <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>  .num_walks <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  .periods <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  .initial_value <span class="op">=</span> <span class="fl">1000</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -138,28 +138,28 @@ are not taken too seriously.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ts_random_walk</span><span class="op">(</span></span>
-<span class="r-in">.mean <span class="op">=</span> <span class="fl">0</span>,</span>
-<span class="r-in">.sd <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">.num_walks <span class="op">=</span> <span class="fl">25</span>,</span>
-<span class="r-in">.periods <span class="op">=</span> <span class="fl">180</span>,</span>
-<span class="r-in">.initial_value <span class="op">=</span> <span class="fl">6</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ts_random_walk</span><span class="op">(</span></span></span>
+<span class="r-in"><span>.mean <span class="op">=</span> <span class="fl">0</span>,</span></span>
+<span class="r-in"><span>.sd <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>.num_walks <span class="op">=</span> <span class="fl">25</span>,</span></span>
+<span class="r-in"><span>.periods <span class="op">=</span> <span class="fl">180</span>,</span></span>
+<span class="r-in"><span>.initial_value <span class="op">=</span> <span class="fl">6</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,500 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      run     x       y    cum_y</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1     1  0.291   7.75   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     1     2 -<span style="color: #BB0000;">1.02</span>   -<span style="color: #BB0000;">0.154</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     1     3 -<span style="color: #BB0000;">1.21</span>    0.032<span style="text-decoration: underline;">2</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     1     4 -<span style="color: #BB0000;">0.318</span>   0.022<span style="text-decoration: underline;">0</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     1     5  0.344   0.029<span style="text-decoration: underline;">5</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     1     6  0.095<span style="text-decoration: underline;">3</span>  0.032<span style="text-decoration: underline;">4</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     1     7 -<span style="color: #BB0000;">0.505</span>   0.016<span style="text-decoration: underline;">0</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     1     8 -<span style="color: #BB0000;">0.586</span>   0.006<span style="text-decoration: underline;">64</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     1     9 -<span style="color: #BB0000;">0.091</span><span style="color: #BB0000; text-decoration: underline;">7</span>  0.006<span style="text-decoration: underline;">03</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     1    10  1.89    0.017<span style="text-decoration: underline;">4</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      run     x      y  cum_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1     1 -<span style="color: #BB0000;">1.80</span>   -<span style="color: #BB0000;">4.82</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     1     2  1.33  -<span style="color: #BB0000;">11.2</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     1     3 -<span style="color: #BB0000;">1.68</span>    7.64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     1     4  1.16   16.5 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     1     5  2.03   49.9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     1     6  0.177  58.7 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     1     7  1.45  144.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     1     8 -<span style="color: #BB0000;">0.299</span> 101.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     1     9 -<span style="color: #BB0000;">1.10</span>   -<span style="color: #BB0000;">9.69</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     1    10  1.19  -<span style="color: #BB0000;">21.2</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 4,490 more rows</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

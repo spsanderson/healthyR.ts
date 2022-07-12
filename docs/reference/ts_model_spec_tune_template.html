@@ -81,7 +81,7 @@ can be used by itself and is called internally by <code><a href="ts_model_auto_t
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span>.parsnip_engine <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span>.parsnip_engine <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -131,6 +131,7 @@ parsnip/modeltime engines:</p><ul><li><p>"auto_arima"</p></li>
 <code><a href="internal_ts_forward_event_tbl.html">internal_ts_forward_event_tbl</a>()</code>,
 <code><a href="model_extraction_helper.html">model_extraction_helper</a>()</code>,
 <code><a href="ts_info_tbl.html">ts_info_tbl</a>()</code>,
+<code><a href="ts_lag_correlation.html">ts_lag_correlation</a>()</code>,
 <code><a href="ts_model_auto_tune.html">ts_model_auto_tune</a>()</code>,
 <code><a href="ts_model_compare.html">ts_model_compare</a>()</code>,
 <code><a href="ts_model_rank_tbl.html">ts_model_rank_tbl</a>()</code>,
@@ -145,7 +146,7 @@ parsnip/modeltime engines:</p><ul><li><p>"auto_arima"</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span><span class="st">"ets"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span><span class="st">"ets"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Exponential Smoothing State Space Model Specification (regression)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Main Arguments:</span>
@@ -160,7 +161,7 @@ parsnip/modeltime engines:</p><ul><li><p>"auto_arima"</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Computational engine: ets </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span><span class="st">"prophet"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span><span class="st">"prophet"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PROPHET Regression Model Specification (regression)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Main Arguments:</span>
@@ -175,7 +176,7 @@ parsnip/modeltime engines:</p><ul><li><p>"auto_arima"</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Computational engine: prophet </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

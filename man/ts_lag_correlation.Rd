@@ -70,7 +70,7 @@ output <- ts_lag_correlation(
 )
 
 output$data$correlation_lag_matrix
-otuput$plots$lag_plot
+output$plots$lag_plot
 
 }
 \seealso{
