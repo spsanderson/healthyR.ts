@@ -28,6 +28,7 @@ Other Utility:
 \code{\link{internal_ts_forward_event_tbl}()},
 \code{\link{model_extraction_helper}()},
 \code{\link{ts_info_tbl}()},
+\code{\link{ts_lag_correlation}()},
 \code{\link{ts_model_auto_tune}()},
 \code{\link{ts_model_compare}()},
 \code{\link{ts_model_rank_tbl}()},
