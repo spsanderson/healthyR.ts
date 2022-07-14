@@ -8,6 +8,7 @@ None
 2. Fix #315 - Add function `ts_lag_correlation()`
 3. Fix #327 - Add some date helpers
 4. Fix #326 - Add functions `ci_hi()` and `ci_lo()`
+5. Fix #325 - Add function `ts_event_analysis_plot()`
 
 ## Minor Fixes and Improvements
 None

@@ -84,6 +84,7 @@ ts_scedacity_scatter_plot(calibration_tbl)
 \url{https://en.wikipedia.org/wiki/Homoscedasticity}
 
 Other Plot: 
+\code{\link{ts_event_analysis_plot}()},
 \code{\link{ts_qq_plot}()}
 
 Other Utility: 
