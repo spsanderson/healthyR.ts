@@ -25,8 +25,8 @@
 #'
 #' df <- ts_to_tbl(AirPassengers) %>% select(-index)
 #'
-#' ts_time_to_event_tbl(
-#'   df,
+#' ts_time_event_analysis_tbl(
+#'   .data = df,
 #'   .horizon = 6,
 #'   .date_col = date_col,
 #'   .value_col = value,
@@ -34,8 +34,8 @@
 #' ) %>%
 #'   ts_event_analysis_plot()
 #'
-#' ts_time_to_event_tbl(
-#'   df,
+#' ts_time_event_analysis_tbl(
+#'   .data = df,
 #'   .horizon = 6,
 #'   .date_col = date_col,
 #'   .value_col = value,
@@ -58,7 +58,7 @@ ts_event_analysis_plot <- function(.data, .plot_type = "mean", .plot_ci = TRUE,
     plotly_plot = as.logical(.interactive)
 
     # Checks
-    if (!attributes(event_tbl)$.tibble_type == "event_analysis"){
+    if (!attributes(.data)$.tibble_type == "event_analysis"){
         rlang::abort(
             message = "You must use the 'ts_time_event_analysis_tbl()` function
             in order to use this plotting function.",
@@ -189,8 +189,8 @@ ts_event_analysis_plot <- function(.data, .plot_type = "mean", .plot_ci = TRUE,
             ) %>%
             dplyr::distinct()
 
-        r <- which(df_tbl$event_base_change == 0)
-        x <- unique(df_tbl[r,]$x)
+        r <- which(df$event_base_change == 0)
+        x <- unique(df[r,]$x)
         # Xintercept
         if (atb$.direction == "both"){
             x <- x
