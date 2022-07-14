@@ -118,21 +118,21 @@ Sanderson II, MPH</h4>
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ts_random_walk.html">ts_random_walk</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 4</span></span></span>
-<span><span class="co">#&gt;     run     x        y cum_y</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1     1  0.084<span style="text-decoration: underline;">2</span>  <span style="text-decoration: underline;">1</span>084.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1     2 -<span style="color: #BB0000;">0.093</span><span style="color: #BB0000; text-decoration: underline;">8</span>   982.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     1     3 -<span style="color: #BB0000;">0.210</span>    776.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     1     4  0.017<span style="text-decoration: underline;">2</span>   790.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     1     5  0.005<span style="text-decoration: underline;">13</span>  794.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     1     6 -<span style="color: #BB0000;">0.012</span><span style="color: #BB0000; text-decoration: underline;">4</span>   784.</span></span>
+<span><span class="co">#&gt;     run     x       y cum_y</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>     1     1  0.075<span style="text-decoration: underline;">1</span> <span style="text-decoration: underline;">1</span>075.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>     1     2  0.075<span style="text-decoration: underline;">7</span> <span style="text-decoration: underline;">1</span>156.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>     1     3 -<span style="color: #BB0000;">0.010</span><span style="color: #BB0000; text-decoration: underline;">2</span> <span style="text-decoration: underline;">1</span>145.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>     1     4 -<span style="color: #BB0000;">0.018</span><span style="color: #BB0000; text-decoration: underline;">1</span> <span style="text-decoration: underline;">1</span>124.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>     1     5 -<span style="color: #BB0000;">0.078</span><span style="color: #BB0000; text-decoration: underline;">0</span> <span style="text-decoration: underline;">1</span>036.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>     1     6  0.057<span style="text-decoration: underline;">8</span> <span style="text-decoration: underline;">1</span>096.</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 10,000</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
 <span><span class="co">#&gt; $ run   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span></span>
 <span><span class="co">#&gt; $ x     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1…</span></span>
-<span><span class="co">#&gt; $ y     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.084170501, -0.093782685, -0.209940883, 0.017228386, 0.00512996…</span></span>
-<span><span class="co">#&gt; $ cum_y <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1084.1705, 982.4941, 776.2284, 789.6016, 793.6522, 783.8066, 836…</span></span></code></pre></div>
+<span><span class="co">#&gt; $ y     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.075127890, 0.075671548, -0.010182717, -0.018112076, -0.0780217…</span></span>
+<span><span class="co">#&gt; $ cum_y <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1075.128, 1156.484, 1144.708, 1123.975, 1036.281, 1096.224, 1232…</span></span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
