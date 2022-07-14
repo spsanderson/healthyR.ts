@@ -179,6 +179,7 @@ ts_time_event_analysis_tbl <- function(.data, .date_col, .value_col,
     attr(df_final_tbl, ".filter_non_event_groups") <- .filter_non_event_groups
     attr(df_final_tbl, ".max_event_change") <- max_event_change
     attr(df_final_tbl, ".max_group_number") <- max_groups
+    attr(df_final_tbl, ".tibble_type") <- "event_analysis"
 
     return(df_final_tbl)
 }
