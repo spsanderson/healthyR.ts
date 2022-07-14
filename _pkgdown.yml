@@ -81,3 +81,6 @@ reference:
      desc: healthyR.ts helper Functions
   -  contents:
      -  has_concept("Utility")
+  -  title: Statistic Functions
+     desc: healthyR.ts simple and complex statistical functions
+     -  has_concept("Statistic")
