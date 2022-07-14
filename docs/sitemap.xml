@@ -157,7 +157,13 @@
     <loc>/reference/ts_forecast_simulator.html</loc>
   </url>
   <url>
+    <loc>/reference/ts_get_date_columns.html</loc>
+  </url>
+  <url>
     <loc>/reference/ts_info_tbl.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ts_is_date_class.html</loc>
   </url>
   <url>
     <loc>/reference/ts_lag_correlation.html</loc>
