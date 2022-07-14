@@ -41,8 +41,8 @@ of the aggregate plots ("mean"/"median").
 
 df <- ts_to_tbl(AirPassengers) \%>\% select(-index)
 
-ts_time_to_event_tbl(
-  df,
+ts_time_event_analysis_tbl(
+  .data = df,
   .horizon = 6,
   .date_col = date_col,
   .value_col = value,
@@ -50,8 +50,8 @@ ts_time_to_event_tbl(
 ) \%>\%
   ts_event_analysis_plot()
 
-ts_time_to_event_tbl(
-  df,
+ts_time_event_analysis_tbl(
+  .data = df,
   .horizon = 6,
   .date_col = date_col,
   .value_col = value,

@@ -41,6 +41,7 @@ reference:
      -  "ts_scedacity_scatter_plot"
      -  contains("color_blind")
      -  contains("_colorblind")
+     -  has_concept("Plot")
   -  title: Time Series Clustering
      desc: Time Series Clustering Functions
   -  contents:
