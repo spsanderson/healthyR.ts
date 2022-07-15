@@ -33,8 +33,11 @@
 #' -  "keras"
 #' -  "earth"
 #' -  "xgboost"
+#' -  "kernlab"
 #'
 #' @param .parsnip_engine The model engine that is used by [parsnip::set_engine()].
+#' @param .model_spec_class The model spec class that is use by `parsnip`. For
+#' example the 'kernlab' engine can use both `svm_poly` and `svm_rbf`.
 #'
 #' @examples
 #' ts_model_spec_tune_template("ets")
@@ -46,11 +49,12 @@
 #' @export
 #'
 
-ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
+ts_model_spec_tune_template <- function(.parsnip_engine = NULL, .model_spec_class = NULL){
 
 
     # * Tidyeval ----
     pe <- base::as.character(.parsnip_engine)
+    mc <- tolower(as.character(.model_spec_class))
 
     # * Checks ----
     if(!pe %in% c("auto_arima","auto_arima_xgboost",
@@ -59,7 +63,8 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
                   "nnetar",
                   "prophet","prophet_xgboost",
                   "lm","glmnet","stan","spark","keras",
-                  "earth","xgboost")){
+                  "earth","xgboost",
+                  "kernlab")){
         stop(call. = FALSE, base::paste0("The parameter (.parsnip_engine) value of: ", pe, ", is not supported."))
     }
 
@@ -200,6 +205,25 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL){
             , loss_reduction = tune::tune()
         ) %>%
             parsnip::set_engine(pe)
+    } else if (pe == "kernlab"){
+        if ("svm_poly" %in% mc){
+            mst <- parsnip::svm_poly(
+                cost = tune::tune(),
+                degree = tune::tune(),
+                scale_factor = tune::tune(),
+                margin = tune::tune()
+            ) %>%
+                parsnip::set_engine(pe)
+        }
+
+        if ("svm_rbf" %in% mc){
+            mst <- parsnip::svm_rbf(
+                cost = tune::tune(),
+                rbf_sigma = tune::tune(),
+                margin = tune::tune()
+            ) %>%
+                parsnip::set_engine(pe)
+        }
     }
 
     # * Return ----

@@ -81,6 +81,7 @@ This function can work with the following parsnip/modeltime engines:
 \item "keras"
 \item "earth"
 \item "xgboost"
+\item "kernlab"
 }
 
 This function returns a list object with several items inside of it. There are
