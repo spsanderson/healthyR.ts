@@ -4,10 +4,13 @@
 \alias{ts_model_spec_tune_template}
 \title{Time Series Model Spec Template}
 \usage{
-ts_model_spec_tune_template(.parsnip_engine = NULL)
+ts_model_spec_tune_template(.parsnip_engine = NULL, .model_spec_class = NULL)
 }
 \arguments{
 \item{.parsnip_engine}{The model engine that is used by \code{\link[parsnip:set_engine]{parsnip::set_engine()}}.}
+
+\item{.model_spec_class}{The model spec class that is use by \code{parsnip}. For
+example the 'kernlab' engine can use both \code{svm_poly} and \code{svm_rbf}.}
 }
 \value{
 A tuneable parsnip model specification.
@@ -40,6 +43,7 @@ parsnip/modeltime engines:
 \item "keras"
 \item "earth"
 \item "xgboost"
+\item "kernlab"
 }
 }
 \examples{
