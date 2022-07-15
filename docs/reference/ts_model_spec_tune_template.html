@@ -81,13 +81,18 @@ can be used by itself and is called internally by <code><a href="ts_model_auto_t
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span>.parsnip_engine <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ts_model_spec_tune_template</span><span class="op">(</span>.parsnip_engine <span class="op">=</span> <span class="cn">NULL</span>, .model_spec_class <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.parsnip_engine</dt>
 <dd><p>The model engine that is used by <code><a href="https://parsnip.tidymodels.org/reference/set_engine.html" class="external-link">parsnip::set_engine()</a></code>.</p></dd>
+
+
+<dt>.model_spec_class</dt>
+<dd><p>The model spec class that is use by <code>parsnip</code>. For
+example the 'kernlab' engine can use both <code>svm_poly</code> and <code>svm_rbf</code>.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -119,6 +124,7 @@ parsnip/modeltime engines:</p><ul><li><p>"auto_arima"</p></li>
 <li><p>"keras"</p></li>
 <li><p>"earth"</p></li>
 <li><p>"xgboost"</p></li>
+<li><p>"kernlab"</p></li>
 </ul></div>
     <div id="see-also">
     <h2>See also</h2>
