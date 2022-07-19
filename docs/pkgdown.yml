@@ -1,8 +1,8 @@
 pandoc: 2.17.1.1
-pkgdown: 2.0.5
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
   using-tidy-fft: using-tidy-fft.html
-last_built: 2022-07-15T18:23Z
+last_built: 2022-07-19T13:23Z
 

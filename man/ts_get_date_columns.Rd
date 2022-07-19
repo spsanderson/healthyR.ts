@@ -7,7 +7,7 @@
 ts_get_date_columns(.data)
 }
 \arguments{
-\item{data}{An object of class \code{data.frame}}
+\item{.data}{An object of class \code{data.frame}}
 }
 \value{
 A vector containing the column names that are of date/date-like classes.

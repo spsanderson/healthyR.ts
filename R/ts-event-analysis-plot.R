@@ -22,7 +22,7 @@
 #' @param .interactive The default is FALSE. TRUE will return a plotly plot.
 #'
 #' @examples
-#'
+#' library(dplyr)
 #' df <- ts_to_tbl(AirPassengers) %>% select(-index)
 #'
 #' ts_time_event_analysis_tbl(

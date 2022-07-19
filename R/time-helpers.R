@@ -4,7 +4,7 @@
 #'
 #' @family Utility
 #'
-#' @param data An object of class `data.frame`
+#' @param .data An object of class `data.frame`
 #'
 #' @return
 #' A vector containing the column names that are of date/date-like classes.

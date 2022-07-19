@@ -1,7 +1,7 @@
 template:
-  params:
-    bootswatch: flatly
-    ganalytics: G-HKLXBY9V6J
+  bootstrap: 5
+  bootswatch: flatly
+  ganalytics: G-HKLXBY9V6J
 
 navbar:
   title: "healthyR.ts"

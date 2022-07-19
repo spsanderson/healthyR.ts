@@ -38,7 +38,7 @@ You can also plot the upper and lower confidence intervals if you choose one
 of the aggregate plots ("mean"/"median").
 }
 \examples{
-
+library(dplyr)
 df <- ts_to_tbl(AirPassengers) \%>\% select(-index)
 
 ts_time_event_analysis_tbl(
