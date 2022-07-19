@@ -1,3 +1,4 @@
+url: https://www.spsanderson.com/healthyR.ts/
 template:
   bootstrap: 5
   bootswatch: flatly
@@ -86,3 +87,5 @@ reference:
      desc: healthyR.ts simple and complex statistical functions
   -  contents:
      -  has_concept("Statistic")
+
+search:
