@@ -1,7 +1,7 @@
 ## R CMD check results
 
-0 errors | 1 warnings | 3 note
+0 errors | 0 warnings | 2 note
 
-* This is a patch release for 0.2.0
-* Dropped a vignette that caused processing errors.
-* Fixed an error with a boilerplate model that gave the wrong parsnip engine.
+* This is a patch release for 0.2.1
+* Fixed a function template to accept a class for models that use the same
+parsnip engine.
