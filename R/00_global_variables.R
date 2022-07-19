@@ -7,6 +7,10 @@ globalVariables(
         "error","trend","season","damping","smooth_level","smooth_trend",
         "smooth_seasonal","name","printer","mae","mape","mase","smape","rmse","rsq",
         "model_score",".model",".type",".calibration_data",".residuals",".model_desc",
-        ".prediction",".sd","centers","cluster","date_col_index.num","recipe","y"
+        ".prediction",".sd","centers","cluster","date_col_index.num","recipe","y",
+        "adj_diff","data_names","event_base_change","event_change_ci_high",
+        "event_change_ci_low","group_event_number","group_number","lag","lag_val",
+        "lagged_value","mean_event_change","median_event_change","numeric_group_number",
+        "original_value","pct_chg_mark","relative_change","relative_change_raw"
     )
 )
