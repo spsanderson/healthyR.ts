@@ -86,3 +86,5 @@ reference:
      desc: healthyR.ts simple and complex statistical functions
   -  contents:
      -  has_concept("Statistic")
+
+search:
