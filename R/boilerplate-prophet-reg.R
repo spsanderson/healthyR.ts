@@ -254,5 +254,17 @@ ts_auto_prophet_reg <- function(.data, .date_col, .value_col, .formula, .rsamp_o
         )
     }
 
+    # Add attributes
+    attr(output, ".tune") <- .tune
+    attr(output, ".grid_size") <- .grid_size
+    attr(output, ".cv_assess") <- .cv_assess
+    attr(output, ".cv_skip") <- .cv_skip
+    attr(output, ".cv_slice_limit") <- .cv_slice_limit
+    attr(output, ".best_metric") <- .best_metric
+    attr(output, ".bootstrap_final") <- .bootstrap_final
+    attr(output, ".mode") <- "regression"
+    attr(output, ".parsnip_engine") <- "prophet"
+    attr(output, ".function_family") <- "boilerplate"
+
     return(invisible(output))
 }

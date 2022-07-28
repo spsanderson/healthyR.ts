@@ -1,5 +1,15 @@
 # healthyR.ts (development version)
 
+## Breakingn Changes
+None
+
+## New Features
+1. Fix #342 - Add function `ts_extract_auto_fitted_workflow()` Which will pull
+out the fitted workflow from any of the Boilerplate functions.
+
+## Minor Fixes and Improvements
+1. Fix #343 - Add attributes to output list of boilerplate functions.
+
 # healthyR.ts 0.2.1
 
 ## Breaking Changes

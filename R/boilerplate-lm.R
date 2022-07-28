@@ -117,11 +117,12 @@ ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         recipes::step_mutate_at(tidyselect::vars_select_helpers$where(is.character)
                                 , fn = ~ as.factor(.)) %>%
         recipes::step_mutate({{date_col_var_expr}} := as.numeric({{date_col_var_expr}})) %>%
-        recipes::step_rm({{date_col_var_expr}}) %>%
+        #recipes::step_rm({{date_col_var_expr}}) %>%
         recipes::step_dummy(recipes::all_nominal(), one_hot = TRUE) %>%
         recipes::step_nzv(recipes::all_predictors(), -date_col_index.num) %>%
         recipes::step_normalize(recipes::all_numeric_predictors(), -date_col_index.num) %>%
-        recipes::step_corr(recipes::all_numeric_predictors())
+        recipes::step_corr(recipes::all_numeric_predictors()) %>%
+        recipes::step_lincomb(recipes::all_numeric_predictors())
 
     # Model Specification ----
     model_spec <- parsnip::linear_reg(
@@ -143,7 +144,7 @@ ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         .splits_obj  = splits,
         .data        = data_tbl,
         .interactive = TRUE,
-        .print_info = FALSE
+        .print_info  = FALSE
     )
 
     # Return ----
@@ -165,6 +166,18 @@ ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
             model_accuracy = cap$model_accuracy
         )
     )
+
+    # Add attributes
+    attr(output, ".tune") <- "not_tuned"
+    attr(output, ".grid_size") <- .grid_size
+    attr(output, ".cv_assess") <- .cv_assess
+    attr(output, ".cv_skip") <- .cv_skip
+    attr(output, ".cv_slice_limit") <- .cv_slice_limit
+    attr(output, ".best_metric") <- .best_metric
+    attr(output, ".bootstrap_final") <- .bootstrap_final
+    attr(output, ".mode") <- "regression"
+    attr(output, ".parsnip_engine") <- "lm"
+    attr(output, ".function_family") <- "boilerplate"
 
     return(invisible(output))
 }
