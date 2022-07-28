@@ -1,6 +1,6 @@
 # healthyR.ts (development version)
 
-## Breakingn Changes
+## Breaking Changes
 None
 
 ## New Features
@@ -9,6 +9,9 @@ out the fitted workflow from any of the Boilerplate functions.
 
 ## Minor Fixes and Improvements
 1. Fix #343 - Add attributes to output list of boilerplate functions.
+2. Fix #347 - Fix `ts_auto_lm()` by dropping `step_rm()` and `step_corr()` which
+would prevent `calibrate_and_plot()` from working due to `modeltime_calibration()`
+failing. Also dropped unused parameters from function and documentation.
 
 # healthyR.ts 0.2.1
 
