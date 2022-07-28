@@ -12,7 +12,7 @@ get_recipe_call <- function(.rec_call){
     rec_cl
 }
 
-#' Misc for boilerplat
+#' Misc for boilerplate
 #' @keywords internal
 #' @export
 assign_value <- function(name, value, cr = TRUE) {

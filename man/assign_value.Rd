@@ -2,11 +2,11 @@
 % Please edit documentation in R/boilerplate-misc-functions.R
 \name{assign_value}
 \alias{assign_value}
-\title{Misc for boilerplat}
+\title{Misc for boilerplate}
 \usage{
 assign_value(name, value, cr = TRUE)
 }
 \description{
-Misc for boilerplat
+Misc for boilerplate
 }
 \keyword{internal}
