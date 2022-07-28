@@ -20,11 +20,7 @@
 #' @param .value_col The column that has the value
 #' @param .formula The formula that is passed to the recipe like `value ~ .`
 #' @param .rsamp_obj The rsample splits object
-#' @param .prefix Default is `ts_glmnet`
-#' @param .cv_assess How many observations for assess. See [timetk::time_series_cv()]
-#' @param .cv_skip How many observations to skip. See [timetk::time_series_cv()]
-#' @param .cv_slice_limit How many slices to return. See [timetk::time_series_cv()]
-#' @param .best_metric Default is "rmse". See [modeltime::default_forecast_accuracy_metric_set()]
+#' @param .prefix Default is `ts_lm`
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
@@ -61,9 +57,7 @@
 #'
 
 ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
-                       .prefix = "ts_lm", .cv_assess = 12, .cv_skip = 3,
-                       .cv_slice_limit = 6, .best_metric = "rmse",
-                       .bootstrap_final = FALSE){
+                       .prefix = "ts_lm", .bootstrap_final = FALSE){
 
     # Tidyeval ----
     date_col_var_expr <- rlang::enquo(.date_col)
@@ -71,9 +65,9 @@ ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
     sampling_object <- .rsamp_obj
 
     # Cross Validation
-    cv_assess = as.numeric(.cv_assess)
-    cv_skip   = as.numeric(.cv_skip)
-    cv_slice  = as.numeric(.cv_slice_limit)
+    # cv_assess = as.numeric(.cv_assess)
+    # cv_skip   = as.numeric(.cv_skip)
+    # cv_slice  = as.numeric(.cv_slice_limit)
 
     # Data and splits
     splits <- .rsamp_obj
@@ -121,7 +115,7 @@ ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         recipes::step_dummy(recipes::all_nominal(), one_hot = TRUE) %>%
         recipes::step_nzv(recipes::all_predictors(), -date_col_index.num) %>%
         recipes::step_normalize(recipes::all_numeric_predictors(), -date_col_index.num) %>%
-        recipes::step_corr(recipes::all_numeric_predictors()) %>%
+        #recipes::step_corr(recipes::all_numeric_predictors()) %>%
         recipes::step_lincomb(recipes::all_numeric_predictors())
 
     # Model Specification ----
@@ -169,11 +163,11 @@ ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
 
     # Add attributes
     attr(output, ".tune") <- "not_tuned"
-    attr(output, ".grid_size") <- .grid_size
-    attr(output, ".cv_assess") <- .cv_assess
-    attr(output, ".cv_skip") <- .cv_skip
-    attr(output, ".cv_slice_limit") <- .cv_slice_limit
-    attr(output, ".best_metric") <- .best_metric
+    # attr(output, ".grid_size") <- .grid_size
+    # attr(output, ".cv_assess") <- .cv_assess
+    # attr(output, ".cv_skip") <- .cv_skip
+    # attr(output, ".cv_slice_limit") <- .cv_slice_limit
+    # attr(output, ".best_metric") <- .best_metric
     attr(output, ".bootstrap_final") <- .bootstrap_final
     attr(output, ".mode") <- "regression"
     attr(output, ".parsnip_engine") <- "lm"
