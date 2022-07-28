@@ -11,10 +11,6 @@ ts_auto_lm(
   .formula,
   .rsamp_obj,
   .prefix = "ts_lm",
-  .cv_assess = 12,
-  .cv_skip = 3,
-  .cv_slice_limit = 6,
-  .best_metric = "rmse",
   .bootstrap_final = FALSE
 )
 }
@@ -29,15 +25,7 @@ ts_auto_lm(
 
 \item{.rsamp_obj}{The rsample splits object}
 
-\item{.prefix}{Default is \code{ts_glmnet}}
-
-\item{.cv_assess}{How many observations for assess. See \code{\link[timetk:time_series_cv]{timetk::time_series_cv()}}}
-
-\item{.cv_skip}{How many observations to skip. See \code{\link[timetk:time_series_cv]{timetk::time_series_cv()}}}
-
-\item{.cv_slice_limit}{How many slices to return. See \code{\link[timetk:time_series_cv]{timetk::time_series_cv()}}}
-
-\item{.best_metric}{Default is "rmse". See \code{\link[modeltime:metric_sets]{modeltime::default_forecast_accuracy_metric_set()}}}
+\item{.prefix}{Default is \code{ts_lm}}
 
 \item{.bootstrap_final}{Not yet implemented.}
 }
