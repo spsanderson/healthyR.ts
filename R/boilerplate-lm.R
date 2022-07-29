@@ -115,8 +115,8 @@ ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         recipes::step_dummy(recipes::all_nominal(), one_hot = TRUE) %>%
         recipes::step_nzv(recipes::all_predictors(), -date_col_index.num) %>%
         recipes::step_normalize(recipes::all_numeric_predictors(), -date_col_index.num) %>%
-        #recipes::step_corr(recipes::all_numeric_predictors()) %>%
         recipes::step_lincomb(recipes::all_numeric_predictors())
+        #recipes::step_corr(recipes::all_numeric_predictors())
 
     # Model Specification ----
     model_spec <- parsnip::linear_reg(
