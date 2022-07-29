@@ -12,6 +12,7 @@ out the fitted workflow from any of the Boilerplate functions.
 2. Fix #347 - Fix `ts_auto_lm()` by dropping `step_rm()` and `step_corr()` which
 would prevent `calibrate_and_plot()` from working due to `modeltime_calibration()`
 failing. Also dropped unused parameters from function and documentation.
+3. Fix #349 - Fix to `ts_lag_correlation()` `select` statement.
 
 # healthyR.ts 0.2.1
 
