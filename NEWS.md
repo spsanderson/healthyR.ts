@@ -1,7 +1,11 @@
 # healthyR.ts (development version)
 
 ## Breaking Changes
-None
+1. Fix 345 - Fix `ts_sma_plot()` There is a change in the API of this function.
+It now requires a `data.frame`/`tibble` to be passed to the `.data` parameter, and
+it also now requires the input of a date column and value column. This also now 
+no longer returns invisible. There was also a fix in the sliding calculation
+to appropriately use the given value column.
 
 ## New Features
 1. Fix #342 - Add function `ts_extract_auto_fitted_workflow()` Which will pull

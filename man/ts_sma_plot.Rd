@@ -6,7 +6,8 @@
 \usage{
 ts_sma_plot(
   .data,
-  .date_col = NULL,
+  .date_col,
+  .value_col,
   .sma_order = 2,
   .func = mean,
   .align = "center",
@@ -14,12 +15,11 @@ ts_sma_plot(
 )
 }
 \arguments{
-\item{.data}{The data that you are passing, this can be either a \code{ts} object or a \code{tibble}}
+\item{.data}{The data that you are passing, must be a data.frame/tibble.}
 
-\item{.date_col}{This is used if you know the name of the datetime column. The function
-\code{ts_to_tbl()} will make a column called \code{date_col} only if a \code{ts} object is passed, if
-a \code{tibble} is passed then the \code{.date_col} parameter is needed or the function will error
-out.}
+\item{.date_col}{The column that holds the date.}
+
+\item{.value_col}{The column that holds the value.}
 
 \item{.sma_order}{This will default to 1. This can be a vector like c(2,4,6,12)}
 
@@ -30,7 +30,7 @@ out.}
 \item{.partial}{This is a bool value of TRUE/FALSE, the default is TRUE}
 }
 \value{
-Will invisibly return a list object.
+Will return a list object.
 }
 \description{
 This function will take in a value column and return any number \code{n} moving averages.
@@ -38,15 +38,15 @@ This function will take in a value column and return any number \code{n} moving 
 \details{
 This function will accept a time series object or a tibble/data.frame. This is a
 simple wrapper around \code{\link[timetk:slidify_vec]{timetk::slidify_vec()}}. It uses that function to do the underlying
-moving average work. Since the function \code{\link[=ts_to_tbl]{ts_to_tbl()}} is called
-there is no need to supply a value column. This function will only work on a single
-value column
+moving average work.
 
 It can only handle a single moving average at a time and therefore if multiple
-are called for, it will loop through and append data to a tibble or \code{ts} object.
+are called for, it will loop through and append data to a tibble object.
 }
 \examples{
-out <- ts_sma_plot(AirPassengers, .sma_order = c(3,6))
+df <- ts_to_tbl(AirPassengers) \%>\%
+  select(-index)
+out <- ts_sma_plot(df, date_col, value, .sma_order = c(3,6))
 
 out$data
 
