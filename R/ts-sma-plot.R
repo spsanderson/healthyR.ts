@@ -8,25 +8,23 @@
 #' @details
 #' This function will accept a time series object or a tibble/data.frame. This is a
 #' simple wrapper around [timetk::slidify_vec()]. It uses that function to do the underlying
-#' moving average work. Since the function [healthyR.ts::ts_to_tbl()] is called
-#' there is no need to supply a value column. This function will only work on a single
-#' value column
+#' moving average work.
 #'
 #' It can only handle a single moving average at a time and therefore if multiple
-#' are called for, it will loop through and append data to a tibble or `ts` object.
+#' are called for, it will loop through and append data to a tibble object.
 #'
-#' @param .data The data that you are passing, this can be either a `ts` object or a `tibble`
-#' @param .date_col This is used if you know the name of the datetime column. The function
-#' `ts_to_tbl()` will make a column called `date_col` only if a `ts` object is passed, if
-#' a `tibble` is passed then the `.date_col` parameter is needed or the function will error
-#' out.
+#' @param .data The data that you are passing, must be a data.frame/tibble.
+#' @param .date_col The column that holds the date.
+#' @param .value_col The column that holds the value.
 #' @param .sma_order This will default to 1. This can be a vector like c(2,4,6,12)
 #' @param .func The unquoted function you want to pass, mean, median, etc
 #' @param .align This can be either "left", "center", "right"
 #' @param .partial This is a bool value of TRUE/FALSE, the default is TRUE
 #'
 #' @examples
-#' out <- ts_sma_plot(AirPassengers, .sma_order = c(3,6))
+#' df <- ts_to_tbl(AirPassengers) %>%
+#'   select(-index)
+#' out <- ts_sma_plot(df, date_col, value, .sma_order = c(3,6))
 #'
 #' out$data
 #'
@@ -34,16 +32,17 @@
 #'
 #'
 #' @return
-#' Will invisibly return a list object.
+#' Will return a list object.
 #'
 #' @export ts_sma_plot
 #'
 
-ts_sma_plot <- function(.data, .date_col = NULL, .sma_order = 2, .func = mean
-                        , .align = "center", .partial = FALSE) {
+ts_sma_plot <- function(.data, .date_col, .value_col, .sma_order = 2,
+                        .func = mean, .align = "center", .partial = FALSE) {
 
     # * Tidyeval ----
-    date_col_var_expr <- rlang::enquos(.date_col)
+    date_col_var_expr <- rlang::enquo(.date_col)
+    value_col_var_expr <- rlang::enquo(.value_col)
 
     # slidify_vec parameters
     sma_vec      <- as.vector(.sma_order)
@@ -53,28 +52,49 @@ ts_sma_plot <- function(.data, .date_col = NULL, .sma_order = 2, .func = mean
 
     # * Checks ----
     if(!sma_align %in% c("center","left","right")){
-        stop(call. = FALSE, "(.align) must be either 'center','left', or 'right'")
+        rlang::abort(
+            message = "'.align' must be either 'center','left', or 'right'",
+            use_cli_format = TRUE
+        )
     }
 
     if(!is.numeric(sma_vec)){
-        stop(call. = FALSE, "(.sma_order) must be all numeric values, c(1,2,3,...)")
+        rlang::abort(
+            message = "'.sma_order' must be all numeric values, c(1,2,3,...)",
+            use_cli_format = TRUE
+        )
     }
 
     if(!is.logical(sma_partial)){
-        stop(call. = FALSE, "(.partial) must be a logical value.")
+        rlang::abort(
+            message = "'.partial' must be a logical value.",
+            use_cli_format = TRUE
+        )
+    }
+
+    if(!is.data.frame(.data)){
+        rlang::abort(
+            message = "'.data' must be a data.frame/tibble.",
+            use_cli_format = TRUE
+        )
+    }
+
+    if(rlang::quo_is_missing(date_col_var_expr)){
+        rlang::abort(
+            message = "'.date_col' must be supplied.",
+            use_cli_format = TRUE
+        )
+    }
+
+    if(rlang::quo_is_missing(value_col_var_expr)){
+        rlang::abort(
+            message = "'.value_col' must be supplied.",
+            use_cli_format = TRUE
+        )
     }
 
     # Get data object
-    ts_obj <- .data
-
-    # Get data and try to coerce to tibble
-    # We do this because we use timetk::slidify_vec
-    if(stats::is.ts(ts_obj) | stats::is.mts(ts_obj) | xts::is.xts(ts_obj) | zoo::is.zoo(ts_obj)){
-        message("Attempting to coerce to a tibble.")
-        ts_tbl <- ts_to_tbl(ts_obj)
-    } else {
-        ts_tbl <- ts_obj
-    }
+    ts_tbl <- dplyr::as_tibble(.data)
 
     # * Loop through periods ----
     df <- data.frame(matrix(ncol = 0, nrow = 0))
@@ -82,7 +102,7 @@ ts_sma_plot <- function(.data, .date_col = NULL, .sma_order = 2, .func = mean
         ret_tmp <- ts_tbl %>%
             dplyr::mutate(sma_order = as.factor(i)) %>%
             dplyr::mutate(sma_value = timetk::slidify_vec(
-                .x       = value,
+                .x       = {{ value_col_var_expr }},
                 .f       = sma_fun,
                 .period  = i,
                 .align   = sma_align,
@@ -98,8 +118,8 @@ ts_sma_plot <- function(.data, .date_col = NULL, .sma_order = 2, .func = mean
     g <- df %>%
         ggplot2::ggplot(
             ggplot2::aes(
-                x = if(date_col_exists){date_col} else {!!!date_col_var_expr},
-                y = value,
+                x = {{ date_col_var_expr }},
+                y = {{ value_col_var_expr }},
                 group = sma_order,
                 color = sma_order
             )
@@ -129,7 +149,6 @@ ts_sma_plot <- function(.data, .date_col = NULL, .sma_order = 2, .func = mean
         )
     )
 
-    return(invisible(output))
+    return(output)
 
 }
-
