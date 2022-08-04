@@ -22,8 +22,7 @@
 #' @param .partial This is a bool value of TRUE/FALSE, the default is TRUE
 #'
 #' @examples
-#' df <- ts_to_tbl(AirPassengers) %>%
-#'   select(-index)
+#' df <- ts_to_tbl(AirPassengers)
 #' out <- ts_sma_plot(df, date_col, value, .sma_order = c(3,6))
 #'
 #' out$data
