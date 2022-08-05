@@ -1,4 +1,4 @@
-# healthyR.ts (development version)
+# healthyR.ts 0.2.2
 
 ## Breaking Changes
 1. Fix 345 - Fix `ts_sma_plot()` There is a change in the API of this function.

@@ -44,8 +44,7 @@ It can only handle a single moving average at a time and therefore if multiple
 are called for, it will loop through and append data to a tibble object.
 }
 \examples{
-df <- ts_to_tbl(AirPassengers) \%>\%
-  select(-index)
+df <- ts_to_tbl(AirPassengers)
 out <- ts_sma_plot(df, date_col, value, .sma_order = c(3,6))
 
 out$data
