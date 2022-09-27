@@ -4,10 +4,11 @@
 None
 
 ## New Features
-None
+1. Fix #357 - Add function `ts_wfs_xgboost()`
 
 ## Minor Fixes and Improvements
-None
+1. Fix #358 - Update `ts_calendar_heatmap_plot()` Change weekdays and Monthls
+to abbreviated labels.
 
 # healthyR.ts 0.2.2
 

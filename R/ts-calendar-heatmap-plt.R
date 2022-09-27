@@ -48,9 +48,9 @@
 #'
 
 ts_calendar_heatmap_plot <- function(.data, .date_col, .value_col,
-                                    .low = "red", .high = "green",
-                                    .plt_title = "",
-                                    .interactive = TRUE){
+                                     .low = "red", .high = "green",
+                                     .plt_title = "",
+                                     .interactive = TRUE){
 
     # * Tidyeval ----
     date_col_var_expr  <- rlang::enquo(.date_col)
@@ -78,19 +78,26 @@ ts_calendar_heatmap_plot <- function(.data, .date_col, .value_col,
         purrr::set_names("date_col", "value")
 
     data_tbl <- data %>%
-        timetk::tk_augment_timeseries_signature(date_col) %>%
+        dplyr::mutate(
+            year = lubridate::year(date_col),
+            month = lubridate::month(date_col, label = TRUE),
+            week_day = lubridate::wday(date_col, label = TRUE)
+        ) %>%
+        #timetk::tk_augment_timeseries_signature(date_col) %>%
         dplyr::select(
             date_col
             , value
             , year
-            , month.lbl
-            , wday.lbl
+            # , month.lbl
+            # , wday.lbl
+            , month
+            , week_day
         ) %>%
-        dplyr::mutate(wday.lbl = forcats::fct_rev(wday.lbl)) %>%
+        dplyr::mutate(week_day = forcats::fct_rev(week_day)) %>%
         dplyr::select(date_col, year, dplyr::everything()) %>%
         dplyr::arrange(date_col) %>%
-        dplyr::mutate(week_of_month = stringi::stri_datetime_fields(date_col)$WeekOfMonth) %>%
-        dplyr::rename("week_day" = "wday.lbl")
+        dplyr::mutate(week_of_month = stringi::stri_datetime_fields(date_col)$WeekOfMonth)
+    #dplyr::rename("week_day" = "wday.lbl")
 
     # * Plot ----
     g <- ggplot2::ggplot(
@@ -102,14 +109,14 @@ ts_calendar_heatmap_plot <- function(.data, .date_col, .value_col,
         )
     ) +
         ggplot2::geom_tile(color = "white") +
-        ggplot2::facet_grid(year ~ month.lbl) +
+        ggplot2::facet_grid(year ~ month) +
         ggplot2::scale_fill_gradient(low = low, high = high) +
         ggplot2::labs(
             title = .plt_title,
             x     = "",
             y     = ""
-        )
-    ggplot2::theme_minimal()
+        ) +
+        ggplot2::theme_minimal()
 
     # Which plot to return
     if(plotly_plt){
@@ -119,6 +126,6 @@ ts_calendar_heatmap_plot <- function(.data, .date_col, .value_col,
     }
 
     # * Return ----
-    print(plt)
+    return(plt)
 
 }
