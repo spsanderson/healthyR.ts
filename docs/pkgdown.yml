@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   getting-started: getting-started.html
   using-tidy-fft: using-tidy-fft.html
-last_built: 2022-09-27T13:15Z
+last_built: 2022-09-27T13:21Z
 urls:
   reference: https://www.spsanderson.com/healthyR.ts/reference
   article: https://www.spsanderson.com/healthyR.ts/articles
