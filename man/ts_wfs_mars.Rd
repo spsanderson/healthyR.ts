@@ -96,7 +96,8 @@ Other Auto Workflowsets:
 \code{\link{ts_wfs_nnetar_reg}()},
 \code{\link{ts_wfs_prophet_reg}()},
 \code{\link{ts_wfs_svm_poly}()},
-\code{\link{ts_wfs_svm_rbf}()}
+\code{\link{ts_wfs_svm_rbf}()},
+\code{\link{ts_wfs_xgboost}()}
 }
 \author{
 Steven P. Sanderson II, MPH

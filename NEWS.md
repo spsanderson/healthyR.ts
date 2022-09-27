@@ -4,7 +4,7 @@
 None
 
 ## New Features
-None
+1. Fix #357 - Add function `ts_wfs_xgboost()`
 
 ## Minor Fixes and Improvements
 None
