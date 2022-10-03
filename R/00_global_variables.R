@@ -12,6 +12,7 @@ globalVariables(
         "event_change_ci_low","group_event_number","group_number","lag","lag_val",
         "lagged_value","mean_event_change","median_event_change","numeric_group_number",
         "original_value","pct_chg_mark","relative_change","relative_change_raw",
-        ".best_metric",".cv_assess",".cv_skip",".cv_slice_limit",".grid_size",".tune"
+        ".best_metric",".cv_assess",".cv_skip",".cv_slice_limit",".grid_size",".tune",
+        "month"
     )
 )
