@@ -121,14 +121,7 @@ prep.step_ts_acceleration <- function(x, training, info = NULL, ...) {
 
     col_names <- recipes::recipes_eval_select(x$terms, training, info)
 
-    value_data <- info[info$variable %in% col_names, ]
-
-    if(any(value_data$type != "numeric")){
-        rlang::abort(
-            paste0("All variables for `step_hai_hyperbolic` must be `numeric`",
-                   "`integer` `double` classes.")
-        )
-    }
+    recipes::check_type(training[, col_names])
 
     step_ts_acceleration_new(
         terms      = x$terms,
