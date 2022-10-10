@@ -7,7 +7,8 @@ None
 None
 
 ## Minor Fixes and Improvements
-None
+1. Fix #368 - Pull request from @EmilHvitfeldt to use `recipess::check_type()`
+on recipe functions.
 
 # healthyR.ts 0.2.3
 
