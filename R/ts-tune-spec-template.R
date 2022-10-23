@@ -227,6 +227,8 @@ ts_model_spec_tune_template <- function(.parsnip_engine = NULL, .model_spec_clas
     }
 
     # * Return ----
+    mst <- mst %>% parsnip::set_mode("regression")
+
     return(mst)
 
 
