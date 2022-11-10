@@ -7,7 +7,7 @@ None
 None
 
 ## Minor Fixes and Improvements
-1. Fix #368 - Pull request from @EmilHvitfeldt to use `recipess::check_type()`
+1. Fix #368 - Pull request from @EmilHvitfeldt to use `recipes::check_type()`
 on recipe functions.
 2. Fix #370 - Update `ts_model_spec_tune_template()` to set `regression` as the
 argument to `parsnip::set_mode()` which fires a failure in the `ts_model_auto_tune()`
