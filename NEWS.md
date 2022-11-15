@@ -7,7 +7,7 @@ None
 None
 
 ## Minor Fixes and Improvements
-None
+1. Fix #380 - Fix `ts_lag_correlation()` to fix a bug in the correlation matrix calculation where columns may come through that are not numeric and are not part of the original value and it's lags.
 
 # healthyR.ts 0.2.4
 
