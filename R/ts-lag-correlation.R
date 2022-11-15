@@ -120,7 +120,8 @@ ts_lag_correlation <- function(.data, .date_col, .value_col, .lags = 1,
       .value = value,
       .lags = lags
     ) %>%
-    dplyr::select(-{{ date_col_var_expr }}) %>%
+    #dplyr::select(-{{ date_col_var_expr }}) %>%
+    dplyr::select(dplyr::starts_with("value")) %>%
     tidyr::drop_na() %>%
     stats::cor()
 
