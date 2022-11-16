@@ -47,14 +47,14 @@ df <- ts_random_walk()
 
 head(df)
 #> # A tibble: 6 × 4
-#>     run     x        y cum_y
-#>   <dbl> <dbl>    <dbl> <dbl>
-#> 1     1     1  0.163   1163.
-#> 2     1     2 -0.0215  1138.
-#> 3     1     3 -0.183    930.
-#> 4     1     4  0.00974  939.
-#> 5     1     5  0.0599   995.
-#> 6     1     6  0.0877  1082.
+#>     run     x       y cum_y
+#>   <dbl> <dbl>   <dbl> <dbl>
+#> 1     1     1  0.0125 1012.
+#> 2     1     2 -0.0836  928.
+#> 3     1     3 -0.0747  859.
+#> 4     1     4  0.192  1024.
+#> 5     1     5  0.142  1169.
+#> 6     1     6  0.0830 1266.
 ```
 
 Now that the data has been generated, lets take a look at it.
