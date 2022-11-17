@@ -1,5 +1,14 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+None
+
 # healthyR.ts 0.2.5
 
 ## Breaking Changes
