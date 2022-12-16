@@ -21,7 +21,7 @@ plot will be returned using \code{ggplot2::facet_grid(~ .model_id)}}
 an interactive \code{plotly} plot.}
 }
 \value{
-A QQ plot.
+A Scedacity plot.
 }
 \description{
 This takes in a calibration tibble and will produce a scedacity plot.

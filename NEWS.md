@@ -7,7 +7,7 @@ None
 None
 
 ## Minor Fixes and Improvements
-None
+1. Fix #387 - Fix documentation for `ts_scedacity_scatter_plot()`
 
 # healthyR.ts 0.2.5
 

@@ -71,7 +71,7 @@
 #' }
 #'
 #' @return
-#' A QQ plot.
+#' A Scedacity plot.
 #'
 #' @export
 #'
