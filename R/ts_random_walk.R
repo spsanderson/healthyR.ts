@@ -1,5 +1,7 @@
 #' Random Walk Function
 #'
+#' @family Data Generator
+#'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
