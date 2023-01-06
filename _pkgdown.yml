@@ -26,8 +26,7 @@ reference:
   -  title: Data Generating Functions
      desc: healthyR.ts functions that generate data
      contents:
-     -  "ts_random_walk"
-     -  "tidy_fft"
+     -  has_concept("Data Generator")
   -  title: Plotting Functions
      desc: healthyR.ts plotting functions
   -  contents:

@@ -1,5 +1,7 @@
 #' Tidy Style FFT
 #'
+#' @family Data Generator
+#'
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description

@@ -4,7 +4,7 @@
 None
 
 ## New Features
-None
+1. Fix #389 - Add function `ts_brownian_motion()`
 
 ## Minor Fixes and Improvements
 1. Fix #387 - Fix documentation for `ts_scedacity_scatter_plot()`
