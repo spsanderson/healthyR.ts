@@ -52,6 +52,22 @@ ts_brownian_motion <- function(.time = 100, .num_sims = 10, .delta_time = 1,
     delta_time <- as.numeric(.delta_time)
     return_tibble <- as.logical(.return_tibble)
 
+    # Checks
+    if (!is.numeric(num_sims) | !is.numeric(t) | !is.numeric(initial_value) |
+        !is.numeric(delta_time)){
+        rlang::abort(
+            message = "The parameters `.num_sims`, `.time`, `.delta_time`, and `.initial_value` must be numeric.",
+            use_cli_format = TRUE
+        )
+    }
+
+    if (!is.logical(return_tibble)){
+        rlang::abort(
+            message = "The parameter `.return_tibble` must be either TRUE/FALSE",
+            use_cli_format = TRUE
+        )
+    }
+
     # Matrix of random draws - one for each simulation
     rand_matrix <- matrix(rnorm(t * num_sims, mean = 0, sd = sqrt(delta_time)),
                           ncol = num_sims, nrow = t)
