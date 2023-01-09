@@ -1,5 +1,15 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+
+
+## Minor Fixes and Improvements
+1. Fix #395 - Update and optimize `ts_brownian_motion()` 49x speedup by way of
+vectorization.
+
 # healthyR.ts 0.2.6
 
 ## Breaking Changes

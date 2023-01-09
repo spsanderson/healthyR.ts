@@ -8,7 +8,8 @@ ts_brownian_motion(
   .time = 100,
   .num_sims = 10,
   .delta_time = 1,
-  .initial_value = 0
+  .initial_value = 0,
+  .return_tibble = TRUE
 )
 }
 \arguments{
@@ -19,9 +20,12 @@ ts_brownian_motion(
 \item{.delta_time}{Time step size.}
 
 \item{.initial_value}{Integer representing the initial value.}
+
+\item{.return_tibble}{The default is TRUE. If set to FALSE then an object
+of class matrix will be returned.}
 }
 \value{
-A tibble
+A tibble/matrix
 }
 \description{
 Create a Brownian Motion Tibble
