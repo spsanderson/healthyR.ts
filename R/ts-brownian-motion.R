@@ -27,12 +27,14 @@
 #' @param .num_sims Total number of simulations.
 #' @param .delta_time Time step size.
 #' @param .initial_value Integer representing the initial value.
+#' @param .return_tibble The default is TRUE. If set to FALSE then an object
+#' of class matrix will be returned.
 #'
 #' @examples
 #' ts_brownian_motion()
 #'
 #' @return
-#' A tibble
+#' A tibble/matrix
 #'
 #' @name ts_brownian_motion
 NULL
@@ -41,57 +43,41 @@ NULL
 #' @rdname ts_brownian_motion
 
 ts_brownian_motion <- function(.time = 100, .num_sims = 10, .delta_time = 1,
-                            .initial_value = 0) {
+                            .initial_value = 0, .return_tibble = TRUE) {
 
-    # TidyEval ----
-    T <- as.numeric(.time)
-    N <- as.numeric(.num_sims)
-    delta_t <- as.numeric(.delta_time)
+    # Tidyeval ----
+    num_sims <- as.numeric(.num_sims)
+    t <- as.numeric(.time)
     initial_value <- as.numeric(.initial_value)
+    delta_time <- as.numeric(.delta_time)
+    return_tibble <- as.logical(.return_tibble)
 
-    # Checks ----
-    if (!is.numeric(T) | !is.numeric(N) | !is.numeric(delta_t) | !is.numeric(initial_value)){
-        rlang::abort(
-            message = "All parameters must be numeric values.",
-            use_cli_format = TRUE
-        )
+    # Matrix of random draws - one for each simulation
+    rand_matrix <- matrix(rnorm(t * num_sims, mean = 0, sd = sqrt(delta_time)),
+                          ncol = num_sims, nrow = t)
+    colnames(rand_matrix) <- paste0("sim_number ", 1:num_sims)
+
+    # Get the Brownian Motion and convert to price paths
+    ret <- apply(rbind(rep(initial_value, num_sims), rand_matrix), 2, cumsum)
+
+    # Return
+    if (return_tibble){
+        ret <- ret %>%
+            dplyr::as_tibble() %>%
+            dplyr::mutate(t = 1:(t+1)) %>%
+            dplyr::select(t, dplyr::everything()) %>%
+            tidyr::pivot_longer(-t) %>%
+            dplyr::select(name, t, value) %>%
+            purrr::set_names("sim_number", "t", "y") %>%
+            dplyr::mutate(sim_number = forcats::as_factor(sim_number))
     }
-
-    # Initialize empty data.frame to store the simulations
-    sim_data <- data.frame()
-
-    # Generate N simulations
-    for (i in 1:N) {
-        # Initialize the current simulation with a starting value of 0
-        sim <- c(initial_value)
-
-        # Generate the brownian motion values for each time step
-        for (t in 1:(T / delta_t)) {
-            sim <- c(sim, sim[t] + rnorm(1, mean = 0, sd = sqrt(delta_t)))
-        }
-
-        # Bind the time steps, simulation values, and simulation number together in a data.frame and add it to the result
-        sim_data <- rbind(
-            sim_data,
-            data.frame(
-                t = seq(0, T, delta_t),
-                y = sim,
-                sim_number = i
-            )
-        )
-    }
-
-    # Clean up
-    sim_data <- sim_data %>%
-        dplyr::as_tibble() %>%
-        dplyr::mutate(sim_number = forcats::as_factor(sim_number)) %>%
-        dplyr::select(sim_number, t, y)
 
     # Return ----
-    attr(sim_data, ".time") <- .time
-    attr(sim_data, ".num_sims") <- .num_sims
-    attr(sim_data, ".delta_time") <- .delta_time
-    attr(sim_data, ".initial_value") <- .initial_value
+    attr(ret, ".time") <- .time
+    attr(ret, ".num_sims") <- .num_sims
+    attr(ret, ".delta_time") <- .delta_time
+    attr(ret, ".initial_value") <- .initial_value
+    attr(ret, ".return_tibble") <- .return_tibble
 
-    return(sim_data)
+    return(ret)
 }
