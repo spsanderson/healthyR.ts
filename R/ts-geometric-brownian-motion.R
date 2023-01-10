@@ -100,8 +100,10 @@ ts_geometric_brownian_motion <- function(.num_sims = 100, .time = 25,
         ret <- ret %>%
             dplyr::as_tibble() %>%
             dplyr::mutate(t = 1:(t+1)) %>%
-            dplyr::select(t, dplyr::everything()) %>%
-            tidyr::pivot_longer(-t)
+            tidyr::pivot_longer(-t) %>%
+            dplyr::select(name, t, value) %>%
+            purrr::set_names("sim_number", "t", "y") %>%
+            dplyr::mutate(sim_number = forcats::as_factor(sim_number))
     }
 
     attr(ret, ".time") <- .time
