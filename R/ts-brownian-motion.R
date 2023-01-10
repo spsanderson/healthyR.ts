@@ -81,7 +81,7 @@ ts_brownian_motion <- function(.time = 100, .num_sims = 10, .delta_time = 1,
         ret <- ret %>%
             dplyr::as_tibble() %>%
             dplyr::mutate(t = 1:(t+1)) %>%
-            dplyr::select(t, dplyr::everything()) %>%
+            #dplyr::select(t, dplyr::everything()) %>%
             tidyr::pivot_longer(-t) %>%
             dplyr::select(name, t, value) %>%
             purrr::set_names("sim_number", "t", "y") %>%
