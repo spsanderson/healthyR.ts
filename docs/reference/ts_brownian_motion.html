@@ -112,9 +112,10 @@ continuous-time random process that describes the random movement of particles
 suspended in a fluid. It is named after the physicist Robert Brown,
 who first described the phenomenon in 1827.</p>
 <p>The equation for Brownian Motion can be represented as:</p>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span> <span class="fu">W</span>(t) <span class="ot">=</span> \sqrt{t} Z <span class="sc">$</span><span class="er">$</span></span></code></pre><p></p></div>
-<p>Where W(t) represents the Brownian Motion process at time t, and Z is a
-standard normal random variable.</p>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">W</span>(t) <span class="ot">=</span> <span class="fu">W</span>(<span class="dv">0</span>) <span class="sc">+</span> <span class="fu">sqrt</span>(t) <span class="sc">*</span> Z</span></code></pre><p></p></div>
+<p>Where W(t) is the Brownian motion at time t, W(0) is the initial value of the
+Brownian motion, sqrt(t) is the square root of time, and Z is a standard
+normal random variable.</p>
 <p>Brownian Motion has numerous applications, including modeling stock prices in
 financial markets, modeling particle movement in fluids, and modeling random
 walk processes in general. It is a useful tool in probability theory and
@@ -124,6 +125,7 @@ statistical analysis.</p>
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other Data Generator: 
 <code><a href="tidy_fft.html">tidy_fft</a>()</code>,
+<code><a href="ts_brownian_motion_augment.html">ts_brownian_motion_augment</a>()</code>,
 <code><a href="ts_geometric_brownian_motion.html">ts_geometric_brownian_motion</a>()</code>,
 <code><a href="ts_random_walk.html">ts_random_walk</a>()</code></p></div>
     </div>

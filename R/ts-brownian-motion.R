@@ -13,10 +13,11 @@
 #'
 #' The equation for Brownian Motion can be represented as:
 #'
-#'     $$ W(t) = \sqrt{t} Z $$
+#'     W(t) = W(0) + sqrt(t) * Z
 #'
-#' Where W(t) represents the Brownian Motion process at time t, and Z is a
-#' standard normal random variable.
+#' Where W(t) is the Brownian motion at time t, W(0) is the initial value of the
+#' Brownian motion, sqrt(t) is the square root of time, and Z is a standard
+#' normal random variable.
 #'
 #' Brownian Motion has numerous applications, including modeling stock prices in
 #' financial markets, modeling particle movement in fluids, and modeling random
