@@ -134,7 +134,7 @@ ts_brownian_motion_augment <- function(.data, .date_col, .value_col, .time = 100
         utils::tail(n = 1) %>%
         dplyr::pull()
 
-    # Get delta_time using the last period for tk_time_freq
+    # Get delta_time using the last period for tk_time_freq if it is null
     if (is.null(delta_time)){
         delta_time <- df %>%
             dplyr::select(y) %>%

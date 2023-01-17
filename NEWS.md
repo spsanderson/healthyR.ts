@@ -6,6 +6,7 @@ None
 ## New Features
 1. Fix #397 - Add function `ts_geometric_brownian_motion()`
 2. Fix #402 - Add function `ts_brownian_motion_augment()`
+3. Fix #403 - Add function `ts_brownian_motion_augment()`
 
 ## Minor Fixes and Improvements
 1. Fix #395 - Update and optimize `ts_brownian_motion()` 49x speedup by way of
