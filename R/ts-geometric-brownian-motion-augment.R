@@ -69,14 +69,14 @@ NULL
 ts_geometric_brownian_motion_augment <- function(.data, .date_col, .value_col,
                                                  .num_sims = 10, .time = 25,
                                                  .mean = 0, .sigma = 0.1,
-                                                 .delta_time = 1./365,
+                                                 .delta_time = 1./365
 ){
 
     # Tidyeval ----
     num_sims <- as.numeric(.num_sims)
     t <- as.numeric(.time)
-    mu <- if (!is.null(.mean)) as.numeric(.mean)
-    sigma <- if (!is.null(.sigma)) as.numeric(.sigma)
+    mu <- as.numeric(.mean)
+    sigma <- as.numeric(.sigma)
     delta_time <- if (!is.null(.delta_time)) as.numeric(.delta_time)
 
     date_var_expr <- rlang::enquo(.date_col)
@@ -113,19 +113,26 @@ ts_geometric_brownian_motion_augment <- function(.data, .date_col, .value_col,
         )
     }
 
-    if (!is.numeric(mu) & !is.null(mu)){
+    if (!is.numeric(mu)){
         rlang::abort(
-            message = "'.mean' must be either numeric or NULL.",
+            message = "'.mean' must be numeric.",
             use_cli_format = TRUE
         )
     }
 
-    if (!is.numeric(sigma) & !is.null(sigma)){
+    if (!is.numeric(sigma)){
         rlang::abort(
-            message = "'.sigma' must be either numeric or NULL.",
+            message = "'.sigma' must numeric.",
             use_cli_format = TRUE
         )
     }
+
+    # Get data
+    df <- dplyr::as_tibble(.data) %>%
+        dplyr::select({{ date_var_expr }}, {{ value_var_expr }}) %>%
+        dplyr::mutate(sim_number = forcats::as_factor("actual_data")) %>%
+        dplyr::select(sim_number, dplyr::everything()) %>%
+        purrr::set_names("sim_number", "t", "y")
 
     # Make sure .date_col is of class date
     date_col <- df %>%
@@ -157,6 +164,33 @@ ts_geometric_brownian_motion_augment <- function(.data, .date_col, .value_col,
         utils::tail(n = 1) %>%
         dplyr::pull()
 
+    # Make sure the initial_value is numeric
+    if (!is.numeric(initial_value)){
+        rlang::abort(
+            message = "'.value_col' must be a numeric class.",
+            use_cli_format = TRUE
+        )
+    }
 
+    # Get delta_time using the last period for tk_time_freq if it is null
+    if (is.null(delta_time)){
+        delta_time <- df %>%
+            dplyr::select(y) %>%
+            utils::tail(n = tk_time_freq) %>%
+            dplyr::pull() %>%
+            stats::sd(na.rm = TRUE)
+    }
+
+    # matrix of random draws - one for each day for each simulation
+    rand_matrix <- matrix(rnorm(t * num_sims), ncol = num_sims, nrow = t)
+    colnames(rand_matrix) <- paste0("sim_number ", 1:num_sims)
+
+    # get GBM and convert to price paths
+    ret <- exp((mu - sigma * sigma / 2) * delta_time + sigma * rand_matrix * sqrt(delta_time))
+    ret <- apply(rbind(rep(initial_value, num_sims), ret), 2, cumprod)
+
+    # Return
+
+    return(ret)
 
 }
