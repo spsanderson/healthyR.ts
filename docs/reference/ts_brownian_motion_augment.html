@@ -131,6 +131,7 @@ statistical analysis.</p>
     <div class="dont-index"><p>Other Data Generator: 
 <code><a href="tidy_fft.html">tidy_fft</a>()</code>,
 <code><a href="ts_brownian_motion.html">ts_brownian_motion</a>()</code>,
+<code><a href="ts_geometric_brownian_motion_augment.html">ts_geometric_brownian_motion_augment</a>()</code>,
 <code><a href="ts_geometric_brownian_motion.html">ts_geometric_brownian_motion</a>()</code>,
 <code><a href="ts_random_walk.html">ts_random_walk</a>()</code></p></div>
     </div>
@@ -155,18 +156,18 @@ statistical analysis.</p>
 <span class="r-in"><span>  .value_col <span class="op">=</span> <span class="va">value</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,041 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    sim_number  date_col    value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> actual_data 2022-01-01  0.760</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> actual_data 2022-01-02  1.54 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> actual_data 2022-01-03  0.690</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> actual_data 2022-01-04 -<span style="color: #BB0000;">1.42</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> actual_data 2022-01-05  0.372</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> actual_data 2022-01-06 -<span style="color: #BB0000;">0.182</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> actual_data 2022-01-07 -<span style="color: #BB0000;">0.155</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> actual_data 2022-01-08 -<span style="color: #BB0000;">0.349</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> actual_data 2022-01-09  0.486</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> actual_data 2022-01-10  0.186</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    sim_number  date_col     value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> actual_data 2022-01-01 -<span style="color: #BB0000;">0.275</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> actual_data 2022-01-02 -<span style="color: #BB0000;">0.986</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> actual_data 2022-01-03 -<span style="color: #BB0000;">0.537</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> actual_data 2022-01-04 -<span style="color: #BB0000;">0.162</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> actual_data 2022-01-05  0.528 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> actual_data 2022-01-06 -<span style="color: #BB0000;">0.892</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> actual_data 2022-01-07 -<span style="color: #BB0000;">0.031</span><span style="color: #BB0000; text-decoration: underline;">3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> actual_data 2022-01-08 -<span style="color: #BB0000;">0.019</span><span style="color: #BB0000; text-decoration: underline;">7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> actual_data 2022-01-09 -<span style="color: #BB0000;">0.544</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> actual_data 2022-01-10  0.906 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1,031 more rows</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
