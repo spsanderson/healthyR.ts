@@ -33,14 +33,14 @@
 #' of a GBM process. It can be used to analyze the behavior of financial
 #' assets and to make informed investment decisions.
 #'
+#' @param .data The data you are going to pass to the function to augment.
+#' @param .date_col The column that holds the date
+#' @param .value_col The column that holds the value
 #' @param .time Total time of the simulation.
 #' @param .num_sims Total number of simulations.
 #' @param .delta_time Time step size.
-#' @param .initial_value Integer representing the initial value.
 #' @param .mean Expected return
 #' @param .sigma Volatility
-#' @param .return_tibble The default is TRUE. If set to FALSE then an object
-#' of class matrix will be returned.
 #'
 #' @examples
 #' rn <- rnorm(31)
