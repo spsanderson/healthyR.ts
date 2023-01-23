@@ -190,6 +190,25 @@ ts_geometric_brownian_motion_augment <- function(.data, .date_col, .value_col,
     ret <- apply(rbind(rep(initial_value, num_sims), ret), 2, cumprod)
 
     # Return
+    ret <- ret %>%
+        dplyr::as_tibble() %>%
+        dplyr::mutate(t = future_dates) %>%
+        tidyr::pivot_longer(-t) %>%
+        dplyr::select(name, t, value) %>%
+        purrr::set_names("sim_number", "t", "y") %>%
+        dplyr::mutate(sim_number = forcats::as_factor(sim_number))
+
+    ret <- rbind(df, ret) %>%
+        dplyr::rename(!!date_var_name := t) %>%
+        dplyr::rename(!!value_var_name := y)
+
+    # Return ----
+    attr(ret, ".time") <- t
+    attr(ret, ".mu") <- mu
+    attr(ret, ".sigma") <- sigma
+    attr(ret, ".num_sims") <- .num_sims
+    attr(ret, ".delta_time") <- delta_time
+    attr(ret, ".initial_value") <- initial_value
 
     return(ret)
 
