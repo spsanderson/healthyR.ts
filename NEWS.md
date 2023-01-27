@@ -13,6 +13,7 @@ None
 vectorization.
 2. Fix #412 - Update all brownian motion functions to have an attribute of 
 `.motion_type`
+3. Fix #411 - Drop the invisible return for `ts_vva_plot()`
 
 # healthyR.ts 0.2.6
 
