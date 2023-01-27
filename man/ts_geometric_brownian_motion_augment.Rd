@@ -52,7 +52,7 @@ news events, and investor sentiment.
 
 The equation for GBM is:
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{ dS/S = μdt + σdW
+\if{html}{\out{<div class="sourceCode">}}\preformatted{ dS/S = mdt + sdW
 }\if{html}{\out{</div>}}
 
 where S is the price of the asset, t is time, μ is the expected return on the
