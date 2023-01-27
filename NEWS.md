@@ -11,6 +11,8 @@ None
 ## Minor Fixes and Improvements
 1. Fix #395 - Update and optimize `ts_brownian_motion()` 49x speedup by way of
 vectorization.
+2. Fix #412 - Update all brownian motion functions to have an attribute of 
+`.motion_type`
 
 # healthyR.ts 0.2.6
 
