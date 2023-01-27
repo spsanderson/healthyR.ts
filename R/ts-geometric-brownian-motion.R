@@ -19,7 +19,7 @@
 #'
 #' The equation for GBM is:
 #'
-#'      dS/S = μdt + σdW
+#'      dS/S = mdt + sdW
 #'
 #' where S is the price of the asset, t is time, μ is the expected return on the
 #' asset, σ is the volatility of the asset, and dW is a small random change in
