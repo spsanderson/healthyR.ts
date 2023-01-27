@@ -177,6 +177,7 @@ ts_brownian_motion_augment <- function(.data, .date_col, .value_col, .time = 100
     attr(ret, ".num_sims") <- .num_sims
     attr(ret, ".delta_time") <- delta_time
     attr(ret, ".initial_value") <- initial_value
+    attr(ret, ".motion_type") <- "Brownian Motion"
 
     return(ret)
 }

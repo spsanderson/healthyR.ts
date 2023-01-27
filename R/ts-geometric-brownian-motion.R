@@ -113,6 +113,7 @@ ts_geometric_brownian_motion <- function(.num_sims = 100, .time = 25,
     attr(ret, ".initial_value") <- .initial_value
     attr(ret, ".delta_time") <- .delta_time
     attr(ret, ".return_tibble") <- .return_tibble
+    attr(ret, ".motion_type") <- "Geometric Brownian Motion"
 
     return(ret)
 }

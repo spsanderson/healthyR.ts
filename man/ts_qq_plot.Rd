@@ -80,6 +80,7 @@ ts_qq_plot(calibration_tbl)
 \url{https://en.wikipedia.org/wiki/Q\%E2\%80\%93Q_plot}
 
 Other Plot: 
+\code{\link{ts_brownian_motion_plot}()},
 \code{\link{ts_event_analysis_plot}()},
 \code{\link{ts_scedacity_scatter_plot}()}
 

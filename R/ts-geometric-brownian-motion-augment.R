@@ -209,6 +209,7 @@ ts_geometric_brownian_motion_augment <- function(.data, .date_col, .value_col,
     attr(ret, ".num_sims") <- .num_sims
     attr(ret, ".delta_time") <- delta_time
     attr(ret, ".initial_value") <- initial_value
+    attr(ret, ".motion_type") <- "Geometric Brownian Motion"
 
     return(ret)
 

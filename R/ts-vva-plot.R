@@ -97,7 +97,7 @@ ts_vva_plot <- function(.data, .date_col, .value_col){
         )
     )
 
-    return(invisible(output_list))
+    return(output_list)
 
 }
 

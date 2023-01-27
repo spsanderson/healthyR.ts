@@ -95,6 +95,7 @@ ts_brownian_motion <- function(.time = 100, .num_sims = 10, .delta_time = 1,
     attr(ret, ".delta_time") <- .delta_time
     attr(ret, ".initial_value") <- .initial_value
     attr(ret, ".return_tibble") <- .return_tibble
+    attr(ret, ".motion_type") <- "Brownian Motion"
 
     return(ret)
 }
