@@ -21,8 +21,8 @@
 #'
 #'      dS/S = mdt + sdW
 #'
-#' where S is the price of the asset, t is time, μ is the expected return on the
-#' asset, σ is the volatility of the asset, and dW is a small random change in
+#' where S is the price of the asset, t is time, m is the expected return on the
+#' asset, s is the volatility of the asset, and dW is a small random change in
 #' the asset's price.
 #'
 #' GBM can be used to estimate the likelihood of different outcomes for a given
