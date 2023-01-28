@@ -1,4 +1,4 @@
-# healthyR.ts (development version)
+# healthyR.ts 0.2.7
 
 ## Breaking Changes
 None
