@@ -1,5 +1,14 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+1. Fix #424 - Require R >= 3.3
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+None
+
 # healthyR.ts 0.2.7
 
 ## Breaking Changes
