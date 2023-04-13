@@ -70,6 +70,7 @@ This uses the \code{modeltime::arima_reg()} with the \code{engine} set to \code{
 \examples{
 \donttest{
 library(dplyr)
+library(timetk)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

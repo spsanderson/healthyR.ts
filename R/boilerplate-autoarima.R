@@ -36,6 +36,7 @@
 #' @examples
 #' \donttest{
 #' library(dplyr)
+#' library(timetk)
 #'
 #' data <- AirPassengers %>%
 #'   ts_to_tbl() %>%
