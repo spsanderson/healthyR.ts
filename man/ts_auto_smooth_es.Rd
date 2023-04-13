@@ -69,7 +69,7 @@ This uses \code{modeltime::exp_smoothing()} and sets the \code{parsnip::engine}
 to \code{smooth_es}.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
 
 data <- AirPassengers \%>\%
@@ -86,7 +86,7 @@ splits <- time_series_split(
 
 ts_smooth_es <- ts_auto_smooth_es(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,

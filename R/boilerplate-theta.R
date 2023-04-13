@@ -27,7 +27,7 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(dplyr)
 #'
 #' data <- AirPassengers %>%

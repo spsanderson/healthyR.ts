@@ -68,7 +68,7 @@ This is a boilerplate function to create automatically the following:
 This uses the \code{modeltime::prophet_reg()} function with the \code{engine} set to \code{prophet}.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
 
 data <- AirPassengers \%>\%
@@ -85,12 +85,12 @@ splits <- time_series_split(
 
 ts_prophet_reg <- ts_auto_prophet_reg(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 20
+  .grid_size = 1
 )
 
 ts_prophet_reg$recipe_info

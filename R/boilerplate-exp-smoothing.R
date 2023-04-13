@@ -36,7 +36,7 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(dplyr)
 #'
 #' data <- AirPassengers %>%
@@ -53,12 +53,12 @@
 #'
 #' ts_exp <- ts_auto_exp_smoothing(
 #'   .data = data,
-#'   .num_cores = 5,
+#'   .num_cores = 2,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 20
+#'   .grid_size = 1
 #' )
 #'
 #' ts_exp$recipe_info

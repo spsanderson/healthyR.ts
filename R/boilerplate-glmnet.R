@@ -33,7 +33,7 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(dplyr)
 #'
 #' data <- AirPassengers %>%
@@ -50,12 +50,12 @@
 #'
 #' ts_glmnet <- ts_auto_glmnet(
 #'   .data = data,
-#'   .num_cores = 5,
+#'   .num_cores = 2,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 20
+#'   .grid_size = 1
 #' )
 #'
 #' ts_glmnet$recipe_info

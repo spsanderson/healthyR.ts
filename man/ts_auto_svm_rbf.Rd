@@ -69,7 +69,7 @@ This uses \code{parsnip::svm_rb()} and sets the \code{parsnip::engine}
 to \code{kernlab}.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
 
 data <- AirPassengers \%>\%
@@ -86,7 +86,7 @@ splits <- time_series_split(
 
 ts_auto_rbf <- ts_auto_svm_rbf(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,

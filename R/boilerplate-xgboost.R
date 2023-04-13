@@ -31,7 +31,7 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(dplyr)
 #'
 #' data <- AirPassengers %>%
@@ -48,7 +48,7 @@
 #'
 #' ts_xgboost <- ts_auto_xgboost(
 #'   .data = data,
-#'   .num_cores = 1,
+#'   .num_cores = 2,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,

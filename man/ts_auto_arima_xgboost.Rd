@@ -68,7 +68,7 @@ This is a boilerplate function to create automatically the following:
 This uses the \code{modeltime::arima_boost()} with the \code{engine} set to \code{xgboost}
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
 
 data <- AirPassengers \%>\%
@@ -85,12 +85,12 @@ splits <- time_series_split(
 
 ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 1,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 20,
+  .grid_size = 1,
   .cv_slice_limit = 2
 )
 

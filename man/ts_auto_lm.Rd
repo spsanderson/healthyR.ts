@@ -45,7 +45,7 @@ This is a boilerplate function to create automatically the following:
 This uses \code{parsnip::linear_reg()} and sets the \code{engine} to \code{lm}
 }
 \examples{
-\dontrun{
+\donttst{
 library(dplyr)
 
 data <- AirPassengers \%>\%

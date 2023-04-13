@@ -68,7 +68,7 @@ This is a boilerplate function to create automatically the following:
 This uses the \code{parsnip::boost_tree()} with the \code{engine} set to \code{xgboost}
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
 
 data <- AirPassengers \%>\%
@@ -85,7 +85,7 @@ splits <- time_series_split(
 
 ts_xgboost <- ts_auto_xgboost(
   .data = data,
-  .num_cores = 1,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
