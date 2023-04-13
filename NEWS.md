@@ -7,7 +7,7 @@
 None
 
 ## Minor Fixes and Improvements
-None
+1. Fix #425 - Fix `ts_ma_plt()` errors stemming from deprecations.
 
 # healthyR.ts 0.2.7
 
