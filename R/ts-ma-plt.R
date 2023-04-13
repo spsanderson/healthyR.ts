@@ -174,7 +174,7 @@ ts_ma_plot <- function(.data,
             y = value
         )
     ) +
-        ggplot2::geom_line(size = 1) +
+        ggplot2::geom_line(linewidth = 1) +
         ggplot2::geom_line(
             ggplot2::aes(
                 x = date_col,
@@ -183,7 +183,8 @@ ts_ma_plot <- function(.data,
             color = "blue",
             size = 1
         ) +
-        ggplot2::scale_y_continuous(labels = scales::label_number_si()) +
+        #ggplot2::scale_y_continuous(labels = scales::label_number_si()) +
+        ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
         ggplot2::theme_minimal() +
         ggplot2::labs(
             title = .main_title,
