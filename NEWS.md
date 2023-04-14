@@ -7,7 +7,8 @@
 None
 
 ## Minor Fixes and Improvements
-1. Fix #425 - Fix `ts_ma_plt()` errors stemming from deprecations.
+1. Fix #425 - Fix `ts_ma_plt()` errors stemming from deprecations. Also fixed
+examples of all boilerplate functions.
 
 # healthyR.ts 0.2.7
 

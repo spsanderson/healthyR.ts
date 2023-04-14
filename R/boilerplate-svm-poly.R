@@ -62,7 +62,7 @@
 #'   .grid_size = 3
 #' )
 #'
-#' ts_smooth_poly$recipe_info
+#' ts_auto_poly$recipe_info
 #' }
 #'
 #' @return
