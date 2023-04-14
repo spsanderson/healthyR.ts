@@ -96,7 +96,7 @@ ts_auto_rbf <- ts_auto_svm_rbf(
   .grid_size = 3
 )
 
-ts_smooth_rbf$recipe_info
+ts_auto_rbf$recipe_info
 }
 
 }
