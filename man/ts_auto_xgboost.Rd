@@ -70,6 +70,8 @@ This uses the \code{parsnip::boost_tree()} with the \code{engine} set to \code{x
 \examples{
 \donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -90,7 +92,7 @@ ts_xgboost <- ts_auto_xgboost(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 2
+  .grid_size = 5
 )
 
 ts_xgboost$recipe_info

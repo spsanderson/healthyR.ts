@@ -70,6 +70,8 @@ This uses the \code{modeltime::nnetar_reg()} function with the \code{engine} set
 \examples{
 \donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -90,7 +92,7 @@ ts_nnetar <- ts_auto_nnetar(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 1
+  .grid_size = 5
 )
 
 ts_nnetar$recipe_info

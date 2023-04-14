@@ -70,6 +70,8 @@ This uses \code{parsnip::linear_reg()} and sets the \code{engine} to \code{glmne
 \examples{
 \donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -90,7 +92,7 @@ ts_glmnet <- ts_auto_glmnet(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 1
+  .grid_size = 5
 )
 
 ts_glmnet$recipe_info

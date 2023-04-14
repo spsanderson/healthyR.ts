@@ -46,6 +46,8 @@ will be used from the \code{.date_col} and \code{.value_col} that you provide.
 \examples{
 \donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

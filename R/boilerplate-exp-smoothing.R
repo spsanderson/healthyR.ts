@@ -38,6 +38,8 @@
 #' @examples
 #' \donttest{
 #' library(dplyr)
+#' library(timetk)
+#' library(modeltime)
 #'
 #' data <- AirPassengers %>%
 #'   ts_to_tbl() %>%
@@ -58,7 +60,7 @@
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 1
+#'   .grid_size = 20
 #' )
 #'
 #' ts_exp$recipe_info

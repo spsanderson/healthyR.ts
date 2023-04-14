@@ -70,6 +70,8 @@ This uses the \code{parsnip::mars()} function with the \code{engine} set to \cod
 \examples{
 \donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -83,14 +85,14 @@ splits <- time_series_split(
   , cumulative = TRUE
 )
 
-ts_mars <- ts_auto_mars(
+ts_auto_mars <- ts_auto_mars(
   .data = data,
   .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 1
+  .grid_size = 20
 )
 
 ts_auto_mars$recipe_info

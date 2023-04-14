@@ -70,6 +70,8 @@ This uses the \code{modeltime::arima_boost()} with the \code{engine} set to \cod
 \examples{
 \donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -90,7 +92,7 @@ ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 1,
+  .grid_size = 5,
   .cv_slice_limit = 2
 )
 

@@ -29,6 +29,8 @@
 #' @examples
 #' \donttest{
 #' library(dplyr)
+#' library(timetk)
+#' library(modeltime)
 #'
 #' data <- AirPassengers %>%
 #'   ts_to_tbl() %>%
