@@ -96,7 +96,7 @@ ts_auto_poly <- ts_auto_svm_poly(
   .grid_size = 3
 )
 
-ts_smooth_poly$recipe_info
+ts_auto_poly$recipe_info
 }
 
 }
