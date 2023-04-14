@@ -34,8 +34,10 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(dplyr)
+#' library(timetk)
+#' library(modeltime)
 #'
 #' data <- AirPassengers %>%
 #'   ts_to_tbl() %>%
@@ -51,12 +53,12 @@
 #'
 #' ts_auto_arima <- ts_auto_arima(
 #'   .data = data,
-#'   .num_cores = 5,
+#'   .num_cores = 2,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 20,
+#'   .grid_size = 5,
 #'   .cv_slice_limit = 2
 #' )
 #'
@@ -161,6 +163,7 @@ ts_auto_arima <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         tscv <- timetk::time_series_cv(
             data        = rsample::training(splits),
             date_var    = {{date_col_var_expr}},
+            #date_var = date_col,
             cumulative  = TRUE,
             assess      = cv_assess,
             skip        = cv_skip,
@@ -189,8 +192,7 @@ ts_auto_arima <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         wflw_fit <- wflw %>%
             tune::finalize_workflow(
                 tuned_results %>%
-                    tune::show_best(metric = best_metric, n = Inf) %>%
-                    dplyr::slice(1)
+                    tune::show_best(metric = best_metric, n = 1)
             ) %>%
             parsnip::fit(rsample::training(splits))
 

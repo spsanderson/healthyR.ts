@@ -68,8 +68,10 @@ This is a boilerplate function to create automatically the following:
 This uses the \code{parsnip::boost_tree()} with the \code{engine} set to \code{xgboost}
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -85,12 +87,12 @@ splits <- time_series_split(
 
 ts_xgboost <- ts_auto_xgboost(
   .data = data,
-  .num_cores = 1,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 2
+  .grid_size = 5
 )
 
 ts_xgboost$recipe_info

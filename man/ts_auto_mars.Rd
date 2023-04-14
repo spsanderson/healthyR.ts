@@ -68,8 +68,10 @@ This is a boilerplate function to create automatically the following:
 This uses the \code{parsnip::mars()} function with the \code{engine} set to \code{earth}.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -83,9 +85,9 @@ splits <- time_series_split(
   , cumulative = TRUE
 )
 
-ts_mars <- ts_auto_mars(
+ts_auto_mars <- ts_auto_mars(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,

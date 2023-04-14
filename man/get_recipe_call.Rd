@@ -6,6 +6,9 @@
 \usage{
 get_recipe_call(.rec_call)
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Misc for boilerplate
 }

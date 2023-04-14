@@ -1,4 +1,4 @@
-# healthyR.ts (development version)
+# healthyR.ts 0.2.8
 
 ## Breaking Changes
 1. Fix #424 - Require R >= 3.3

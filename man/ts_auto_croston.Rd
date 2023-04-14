@@ -70,8 +70,10 @@ model does not use exogenous regressors, so only a univariate model of: value ~ 
 will be used from the \code{.date_col} and \code{.value_col} that you provide.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -87,12 +89,12 @@ splits <- time_series_split(
 
 ts_exp <- ts_auto_croston(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 20
+  .grid_size = 5
 )
 
 ts_exp$recipe_info

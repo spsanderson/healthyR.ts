@@ -44,8 +44,10 @@ model does not use exogenous regressors, so only a univariate model of: value ~ 
 will be used from the \code{.date_col} and \code{.value_col} that you provide.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

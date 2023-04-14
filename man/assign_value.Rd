@@ -6,6 +6,9 @@
 \usage{
 assign_value(name, value, cr = TRUE)
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Misc for boilerplate
 }

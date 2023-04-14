@@ -68,8 +68,10 @@ This is a boilerplate function to create automatically the following:
 This uses the \code{modeltime::nnetar_reg()} function with the \code{engine} set to \code{nnetar}.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -85,12 +87,12 @@ splits <- time_series_split(
 
 ts_nnetar <- ts_auto_nnetar(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 20
+  .grid_size = 5
 )
 
 ts_nnetar$recipe_info

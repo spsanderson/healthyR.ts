@@ -69,8 +69,10 @@ This uses \code{parsnip::svm_poly()} and sets the \code{parsnip::engine}
 to \code{kernlab}.
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%
@@ -86,7 +88,7 @@ splits <- time_series_split(
 
 ts_auto_poly <- ts_auto_svm_poly(
   .data = data,
-  .num_cores = 5,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,

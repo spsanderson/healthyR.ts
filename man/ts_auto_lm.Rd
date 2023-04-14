@@ -45,8 +45,10 @@ This is a boilerplate function to create automatically the following:
 This uses \code{parsnip::linear_reg()} and sets the \code{engine} to \code{lm}
 }
 \examples{
-\dontrun{
+\donttest{
 library(dplyr)
+library(timetk)
+library(modeltime)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

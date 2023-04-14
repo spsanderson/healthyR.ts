@@ -24,8 +24,10 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(dplyr)
+#' library(timetk)
+#' library(modeltime)
 #'
 #' data <- AirPassengers %>%
 #'   ts_to_tbl() %>%

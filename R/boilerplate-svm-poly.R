@@ -35,8 +35,10 @@
 #' @param .bootstrap_final Not yet implemented.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(dplyr)
+#' library(timetk)
+#' library(modeltime)
 #'
 #' data <- AirPassengers %>%
 #'   ts_to_tbl() %>%
@@ -52,7 +54,7 @@
 #'
 #' ts_auto_poly <- ts_auto_svm_poly(
 #'   .data = data,
-#'   .num_cores = 5,
+#'   .num_cores = 2,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
