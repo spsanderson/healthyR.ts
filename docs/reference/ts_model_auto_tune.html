@@ -12,7 +12,7 @@ under the hood to get the generic template that is used in the grid search."><!-
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.8.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,16 +116,16 @@ data</p></dd>
 
 <dt>.tscv_assess</dt>
 <dd><p>A character expression like "12 months". This gets passed to
-<code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+<code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
 
 
 <dt>.tscv_skip</dt>
 <dd><p>A character expression like "6 months". This gets passed to
-<code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+<code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
 
 
 <dt>.slice_limit</dt>
-<dd><p>An integer that gets passed to <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
+<dd><p>An integer that gets passed to <code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></dd>
 
 
 <dt>.facet_ncol</dt>
@@ -187,7 +187,7 @@ time series cross validation.</p></li>
 <li><p><code>best_tuned_results_tbl</code> This is a tibble of the parameters for the best
 test set with the chosen metric.</p></li>
 <li><p><code>tscv_obj</code> This is the actual time series cross validation object returned
-from <code><a href="https://business-science.github.io/timetk/reference/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></li>
+from <code><a href="https://rdrr.io/pkg/timetk/man/time_series_cv.html" class="external-link">timetk::time_series_cv()</a></code></p></li>
 </ul><p>The <code>model_info</code> section has the following items:</p><ul><li><p><code>model_spec</code> This is the original modeltime/parsnip model specification.</p></li>
 <li><p><code>model_spec_engine</code> This is the engine used for the model specification.</p></li>
 <li><p><code>model_spec_tuner</code> This is the tuning model template returned from <code><a href="ts_model_spec_tune_template.html">ts_model_spec_tune_template()</a></code></p></li>
@@ -237,7 +237,7 @@ pull out if you are going to work with it further.</p></li>
 <span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    <span class="va">data</span></span></span>
 <span class="r-in"><span>    , <span class="va">date_col</span></span></span>
 <span class="r-in"><span>    , assess <span class="op">=</span> <span class="fl">12</span></span></span>

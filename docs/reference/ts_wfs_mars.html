@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.8.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.model_type</dt>
 <dd><p>This is where you will set your engine. It uses
-<code><a href="https://rdrr.io/pkg/parsnip/man/mars.html" class="external-link">parsnip::mars()</a></code> under the hood and can take one of the following:</p><ul><li><p>"earth"</p></li>
+<code><a href="https://parsnip.tidymodels.org/reference/mars.html" class="external-link">parsnip::mars()</a></code> under the hood and can take one of the following:</p><ul><li><p>"earth"</p></li>
 </ul></dd>
 
 
@@ -157,7 +157,7 @@ are written.</p>
 <span class="r-in"><span>  <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>   <span class="va">data</span></span></span>
 <span class="r-in"><span>  , <span class="va">date_col</span></span></span>
 <span class="r-in"><span>  , assess <span class="op">=</span> <span class="fl">12</span></span></span>

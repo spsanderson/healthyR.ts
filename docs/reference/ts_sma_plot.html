@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.8.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,7 +117,7 @@
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>This function will accept a time series object or a tibble/data.frame. This is a
-simple wrapper around <code><a href="https://business-science.github.io/timetk/reference/slidify_vec.html" class="external-link">timetk::slidify_vec()</a></code>. It uses that function to do the underlying
+simple wrapper around <code><a href="https://rdrr.io/pkg/timetk/man/slidify_vec.html" class="external-link">timetk::slidify_vec()</a></code>. It uses that function to do the underlying
 moving average work.</p>
 <p>It can only handle a single moving average at a time and therefore if multiple
 are called for, it will loop through and append data to a tibble object.</p>
@@ -146,7 +146,7 @@ are called for, it will loop through and append data to a tibble object.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Aug 1949  1949-08-01   148 3              144 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sep 1949  1949-09-01   136 3              134.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Oct 1949  1949-10-01   119 3              120.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 278 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 278 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">out</span><span class="op">$</span><span class="va">plots</span><span class="op">$</span><span class="va">static_plot</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 7 rows containing missing values (`geom_line()`).</span>
