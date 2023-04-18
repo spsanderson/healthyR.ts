@@ -12,7 +12,7 @@ tibble format."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.8.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@ tibble format."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>This function makes use of <code><a href="https://business-science.github.io/timetk/reference/tk_tbl.html" class="external-link">timetk::tk_tbl()</a></code> under the hood to obtain
+    <p>This function makes use of <code><a href="https://rdrr.io/pkg/timetk/man/tk_tbl.html" class="external-link">timetk::tk_tbl()</a></code> under the hood to obtain
 the initial <code>tibble</code> object. After the inital object is obtained a new column
 called <code>date_col</code> is constructed from the <code>index</code> column using <code>lubridate</code> if
 an index column is returned.</p>
@@ -133,7 +133,7 @@ an index column is returned.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  200 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  200.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  201.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 140 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 140 more rows</span></span>
 <span class="r-in"><span><span class="fu">ts_to_tbl</span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 144 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    index     date_col   value</span>
@@ -148,7 +148,7 @@ an index column is returned.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Aug 1949  1949-08-01   148</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sep 1949  1949-09-01   136</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Oct 1949  1949-10-01   119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 134 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 134 more rows</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

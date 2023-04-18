@@ -12,7 +12,7 @@ tibble."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mat
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.8.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@ tibble.</p>
 
 
 <dt>.step_ts_sig</dt>
-<dd><p>A Boolean indicating should the <code><a href="https://business-science.github.io/timetk/reference/step_timeseries_signature.html" class="external-link">timetk::step_timeseries_signature()</a></code>
+<dd><p>A Boolean indicating should the <code><a href="https://rdrr.io/pkg/timetk/man/step_timeseries_signature.html" class="external-link">timetk::step_timeseries_signature()</a></code>
 be added, default is TRUE.</p></dd>
 
 
@@ -121,7 +121,7 @@ be dummied and with one hot encoding.</p></dd>
 
 
 <dt>.step_ts_fourier</dt>
-<dd><p>A Boolean indicating if <code><a href="https://business-science.github.io/timetk/reference/step_fourier.html" class="external-link">timetk::step_fourier()</a></code> should
+<dd><p>A Boolean indicating if <code><a href="https://rdrr.io/pkg/timetk/man/step_fourier.html" class="external-link">timetk::step_fourier()</a></code> should
 be added to the recipe.</p></dd>
 
 
@@ -138,12 +138,12 @@ specification.</p></dd>
 
 
 <dt>.step_ts_yeo</dt>
-<dd><p>A Boolean indicating if the <code><a href="https://rdrr.io/pkg/recipes/man/step_YeoJohnson.html" class="external-link">recipes::step_YeoJohnson()</a></code> should
+<dd><p>A Boolean indicating if the <code><a href="https://recipes.tidymodels.org/reference/step_YeoJohnson.html" class="external-link">recipes::step_YeoJohnson()</a></code> should
 be added to the recipe.</p></dd>
 
 
 <dt>.step_ts_nzv</dt>
-<dd><p>A Boolean indicating if the <code><a href="https://rdrr.io/pkg/recipes/man/step_nzv.html" class="external-link">recipes::step_nzv()</a></code> should be run
+<dd><p>A Boolean indicating if the <code><a href="https://recipes.tidymodels.org/reference/step_nzv.html" class="external-link">recipes::step_nzv()</a></code> should be run
 on all predictors.</p></dd>
 
 </dl></div>
@@ -178,66 +178,63 @@ in a list.</p>
 <span class="r-in"><span>    , .pred_col <span class="op">=</span> <span class="va">value</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_base</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal_predictors()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">dplyr::contains("index.num")</span>, ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variables removed: <span style="color: #0000BB;">dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_date_fourier</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal_predictors()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fourier series features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Yeo-Johnson transformation on value</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">dplyr::contains("index.num")</span>, ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variables removed: <span style="color: #0000BB;">dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Fourier series features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Yeo-Johnson transformation on: <span style="color: #0000BB;">value</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_date_fourier_nzv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal_predictors()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fourier series features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Yeo-Johnson transformation on value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Sparse, unbalanced variable filter on recipes::all_predictors()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">dplyr::contains("index.num")</span>, ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variables removed: <span style="color: #0000BB;">dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Fourier series features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Yeo-Johnson transformation on: <span style="color: #0000BB;">value</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Sparse, unbalanced variable filter on: <span style="color: #0000BB;">recipes::all_predictors()</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">ts_auto_recipe</span><span class="op">(</span></span></span>
@@ -246,66 +243,63 @@ in a list.</p>
 <span class="r-in"><span>  , .pred_col <span class="op">=</span> <span class="va">value</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_base</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal_predictors()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">dplyr::contains("index.num")</span>, ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variables removed: <span style="color: #0000BB;">dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_date_fourier</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal_predictors()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fourier series features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Yeo-Johnson transformation on value</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">dplyr::contains("index.num")</span>, ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variables removed: <span style="color: #0000BB;">dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Fourier series features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Yeo-Johnson transformation on: <span style="color: #0000BB;">value</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $rec_date_fourier_nzv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Recipe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Inputs:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       role #variables</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    outcome          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  predictor          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Operations:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Timeseries signature features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Centering and scaling for dplyr::contains("index.num"), dplyr::contains("...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Variables removed dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dummy variables from recipes::all_nominal_predictors()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fourier series features from ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Yeo-Johnson transformation on value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Sparse, unbalanced variable filter on recipes::all_predictors()</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">dplyr::contains("index.num")</span>, ...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variables removed: <span style="color: #0000BB;">dplyr::matches("(iso$)|(xts$)|(hour)|(min)|(sec)|(am.pm)")</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Fourier series features from: <span style="color: #0000BB;">ds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Yeo-Johnson transformation on: <span style="color: #0000BB;">value</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Sparse, unbalanced variable filter on: <span style="color: #0000BB;">recipes::all_predictors()</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

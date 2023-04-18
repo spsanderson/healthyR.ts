@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.8.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +84,7 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.model_type</dt>
 <dd><p>This is where you will set your engine. It uses
-<a href="https://rdrr.io/pkg/parsnip/man/boost_tree.html" class="external-link">parsnip::boost_tree</a> under the hood and can take one of the following:</p><ul><li><p>"xgboost"</p></li>
+<a href="https://parsnip.tidymodels.org/reference/boost_tree.html" class="external-link">parsnip::boost_tree</a> under the hood and can take one of the following:</p><ul><li><p>"xgboost"</p></li>
 </ul></dd>
 
 
@@ -137,7 +137,7 @@ set to "regression".</p>
 is not needed. The parameter is kept because it is possible in the future that
 this could change, and it keeps with the framework of how other functions
 are written.</p>
-<p><code><a href="https://rdrr.io/pkg/parsnip/man/boost_tree.html" class="external-link">parsnip::boost_tree()</a></code> xgboost::xgb.train() creates a series of decision trees
+<p><code><a href="https://parsnip.tidymodels.org/reference/boost_tree.html" class="external-link">parsnip::boost_tree()</a></code> xgboost::xgb.train() creates a series of decision trees
 forming an ensemble. Each tree depends on the results of previous trees.
 All trees in the ensemble are combined to produce a final prediction.</p>
     </div>
@@ -173,7 +173,7 @@ All trees in the ensemble are combined to produce a final prediction.</p>
 <span class="r-in"><span>  <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://business-science.github.io/timetk/reference/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/timetk/man/time_series_split.html" class="external-link">time_series_split</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>   <span class="va">data</span></span></span>
 <span class="r-in"><span>  , <span class="va">date_col</span></span></span>
 <span class="r-in"><span>  , assess <span class="op">=</span> <span class="fl">12</span></span></span>
