@@ -77,7 +77,6 @@ data_tbl <- ts_to_tbl(AirPassengers) \%>\%
 splits <- initial_time_split(
  data_tbl
  , prop = 0.8
- , cumulative = TRUE
 )
 
 ts_auto_recipe(
