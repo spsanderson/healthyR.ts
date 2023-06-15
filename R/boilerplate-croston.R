@@ -200,8 +200,7 @@ ts_auto_croston <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
         wflw_fit <- wflw %>%
             tune::finalize_workflow(
                 tuned_results %>%
-                    tune::show_best(metric = best_metric, n = Inf) %>%
-                    dplyr::slice(1)
+                    tune::show_best(metric = best_metric, n = 1)
             ) %>%
             parsnip::fit(rsample::training(splits))
 
