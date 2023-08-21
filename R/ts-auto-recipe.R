@@ -47,7 +47,6 @@
 #' splits <- initial_time_split(
 #'  data_tbl
 #'  , prop = 0.8
-#'  , cumulative = TRUE
 #' )
 #'
 #' ts_auto_recipe(

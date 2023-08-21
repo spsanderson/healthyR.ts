@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.8.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.9.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,7 +131,7 @@ the assumption that the asset's price follows a random walk, meaning that it
 is influenced by a number of unpredictable factors such as market trends,
 news events, and investor sentiment.</p>
 <p>The equation for GBM is:</p>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> dS<span class="sc">/</span>S <span class="ot">=</span> mdt <span class="sc">+</span> sdW</span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a> dS<span class="sc">/</span>S <span class="ot">=</span> mdt <span class="sc">+</span> sdW</span></code></pre><p></p></div>
 <p>where S is the price of the asset, t is time, m is the expected return on the
 asset, s is the volatility of the asset, and dW is a small random change in
 the asset's price.</p>
@@ -174,16 +174,16 @@ assets and to make informed investment decisions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 291 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    sim_number  date_col    value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> actual_data 2022-01-01  0.611</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> actual_data 2022-01-02  1.03 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> actual_data 2022-01-03 -<span style="color: #BB0000;">0.745</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> actual_data 2022-01-04 -<span style="color: #BB0000;">0.295</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> actual_data 2022-01-05  0.579</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> actual_data 2022-01-06 -<span style="color: #BB0000;">1.40</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> actual_data 2022-01-07  0.592</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> actual_data 2022-01-08  0.370</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> actual_data 2022-01-09 -<span style="color: #BB0000;">0.593</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> actual_data 2022-01-10  0.742</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> actual_data 2022-01-01 -<span style="color: #BB0000;">0.735</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> actual_data 2022-01-02  0.655</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> actual_data 2022-01-03  1.02 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> actual_data 2022-01-04 -<span style="color: #BB0000;">0.169</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> actual_data 2022-01-05  0.862</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> actual_data 2022-01-06 -<span style="color: #BB0000;">0.926</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> actual_data 2022-01-07 -<span style="color: #BB0000;">1.14</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> actual_data 2022-01-08 -<span style="color: #BB0000;">1.18</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> actual_data 2022-01-09  0.570</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> actual_data 2022-01-10 -<span style="color: #BB0000;">0.581</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 281 more rows</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
