@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.9.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.10.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,6 +62,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="healthyrts-development-version">healthyR.ts (development version)<a class="anchor" aria-label="anchor" href="#healthyrts-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.10" id="healthyrts-0210">healthyR.ts 0.2.10<a class="anchor" aria-label="anchor" href="#healthyrts-0210"></a></h2><p class="text-muted">CRAN release: 2023-08-22</p>
+<div class="section level3">
+<h3 id="breaking-changes-0-2-10">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-10"></a></h3>
+<ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/439" class="external-link">#439</a> fix-example-rsample 6366226ec2dccdc296037e8e7efadf89994e6a1d from <a href="https://github.com/hfrick" class="external-link">@hfrick</a></li>
+</ol></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.9" id="healthyrts-029">healthyR.ts 0.2.9<a class="anchor" aria-label="anchor" href="#healthyrts-029"></a></h2><p class="text-muted">CRAN release: 2023-06-24</p>
@@ -165,7 +172,7 @@
 <div class="section level3">
 <h3 id="minor-fixes-and-improvements-0-2-4">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-0-2-4"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/368" class="external-link">#368</a> - Pull request from <a href="https://github.com/EmilHvitfeldt" class="external-link">@EmilHvitfeldt</a> to use <code><a href="https://rdrr.io/pkg/recipes/man/check_type.html" class="external-link">recipes::check_type()</a></code> on recipe functions.</li>
-<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/370" class="external-link">#370</a> - Update <code><a href="../reference/ts_model_spec_tune_template.html">ts_model_spec_tune_template()</a></code> to set <code>regression</code> as the argument to <code><a href="https://parsnip.tidymodels.org/reference/set_args.html" class="external-link">parsnip::set_mode()</a></code> which fires a failure in the <code><a href="../reference/ts_model_auto_tune.html">ts_model_auto_tune()</a></code> not running on newer versions of <code>parsnip</code>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/370" class="external-link">#370</a> - Update <code><a href="../reference/ts_model_spec_tune_template.html">ts_model_spec_tune_template()</a></code> to set <code>regression</code> as the argument to <code><a href="https://rdrr.io/pkg/parsnip/man/set_args.html" class="external-link">parsnip::set_mode()</a></code> which fires a failure in the <code><a href="../reference/ts_model_auto_tune.html">ts_model_auto_tune()</a></code> not running on newer versions of <code>parsnip</code>
 </li>
 </ol></div>
 </div>
@@ -293,7 +300,7 @@
 <div class="section level3">
 <h3 id="minor-fixes-and-improvements-0-1-9">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-0-1-9"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/212" class="external-link">#212</a> - Update recipes to use the new <code>[recipes::print_step()]</code> method.</li>
-<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/229" class="external-link">#229</a> - Change all plots to <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">ggplot2::theme_minimal()</a></code>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/229" class="external-link">#229</a> - Change all plots to <code><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html" class="external-link">ggplot2::theme_minimal()</a></code>
 </li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/242" class="external-link">#242</a> - Add <code>hardhat</code> to DESCRIPTION since functionality like extracting dials parameters was taken out of dials and moved to hardhat.</li>
 </ol></div>
