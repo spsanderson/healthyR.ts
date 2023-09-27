@@ -1,9 +1,24 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. Fix #456 Fix boilerplate examples to set the `.true` param to `FALSE`
+
 # healthyR.ts 0.2.10
 
 ## Breaking Changes
 1. Fix #439 fix-example-rsample 6366226ec2dccdc296037e8e7efadf89994e6a1d from @hfrick
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+None
 
 # healthyR.ts 0.2.9
 

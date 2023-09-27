@@ -93,7 +93,8 @@ ts_auto_poly <- ts_auto_svm_poly(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 3
+  .grid_size = 3,
+  .tune = FALSE
 )
 
 ts_auto_poly$recipe_info

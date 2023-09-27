@@ -92,12 +92,12 @@ ts_xgboost <- ts_auto_xgboost(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 5
+  .grid_size = 5,
+  .tune = FALSE
 )
 
 ts_xgboost$recipe_info
 }
-
 }
 \seealso{
 Other Boiler_Plate: 

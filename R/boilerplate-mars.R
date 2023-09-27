@@ -57,7 +57,8 @@
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 20
+#'   .grid_size = 20,
+#'   .tune = FALSE
 #' )
 #'
 #' ts_auto_mars$recipe_info

@@ -57,7 +57,8 @@
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 5
+#'   .grid_size = 5,
+#'   .tune = FALSE
 #' )
 #'
 #' ts_glmnet$recipe_info
@@ -145,7 +146,8 @@ ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
     } else {
         model_spec <- parsnip::linear_reg(
             mode   = "regression",
-            engine = "glmnet"
+            engine = "glmnet",
+            penalty = double(1)
         )
     }
 

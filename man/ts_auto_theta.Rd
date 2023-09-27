@@ -70,7 +70,6 @@ ts_theta <- ts_auto_theta(
 
 ts_theta$recipe_info
 }
-
 }
 \seealso{
 \url{https://business-science.github.io/modeltime/reference/exp_smoothing.html#engine-details}

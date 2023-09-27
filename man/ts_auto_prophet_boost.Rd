@@ -93,7 +93,8 @@ ts_prophet_boost <- ts_auto_prophet_boost(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 5
+  .grid_size = 5,
+  .tune = FALSE
 )
 
 ts_prophet_boost$recipe_info

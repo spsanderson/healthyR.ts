@@ -92,7 +92,8 @@ ts_prophet_reg <- ts_auto_prophet_reg(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 5
+  .grid_size = 5,
+  .tune = FALSE
 )
 
 ts_prophet_reg$recipe_info

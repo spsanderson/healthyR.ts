@@ -93,7 +93,8 @@ ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
   .rsamp_obj = splits,
   .formula = value ~ .,
   .grid_size = 5,
-  .cv_slice_limit = 2
+  .cv_slice_limit = 2,
+  .tune = FALSE
 )
 
 ts_auto_arima_xgboost$recipe_info

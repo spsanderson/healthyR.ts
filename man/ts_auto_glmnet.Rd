@@ -92,7 +92,8 @@ ts_glmnet <- ts_auto_glmnet(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 5
+  .grid_size = 5,
+  .tune = FALSE
 )
 
 ts_glmnet$recipe_info
