@@ -138,12 +138,12 @@ specification.</p></dd>
 
 
 <dt>.step_ts_yeo</dt>
-<dd><p>A Boolean indicating if the <code><a href="https://rdrr.io/pkg/recipes/man/step_YeoJohnson.html" class="external-link">recipes::step_YeoJohnson()</a></code> should
+<dd><p>A Boolean indicating if the <code><a href="https://recipes.tidymodels.org/reference/step_YeoJohnson.html" class="external-link">recipes::step_YeoJohnson()</a></code> should
 be added to the recipe.</p></dd>
 
 
 <dt>.step_ts_nzv</dt>
-<dd><p>A Boolean indicating if the <code><a href="https://rdrr.io/pkg/recipes/man/step_nzv.html" class="external-link">recipes::step_nzv()</a></code> should be run
+<dd><p>A Boolean indicating if the <code><a href="https://recipes.tidymodels.org/reference/step_nzv.html" class="external-link">recipes::step_nzv()</a></code> should be run
 on all predictors.</p></dd>
 
 </dl></div>
@@ -161,7 +161,6 @@ in a list.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org" class="external-link">rsample</a></span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'rsample' was built under R version 4.2.2</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span></span>

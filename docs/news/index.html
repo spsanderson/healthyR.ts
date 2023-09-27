@@ -62,6 +62,19 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="healthyrts-development-version">healthyR.ts (development version)<a class="anchor" aria-label="anchor" href="#healthyrts-development-version"></a></h2>
+<div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<p>None</p>
+</div>
+<div class="section level3">
+<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<p>None</p>
+</div>
+<div class="section level3">
+<h3 id="minor-fixes-and-improvements-development-version">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-development-version"></a></h3>
+<ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/456" class="external-link">#456</a> Fix boilerplate examples to set the <code>.true</code> param to <code>FALSE</code>
+</li>
+</ol></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.10" id="healthyrts-0210">healthyR.ts 0.2.10<a class="anchor" aria-label="anchor" href="#healthyrts-0210"></a></h2><p class="text-muted">CRAN release: 2023-08-22</p>
@@ -69,6 +82,14 @@
 <h3 id="breaking-changes-0-2-10">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-10"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/439" class="external-link">#439</a> fix-example-rsample 6366226ec2dccdc296037e8e7efadf89994e6a1d from <a href="https://github.com/hfrick" class="external-link">@hfrick</a></li>
 </ol></div>
+<div class="section level3">
+<h3 id="new-features-0-2-10">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-2-10"></a></h3>
+<p>None</p>
+</div>
+<div class="section level3">
+<h3 id="minor-fixes-and-improvements-0-2-10">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-0-2-10"></a></h3>
+<p>None</p>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.9" id="healthyrts-029">healthyR.ts 0.2.9<a class="anchor" aria-label="anchor" href="#healthyrts-029"></a></h2><p class="text-muted">CRAN release: 2023-06-24</p>
@@ -171,8 +192,8 @@
 </div>
 <div class="section level3">
 <h3 id="minor-fixes-and-improvements-0-2-4">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-0-2-4"></a></h3>
-<ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/368" class="external-link">#368</a> - Pull request from <a href="https://github.com/EmilHvitfeldt" class="external-link">@EmilHvitfeldt</a> to use <code><a href="https://rdrr.io/pkg/recipes/man/check_type.html" class="external-link">recipes::check_type()</a></code> on recipe functions.</li>
-<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/370" class="external-link">#370</a> - Update <code><a href="../reference/ts_model_spec_tune_template.html">ts_model_spec_tune_template()</a></code> to set <code>regression</code> as the argument to <code><a href="https://rdrr.io/pkg/parsnip/man/set_args.html" class="external-link">parsnip::set_mode()</a></code> which fires a failure in the <code><a href="../reference/ts_model_auto_tune.html">ts_model_auto_tune()</a></code> not running on newer versions of <code>parsnip</code>
+<ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/368" class="external-link">#368</a> - Pull request from <a href="https://github.com/EmilHvitfeldt" class="external-link">@EmilHvitfeldt</a> to use <code><a href="https://recipes.tidymodels.org/reference/check_type.html" class="external-link">recipes::check_type()</a></code> on recipe functions.</li>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/370" class="external-link">#370</a> - Update <code><a href="../reference/ts_model_spec_tune_template.html">ts_model_spec_tune_template()</a></code> to set <code>regression</code> as the argument to <code><a href="https://parsnip.tidymodels.org/reference/set_args.html" class="external-link">parsnip::set_mode()</a></code> which fires a failure in the <code><a href="../reference/ts_model_auto_tune.html">ts_model_auto_tune()</a></code> not running on newer versions of <code>parsnip</code>
 </li>
 </ol></div>
 </div>
@@ -205,7 +226,7 @@
 <div class="section level3">
 <h3 id="minor-fixes-and-improvements-0-2-2">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-0-2-2"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/343" class="external-link">#343</a> - Add attributes to output list of boilerplate functions.</li>
-<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/347" class="external-link">#347</a> - Fix <code><a href="../reference/ts_auto_lm.html">ts_auto_lm()</a></code> by dropping <code><a href="https://rdrr.io/pkg/recipes/man/step_rm.html" class="external-link">step_rm()</a></code> and <code><a href="https://rdrr.io/pkg/recipes/man/step_corr.html" class="external-link">step_corr()</a></code> which would prevent <code><a href="../reference/calibrate_and_plot.html">calibrate_and_plot()</a></code> from working due to <code>modeltime_calibration()</code> failing. Also dropped unused parameters from function and documentation.</li>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/347" class="external-link">#347</a> - Fix <code><a href="../reference/ts_auto_lm.html">ts_auto_lm()</a></code> by dropping <code><a href="https://recipes.tidymodels.org/reference/step_rm.html" class="external-link">step_rm()</a></code> and <code><a href="https://recipes.tidymodels.org/reference/step_corr.html" class="external-link">step_corr()</a></code> which would prevent <code><a href="../reference/calibrate_and_plot.html">calibrate_and_plot()</a></code> from working due to <code>modeltime_calibration()</code> failing. Also dropped unused parameters from function and documentation.</li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/349" class="external-link">#349</a> - Fix to <code><a href="../reference/ts_lag_correlation.html">ts_lag_correlation()</a></code> <code>select</code> statement.</li>
 </ol></div>
 </div>
@@ -300,7 +321,7 @@
 <div class="section level3">
 <h3 id="minor-fixes-and-improvements-0-1-9">Minor Fixes and Improvements<a class="anchor" aria-label="anchor" href="#minor-fixes-and-improvements-0-1-9"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/212" class="external-link">#212</a> - Update recipes to use the new <code>[recipes::print_step()]</code> method.</li>
-<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/229" class="external-link">#229</a> - Change all plots to <code><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html" class="external-link">ggplot2::theme_minimal()</a></code>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/229" class="external-link">#229</a> - Change all plots to <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">ggplot2::theme_minimal()</a></code>
 </li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/242" class="external-link">#242</a> - Add <code>hardhat</code> to DESCRIPTION since functionality like extracting dials parameters was taken out of dials and moved to hardhat.</li>
 </ol></div>
@@ -315,7 +336,7 @@
 <h3 id="new-features-0-1-8">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-1-8"></a></h3>
 <ol style="list-style-type: decimal"><li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/201" class="external-link">#201</a> - Add Fitted <code>ts</code> and Fitted <code>tibble</code> data to output.</li>
 <li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/202" class="external-link">#202</a> - Add Residuals <code>ts</code> and Residuals <code>tibble</code> data to output.</li>
-<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/204" class="external-link">#204</a> - Add <code><a href="https://rdrr.io/pkg/forecast/man/Arima.html" class="external-link">Arima()</a></code> models with xreg to <code><a href="../reference/ts_forecast_simulator.html">ts_forecast_simulator()</a></code>
+<li>Fix <a href="https://github.com/spsanderson/healthyR.ts/issues/204" class="external-link">#204</a> - Add <code><a href="https://pkg.robjhyndman.com/forecast/reference/Arima.html" class="external-link">Arima()</a></code> models with xreg to <code><a href="../reference/ts_forecast_simulator.html">ts_forecast_simulator()</a></code>
 </li>
 </ol></div>
 <div class="section level3">
