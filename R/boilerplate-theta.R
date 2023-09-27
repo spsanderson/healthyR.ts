@@ -52,8 +52,7 @@
 #' )
 #'
 #' ts_theta$recipe_info
-#' }
-#'
+#'}
 #' @return
 #' A list
 #'

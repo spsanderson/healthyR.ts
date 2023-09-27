@@ -93,7 +93,8 @@ ts_exp <- ts_auto_exp_smoothing(
   .value_col = value,
   .rsamp_obj = splits,
   .formula = value ~ .,
-  .grid_size = 20
+  .grid_size = 20,
+  .tune = FALSE
 )
 
 ts_exp$recipe_info

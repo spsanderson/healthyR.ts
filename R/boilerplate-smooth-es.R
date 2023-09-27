@@ -60,7 +60,8 @@
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
 #'   .formula = value ~ .,
-#'   .grid_size = 3
+#'   .grid_size = 3,
+#'   .tune = FALSE
 #' )
 #'
 #' ts_smooth_es$recipe_info
