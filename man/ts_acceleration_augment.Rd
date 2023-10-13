@@ -46,6 +46,7 @@ ts_acceleration_augment(data_tbl, b)
 }
 \seealso{
 Other Augment Function: 
+\code{\link{ts_growth_rate_augment}()},
 \code{\link{ts_velocity_augment}()}
 }
 \author{
