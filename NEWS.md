@@ -4,7 +4,7 @@
 None
 
 ## New Features
-None
+1. Fix #459 - Add function `ts_growth_rate_vec()`
 
 ## Minor Fixes and Improvements
 1. Fix #456 Fix boilerplate examples to set the `.true` param to `FALSE`

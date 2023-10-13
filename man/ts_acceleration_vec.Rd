@@ -45,6 +45,7 @@ lines(vec_1, col = "blue")
 }
 \seealso{
 Other Vector Function: 
+\code{\link{ts_growth_rate_vec}()},
 \code{\link{ts_velocity_vec}()}
 }
 \author{
