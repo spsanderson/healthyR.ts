@@ -85,6 +85,7 @@ output <- calibrate_and_plot(
 }
 \seealso{
 Other Utility: 
+\code{\link{auto_stationarize}()},
 \code{\link{internal_ts_backward_event_tbl}()},
 \code{\link{internal_ts_both_event_tbl}()},
 \code{\link{internal_ts_forward_event_tbl}()},
