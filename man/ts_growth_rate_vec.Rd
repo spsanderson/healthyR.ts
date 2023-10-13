@@ -52,6 +52,10 @@ ts_growth_rate_vec(c(100, 110, 120, 130), .scale = 10, .power = 2)
 # Calculate the log differences of a time series with lags.
 ts_growth_rate_vec(c(100, 110, 120, 130), .log_diff = TRUE, .lags = -1)
 
+# Plot
+plot.ts(AirPassengers)
+plot.ts(ts_growth_rate_vec(AirPassengers))
+
 }
 \seealso{
 Other Vector Function: 
