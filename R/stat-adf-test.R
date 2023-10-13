@@ -70,16 +70,16 @@ ts_adf_test <- function(.x, .k = NULL) {
     k <- k + 1
     y <- diff(x)
     n <- length(y)
-    z <- embed(y, k)
+    z <- stats::embed(y, k)
     yt <- z[, 1]
     xt1 <- x[k:n]
     tt <- k:n
 
     if (k > 1) {
         yt1 <- z[, 2:k]
-        res <- lm(yt ~ xt1 + 1 + tt + yt1)
+        res <- stats::lm(yt ~ xt1 + 1 + tt + yt1)
     } else {
-        res <- lm(yt ~ xt1 + 1 + tt)
+        res <- stats::lm(yt ~ xt1 + 1 + tt)
     }
 
     res_sum <- summary(res)
@@ -100,9 +100,9 @@ ts_adf_test <- function(.x, .k = NULL) {
     tablep <- c(0.01, 0.025, 0.05, 0.10, 0.90, 0.95, 0.975, 0.99)
     tableipl <- numeric(tablen)
     for (i in (1:tablen)) {
-        tableipl[i] <- approx(tableT, table[, i], n, rule = 2)$y
+        tableipl[i] <- stats::approx(tableT, table[, i], n, rule = 2)$y
     }
-    p_val <- approx(tableipl, tablep, stat, rule = 2)$y
+    p_val <- stats::approx(tableipl, tablep, stat, rule = 2)$y
 
     return(
         list(
