@@ -28,8 +28,6 @@ rates using the \code{.value} parameter, and optionally specify custom names for
 the new columns using the \code{.names} parameter.
 }
 \examples{
-# Example 1: Augment a data frame with growth rates of the 'Income' and
-'Expenses' columns
 data <- data.frame(
   Year = 1:5,
   Income = c(100, 120, 150, 180, 200),
