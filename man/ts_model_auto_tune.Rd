@@ -188,6 +188,7 @@ Other Model Tuning:
 \code{\link{ts_model_spec_tune_template}()}
 
 Other Utility: 
+\code{\link{auto_stationarize}()},
 \code{\link{calibrate_and_plot}()},
 \code{\link{internal_ts_backward_event_tbl}()},
 \code{\link{internal_ts_both_event_tbl}()},

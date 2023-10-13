@@ -112,6 +112,7 @@ ts_model_compare(
 }
 \seealso{
 Other Utility: 
+\code{\link{auto_stationarize}()},
 \code{\link{calibrate_and_plot}()},
 \code{\link{internal_ts_backward_event_tbl}()},
 \code{\link{internal_ts_both_event_tbl}()},
