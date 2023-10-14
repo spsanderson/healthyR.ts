@@ -57,10 +57,7 @@ functions in the \code{.GlobalEnviron} and it will take them as quoted arguments
 
 So you can make a function as follows
 
-my_mean <- function(x){
-ret <- mean(x, na.rm = TRUE)
-return(ret)
-}
+'my_mean <- function(x){return(mean(x, na.rm = TRUE))}'
 
 You can then call this by using \code{.features = c("my_mean")}.
 
