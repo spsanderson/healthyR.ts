@@ -16,7 +16,7 @@
 #'
 #' So you can make a function as follows
 #'
-#' 'my_mean <- function(x){return(mean(x, na.rm = TRUE))}'
+#' `my_mean <- function(x){return(mean(x, na.rm = TRUE))}`
 #'
 #' You can then call this by using `.features = c("my_mean")`.
 #'
