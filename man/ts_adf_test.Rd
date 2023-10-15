@@ -38,7 +38,12 @@ custom_ts <- rnorm(100, 0, 1)
 ts_adf_test(custom_ts)
 
 }
+\seealso{
+Other Statistic: 
+\code{\link{ci_hi}()},
+\code{\link{ci_lo}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Statistical Test}
+\concept{Statistic}

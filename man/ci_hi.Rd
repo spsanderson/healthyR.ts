@@ -27,7 +27,8 @@ ci_hi(x)
 }
 \seealso{
 Other Statistic: 
-\code{\link{ci_lo}()}
+\code{\link{ci_lo}()},
+\code{\link{ts_adf_test}()}
 }
 \author{
 Steven P. Sanderson II, MPH
