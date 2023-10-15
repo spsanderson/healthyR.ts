@@ -14,7 +14,7 @@ scaling, power, and lag differences."><meta property="og:image" content="https:/
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.10.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.11.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,6 +142,12 @@ growth_rate = log(x / lead(x, -lags)) * scale</p></li>
 <span class="r-in"><span><span class="co"># Calculate the log differences of a time series with lags.</span></span></span>
 <span class="r-in"><span><span class="fu">ts_growth_rate_vec</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">110</span>, <span class="fl">120</span>, <span class="fl">130</span><span class="op">)</span>, .log_diff <span class="op">=</span> <span class="cn">TRUE</span>, .lags <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -9.531018 -8.701138 -8.004271        NA</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Plot</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="ts_growth_rate_vec-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="fu">ts_growth_rate_vec</span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="ts_growth_rate_vec-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -34,6 +34,9 @@
     <loc>https://www.spsanderson.com/healthyR.ts/reference/assign_value.html</loc>
   </url>
   <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/auto_stationarize.html</loc>
+  </url>
+  <url>
     <loc>https://www.spsanderson.com/healthyR.ts/reference/calibrate_and_plot.html</loc>
   </url>
   <url>
@@ -92,6 +95,9 @@
   </url>
   <url>
     <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_acceleration_vec.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_adf_test.html</loc>
   </url>
   <url>
     <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_arima_simulator.html</loc>
@@ -185,6 +191,9 @@
   </url>
   <url>
     <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_get_date_columns.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_growth_rate_augment.html</loc>
   </url>
   <url>
     <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_growth_rate_vec.html</loc>

@@ -12,7 +12,7 @@ come from using the K-Means clustering algorithm on a time series data."><meta p
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.10.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.11.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,9 +138,7 @@ a clustering analysis using the <code>K-Means</code> algorithm.</p>
 listed in the <code>tsfeatures</code> package by Rob Hyndman. You can also create custom
 functions in the <code>.GlobalEnviron</code> and it will take them as quoted arguments.</p>
 <p>So you can make a function as follows</p>
-<p>my_mean &lt;- function(x)
-ret &lt;- mean(x, na.rm = TRUE)
-return(ret)</p>
+<p><code>my_mean &lt;- function(x){return(mean(x, na.rm = TRUE))}</code></p>
 <p>You can then call this by using <code>.features = c("my_mean")</code>.</p>
 <p>The output of this function includes the following:</p>
 <p><strong>Data Section</strong></p><ul><li><p>ts_feature_tbl</p></li>

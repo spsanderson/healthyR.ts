@@ -1,6 +1,6 @@
 #' Augmented Dickey-Fuller Test for Time Series Stationarity
 #'
-#' @family Statistical Test
+#' @family Statistic
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
