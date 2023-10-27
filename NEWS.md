@@ -4,7 +4,7 @@
 None
 
 ## New Features
-None
+1. Fix #484 - Add function `util_log_ts()`
 
 ## Minor Fixes and Improvements
 1. Fix #480 - Add attributes to output of `ts_growth_rate_vec()`
