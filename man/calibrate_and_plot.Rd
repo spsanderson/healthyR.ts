@@ -101,7 +101,8 @@ Other Utility:
 \code{\link{ts_qq_plot}()},
 \code{\link{ts_scedacity_scatter_plot}()},
 \code{\link{ts_to_tbl}()},
-\code{\link{util_log_ts}()}
+\code{\link{util_log_ts}()},
+\code{\link{util_singlediff_ts}()}
 }
 \author{
 Steven P. Sanderson II, MPH
