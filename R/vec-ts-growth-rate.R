@@ -55,6 +55,9 @@ NULL
 ts_growth_rate_vec <- function(.x, .scale = 100, .power = 1, .log_diff = FALSE,
                                .lags = 1){
 
+    # Catch attributes of incoming vector
+    atb <- attributes(.x)
+
     # Variables
     x <- as.vector(as.numeric(.x))
     s <- as.numeric(.scale)
@@ -94,13 +97,20 @@ ts_growth_rate_vec <- function(.x, .scale = 100, .power = 1, .log_diff = FALSE,
     # Calculation
     if (l < 0){
         if (ld) {
-            return(log(x / dplyr::lead(x, -l)) * s)
+            x <- (log(x / dplyr::lead(x, -l)) * s)
         } else {
-            return(((x / dplyr::lead(x, -l))^p - 1) * s)
+            x <- (((x / dplyr::lead(x, -l))^p - 1) * s)
         }
     } else if (ld){
-        return(log(x/dplyr::lag(x, l)) * s)
+        x <- (log(x/dplyr::lag(x, l)) * s)
     } else {
-        return(((x / dplyr::lag(x, l))^p - 1) * s)
+        x <- (((x / dplyr::lag(x, l))^p - 1) * s)
     }
+
+    # Attributes
+    attr(x, "vector_attributes") <- atb
+    attr(x, "name") <- deparse(substitute(.x))
+
+    # Return
+    return(x)
 }
