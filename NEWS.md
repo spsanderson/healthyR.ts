@@ -12,6 +12,7 @@ None
 
 ## Minor Fixes and Improvements
 1. Fix #480 - Add attributes to output of `ts_growth_rate_vec()`
+2. Fix #481 #483 - Update `auto_stationarize()`
 
 # healthyR.ts 0.2.11
 

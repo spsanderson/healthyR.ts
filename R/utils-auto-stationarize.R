@@ -37,8 +37,11 @@ NULL
 #' @export
 #' @rdname auto_stationarize
 auto_stationarize <- function(.time_series) {
+
     # Variables
     time_series <- .time_series
+    freq <- frequency(.time_series)
+    min_x <- min(.time_series)
 
     # Check if the time series is already stationary
     if (ts_adf_test(time_series)$p_value < 0.05) {
@@ -49,22 +52,23 @@ auto_stationarize <- function(.time_series) {
     }
 
     # Transformation (e.g., logarithmic)
-    if (ts_adf_test(log(time_series))$p_value < 0.05) {
-        cat("Logarithmic transformation made the time series stationary.")
-        return(log(time_series))
-    }
+    ret <- util_log_ts(time_series)
+    if(ret$ret == TRUE){return(ret)}
 
-    # Differencing
-    if (ts_adf_test(diff(time_series, 1))$p_value >= 0.05) {
-        diff_order <- forecast::ndiffs(time_series)
-        cat("Differencing of order", diff_order, "made the time series stationary.\n")
-    }
+    # Single Differencing
+    ret <- util_singlediff_ts(time_series)
+    if (ret$ret == TRUE){return(ret)}
 
-    # Return
-    return(
-        list(
-            stationary_ts = diff(time_series, diff_order),
-            ndiffs = diff_order
-        )
-    )
+    # Double Differencing
+    ret <- util_doublediff_ts(time_series)
+    if (ret$ret == TRUE){return(ret)}
+
+    # Diff of Log
+    ret <- util_difflog_ts(time_series)
+    if (ret$ret == TRUE){return(ret)}
+
+    # Double Diff Log
+    ret <- util_doubledifflog_ts(time_series)
+    if (ret$ret == TRUE){return(ret)}
+
 }
