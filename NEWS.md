@@ -6,6 +6,7 @@ None
 ## New Features
 1. Fix #484 - Add function `util_log_ts()`
 2. Fix #485 - Add function `util_singlediff_ts()`
+3. Fix #486 - Add function `util_doublediff_ts()`
 
 ## Minor Fixes and Improvements
 1. Fix #480 - Add attributes to output of `ts_growth_rate_vec()`
