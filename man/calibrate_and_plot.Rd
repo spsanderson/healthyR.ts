@@ -103,6 +103,7 @@ Other Utility:
 \code{\link{ts_to_tbl}()},
 \code{\link{util_difflog_ts}()},
 \code{\link{util_doublediff_ts}()},
+\code{\link{util_doubledifflog_ts}()},
 \code{\link{util_log_ts}()},
 \code{\link{util_singlediff_ts}()}
 }
