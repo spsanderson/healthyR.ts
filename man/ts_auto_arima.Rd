@@ -85,7 +85,7 @@ splits <- time_series_split(
   , cumulative = TRUE
 )
 
-ts_auto_arima <- ts_auto_arima(
+ts_aa <- ts_auto_arima(
   .data = data,
   .num_cores = 2,
   .date_col = date_col,
@@ -97,7 +97,7 @@ ts_auto_arima <- ts_auto_arima(
   .tune = FALSE
 )
 
-ts_auto_arima$recipe_info
+ts_aa$recipe_info
 }
 
 }
