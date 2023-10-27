@@ -13,6 +13,8 @@ None
 ## Minor Fixes and Improvements
 1. Fix #480 - Add attributes to output of `ts_growth_rate_vec()`
 2. Fix #481 #483 - Update `auto_stationarize()`
+3. Fix #489 - Update `ts_auto_arima()` to utilize the parsnip engine of `auto_arima`
+if `.tune` is set to `FALSE`
 
 # healthyR.ts 0.2.11
 

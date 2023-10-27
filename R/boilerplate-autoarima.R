@@ -51,7 +51,7 @@
 #'   , cumulative = TRUE
 #' )
 #'
-#' ts_auto_arima <- ts_auto_arima(
+#' ts_aa <- ts_auto_arima(
 #'   .data = data,
 #'   .num_cores = 2,
 #'   .date_col = date_col,
@@ -63,7 +63,7 @@
 #'   .tune = FALSE
 #' )
 #'
-#' ts_auto_arima$recipe_info
+#' ts_aa$recipe_info
 #' }
 #'
 #' @return
@@ -135,14 +135,24 @@ ts_auto_arima <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
             , seasonal_ar              = tune::tune()
             , seasonal_differences     = tune::tune()
             , seasonal_ma              = tune::tune()
-        )
+        ) %>%
+            parsnip::set_mode(mode = "regression") %>%
+            parsnip::set_engine("arima")
     } else {
-        model_spec <- modeltime::arima_reg()
+        model_spec <- modeltime::arima_reg() %>%
+            parsnip::set_mode(mode = "regression") %>%
+            parsnip::set_engine("auto_arima")
     }
 
-    model_spec <- model_spec %>%
-        parsnip::set_mode(mode = "regression") %>%
-        parsnip::set_engine("arima")
+    # if (.tune == TRUE){
+    #   model_spec <- model_spec %>%
+    #     parsnip::set_mode(mode = "regression") %>%
+    #     parsnip::set_engine("arima")
+    # } else {
+    #   model_spec <- model_spec %>%
+    #     parsnip::set_mode(mode = "regression") %>%
+    #     parsnip::set_engine("auto_arima")
+    # }
 
     # Workflow ----
     wflw <- workflows::workflow() %>%
@@ -256,7 +266,7 @@ ts_auto_arima <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
     attr(output, ".best_metric") <- .best_metric
     attr(output, ".bootstrap_final") <- .bootstrap_final
     attr(output, ".mode") <- "regression"
-    attr(output, ".parsnip_engine") <- "arima"
+    attr(output, ".parsnip_engine") <- ifelse(.tune, "arima", "auto_arima")
     attr(output, ".function_family") <- "boilerplate"
 
     return(invisible(output))
