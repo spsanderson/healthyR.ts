@@ -7,7 +7,7 @@ None
 None
 
 ## Minor Fixes and Improvements
-None
+1. Fix #480 - Add attributes to output of `ts_growth_rate_vec()`
 
 # healthyR.ts 0.2.11
 
