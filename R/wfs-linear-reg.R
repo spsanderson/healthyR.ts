@@ -58,8 +58,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_lin_reg
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_lin_reg
 
 ts_wfs_lin_reg <- function(.model_type, .recipe_list, .penalty = 1, .mixture = 0.5){
 

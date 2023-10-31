@@ -50,8 +50,11 @@
 #' output$ggplot
 #'
 #' @return The original time series, the simulated values and a some plots
-#'
-#' @export ts_forecast_simulator
+#' @name ts_forecast_simulator
+NULL
+
+#' @export
+#' @rdname ts_forecast_simulator
 
 ts_forecast_simulator <- function(.model,
                                   .data,

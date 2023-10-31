@@ -22,7 +22,6 @@ ts_is_date_class()
 
 letters \%>\% ts_is_date_class()
 
-
 }
 \seealso{
 Other Utility: 

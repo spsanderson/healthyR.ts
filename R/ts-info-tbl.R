@@ -34,9 +34,11 @@
 #'
 #' @return
 #' A tibble
-#'
+#' @name ts_info_tbl
+NULL
+
 #' @export ts_info_tbl
-#'
+#' @rdname ts_info_tbl
 
 ts_info_tbl <- function(.data, .date_col){
 

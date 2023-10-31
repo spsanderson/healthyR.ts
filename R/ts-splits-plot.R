@@ -45,8 +45,11 @@
 #' @return
 #' A time series cv plan plot
 #'
+#' @name ts_splits_plot
+NULL
+
 #' @export
-#'
+#' @rdname ts_splits_plot
 
 ts_splits_plot <- function(.splits_obj, .date_col, .value_col){
 

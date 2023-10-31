@@ -67,9 +67,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_prophet_boost
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_prophet_boost
 
 ts_auto_prophet_boost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                                   .prefix = "ts_prophet_boost", .tune = TRUE, .grid_size = 10,

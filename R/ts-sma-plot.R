@@ -33,8 +33,11 @@
 #' @return
 #' Will return a list object.
 #'
+#' @name ts_sma_plot
+NULL
+
 #' @export ts_sma_plot
-#'
+#' @rdname ts_sma_plot
 
 ts_sma_plot <- function(.data, .date_col, .value_col, .sma_order = 2,
                         .func = mean, .align = "center", .partial = FALSE) {

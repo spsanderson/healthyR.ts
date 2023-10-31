@@ -64,8 +64,11 @@
 #' @return
 #' A list
 #'
+#' @name ts_auto_xgboost
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_xgboost
 
 ts_auto_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                             .prefix = "ts_xgboost", .tune = TRUE, .grid_size = 10,

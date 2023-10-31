@@ -52,9 +52,11 @@
 #'
 #' @return
 #' A few time series data sets and two plots.
-#'
-#' @export ts_ma_plot
+#' @name ts_ma_plot
+NULL
 
+#' @export ts_ma_plot
+#' @rdname ts_ma_plot
 ts_ma_plot <- function(.data,
                             .date_col,
                             .value_col,

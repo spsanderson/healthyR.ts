@@ -46,8 +46,11 @@
 #' @return
 #' A tuneable parsnip model specification.
 #'
+#' @name ts_model_spec_tune_template
+NULL
+
 #' @export
-#'
+#' @rdname ts_model_spec_tune_template
 
 ts_model_spec_tune_template <- function(.parsnip_engine = NULL, .model_spec_class = NULL){
 

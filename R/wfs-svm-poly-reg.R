@@ -70,8 +70,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_svm_poly
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_svm_poly
 
 ts_wfs_svm_poly <- function(.model_type = "kernlab", .recipe_list,
                         .cost = 1, .degree = 1, .scale_factor = 1.0,

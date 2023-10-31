@@ -65,11 +65,11 @@
 #'
 #' @return
 #' The original time series, the simulated values and a some plots
-#'
+#' @name calibrate_and_plot
+NULL
+
 #' @export calibrate_and_plot
-#'
-# *** PLOTTING UTILITY *** ----
-# - Calibrate & Plot
+#' @rdname calibrate_and_plot
 calibrate_and_plot <- function(..., .type = "testing", .splits_obj
                                , .data, .print_info = TRUE
                                , .interactive = FALSE){

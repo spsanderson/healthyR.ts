@@ -43,9 +43,11 @@
 #'
 #' @return
 #' A ggplot2 plot or if interactive a plotly plot
-#'
+#' @name ts_calendar_heatmap_plot
+NULL
+
 #' @export
-#'
+#' @rdname ts_calendar_heatmap_plot
 
 ts_calendar_heatmap_plot <- function(.data, .date_col, .value_col,
                                      .low = "red", .high = "green",

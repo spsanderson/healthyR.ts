@@ -83,7 +83,6 @@ tst \%>\%
     y = "Mean Event Change"
   )
 
-
 }
 \seealso{
 Other Time_Filtering: 

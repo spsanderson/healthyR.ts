@@ -89,8 +89,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_prophet_reg
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_prophet_reg
 
 ts_wfs_prophet_reg <- function(.model_type = "all_engines",
                                .recipe_list,

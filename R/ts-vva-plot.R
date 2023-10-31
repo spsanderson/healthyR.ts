@@ -34,8 +34,11 @@
 #' and a plotly plot of the ggplot object. The output is a list that gets returned
 #' invisibly.
 #'
+#' @name ts_vva_plot
+NULL
+
 #' @export ts_vva_plot
-#'
+#' @rdname ts_vva_plot
 
 ts_vva_plot <- function(.data, .date_col, .value_col){
 

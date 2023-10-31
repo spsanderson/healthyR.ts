@@ -60,8 +60,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_auto_arima
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_auto_arima
 
 ts_wfs_auto_arima <- function(.model_type = "auto_arima", .recipe_list){
 

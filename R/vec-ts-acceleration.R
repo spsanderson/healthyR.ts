@@ -39,8 +39,11 @@
 #' @return
 #' A numeric vector
 #'
+#' @name ts_acceleration_vec
+NULL
+
 #' @export
-#'
+#' @rdname ts_acceleration_vec
 
 ts_acceleration_vec <- function(.x){
 

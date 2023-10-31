@@ -45,9 +45,11 @@
 #'
 #' @return
 #' A ggplot2 object
-#'
+#' @name ts_event_analysis_plot
+NULL
+
 #' @export
-#'
+#' @rdname ts_event_analysis_plot
 
 ts_event_analysis_plot <- function(.data, .plot_type = "mean", .plot_ci = TRUE,
                                    .interactive = FALSE){

@@ -66,9 +66,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_glmnet
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_glmnet
 
 ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                            .prefix = "ts_glmnet", .tune = TRUE, .grid_size = 10,

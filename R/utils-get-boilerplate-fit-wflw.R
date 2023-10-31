@@ -41,8 +41,11 @@
 #' @return
 #' A fitted `workflow` object.
 #'
+#' @name ts_extract_auto_fitted_workflow
+NULL
+
 #' @export
-#'
+#' @rdname ts_extract_auto_fitted_workflow
 
 ts_extract_auto_fitted_workflow <- function(.input){
 

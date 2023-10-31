@@ -56,8 +56,11 @@
 #' @return
 #' A list
 #'
+#' @name ts_auto_theta
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_theta
 
 ts_auto_theta <- function(.data, .date_col, .value_col, .rsamp_obj,
                           .prefix = "ts_theta", .bootstrap_final = FALSE){

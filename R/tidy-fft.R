@@ -82,9 +82,11 @@
 #'
 #' @return
 #' A list object returned invisibly.
-#'
+#' @name tidy_fft
+NULL
+
 #' @export
-#'
+#' @rdname tidy_fft
 
 tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
                      .harmonics = 1L, .upsampling = 10L){

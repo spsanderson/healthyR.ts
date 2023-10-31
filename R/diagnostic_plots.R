@@ -30,9 +30,11 @@
 #'
 #' @return
 #' A `ggplot2` layers object
-#'
+#' @name ts_random_walk_ggplot_layers
+NULL
+
 #' @export
-#'
+#' @rdname ts_random_walk_ggplot_layers
 
 # Function for obtaining ggplot layers to commonly apply to subsequent plots
 ts_random_walk_ggplot_layers <- function(.data) {
@@ -128,9 +130,11 @@ ts_random_walk_ggplot_layers <- function(.data) {
 #'
 #' @return
 #' A static ggplot2 graph or if .interactive is set to TRUE a plotly plot
-#'
+#' @name ts_qc_run_chart
+NULL
+
 #' @export
-#'
+#' @rdname ts_qc_run_chart
 
 ts_qc_run_chart <- function(.data, .date_col, .value_col, .interactive = FALSE,
                             .median = TRUE, .cl = TRUE, .mcl = TRUE, .ucl = TRUE,

@@ -68,9 +68,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_svm_poly
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_svm_poly
 
 ts_auto_svm_poly <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                              .prefix = "ts_svm_poly", .tune = TRUE, .grid_size = 10,

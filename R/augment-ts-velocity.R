@@ -36,10 +36,13 @@
 #' ts_velocity_augment(data_tbl, b)
 #'
 #' @return
-#' A augmented tibble
+#' A augmented
 #'
+#' @name ts_velocity_augment
+NULL
+
 #' @export
-#
+#' @rdname ts_velocity_augment
 
 ts_velocity_augment <- function(.data, .value, .names = "auto"){
 

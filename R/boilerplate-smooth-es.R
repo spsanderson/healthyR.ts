@@ -69,9 +69,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_smooth_es
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_smooth_es
 
 ts_auto_smooth_es <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                               .prefix = "ts_smooth_es", .tune = TRUE, .grid_size = 10,

@@ -22,8 +22,11 @@
 #' @return
 #' A tibble
 #'
+#' @name ts_to_tbl
+NULL
+
 #' @export ts_to_tbl
-#'
+#' @rdname ts_to_tbl
 
 ts_to_tbl <- function(.data){
 

@@ -68,9 +68,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_svm_rbf
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_svm_rbf
 
 ts_auto_svm_rbf <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                             .prefix = "ts_svm_rbf", .tune = TRUE, .grid_size = 10,

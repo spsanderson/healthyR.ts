@@ -73,8 +73,11 @@
 #' @return
 #' A Scedacity plot.
 #'
+#' @name ts_scedacity_scatter_plot
+NULL
+
 #' @export
-#'
+#' @rdname ts_scedacity_scatter_plot
 
 ts_scedacity_scatter_plot <- function(.calibration_tbl, .model_id = NULL
                                       , .interactive = FALSE){

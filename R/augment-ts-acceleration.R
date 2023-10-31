@@ -38,8 +38,11 @@
 #' @return
 #' A augmented tibble
 #'
+#' @name ts_acceleration_augment
+NULL
+
 #' @export
-#
+#' @rdname ts_acceleration_augment
 
 ts_acceleration_augment <- function(.data
                                    , .value

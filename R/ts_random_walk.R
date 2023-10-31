@@ -39,8 +39,11 @@
 #' @return
 #' A tibble
 #'
+#' @name ts_random_walk
+NULL
+
 #' @export
-#'
+#' @rdname ts_random_walk
 
 ts_random_walk <- function(
     .mean = 0.0,

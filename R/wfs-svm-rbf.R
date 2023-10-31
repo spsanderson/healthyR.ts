@@ -69,8 +69,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_svm_rbf
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_svm_rbf
 
 ts_wfs_svm_rbf <- function(.model_type = "kernlab", .recipe_list,
                             .cost = 1, .rbf_sigma = 0.01,

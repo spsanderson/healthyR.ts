@@ -17,8 +17,11 @@
 #' ts_to_tbl(AirPassengers) %>%
 #'   ts_get_date_columns()
 #'
+#' @name ts_get_date_columns
+NULL
+
 #' @export
-#'
+#' @rdname ts_get_date_columns
 
 ts_get_date_columns <- function(.data){
 
@@ -57,8 +60,11 @@ ts_get_date_columns <- function(.data){
 #'
 #' letters %>% ts_is_date_class()
 #'
-#'
+#' @name ts_is_date_class
+NULL
+
 #' @export
+#' @rdname ts_is_date_class
 
 ts_is_date_class <- function(.x) {
 

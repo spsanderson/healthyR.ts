@@ -43,9 +43,11 @@
 #'
 #' @return
 #' A list object.
-#'
+#' @name ts_arima_simulator
+NULL
+
 #' @export
-#'
+#' @rdname ts_arima_simulator
 
 ts_arima_simulator <- function(.n = 100, .num_sims = 25, .order_p = 0,
                                .order_d = 0, .order_q = 0, .ma = c(), .ar = c(),

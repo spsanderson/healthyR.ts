@@ -71,9 +71,11 @@
 #' )
 #'
 #' @return A list output
-#'
+#' @name ts_feature_cluster
+NULL
+
 #' @export
-#'
+#' @rdname ts_feature_cluster
 
 ts_feature_cluster <- function(.data, .date_col, .value_col, ...,
                        .features = c("frequency","entropy","acf_features"),

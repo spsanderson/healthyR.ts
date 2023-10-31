@@ -54,9 +54,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_lm
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_lm
 
 ts_auto_lm <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                        .prefix = "ts_lm", .bootstrap_final = FALSE){

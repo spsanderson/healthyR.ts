@@ -70,9 +70,11 @@
 #'
 #' @return
 #' A tibble with models ranked by metric performance order
-#'
+#' @name ts_model_rank_tbl
+NULL
+
 #' @export
-#'
+#' @rdname ts_model_rank_tbl
 
 ts_model_rank_tbl <- function(.calibration_tbl){
 

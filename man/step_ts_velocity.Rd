@@ -92,7 +92,6 @@ prep(rec_obj)
 bake(prep(rec_obj), data_tbl)
 
 rec_obj \%>\% prep() \%>\% juice()
-
 }
 \seealso{
 Other Recipes: 
