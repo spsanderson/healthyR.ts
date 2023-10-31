@@ -66,9 +66,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_mars
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_mars
 
 ts_auto_mars <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                          .prefix = "ts_mars", .tune = TRUE, .grid_size = 10,

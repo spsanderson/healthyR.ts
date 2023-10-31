@@ -58,8 +58,11 @@
 #'     , visits  = sum(value)
 #'   )
 #'
+#' @name ts_compare_data
+NULL
+
 #' @export
-#'
+#' @rdname ts_compare_data
 
 ts_compare_data <- function(.data, .date_col, .start_date, .end_date
                             , .periods_back) {

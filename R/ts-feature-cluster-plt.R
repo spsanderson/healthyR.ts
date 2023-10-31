@@ -66,9 +66,11 @@
 #' )
 #'
 #' @return A list output
-#'
+#' @name ts_feature_cluster_plot
+NULL
+
 #' @export
-#'
+#' @rdname ts_feature_cluster_plot
 
 ts_feature_cluster_plot <- function(.data, .date_col, .value_col, ...,
                                     .center = 3, .facet_ncol = 3,

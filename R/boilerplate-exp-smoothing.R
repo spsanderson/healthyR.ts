@@ -69,9 +69,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_exp_smoothing
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_exp_smoothing
 
 ts_auto_exp_smoothing <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                                   .prefix = "ts_exp_smooth", .tune = TRUE, .grid_size = 20,

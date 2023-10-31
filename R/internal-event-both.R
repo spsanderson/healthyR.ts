@@ -16,9 +16,11 @@
 #'
 #' @return
 #' A tibble.
-#'
+#' @name internal_ts_both_event_tbl
+NULL
+
 #' @export
-#'
+#' @rdname internal_ts_both_event_tbl
 
 internal_ts_both_event_tbl <- function(.data, .horizon){
 

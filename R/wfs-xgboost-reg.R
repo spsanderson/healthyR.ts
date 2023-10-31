@@ -68,8 +68,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_xgboost
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_xgboost
 
 ts_wfs_xgboost <- function(.model_type = "xgboost", .recipe_list,
                            .trees = 15L, .min_n = 1L, .tree_depth = 6L,

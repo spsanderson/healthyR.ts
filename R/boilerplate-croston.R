@@ -70,9 +70,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_croston
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_croston
 
 ts_auto_croston <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                             .prefix = "ts_croston", .tune = TRUE, .grid_size = 10,

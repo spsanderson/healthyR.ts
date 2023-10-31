@@ -61,8 +61,11 @@
 #'   , .pred_col = value
 #' )
 #'
+#' @name ts_auto_recipe
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_recipe
 
 ts_auto_recipe <- function(.data
                            , .date_col

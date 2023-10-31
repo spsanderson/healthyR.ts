@@ -67,8 +67,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_nnetar_reg
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_nnetar_reg
 
 ts_wfs_nnetar_reg <- function(.model_type = "nnetar",
                            .recipe_list,

@@ -88,9 +88,11 @@
 #'
 #' @return
 #' The function outputs a list invisibly.
-#'
+#' @name ts_model_compare
+NULL
+
 #' @export ts_model_compare
-#'
+#' @rdname ts_model_compare
 
 ts_model_compare <- function(.model_1, .model_2, .type = "testing", .splits_obj
                              , .data, .print_info = TRUE, .metric = "rmse"){

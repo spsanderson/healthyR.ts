@@ -29,9 +29,11 @@
 #' }
 #'
 #' @return A model description
-#'
+#' @name model_extraction_helper
+NULL
+
 #' @export
-#'
+#' @rdname model_extraction_helper
 
 model_extraction_helper <- function(.fit_object){
 

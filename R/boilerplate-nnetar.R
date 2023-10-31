@@ -66,9 +66,11 @@
 #'
 #' @return
 #' A list
-#'
+#' @name ts_auto_nnetar
+NULL
+
 #' @export
-#'
+#' @rdname ts_auto_nnetar
 
 ts_auto_nnetar <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
                            .prefix = "ts_nnetar", .tune = TRUE, .grid_size = 10,

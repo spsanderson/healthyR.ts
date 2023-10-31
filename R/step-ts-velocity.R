@@ -72,9 +72,11 @@
 #' bake(prep(rec_obj), data_tbl)
 #'
 #' rec_obj %>% prep() %>% juice()
-#'
+#' @name step_ts_velocity
+NULL
+
 #' @export
-#'
+#' @rdname step_ts_velocity
 #' @importFrom recipes prep bake rand_id
 
 step_ts_velocity <- function(recipe,

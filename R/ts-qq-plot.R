@@ -73,8 +73,11 @@
 #' @return
 #' A QQ plot.
 #'
+#' @name ts_qq_plot
+NULL
+
 #' @export
-#'
+#' @rdname ts_qq_plot
 
 ts_qq_plot <- function(.calibration_tbl, .model_id = NULL
                        , .interactive = FALSE){

@@ -64,9 +64,11 @@
 #'     y = "Mean Event Change"
 #'   )
 #'
-#'
+#' @name ts_time_event_analysis_tbl
+NULL
+
 #' @export
-#'
+#' @rdname ts_time_event_analysis_tbl
 
 ts_time_event_analysis_tbl <- function(.data, .date_col, .value_col,
                                        .percent_change = 0.05, .horizon = 12,

@@ -144,8 +144,11 @@
 #' @return
 #' A list object with multiple items.
 #'
+#' @name ts_model_auto_tune
+NULL
+
 #' @export
-#'
+#' @rdname ts_model_auto_tune
 
 ts_model_auto_tune <- function(.modeltime_model_id, .calibration_tbl,
                                .splits_obj, .drop_training_na = TRUE, .date_col,

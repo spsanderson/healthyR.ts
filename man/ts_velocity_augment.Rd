@@ -15,7 +15,7 @@ to augment.}
 \item{.names}{The default is "auto"}
 }
 \value{
-A augmented tibble
+A augmented
 }
 \description{
 Takes a numeric vector and will return the velocity of that vector.

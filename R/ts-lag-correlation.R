@@ -50,9 +50,11 @@
 #'
 #' @return
 #' A list object
-#'
+#' @name ts_lag_correlation
+NULL
+
 #' @export
-#'
+#' @rdname ts_lag_correlation
 
 ts_lag_correlation <- function(.data, .date_col, .value_col, .lags = 1,
                                    .heatmap_color_low = "white",

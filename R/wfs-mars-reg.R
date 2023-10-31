@@ -67,8 +67,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_mars
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_mars
 
 ts_wfs_mars <- function(.model_type = "earth", .recipe_list,
                            .num_terms = 200, .prod_degree = 1,

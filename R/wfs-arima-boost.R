@@ -78,8 +78,11 @@
 #' @return
 #' Returns a workflowsets object.
 #'
+#' @name ts_wfs_arima_boost
+NULL
+
 #' @export
-#'
+#' @rdname ts_wfs_arima_boost
 
 ts_wfs_arima_boost <- function(.model_type = "all_engines", .recipe_list,
                                .trees = 10, .min_node = 2, .tree_depth = 6,
