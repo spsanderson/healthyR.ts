@@ -48,7 +48,7 @@ devtools::install_github("spsanderson/healthyR.ts")
 
 This is a basic example which shows you how to generate random walk data.
 
-```{r ts_random_walk}
+```{r ts_random_walk, message=FALSE, warning=FALSE}
 library(healthyR.ts)
 library(ggplot2)
 
@@ -76,7 +76,7 @@ df %>%
 That is still pretty noisy, so lets see this in a different way. Lets clear this up a bit 
 to make it easier to see the full range of the possible volatility of the random walks.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 library(ggplot2)
 
@@ -94,3 +94,108 @@ df %>%
     geom_ribbon(aes(ymin = min_y, ymax = max_y), alpha = 0.2) +
     ts_random_walk_ggplot_layers(df)
 ```
+
+This package comes with a wide variety of functions from Data Generators to Statistics 
+functions. The function `ts_random_walk()` in the above example is a Data Generator.
+
+Let's take a look at a plotting function.
+
+```{r}
+data_tbl <- data.frame(
+  date_col = seq.Date(
+    from = as.Date("2020-01-01"),
+    to   = as.Date("2022-06-01"),
+    length.out = 365*2 + 180
+    ),
+  value = rnorm(365*2+180, mean = 100)
+)
+
+ts_calendar_heatmap_plot(
+  .data          = data_tbl
+  , .date_col    = date_col
+  , .value_col   = value
+  , .interactive = FALSE
+)
+```
+
+Time Series Clustering via Features:
+
+```{r warning=TRUE, message=FALSE}
+data_tbl <- ts_to_tbl(AirPassengers) %>%
+  mutate(group_id = rep(1:12, 12))
+
+output <- ts_feature_cluster(
+  .data = data_tbl,
+  .date_col = date_col,
+  .value_col = value,
+  group_id,
+  .features = c("acf_features","entropy"),
+  .scale = TRUE,
+  .prefix = "ts_",
+  .centers = 3
+)
+
+ts_feature_cluster_plot(
+  .data = output,
+  .date_col = date_col,
+  .value_col = value,
+  .center = 2,
+  group_id
+)
+```
+
+Time to/from Event Analysis
+
+```{r warning=FALSE, message=FALSE}
+library(dplyr)
+df <- ts_to_tbl(AirPassengers) %>% select(-index)
+
+ts_time_event_analysis_tbl(
+  .data = df,
+  .horizon = 6,
+  .date_col = date_col,
+  .value_col = value,
+  .direction = "both"
+) %>%
+  ts_event_analysis_plot()
+
+
+ts_time_event_analysis_tbl(
+  .data = df,
+  .horizon = 6,
+  .date_col = date_col,
+  .value_col = value,
+  .direction = "both"
+) %>%
+  ts_event_analysis_plot(.plot_type = "individual")
+```
+
+ARIMA Simulators
+
+```{r message=FALSE, warning=FALSE}
+output <- ts_arima_simulator()
+output$plots$static_plot
+```
+
+Automatic Workflows which can be thought of as Boiler Plate Time Series modeling. This
+is in it's infancy in this package.
+
+| Auto Workflows            | Boilerplate Workflow   |
+|---------------------------|------------------------|
+| ts_auto_arima()           | Boilerplate Workflow   |
+| ts_auto_arima_xgboost()   | Boilerplate Workflow   |
+| ts_auto_croston()         | Boilerplate Workflow   |
+| ts_auto_exp_smoothing()   | Boilerplate Workflow   |
+| ts_auto_glmnet()          | Boilerplate Workflow   |
+| ts_auto_lm()              | Boilerplate Workflow   |
+| ts_auto_mars()            | Boilerplate Workflow   |
+| ts_auto_nnetar()          | Boilerplate Workflow   |
+| ts_auto_prophet_boost()   | Boilerplate Workflow   |
+| ts_auto_prophet_reg()     | Boilerplate Workflow   |
+| ts_auto_smooth_es()       | Boilerplate Workflow   |
+| ts_auto_svm_poly()        | Boilerplate Workflow   |
+| ts_auto_svm_rbf()         | Boilerplate Workflow   |
+| ts_auto_theta()           | Boilerplate Workflow   |
+| ts_auto_xgboost()         | Boilerplate Workflow   |
+
+This is just a start of what is in this package!
