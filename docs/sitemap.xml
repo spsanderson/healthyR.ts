@@ -294,4 +294,19 @@
   <url>
     <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_xgboost.html</loc>
   </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_difflog_ts.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_doubledifflog_ts.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_doublediff_ts.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_log_ts.html</loc>
+  </url>
+  <url>
+    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_singlediff_ts.html</loc>
+  </url>
 </urlset>

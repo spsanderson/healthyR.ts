@@ -24,7 +24,7 @@ calibration tibble and plot
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.11.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -216,7 +216,7 @@ tuning grid.</p></dd>
 <span class="r-in"><span>  , cumulative <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">ts_auto_arima</span> <span class="op">&lt;-</span> <span class="fu">ts_auto_arima</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">ts_aa</span> <span class="op">&lt;-</span> <span class="fu">ts_auto_arima</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  .data <span class="op">=</span> <span class="va">data</span>,</span></span>
 <span class="r-in"><span>  .num_cores <span class="op">=</span> <span class="fl">2</span>,</span></span>
 <span class="r-in"><span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span></span>
@@ -228,12 +228,8 @@ tuning grid.</p></dd>
 <span class="r-in"><span>  .tune <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> frequency = 12 observations per 1 year</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>There was 1 warning in `dplyr::mutate()`.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> In argument: `.nested.col = purrr::map(...)`.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by warning:</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> A correlation computation is required, but `estimate` is constant and has 0 standard deviation, resulting in a divide by 0 error. `NA` will be returned.</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">ts_auto_arima</span><span class="op">$</span><span class="va">recipe_info</span></span></span>
+<span class="r-in"><span><span class="va">ts_aa</span><span class="op">$</span><span class="va">recipe_info</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_call</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> recipe(.data = data, .date_col = date_col, .value_col = value, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     .formula = value ~ ., .rsamp_obj = splits, .tune = FALSE, </span>
