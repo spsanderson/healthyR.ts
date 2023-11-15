@@ -14,7 +14,7 @@ acceleration."><meta property="og:image" content="https://www.spsanderson.com/he
     
     <a class="navbar-brand me-2" href="../index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.11.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@ acceleration.</p>
 <span>  trained <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  columns <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  skip <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/rand_id.html" class="external-link">rand_id</a></span><span class="op">(</span><span class="st">"ts_acceleration"</span><span class="op">)</span></span>
+<span>  id <span class="op">=</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/rand_id.html" class="external-link">rand_id</a></span><span class="op">(</span><span class="st">"ts_acceleration"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -112,7 +112,7 @@ preprocessing have been estimated.</p></dd>
 <dt>columns</dt>
 <dd><p>A character string of variables that will be
 used as inputs. This field is a placeholder and will be
-populated once <code><a href="https://rdrr.io/pkg/recipes/man/prep.html" class="external-link">recipes::prep()</a></code> is used.</p></dd>
+populated once <code><a href="https://recipes.tidymodels.org/reference/prep.html" class="external-link">recipes::prep()</a></code> is used.</p></dd>
 
 
 <dt>skip</dt>
@@ -135,15 +135,15 @@ using skip = TRUE as it may affect the computations for subsequent operations.</
 the new step added to the sequence of existing steps (if any).</p>
 
 
-<p>Main Recipe Functions:</p><ul><li><p><code><a href="https://rdrr.io/pkg/recipes/man/recipe.html" class="external-link">recipes::recipe()</a></code></p></li>
-<li><p><code><a href="https://rdrr.io/pkg/recipes/man/prep.html" class="external-link">recipes::prep()</a></code></p></li>
-<li><p><code><a href="https://rdrr.io/pkg/recipes/man/bake.html" class="external-link">recipes::bake()</a></code></p></li>
+<p>Main Recipe Functions:</p><ul><li><p><code><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipes::recipe()</a></code></p></li>
+<li><p><code><a href="https://recipes.tidymodels.org/reference/prep.html" class="external-link">recipes::prep()</a></code></p></li>
+<li><p><code><a href="https://recipes.tidymodels.org/reference/bake.html" class="external-link">recipes::bake()</a></code></p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><strong>Numeric Variables</strong>
 Unlike other steps, <code>step_ts_acceleration</code> does <em>not</em>
-remove the original numeric variables. <code><a href="https://rdrr.io/pkg/recipes/man/step_rm.html" class="external-link">recipes::step_rm()</a></code> can be
+remove the original numeric variables. <code><a href="https://recipes.tidymodels.org/reference/step_rm.html" class="external-link">recipes::step_rm()</a></code> can be
 used for this purpose.</p>
     </div>
     <div class="section level2">
@@ -170,7 +170,7 @@ used for this purpose.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create a recipe object</span></span></span>
-<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">a</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">data_tbl</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">rec_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html" class="external-link">recipe</a></span><span class="op">(</span><span class="va">a</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">data_tbl</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu">step_ts_acceleration</span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># View the recipe object</span></span></span>
@@ -187,7 +187,7 @@ used for this purpose.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Time Series Acceleration transformation on: <span style="color: #0000BB;">&lt;none&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Prepare the recipe object</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/recipes/man/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="va">rec_obj</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://recipes.tidymodels.org/reference/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="va">rec_obj</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -203,35 +203,35 @@ used for this purpose.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Time Series Acceleration transformation on: <span style="color: #0000BB;">~b</span> | <span style="font-style: italic;">Trained</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Bake the recipe object - Adds the Time Series Signature</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/recipes/man/bake.html" class="external-link">bake</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/recipes/man/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="va">rec_obj</span><span class="op">)</span>, <span class="va">data_tbl</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://recipes.tidymodels.org/reference/bake.html" class="external-link">bake</a></span><span class="op">(</span><span class="fu"><a href="https://recipes.tidymodels.org/reference/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="va">rec_obj</span><span class="op">)</span>, <span class="va">data_tbl</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col       b      a acceleration_b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.749 -<span style="color: #BB0000;">0.850</span>        <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.905  1.34         <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.116  0.320        -<span style="color: #BB0000;">0.946</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.238  0.416         0.912 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.284 -<span style="color: #BB0000;">0.409</span>        -<span style="color: #BB0000;">0.074</span><span style="color: #BB0000; text-decoration: underline;">8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.161 -<span style="color: #BB0000;">0.400</span>        -<span style="color: #BB0000;">0.170</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.686 -<span style="color: #BB0000;">1.64</span>          0.649 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.802 -<span style="color: #BB0000;">0.241</span>        -<span style="color: #BB0000;">0.409</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.612  0.355        -<span style="color: #BB0000;">0.306</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.291 -<span style="color: #BB0000;">1.18</span>         -<span style="color: #BB0000;">0.131</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col        b      a acceleration_b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.122  -<span style="color: #BB0000;">1.23</span>         <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.703   0.734        <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.853   0.305        -<span style="color: #BB0000;">0.432</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.110  -<span style="color: #BB0000;">1.48</span>         -<span style="color: #BB0000;">0.892</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.657   0.616         1.29  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.405  -<span style="color: #BB0000;">0.470</span>        -<span style="color: #BB0000;">0.799</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.099<span style="text-decoration: underline;">6</span> -<span style="color: #BB0000;">0.867</span>        -<span style="color: #BB0000;">0.053</span><span style="color: #BB0000; text-decoration: underline;">8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.464  -<span style="color: #BB0000;">1.27</span>          0.670 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.130  -<span style="color: #BB0000;">0.669</span>        -<span style="color: #BB0000;">0.699</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.418   1.13          0.621 </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">rec_obj</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/recipes/man/juice.html" class="external-link">juice</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rec_obj</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/prep.html" class="external-link">prep</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://recipes.tidymodels.org/reference/juice.html" class="external-link">juice</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col       b      a acceleration_b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.749 -<span style="color: #BB0000;">0.850</span>        <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.905  1.34         <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.116  0.320        -<span style="color: #BB0000;">0.946</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.238  0.416         0.912 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.284 -<span style="color: #BB0000;">0.409</span>        -<span style="color: #BB0000;">0.074</span><span style="color: #BB0000; text-decoration: underline;">8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.161 -<span style="color: #BB0000;">0.400</span>        -<span style="color: #BB0000;">0.170</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.686 -<span style="color: #BB0000;">1.64</span>          0.649 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.802 -<span style="color: #BB0000;">0.241</span>        -<span style="color: #BB0000;">0.409</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.612  0.355        -<span style="color: #BB0000;">0.306</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.291 -<span style="color: #BB0000;">1.18</span>         -<span style="color: #BB0000;">0.131</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    date_col        b      a acceleration_b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-01-01 0.122  -<span style="color: #BB0000;">1.23</span>         <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-02-01 0.703   0.734        <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-01 0.853   0.305        -<span style="color: #BB0000;">0.432</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-04-01 0.110  -<span style="color: #BB0000;">1.48</span>         -<span style="color: #BB0000;">0.892</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-05-01 0.657   0.616         1.29  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-06-01 0.405  -<span style="color: #BB0000;">0.470</span>        -<span style="color: #BB0000;">0.799</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-07-01 0.099<span style="text-decoration: underline;">6</span> -<span style="color: #BB0000;">0.867</span>        -<span style="color: #BB0000;">0.053</span><span style="color: #BB0000; text-decoration: underline;">8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-08-01 0.464  -<span style="color: #BB0000;">1.27</span>          0.670 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-09-01 0.130  -<span style="color: #BB0000;">0.669</span>        -<span style="color: #BB0000;">0.699</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-10-01 0.418   1.13          0.621 </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

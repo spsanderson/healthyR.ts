@@ -43,7 +43,7 @@
     
     <a class="navbar-brand me-2" href="index.html">healthyR.ts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.11.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,14 +124,14 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
-<span><span class="co">#&gt;     run     x       y cum_y</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1     1     1  0.0962 1096.</span></span>
-<span><span class="co">#&gt; 2     1     2 -0.0602 1030.</span></span>
-<span><span class="co">#&gt; 3     1     3 -0.0648  963.</span></span>
-<span><span class="co">#&gt; 4     1     4 -0.0350  930.</span></span>
-<span><span class="co">#&gt; 5     1     5 -0.0713  864.</span></span>
-<span><span class="co">#&gt; 6     1     6 -0.0763  798.</span></span></code></pre></div>
+<span><span class="co">#&gt;     run     x        y cum_y</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1     1     1  0.0541  1054.</span></span>
+<span><span class="co">#&gt; 2     1     2 -0.143    904.</span></span>
+<span><span class="co">#&gt; 3     1     3 -0.0285   878.</span></span>
+<span><span class="co">#&gt; 4     1     4  0.245   1093.</span></span>
+<span><span class="co">#&gt; 5     1     5  0.0658  1165.</span></span>
+<span><span class="co">#&gt; 6     1     6  0.00266 1168.</span></span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -165,6 +165,150 @@
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html" class="external-link">geom_ribbon</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">min_y</span>, ymax <span class="op">=</span> <span class="va">max_y</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="reference/ts_random_walk_ggplot_layers.html">ts_random_walk_ggplot_layers</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
+<p>This package comes with a wide variety of functions from Data Generators to Statistics functions. The function <code><a href="reference/ts_random_walk.html">ts_random_walk()</a></code> in the above example is a Data Generator.</p>
+<p>Let’s take a look at a plotting function.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>  date_col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span></span>
+<span>    from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span>
+<span>    to   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2022-06-01"</span><span class="op">)</span>,</span>
+<span>    length.out <span class="op">=</span> <span class="fl">365</span><span class="op">*</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">180</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>  value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">365</span><span class="op">*</span><span class="fl">2</span><span class="op">+</span><span class="fl">180</span>, mean <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/ts_calendar_heatmap_plot.html">ts_calendar_heatmap_plot</a></span><span class="op">(</span></span>
+<span>  .data          <span class="op">=</span> <span class="va">data_tbl</span></span>
+<span>  , .date_col    <span class="op">=</span> <span class="va">date_col</span></span>
+<span>  , .value_col   <span class="op">=</span> <span class="va">value</span></span>
+<span>  , .interactive <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
+<p>Time Series Clustering via Features:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, <span class="fl">12</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_feature_cluster.html">ts_feature_cluster</a></span><span class="op">(</span></span>
+<span>  .data <span class="op">=</span> <span class="va">data_tbl</span>,</span>
+<span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
+<span>  .value_col <span class="op">=</span> <span class="va">value</span>,</span>
+<span>  <span class="va">group_id</span>,</span>
+<span>  .features <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"acf_features"</span>,<span class="st">"entropy"</span><span class="op">)</span>,</span>
+<span>  .scale <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .prefix <span class="op">=</span> <span class="st">"ts_"</span>,</span>
+<span>  .centers <span class="op">=</span> <span class="fl">3</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/ts_feature_cluster_plot.html">ts_feature_cluster_plot</a></span><span class="op">(</span></span>
+<span>  .data <span class="op">=</span> <span class="va">output</span>,</span>
+<span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
+<span>  .value_col <span class="op">=</span> <span class="va">value</span>,</span>
+<span>  .center <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  <span class="va">group_id</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
+<p>Time to/from Event Analysis</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="va">AirPassengers</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">index</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/ts_time_event_analysis_tbl.html">ts_time_event_analysis_tbl</a></span><span class="op">(</span></span>
+<span>  .data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>  .horizon <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
+<span>  .value_col <span class="op">=</span> <span class="va">value</span>,</span>
+<span>  .direction <span class="op">=</span> <span class="st">"both"</span></span>
+<span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/ts_event_analysis_plot.html">ts_event_analysis_plot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span></span>
+<span><span class="fu"><a href="reference/ts_time_event_analysis_tbl.html">ts_time_event_analysis_tbl</a></span><span class="op">(</span></span>
+<span>  .data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>  .horizon <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>  .date_col <span class="op">=</span> <span class="va">date_col</span>,</span>
+<span>  .value_col <span class="op">=</span> <span class="va">value</span>,</span>
+<span>  .direction <span class="op">=</span> <span class="st">"both"</span></span>
+<span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/ts_event_analysis_plot.html">ts_event_analysis_plot</a></span><span class="op">(</span>.plot_type <span class="op">=</span> <span class="st">"individual"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-2.png" width="100%"></p>
+<p>ARIMA Simulators</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_arima_simulator.html">ts_arima_simulator</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">output</span><span class="op">$</span><span class="va">plots</span><span class="op">$</span><span class="va">static_plot</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="100%"></p>
+<p>Automatic Workflows which can be thought of as Boiler Plate Time Series modeling. This is in it’s infancy in this package.</p>
+<table class="table">
+<thead><tr class="header">
+<th>Auto Workflows</th>
+<th>Boilerplate Workflow</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>ts_auto_arima()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="even">
+<td>ts_auto_arima_xgboost()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="odd">
+<td>ts_auto_croston()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="even">
+<td>ts_auto_exp_smoothing()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="odd">
+<td>ts_auto_glmnet()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="even">
+<td>ts_auto_lm()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="odd">
+<td>ts_auto_mars()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="even">
+<td>ts_auto_nnetar()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="odd">
+<td>ts_auto_prophet_boost()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="even">
+<td>ts_auto_prophet_reg()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="odd">
+<td>ts_auto_smooth_es()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="even">
+<td>ts_auto_svm_poly()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="odd">
+<td>ts_auto_svm_rbf()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="even">
+<td>ts_auto_theta()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+<tr class="odd">
+<td>ts_auto_xgboost()</td>
+<td>Boilerplate Workflow</td>
+</tr>
+</tbody>
+</table>
+<p>This is just a start of what is in this package!</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
