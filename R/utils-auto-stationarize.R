@@ -40,7 +40,7 @@ auto_stationarize <- function(.time_series) {
 
     # Variables
     time_series <- .time_series
-    freq <- frequency(.time_series)
+    freq <- stats::frequency(.time_series)
     min_x <- min(.time_series)
 
     # Check if the time series is already stationary

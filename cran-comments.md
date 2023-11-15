@@ -1,6 +1,6 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 2 not2
+0 errors | 0 warnings | 2 notes
 
-* This is a patch release for 0.2.11
+* This is a minor release for 0.3.0
 * Add new functions.
