@@ -17,7 +17,7 @@ Encoding: UTF-8
 LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-URL: https://github.com/spsanderson/healthyR.ts
+URL: https://www.spsanderson.com/healthyR.ts/, https://github.com/spsanderson/healthyR.ts
 BugReports: https://github.com/spsanderson/healthyR.ts/issues
 Imports: 
     magrittr,
@@ -42,7 +42,6 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    roxygen2,
     scales,
     rsample,
     healthyR.ai,
