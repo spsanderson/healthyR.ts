@@ -56,12 +56,9 @@ ts_random_walk(
 \seealso{
 Other Data Generator: 
 \code{\link{tidy_fft}()},
-\code{\link{ts_brownian_motion_augment}()},
 \code{\link{ts_brownian_motion}()},
-\code{\link{ts_geometric_brownian_motion_augment}()},
-\code{\link{ts_geometric_brownian_motion}()}
-}
-\author{
-Steven P. Sanderson II, MPH
+\code{\link{ts_brownian_motion_augment}()},
+\code{\link{ts_geometric_brownian_motion}()},
+\code{\link{ts_geometric_brownian_motion_augment}()}
 }
 \concept{Data Generator}

@@ -105,8 +105,8 @@ ts_auto_rbf$recipe_info
 \url{https://parsnip.tidymodels.org/reference/svm_rbf.html}
 
 Other Boiler_Plate: 
-\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_arima}()},
+\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},

@@ -104,8 +104,8 @@ ts_prophet_reg$recipe_info
 \url{https://business-science.github.io/modeltime/reference/prophet_reg.html}
 
 Other Boiler_Plate: 
-\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_arima}()},
+\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},

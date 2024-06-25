@@ -107,8 +107,8 @@ ts_exp$recipe_info
 \url{https://pkg.robjhyndman.com/forecast/reference/ets.html}
 
 Other Boiler_Plate: 
-\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_arima}()},
+\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_glmnet}()},
 \code{\link{ts_auto_lm}()},

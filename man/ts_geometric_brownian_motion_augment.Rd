@@ -86,8 +86,8 @@ ts_geometric_brownian_motion_augment(
 \seealso{
 Other Data Generator: 
 \code{\link{tidy_fft}()},
-\code{\link{ts_brownian_motion_augment}()},
 \code{\link{ts_brownian_motion}()},
+\code{\link{ts_brownian_motion_augment}()},
 \code{\link{ts_geometric_brownian_motion}()},
 \code{\link{ts_random_walk}()}
 }
