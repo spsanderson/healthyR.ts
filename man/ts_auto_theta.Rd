@@ -77,8 +77,8 @@ ts_theta$recipe_info
 \url{https://pkg.robjhyndman.com/forecast/reference/thetaf.html}
 
 Other Boiler_Plate: 
-\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_arima}()},
+\code{\link{ts_auto_arima_xgboost}()},
 \code{\link{ts_auto_croston}()},
 \code{\link{ts_auto_exp_smoothing}()},
 \code{\link{ts_auto_glmnet}()},

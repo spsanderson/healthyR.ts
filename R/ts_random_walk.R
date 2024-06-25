@@ -2,8 +2,6 @@
 #'
 #' @family Data Generator
 #'
-#' @author Steven P. Sanderson II, MPH
-#'
 #' @description
 #' This function takes in four arguments and returns a tibble of random walks.
 #'
@@ -46,41 +44,70 @@ NULL
 #' @rdname ts_random_walk
 
 ts_random_walk <- function(
-    .mean = 0.0,
-    .sd = 0.10,
-    .num_walks = 100,
-    .periods = 100,
-    .initial_value = 1000
+        .mean = 0.0,
+        .sd = 0.10,
+        .num_walks = 100,
+        .periods = 100,
+        .initial_value = 1000
 ) {
+    # Validate inputs
+    if (.sd <= 0) {
+        rlang::abort(
+            message = "`.sd` must be greater than 0.",
+            use_cli_format = TRUE
+        )
+    }
+    if (.num_walks <= 0) {
+        rlang::abort(
+            message = "`.num_walks` must be greater than 0.",
+            use_cli_format = TRUE
+        )
+    }
+    if (.periods <= 0) {
+        rlang::abort(
+            message = "`.periods` must be greater than 0.",
+            use_cli_format = TRUE
+        )
+    }
+    if (.initial_value <= 0) {
+        rlang::abort(
+            message = "`.initial_value` must be greater than 0.",
+            use_cli_format = TRUE
+        )
+    }
+
     # Build data frame of first random walk
     x <- seq(1, .periods, 1)
     y <- stats::rnorm(.periods, .mean, .sd)
     df <- data.frame(run = 1, x = x, y = y)
-    # Add on additional random walks
-    for (i in 2:.num_walks) {
-        x <- seq(1, .periods, 1)
-        y <- stats::rnorm(.periods, .mean, .sd)
-        tmp <- data.frame(run = i, x = x, y = y)
-        df <- rbind(df, tmp)
+
+    # Add on additional random walks if .num_walks > 1
+    if (.num_walks > 1) {
+        for (i in 2:.num_walks) {
+            x <- seq(1, .periods, 1)
+            y <- stats::rnorm(.periods, .mean, .sd)
+            tmp <- data.frame(run = i, x = x, y = y)
+            df <- rbind(df, tmp)
+        }
     }
+
     # Convert data frame to tibble format
-    df <- dplyr::as_tibble(
-        df %>%
-            # Group each random walk so cumprod will be applied to each of them separately
-            dplyr::group_by(run) %>%
-            # Calculate cumulative product of each random walk
-            dplyr::mutate(cum_y = .initial_value * cumprod(1 + y)) %>%
-            # Remove grouping to improve future performance
-            dplyr::ungroup()
-    )
+    df <- df |>
+        # Group each random walk so cumprod will be applied to each of them separately
+        dplyr::group_by(run) |>
+        # Calculate cumulative product of each random walk
+        dplyr::mutate(cum_y = .initial_value * cumprod(1 + y)) |>
+        # Remove grouping to improve future performance
+        dplyr::ungroup() |>
+        dplyr::as_tibble()
+
     # Attach descriptive attributes to tibble
     attr(df, ".mean") <- .mean
     attr(df, ".sd") <- .sd
     attr(df, ".num_walks") <- .num_walks
     attr(df, ".periods") <- .periods
     attr(df, ".initial_value") <- .initial_value
+
     # Return final result as function output
     return(df)
 }
-
-

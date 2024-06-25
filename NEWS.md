@@ -1,5 +1,15 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. Fix #511 - Fix a bug in `ts_random_walk()` that would generate 3 runs when run was
+set to less than 2.
+
 # healthyR.ts 0.3.0
 
 ## Breaking Changes
