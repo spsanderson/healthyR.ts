@@ -268,5 +268,5 @@ ts_auto_glmnet <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
     attr(output, ".parsnip_engine") <- "glmnet"
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }

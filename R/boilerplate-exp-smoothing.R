@@ -273,5 +273,5 @@ ts_auto_exp_smoothing <- function(.data, .date_col, .value_col, .formula, .rsamp
     attr(output, ".parsnip_engine") <- "ets"
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }

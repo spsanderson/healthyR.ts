@@ -277,5 +277,5 @@ ts_auto_smooth_es <- function(.data, .date_col, .value_col, .formula, .rsamp_obj
     attr(output, ".parsnip_engine") <- "smooth_es"
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }

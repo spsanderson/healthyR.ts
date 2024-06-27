@@ -276,5 +276,5 @@ ts_auto_prophet_boost <- function(.data, .date_col, .value_col, .formula, .rsamp
     attr(output, ".parsnip_engine") <- "prophet_xgboost"
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }
