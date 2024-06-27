@@ -1,7 +1,7 @@
 # healthyR.ts (development version)
 
 ## Breaking Changes
-None
+1. Fix #509 - Drop invisible returns.
 
 ## New Features
 None

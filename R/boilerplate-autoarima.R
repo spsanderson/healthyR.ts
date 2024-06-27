@@ -271,5 +271,5 @@ ts_auto_arima <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
     attr(output, ".parsnip_engine") <- ifelse(.tune, "arima", "auto_arima")
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }

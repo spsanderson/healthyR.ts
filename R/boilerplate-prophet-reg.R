@@ -270,5 +270,5 @@ ts_auto_prophet_reg <- function(.data, .date_col, .value_col, .formula, .rsamp_o
     attr(output, ".parsnip_engine") <- "prophet"
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }

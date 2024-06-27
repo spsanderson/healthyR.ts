@@ -263,5 +263,5 @@ ts_auto_mars <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
     attr(output, ".parsnip_engine") <- "earth"
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }

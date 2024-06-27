@@ -172,5 +172,5 @@ ts_auto_theta <- function(.data, .date_col, .value_col, .rsamp_obj,
     attr(output, ".parsnip_engine") <- "theta"
     attr(output, ".function_family") <- "boilerplate"
 
-    return(invisible(output))
+    return(output)
 }

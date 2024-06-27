@@ -172,6 +172,6 @@ ts_feature_cluster_plot <- function(.data, .date_col, .value_col, ...,
 
     # * Return ----
     print(output$plot$static_plot)
-    return(invisible(output))
+    return(output)
 
 }

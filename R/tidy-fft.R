@@ -281,6 +281,6 @@ tidy_fft <- function(.data, .date_col, .value_col, .frequency = 12L,
         )
     )
 
-    return(invisible(output_list))
+    return(output_list)
 
 }
