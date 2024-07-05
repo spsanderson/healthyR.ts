@@ -98,8 +98,7 @@ ts_random_walk <- function(
         # Calculate cumulative product of each random walk
         dplyr::mutate(cum_y = .initial_value * cumprod(1 + y)) |>
         # Remove grouping to improve future performance
-        dplyr::ungroup() |>
-        dplyr::as_tibble()
+        dplyr::ungroup()
 
     # Attach descriptive attributes to tibble
     attr(df, ".mean") <- .mean
