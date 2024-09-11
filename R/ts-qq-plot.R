@@ -107,10 +107,10 @@ ts_qq_plot <- function(.calibration_tbl, .model_id = NULL
         ggplot2::ggplot(
             mapping = ggplot2::aes(
                 sample = .residuals
-                , fill = .model_desc
+                , color = .model_desc
             )
         ) +
-        ggplot2::stat_qq() +
+        ggplot2::stat_qq(alpha = 0.328, color = "black") +
         ggplot2::stat_qq_line() +
         ggplot2::facet_wrap(
             ~ .model_desc

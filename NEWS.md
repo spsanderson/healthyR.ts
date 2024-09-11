@@ -1,6 +1,15 @@
 # healthyR.ts (development version)
 
 ## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. #518 ts_qq_plot() - Add color and alpha to the output.
+
+## Breaking Changes
 1. Fix #509 - Drop invisible returns.
 
 ## New Features
