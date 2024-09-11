@@ -59,13 +59,13 @@ ts_vva_plot <- function(.data, .date_col, .value_col){
     data_tbl <- tibble::as_tibble(.data) %>%
         dplyr::select({{date_col_var_expr}},{{value_col_var_expr}})
 
-    data_diff_tbl <- data_tbl %>%
-        timetk::tk_augment_differences(.value = {{value_col_var_expr}}, .differences = 1) %>%
-        timetk::tk_augment_differences(.value = {{value_col_var_expr}}, .differences = 2) %>%
-        dplyr::rename(velocity = dplyr::contains("_diff1")) %>%
-        dplyr::rename(acceleration = dplyr::contains("_diff2")) %>%
-        tidyr::pivot_longer(-{{date_col_var_expr}}) %>%
-        dplyr::mutate(name = stringr::str_to_title(name)) %>%
+    data_diff_tbl <- data_tbl |>
+        dplyr::mutate({{value_col_var_expr}} := cumsum({{value_col_var_expr}})) |>
+        timetk::tk_augment_differences(.value = {{value_col_var_expr}}, .lags = c(1, 2)) |>
+        dplyr::rename(velocity = dplyr::contains("_lag1")) |>
+        dplyr::rename(acceleration = dplyr::contains("_lag2")) |>
+        tidyr::pivot_longer(-{{date_col_var_expr}}) |>
+        dplyr::mutate(name = stringr::str_to_title(name)) |>
         dplyr::mutate(name = forcats::as_factor(name))
 
     # Plot ----

@@ -7,7 +7,9 @@ None
 None
 
 ## Minor Fixes and Improvements
-1. #518 ts_qq_plot() - Add color and alpha to the output.
+1. #518 - Fix ts_qq_plot() - Add color and alpha to the output.
+2. #516 - Fix ts_vva_plot() - Correct to add cumsum of the passed value and correct
+lagged differences.
 
 ## Breaking Changes
 1. Fix #509 - Drop invisible returns.
