@@ -55,7 +55,11 @@ Suggests:
     tune,
     dials,
     workflows,
-    tidyselect
+    tidyselect,
+    glmnet,
+    earth,
+    smooth,
+    kernlab
 VignetteBuilder: knitr
 Depends: 
     R (>= 3.3)

@@ -72,6 +72,7 @@ This uses the \code{parsnip::mars()} function with the \code{engine} set to \cod
 library(dplyr)
 library(timetk)
 library(modeltime)
+library(earth)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

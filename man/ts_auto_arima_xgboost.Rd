@@ -87,7 +87,7 @@ splits <- time_series_split(
 
 ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
   .data = data,
-  .num_cores = 1,
+  .num_cores = 2,
   .date_col = date_col,
   .value_col = value,
   .rsamp_obj = splits,

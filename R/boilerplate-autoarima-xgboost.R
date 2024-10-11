@@ -53,7 +53,7 @@
 #'
 #' ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
 #'   .data = data,
-#'   .num_cores = 1,
+#'   .num_cores = 2,
 #'   .date_col = date_col,
 #'   .value_col = value,
 #'   .rsamp_obj = splits,
@@ -129,7 +129,7 @@ ts_auto_arima_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp
 
     rec_obj <- rec_obj %>%
         timetk::step_timeseries_signature({{date_col_var_expr}}) %>%
-        timetk::step_holiday_signature({{date_col_var_expr}}) %>%
+        #timetk::step_holiday_signature({{date_col_var_expr}}) %>%
         recipes::step_novel(recipes::all_nominal_predictors()) %>%
         recipes::step_mutate_at(tidyselect::vars_select_helpers$where(is.character)
                                 , fn = ~ as.factor(.)) %>%
