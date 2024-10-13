@@ -72,6 +72,7 @@ This uses \code{parsnip::linear_reg()} and sets the \code{engine} to \code{glmne
 library(dplyr)
 library(timetk)
 library(modeltime)
+library(glmnet)
 
 data <- AirPassengers \%>\%
   ts_to_tbl() \%>\%

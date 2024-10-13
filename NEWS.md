@@ -1,15 +1,6 @@
 # healthyR.ts (development version)
 
-## Breaking Changes
-None
-
-## New Features
-None
-
-## Minor Fixes and Improvements
-1. #518 - Fix ts_qq_plot() - Add color and alpha to the output.
-2. #516 - Fix ts_vva_plot() - Correct to add cumsum of the passed value and correct
-lagged differences.
+# healthyR.ts 0.3.1
 
 ## Breaking Changes
 1. Fix #509 - Drop invisible returns.
@@ -18,8 +9,14 @@ lagged differences.
 None
 
 ## Minor Fixes and Improvements
-1. Fix #511 - Fix a bug in `ts_random_walk()` that would generate 3 runs when run was
+1. 1. Fix #511 - Fix a bug in `ts_random_walk()` that would generate 3 runs when run was
 set to less than 2.
+2. #518 - Fix ts_qq_plot() - Add color and alpha to the output.
+3. #516 - Fix ts_vva_plot() - Correct to add cumsum of the passed value and correct
+lagged differences.
+4. #521 - Fix for CRAN maintenance.
+5. Remove `timetk::step_holiday_signature()` as it is throwing recycle erros in
+boilerplate functions and I currently cannot figure out why.
 
 # healthyR.ts 0.3.0
 

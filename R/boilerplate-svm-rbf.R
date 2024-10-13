@@ -132,7 +132,7 @@ ts_auto_svm_rbf <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
 
     rec_obj <- rec_obj %>%
         timetk::step_timeseries_signature({{date_col_var_expr}}) %>%
-        timetk::step_holiday_signature({{date_col_var_expr}}) %>%
+        #timetk::step_holiday_signature({{date_col_var_expr}}) %>%
         recipes::step_novel(recipes::all_nominal_predictors()) %>%
         recipes::step_mutate_at(tidyselect::vars_select_helpers$where(is.character)
                                 , fn = ~ as.factor(.)) %>%
