@@ -1,312 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/404.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/articles/getting-started.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/articles/using-tidy-fft.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/arima_string.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/assign_value.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/auto_stationarize.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/calibrate_and_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/chr_assign.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ci_hi.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ci_lo.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/color_blind.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/get_gg_layers.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/get_recipe_call.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/internal_ts_backward_event_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/internal_ts_both_event_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/internal_ts_forward_event_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/model_extraction_helper.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/required_pkgs.healthyR.ts.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/step_ts_acceleration.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/step_ts_velocity.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/tidyeval.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/tidy_fft.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_acceleration_augment.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_acceleration_vec.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_adf_test.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_arima_simulator.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_arima.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_arima_xgboost.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_croston.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_exp_smoothing.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_glmnet.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_lm.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_mars.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_nnetar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_prophet_boost.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_prophet_reg.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_recipe.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_smooth_es.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_svm_poly.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_svm_rbf.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_theta.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_xgboost.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion_augment.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_calendar_heatmap_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_calendar_heatmap_plt.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_compare_data.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_event_analysis_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_extract_auto_fitted_workflow.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_feature_cluster.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_feature_cluster_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_forecast_simulator.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_geometric_brownian_motion.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_geometric_brownian_motion_augment.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_get_date_columns.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_growth_rate_augment.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_growth_rate_vec.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_info_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_is_date_class.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_lag_correlation.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_ma_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_auto_tune.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_compare.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_rank_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_spec_tune_template.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_qc_run_chart.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_qq_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk_ggplot_layers.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_scale_color_colorblind.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_scale_fill_colorblind.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_scedacity_scatter_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_sma_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_splits_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_time_event_analysis_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_to_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_velocity_augment.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_velocity_vec.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_vva_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_arima_boost.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_auto_arima.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_ets_reg.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_lin_reg.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_mars.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_nnetar_reg.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_prophet_reg.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_svm_poly.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_svm_rbf.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_xgboost.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_difflog_ts.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_doubledifflog_ts.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_doublediff_ts.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_log_ts.html</loc>
-  </url>
-  <url>
-    <loc>https://www.spsanderson.com/healthyR.ts/reference/util_singlediff_ts.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://www.spsanderson.com/healthyR.ts/404.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/articles/getting-started.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/articles/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/articles/using-tidy-fft.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/authors.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/LICENSE-text.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/LICENSE.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/news/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/arima_string.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/assign_value.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/auto_stationarize.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/calibrate_and_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/chr_assign.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ci_hi.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ci_lo.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/color_blind.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/get_gg_layers.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/get_recipe_call.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/index.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/internal_ts_backward_event_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/internal_ts_both_event_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/internal_ts_forward_event_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/model_extraction_helper.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/pipe.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/required_pkgs.healthyR.ts.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/step_ts_acceleration.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/step_ts_velocity.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/tidyeval.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/tidy_fft.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_acceleration_augment.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_acceleration_vec.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_adf_test.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_arima_simulator.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_arima.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_arima_xgboost.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_croston.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_exp_smoothing.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_glmnet.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_lm.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_mars.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_nnetar.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_prophet_boost.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_prophet_reg.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_recipe.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_smooth_es.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_svm_poly.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_svm_rbf.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_theta.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_auto_xgboost.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion_augment.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_calendar_heatmap_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_calendar_heatmap_plt.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_compare_data.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_event_analysis_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_extract_auto_fitted_workflow.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_feature_cluster.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_feature_cluster_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_forecast_simulator.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_geometric_brownian_motion.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_geometric_brownian_motion_augment.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_get_date_columns.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_growth_rate_augment.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_growth_rate_vec.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_info_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_is_date_class.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_lag_correlation.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_ma_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_auto_tune.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_compare.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_rank_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_model_spec_tune_template.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_qc_run_chart.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_qq_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk_ggplot_layers.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_scale_color_colorblind.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_scale_fill_colorblind.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_scedacity_scatter_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_sma_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_splits_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_time_event_analysis_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_to_tbl.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_velocity_augment.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_velocity_vec.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_vva_plot.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_arima_boost.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_auto_arima.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_ets_reg.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_lin_reg.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_mars.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_nnetar_reg.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_prophet_reg.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_svm_poly.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_svm_rbf.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/ts_wfs_xgboost.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/util_difflog_ts.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/util_doubledifflog_ts.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/util_doublediff_ts.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/util_log_ts.html</loc></url>
+<url><loc>https://www.spsanderson.com/healthyR.ts/reference/util_singlediff_ts.html</loc></url>
 </urlset>
+
