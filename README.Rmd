@@ -25,28 +25,91 @@ knitr::opts_chunk$set(
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com/)
 <!-- badges: end -->
 
-The goal of `healthyR.ts` is to provide a consistent verb framework for performing
-time series analysis and forecasting on both administrative and clinical hospital
-data.
+> **The Time Series Modeling Companion to healthyR**
+
+`healthyR.ts` is a comprehensive R package designed specifically for time series analysis and forecasting of hospital administrative and clinical data. Built on the powerful [tidymodels](https://www.tidymodels.org/) ecosystem, it provides a consistent, user-friendly framework that simplifies complex time series workflows.
+
+## Why healthyR.ts?
+
+Hospital data analysis often requires handling time series for metrics like:
+- Average Length of Stay (ALOS)
+- Readmission rates
+- Patient volumes and admissions
+- Bed occupancy rates
+- Clinical outcomes over time
+
+`healthyR.ts` takes the guesswork out of time series analysis by providing:
+
+✅ **Automated Workflows** - One-function solutions for complete modeling pipelines  
+✅ **Visual Analytics** - Rich plotting functions for data exploration  
+✅ **Data Generators** - Simulate realistic time series for testing and validation  
+✅ **Statistical Tools** - Comprehensive suite of time series statistics  
+✅ **Clustering** - Feature-based time series clustering capabilities  
+✅ **Forecasting** - 15 automated model workflows (ARIMA, Prophet, XGBoost, and more)
+
+## Key Features
+
+### 🤖 Automatic Modeling Workflows
+
+Complete end-to-end modeling pipelines in a single function call:
+
+- **ts_auto_arima()** - Automatic ARIMA modeling
+- **ts_auto_prophet_reg()** - Facebook's Prophet algorithm
+- **ts_auto_xgboost()** - Gradient boosting for time series
+- **ts_auto_nnetar()** - Neural network autoregression
+- Plus 11 more specialized workflows!
+
+Each function handles recipe creation, model specification, workflow setup, model fitting, tuning, and calibration automatically.
+
+### 📊 Visualization Suite
+
+- Calendar heatmaps for temporal patterns
+- Time series clustering plots
+- Velocity, acceleration, and growth visualizations
+- QQ plots and scedasticity analysis
+- Moving average and SMA plots
+- Event analysis visualizations
+
+### 🎲 Data Generation
+
+Generate synthetic time series data for testing:
+- Random walks and Brownian motion
+- Geometric Brownian motion
+- ARIMA simulations
+- Custom parameter configurations
+
+### 📈 Statistical Analysis
+
+- ADF stationarity tests
+- Fast Fourier Transform (FFT) analysis
+- Confidence intervals
+- Lag correlation analysis
+- Time series feature extraction
 
 ## Installation
 
-You can install the released version of healthyR.ts from [CRAN](https://CRAN.R-project.org) with:
+### Stable Release (CRAN)
+
+Install the latest stable version from [CRAN](https://CRAN.R-project.org):
 
 ``` r
 install.packages("healthyR.ts")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+### Development Version
+
+Get the latest features and bug fixes from [GitHub](https://github.com/spsanderson/healthyR.ts):
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("spsanderson/healthyR.ts")
 ```
 
-## Example
+## Quick Start
 
-This is a basic example which shows you how to generate random walk data.
+### Basic Example: Random Walk Simulation
+
+Generate and visualize random walk data to understand market volatility or patient flow variations:
 
 ```{r ts_random_walk, message=FALSE, warning=FALSE}
 library(healthyR.ts)
@@ -95,10 +158,9 @@ df %>%
     ts_random_walk_ggplot_layers(df)
 ```
 
-This package comes with a wide variety of functions from Data Generators to Statistics 
-functions. The function `ts_random_walk()` in the above example is a Data Generator.
+### Calendar Heatmap Visualization
 
-Let's take a look at a plotting function.
+Visualize temporal patterns in your data with calendar heatmaps - perfect for identifying seasonal trends or unusual patterns in hospital metrics:
 
 ```{r}
 data_tbl <- data.frame(
@@ -118,7 +180,9 @@ ts_calendar_heatmap_plot(
 )
 ```
 
-Time Series Clustering via Features:
+### Time Series Clustering
+
+Discover patterns by clustering time series based on their statistical features:
 
 ```{r warning=TRUE, message=FALSE}
 data_tbl <- ts_to_tbl(AirPassengers) %>%
@@ -144,7 +208,9 @@ ts_feature_cluster_plot(
 )
 ```
 
-Time to/from Event Analysis
+### Event Analysis
+
+Analyze time series behavior before and after significant events (e.g., policy changes, new treatments):
 
 ```{r warning=FALSE, message=FALSE}
 library(dplyr)
@@ -170,32 +236,112 @@ ts_time_event_analysis_tbl(
   ts_event_analysis_plot(.plot_type = "individual")
 ```
 
-ARIMA Simulators
+### ARIMA Simulation
+
+Generate realistic ARIMA time series for testing and validation:
 
 ```{r message=FALSE, warning=FALSE}
 output <- ts_arima_simulator()
 output$plots$static_plot
 ```
 
-Automatic Workflows which can be thought of as Boiler Plate Time Series modeling. This
-is in it's infancy in this package.
+## Available Models
 
-| Auto Workflows            | Boilerplate Workflow   |
-|---------------------------|------------------------|
-| ts_auto_arima()           | Boilerplate Workflow   |
-| ts_auto_arima_xgboost()   | Boilerplate Workflow   |
-| ts_auto_croston()         | Boilerplate Workflow   |
-| ts_auto_exp_smoothing()   | Boilerplate Workflow   |
-| ts_auto_glmnet()          | Boilerplate Workflow   |
-| ts_auto_lm()              | Boilerplate Workflow   |
-| ts_auto_mars()            | Boilerplate Workflow   |
-| ts_auto_nnetar()          | Boilerplate Workflow   |
-| ts_auto_prophet_boost()   | Boilerplate Workflow   |
-| ts_auto_prophet_reg()     | Boilerplate Workflow   |
-| ts_auto_smooth_es()       | Boilerplate Workflow   |
-| ts_auto_svm_poly()        | Boilerplate Workflow   |
-| ts_auto_svm_rbf()         | Boilerplate Workflow   |
-| ts_auto_theta()           | Boilerplate Workflow   |
-| ts_auto_xgboost()         | Boilerplate Workflow   |
+### Automated Workflow Functions
 
-This is just a start of what is in this package!
+Each function creates a complete modeling pipeline including recipe, model specification, workflow, fitting, and calibration:
+
+| Function | Model Type | Description |
+|----------|------------|-------------|
+| `ts_auto_arima()` | ARIMA | Automatic ARIMA with auto-tuning |
+| `ts_auto_arima_xgboost()` | Hybrid | ARIMA errors with XGBoost |
+| `ts_auto_prophet_reg()` | Prophet | Facebook's Prophet algorithm |
+| `ts_auto_prophet_boost()` | Hybrid | Prophet with XGBoost |
+| `ts_auto_xgboost()` | ML | Gradient boosting |
+| `ts_auto_nnetar()` | Neural Net | Neural network autoregression |
+| `ts_auto_exp_smoothing()` | ETS | Exponential smoothing |
+| `ts_auto_smooth_es()` | Smooth | Smooth package ETS |
+| `ts_auto_theta()` | Theta | Theta method |
+| `ts_auto_croston()` | Croston | For intermittent demand |
+| `ts_auto_lm()` | Linear | Linear regression with time features |
+| `ts_auto_mars()` | MARS | Multivariate adaptive regression splines |
+| `ts_auto_glmnet()` | GLM | Elastic net regression |
+| `ts_auto_svm_poly()` | SVM | Support vector machine (polynomial) |
+| `ts_auto_svm_rbf()` | SVM | Support vector machine (radial) |
+
+## Function Categories
+
+`healthyR.ts` includes 90+ functions organized into these categories:
+
+- **📊 Data Generators**: Create synthetic time series data (random walks, Brownian motion, ARIMA)
+- **📈 Plotting Functions**: Comprehensive visualization suite for time series
+- **🔍 Clustering**: Feature-based time series clustering and analysis
+- **🤖 Forecasting**: Automated modeling workflows and model comparison
+- **📐 Statistical Functions**: Tests, transformations, and time series statistics
+- **🔧 Utilities**: Helper functions for data manipulation and transformation
+- **📉 Augment Functions**: Add features like velocity, acceleration, and growth rates
+- **🧮 Vector Functions**: Vectorized operations for time series
+- **🔬 Recipe Steps**: Custom tidymodels recipe steps for time series
+
+## Documentation
+
+- 📘 [**Getting Started Vignette**](https://www.spsanderson.com/healthyR.ts/articles/getting-started.html) - Comprehensive introduction
+- 📗 [**Function Reference**](https://www.spsanderson.com/healthyR.ts/reference/index.html) - Complete function documentation
+- 📙 [**Package Website**](https://www.spsanderson.com/healthyR.ts/) - Full documentation site
+- 📕 [**News/Changelog**](https://www.spsanderson.com/healthyR.ts/news/index.html) - Version history and updates
+
+## Learning Resources
+
+### Vignettes
+
+- [Getting Started with healthyR.ts](https://www.spsanderson.com/healthyR.ts/articles/getting-started.html)
+- [Using Tidy FFT](https://www.spsanderson.com/healthyR.ts/articles/using-tidy-fft.html)
+
+### Example Use Cases
+
+1. **Hospital Admissions Forecasting** - Predict daily/weekly admissions using multiple models
+2. **Length of Stay Analysis** - Analyze and forecast ALOS trends
+3. **Readmission Rate Monitoring** - Track and predict readmission patterns
+4. **Resource Planning** - Forecast bed occupancy and staffing needs
+5. **Seasonal Pattern Detection** - Identify and visualize seasonal trends in clinical data
+
+## Contributing
+
+Contributions are welcome! Here's how you can help:
+
+- 🐛 **Report bugs** via [GitHub Issues](https://github.com/spsanderson/healthyR.ts/issues)
+- 💡 **Suggest features** through issue requests
+- 🔧 **Submit pull requests** for bug fixes or new features
+- 📖 **Improve documentation** by suggesting clarifications or additions
+
+Please follow the [tidyverse style guide](https://style.tidyverse.org/) for code contributions.
+
+## Related Packages
+
+- [**healthyR**](https://www.spsanderson.com/healthyR/) - Hospital data analysis companion package
+- [**healthyR.ai**](https://www.spsanderson.com/healthyR.ai/) - Machine learning companion for healthcare
+- [**healthyverse**](https://www.spsanderson.com/healthyverse/) - Meta-package loading all healthyR packages
+
+## Citation
+
+If you use `healthyR.ts` in your research or publications, please cite:
+
+```r
+citation("healthyR.ts")
+```
+
+## Support
+
+- 📧 **Email**: spsanderson@gmail.com
+- 🐦 **Issues**: [GitHub Issue Tracker](https://github.com/spsanderson/healthyR.ts/issues)
+- 🌐 **Website**: https://www.spsanderson.com/healthyR.ts/
+
+## License
+
+MIT License - see [LICENSE](LICENSE.md) for details
+
+---
+
+**Author**: Steven P. Sanderson II, MPH  
+**Maintainer**: Steven P. Sanderson II, MPH (spsanderson@gmail.com)  
+**Copyright**: © 2020-2025 Steven P. Sanderson II, MPH
