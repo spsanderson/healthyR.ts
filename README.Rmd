@@ -45,7 +45,7 @@ Hospital data analysis often requires handling time series for metrics like:
 ✅ **Data Generators** - Simulate realistic time series for testing and validation  
 ✅ **Statistical Tools** - Comprehensive suite of time series statistics  
 ✅ **Clustering** - Feature-based time series clustering capabilities  
-✅ **Forecasting** - 15+ automated model workflows (ARIMA, Prophet, XGBoost, and more)
+✅ **Forecasting** - 15 automated model workflows (ARIMA, Prophet, XGBoost, and more)
 
 ## Key Features
 
@@ -57,7 +57,7 @@ Complete end-to-end modeling pipelines in a single function call:
 - **ts_auto_prophet_reg()** - Facebook's Prophet algorithm
 - **ts_auto_xgboost()** - Gradient boosting for time series
 - **ts_auto_nnetar()** - Neural network autoregression
-- Plus 11 more automated workflows!
+- Plus 11 more specialized workflows!
 
 Each function handles recipe creation, model specification, workflow setup, model fitting, tuning, and calibration automatically.
 
@@ -271,7 +271,7 @@ Each function creates a complete modeling pipeline including recipe, model speci
 
 ## Function Categories
 
-`healthyR.ts` includes 85+ functions organized into these categories:
+`healthyR.ts` includes 90+ functions organized into these categories:
 
 - **📊 Data Generators**: Create synthetic time series data (random walks, Brownian motion, ARIMA)
 - **📈 Plotting Functions**: Comprehensive visualization suite for time series
