@@ -16,25 +16,25 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
 
 ### Getting Started (5 pages)
 
-1. **[Home](Home)** - 3.7 KB
+1. **[Home](Home.md)** - 3.7 KB
    - Wiki navigation hub
    - Quick links by user type and task
    - Package introduction
 
-2. **[Installation Guide](Installation-Guide)** - 5.8 KB
+2. **[Installation Guide](Installation-Guide.md)** - 5.8 KB
    - System requirements
    - Three installation methods
    - Dependency management
    - Troubleshooting installation issues
 
-3. **[Quick Start](Quick-Start)** - 7.7 KB
+3. **[Quick Start](Quick-Start.md)** - 7.7 KB
    - First time series analysis
    - 4 complete examples
    - Common workflows
    - Key functions overview
    - Tips for success
 
-4. **[Package Overview](Package-Overview)** - 11 KB
+4. **[Package Overview](Package-Overview.md)** - 11 KB
    - Philosophy and design
    - 90+ functions in 9 categories
    - Naming conventions
@@ -42,7 +42,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
    - Use cases
    - Architecture
 
-5. **[README](README)** - 5.4 KB
+5. **[README](README.md)** - 5.4 KB
    - Wiki structure
    - Navigation tips
    - Quick access guide
@@ -50,7 +50,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
 
 ### Function References (6 pages)
 
-6. **[Data Generators](Data-Generators)** - 9.7 KB
+6. **[Data Generators](Data-Generators.md)** - 9.7 KB
    - `ts_random_walk()` - Random walk simulation
    - `ts_brownian_motion()` - Standard Brownian motion
    - `ts_geometric_brownian_motion()` - GBM for financial modeling
@@ -58,7 +58,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
    - Comparison tables
    - Monte Carlo patterns
 
-7. **[Forecasting Models](Forecasting-Models)** - 15 KB
+7. **[Forecasting Models](Forecasting-Models.md)** - 15 KB
    - 15 automated model workflows
    - Common parameters
    - Return values
@@ -70,7 +70,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
    - Model comparison table
    - Best practices
 
-8. **[Visualization Functions](Visualization-Functions)** - 13 KB
+8. **[Visualization Functions](Visualization-Functions.md)** - 13 KB
    - Calendar heatmaps
    - Moving average plots
    - Velocity/acceleration plots
@@ -80,7 +80,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
    - Clustering visualization
    - Customization guide
 
-9. **[Statistical Functions](Statistical-Functions)** - 14 KB
+9. **[Statistical Functions](Statistical-Functions.md)** - 14 KB
    - Stationarity testing (`ts_adf_test()`)
    - Auto-stationarization
    - 5 transformation functions
@@ -90,7 +90,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
    - Vector functions
    - Practical examples
 
-10. **[Clustering Functions](Clustering-Functions)** - 16 KB
+10. **[Clustering Functions](Clustering-Functions.md)** - 16 KB
     - Feature-based clustering
     - 8 feature sets explained
     - `ts_feature_cluster()`
@@ -99,7 +99,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
     - Hospital use cases
     - Anomaly detection
 
-11. **[Utility Functions](Utility-Functions)** - 13 KB
+11. **[Utility Functions](Utility-Functions.md)** - 13 KB
     - Data transformation (`ts_to_tbl()`)
     - Date/time helpers (month, quarter, year functions)
     - Recipe creation (`ts_auto_recipe()`)
@@ -110,7 +110,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
 
 ### Practical Guides (1 page)
 
-12. **[Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)** - 15 KB
+12. **[Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)** - 15 KB
     - Complete end-to-end workflow
     - Dataset creation
     - Exploratory data analysis
@@ -127,7 +127,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
 
 ### Support (4 pages)
 
-13. **[FAQ](FAQ)** - 14 KB
+13. **[FAQ](FAQ.md)** - 14 KB
     - 50+ questions and answers
     - Categories:
       - General questions
@@ -140,7 +140,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
     - Best practices
     - Common misconceptions
 
-14. **[Troubleshooting](Troubleshooting)** - 13 KB
+14. **[Troubleshooting](Troubleshooting.md)** - 13 KB
     - Installation issues
     - Data issues (dates, missing values, duplicates)
     - Modeling issues (fitting, tuning, memory)
@@ -151,7 +151,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
     - Getting help guide
     - Prevention tips
 
-15. **[Contributing](Contributing)** - 11 KB
+15. **[Contributing](Contributing.md)** - 11 KB
     - Ways to contribute
     - Development setup
     - Coding standards
@@ -161,7 +161,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
     - Code review guidelines
     - Documentation standards
 
-16. **[Changelog](Changelog)** - 9.8 KB
+16. **[Changelog](Changelog.md)** - 9.8 KB
     - Version history from 0.0.0.9000 to current
     - Breaking changes
     - New features by version
@@ -170,7 +170,7 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
     - Release schedule
     - Package evolution history
 
-17. **[WIKI-SUMMARY](WIKI-SUMMARY)** - This document
+17. **[WIKI-SUMMARY](WIKI-SUMMARY.md)** - This document
     - Complete wiki overview
     - Page summaries
     - Content organization
@@ -181,74 +181,74 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
 ### By Function Category
 
 **Data Generation (1 page):**
-- [Data Generators](Data-Generators)
+- [Data Generators](Data-Generators.md)
 
 **Forecasting (2 pages):**
-- [Forecasting Models](Forecasting-Models)
-- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
+- [Forecasting Models](Forecasting-Models.md)
+- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
 
 **Visualization (1 page):**
-- [Visualization Functions](Visualization-Functions)
+- [Visualization Functions](Visualization-Functions.md)
 
 **Analysis (3 pages):**
-- [Statistical Functions](Statistical-Functions)
-- [Clustering Functions](Clustering-Functions)
-- [Utility Functions](Utility-Functions)
+- [Statistical Functions](Statistical-Functions.md)
+- [Clustering Functions](Clustering-Functions.md)
+- [Utility Functions](Utility-Functions.md)
 
 **Getting Started (5 pages):**
-- [Home](Home)
-- [Installation Guide](Installation-Guide)
-- [Quick Start](Quick-Start)
-- [Package Overview](Package-Overview)
-- [README](README)
+- [Home](Home.md)
+- [Installation Guide](Installation-Guide.md)
+- [Quick Start](Quick-Start.md)
+- [Package Overview](Package-Overview.md)
+- [README](README.md)
 
 **Support (4 pages):**
-- [FAQ](FAQ)
-- [Troubleshooting](Troubleshooting)
-- [Contributing](Contributing)
-- [Changelog](Changelog)
+- [FAQ](FAQ.md)
+- [Troubleshooting](Troubleshooting.md)
+- [Contributing](Contributing.md)
+- [Changelog](Changelog.md)
 
 ### By User Level
 
 **Beginners:**
-1. [Installation Guide](Installation-Guide)
-2. [Quick Start](Quick-Start)
-3. [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
-4. [FAQ](FAQ)
+1. [Installation Guide](Installation-Guide.md)
+2. [Quick Start](Quick-Start.md)
+3. [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
+4. [FAQ](FAQ.md)
 
 **Intermediate:**
-1. [Package Overview](Package-Overview)
-2. [Forecasting Models](Forecasting-Models)
-3. [Visualization Functions](Visualization-Functions)
-4. [Statistical Functions](Statistical-Functions)
+1. [Package Overview](Package-Overview.md)
+2. [Forecasting Models](Forecasting-Models.md)
+3. [Visualization Functions](Visualization-Functions.md)
+4. [Statistical Functions](Statistical-Functions.md)
 
 **Advanced:**
-1. [Clustering Functions](Clustering-Functions)
-2. [Utility Functions](Utility-Functions)
-3. [Troubleshooting](Troubleshooting)
-4. [Contributing](Contributing)
+1. [Clustering Functions](Clustering-Functions.md)
+2. [Utility Functions](Utility-Functions.md)
+3. [Troubleshooting](Troubleshooting.md)
+4. [Contributing](Contributing.md)
 
 ### By Use Case
 
 **Hospital Operations:**
-- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
-- [Forecasting Models](Forecasting-Models)
-- [Data Generators](Data-Generators) (for testing)
+- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
+- [Forecasting Models](Forecasting-Models.md)
+- [Data Generators](Data-Generators.md) (for testing)
 
 **Data Analysis:**
-- [Statistical Functions](Statistical-Functions)
-- [Visualization Functions](Visualization-Functions)
-- [Clustering Functions](Clustering-Functions)
+- [Statistical Functions](Statistical-Functions.md)
+- [Visualization Functions](Visualization-Functions.md)
+- [Clustering Functions](Clustering-Functions.md)
 
 **Model Development:**
-- [Forecasting Models](Forecasting-Models)
-- [Utility Functions](Utility-Functions)
-- [Statistical Functions](Statistical-Functions)
+- [Forecasting Models](Forecasting-Models.md)
+- [Utility Functions](Utility-Functions.md)
+- [Statistical Functions](Statistical-Functions.md)
 
 **Package Exploration:**
-- [Package Overview](Package-Overview)
-- [Quick Start](Quick-Start)
-- [FAQ](FAQ)
+- [Package Overview](Package-Overview.md)
+- [Quick Start](Quick-Start.md)
+- [FAQ](FAQ.md)
 
 ## Key Features Documented
 
@@ -288,49 +288,49 @@ This document provides a comprehensive summary of the healthyR.ts wiki structure
 ## How to Use This Wiki
 
 ### For First-Time Users
-1. Start at [Home](Home)
-2. Read [Installation Guide](Installation-Guide)
-3. Follow [Quick Start](Quick-Start)
-4. Try [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
+1. Start at [Home](Home.md)
+2. Read [Installation Guide](Installation-Guide.md)
+3. Follow [Quick Start](Quick-Start.md)
+4. Try [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
 
 ### For Function Reference
-1. Go to [Package Overview](Package-Overview)
+1. Go to [Package Overview](Package-Overview.md)
 2. Identify function category
 3. Navigate to specific function page:
-   - [Data Generators](Data-Generators)
-   - [Forecasting Models](Forecasting-Models)
-   - [Visualization Functions](Visualization-Functions)
-   - [Statistical Functions](Statistical-Functions)
-   - [Clustering Functions](Clustering-Functions)
-   - [Utility Functions](Utility-Functions)
+   - [Data Generators](Data-Generators.md)
+   - [Forecasting Models](Forecasting-Models.md)
+   - [Visualization Functions](Visualization-Functions.md)
+   - [Statistical Functions](Statistical-Functions.md)
+   - [Clustering Functions](Clustering-Functions.md)
+   - [Utility Functions](Utility-Functions.md)
 
 ### For Problem Solving
-1. Check [FAQ](FAQ) first
-2. If not found, go to [Troubleshooting](Troubleshooting)
+1. Check [FAQ](FAQ.md) first
+2. If not found, go to [Troubleshooting](Troubleshooting.md)
 3. Search error message in relevant function page
 4. Post issue on GitHub if unresolved
 
 ### For Contributing
-1. Read [Contributing](Contributing)
-2. Review [Package Overview](Package-Overview) for structure
-3. Check [Changelog](Changelog) for recent changes
+1. Read [Contributing](Contributing.md)
+2. Review [Package Overview](Package-Overview.md) for structure
+3. Check [Changelog](Changelog.md) for recent changes
 4. Follow coding standards and submit PR
 
 ## Search Tips
 
 ### Finding Functions
-- Use Ctrl+F on [Package Overview](Package-Overview)
+- Use Ctrl+F on [Package Overview](Package-Overview.md)
 - Browse by category in function reference pages
-- Check [README](README) for quick access
+- Check [README](README.md) for quick access
 
 ### Finding Examples
-- [Quick Start](Quick-Start) - Basic examples
-- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting) - Complete workflow
+- [Quick Start](Quick-Start.md) - Basic examples
+- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md) - Complete workflow
 - Each function page has multiple examples
 
 ### Finding Solutions
-- [FAQ](FAQ) - Common questions
-- [Troubleshooting](Troubleshooting) - Problems and fixes
+- [FAQ](FAQ.md) - Common questions
+- [Troubleshooting](Troubleshooting.md) - Problems and fixes
 - Function pages - Specific use cases
 
 ## Maintenance Notes

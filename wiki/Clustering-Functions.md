@@ -680,7 +680,7 @@ data_clean <- data %>%
 
 ## See Also
 
-- [Statistical Functions](Statistical-Functions) - Feature extraction details
-- [Visualization Functions](Visualization-Functions) - Plotting clusters
-- [Data Generators](Data-Generators) - Generate test data
-- [Quick Start](Quick-Start) - Basic examples
+- [Statistical Functions](Statistical-Functions.md) - Feature extraction details
+- [Visualization Functions](Visualization-Functions.md) - Plotting clusters
+- [Data Generators](Data-Generators.md) - Generate test data
+- [Quick Start](Quick-Start.md) - Basic examples

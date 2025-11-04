@@ -716,7 +716,7 @@ tuned <- ts_model_auto_tune(
 
 ## See Also
 
-- [Quick Start](Quick-Start) - Basic usage
-- [Forecasting Models](Forecasting-Models) - Model functions
-- [Statistical Functions](Statistical-Functions) - Analysis tools
-- [Package Overview](Package-Overview) - Complete function list
+- [Quick Start](Quick-Start.md) - Basic usage
+- [Forecasting Models](Forecasting-Models.md) - Model functions
+- [Statistical Functions](Statistical-Functions.md) - Analysis tools
+- [Package Overview](Package-Overview.md) - Complete function list

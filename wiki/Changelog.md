@@ -293,7 +293,7 @@ Want to contribute to future releases?
 
 1. Report bugs: [GitHub Issues](https://github.com/spsanderson/healthyR.ts/issues)
 2. Suggest features: [Feature Requests](https://github.com/spsanderson/healthyR.ts/issues/new)
-3. Submit PRs: See [Contributing Guide](Contributing)
+3. Submit PRs: See [Contributing Guide](Contributing.md)
 
 ## Historical Notes
 
@@ -314,6 +314,6 @@ Early versions focused on individual functions. Later versions introduced:
 
 ## See Also
 
-- [Package Overview](Package-Overview) - Current package structure
-- [Installation Guide](Installation-Guide) - Installation instructions
-- [Contributing](Contributing) - How to contribute
+- [Package Overview](Package-Overview.md) - Current package structure
+- [Installation Guide](Installation-Guide.md) - Installation instructions
+- [Contributing](Contributing.md) - How to contribute
