@@ -436,7 +436,7 @@ Absolutely! Open an issue on [GitHub](https://github.com/spsanderson/healthyR.ts
 
 ### How can I contribute?
 
-See the [Contributing Guide](Contributing) for details on:
+See the [Contributing Guide](Contributing.md) for details on:
 - Code contributions
 - Documentation improvements
 - Bug reports

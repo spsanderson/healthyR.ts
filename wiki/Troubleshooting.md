@@ -736,7 +736,7 @@ Sys.setenv("TIDYMODELS_DEBUG" = "TRUE")
 
 ## See Also
 
-- [FAQ](FAQ) - Frequently asked questions
-- [Installation Guide](Installation-Guide) - Setup help
-- [Quick Start](Quick-Start) - Basic usage
-- [Contributing](Contributing) - Report bugs
+- [FAQ](FAQ.md) - Frequently asked questions
+- [Installation Guide](Installation-Guide.md) - Setup help
+- [Quick Start](Quick-Start.md) - Basic usage
+- [Contributing](Contributing.md) - Report bugs

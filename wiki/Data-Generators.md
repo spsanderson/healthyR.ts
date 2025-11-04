@@ -469,7 +469,7 @@ viz_sim <- ts_brownian_motion(.num_sims = 25, .time = 200)
 
 ## See Also
 
-- [Statistical Functions](Statistical-Functions) - Analyze generated data
-- [Visualization Functions](Visualization-Functions) - Plot simulations
-- [ARIMA Tutorial](ARIMA-Tutorial) - Learn about ARIMA processes
-- [Random Walk Tutorial](Random-Walk-Tutorial) - Detailed random walk guide
+- [Statistical Functions](Statistical-Functions.md) - Analyze generated data
+- [Visualization Functions](Visualization-Functions.md) - Plot simulations
+- [ARIMA Tutorial](ARIMA-Tutorial.md) - Learn about ARIMA processes
+- [Random Walk Tutorial](Random-Walk-Tutorial.md) - Detailed random walk guide

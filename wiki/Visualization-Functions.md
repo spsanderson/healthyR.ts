@@ -711,7 +711,7 @@ lapply(models, function(m) m$calibration_plot)
 
 ## See Also
 
-- [Data Generators](Data-Generators) - Generate data to visualize
-- [Statistical Functions](Statistical-Functions) - Analyze patterns
-- [Quick Start](Quick-Start) - Basic examples
-- [FAQ](FAQ) - Common questions
+- [Data Generators](Data-Generators.md) - Generate data to visualize
+- [Statistical Functions](Statistical-Functions.md) - Analyze patterns
+- [Quick Start](Quick-Start.md) - Basic examples
+- [FAQ](FAQ.md) - Common questions

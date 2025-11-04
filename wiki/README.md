@@ -12,28 +12,28 @@ The wiki is organized into the following sections:
 
 ### 📚 Getting Started
 Essential resources for new users:
-- **[Home](Home)** - Wiki overview and navigation
-- **[Installation Guide](Installation-Guide)** - Complete installation instructions
-- **[Quick Start](Quick-Start)** - Get up and running in minutes
-- **[Package Overview](Package-Overview)** - Understand the package structure
+- **[Home](Home.md)** - Wiki overview and navigation
+- **[Installation Guide](Installation-Guide.md)** - Complete installation instructions
+- **[Quick Start](Quick-Start.md)** - Get up and running in minutes
+- **[Package Overview](Package-Overview.md)** - Understand the package structure
 
 ### 🔧 Core Functions
 Detailed function references:
-- **[Data Generators](Data-Generators)** - Create synthetic time series data
-- **[Forecasting Models](Forecasting-Models)** - All 15 automated models
-- **[Visualization Functions](Visualization-Functions)** - Plotting and graphics
-- **[Statistical Functions](Statistical-Functions)** - Tests and transformations
-- **[Clustering Functions](Clustering-Functions)** - Feature-based clustering
+- **[Data Generators](Data-Generators.md)** - Create synthetic time series data
+- **[Forecasting Models](Forecasting-Models.md)** - All 15 automated models
+- **[Visualization Functions](Visualization-Functions.md)** - Plotting and graphics
+- **[Statistical Functions](Statistical-Functions.md)** - Tests and transformations
+- **[Clustering Functions](Clustering-Functions.md)** - Feature-based clustering
 
 ### 🎓 Practical Guides
 Real-world applications:
-- **[Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)** - Complete workflow example
+- **[Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)** - Complete workflow example
 
 ### 🛠️ Resources
 Additional help and support:
-- **[FAQ](FAQ)** - Frequently asked questions
-- **[Troubleshooting](Troubleshooting)** - Common problems and solutions
-- **[Contributing](Contributing)** - How to contribute to the project
+- **[FAQ](FAQ.md)** - Frequently asked questions
+- **[Troubleshooting](Troubleshooting.md)** - Common problems and solutions
+- **[Contributing](Contributing.md)** - How to contribute to the project
 
 ## Navigation Tips
 
@@ -50,45 +50,45 @@ All examples are tested and ready to run. Copy and paste to get started quickly.
 
 ### Most Popular Pages
 
-1. [Quick Start](Quick-Start) - Begin here if you're new
-2. [Forecasting Models](Forecasting-Models) - Model reference
-3. [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting) - Complete example
-4. [FAQ](FAQ) - Common questions
-5. [Troubleshooting](Troubleshooting) - Solve problems
+1. [Quick Start](Quick-Start.md) - Begin here if you're new
+2. [Forecasting Models](Forecasting-Models.md) - Model reference
+3. [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md) - Complete example
+4. [FAQ](FAQ.md) - Common questions
+5. [Troubleshooting](Troubleshooting.md) - Solve problems
 
 ### By User Type
 
 **New Users:**
-1. Start with [Installation Guide](Installation-Guide)
-2. Read [Quick Start](Quick-Start)
-3. Try [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
+1. Start with [Installation Guide](Installation-Guide.md)
+2. Read [Quick Start](Quick-Start.md)
+3. Try [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
 
 **Experienced Users:**
-1. Browse [Forecasting Models](Forecasting-Models) for model details
-2. Check [Statistical Functions](Statistical-Functions) for analysis tools
-3. Explore [Clustering Functions](Clustering-Functions) for pattern detection
+1. Browse [Forecasting Models](Forecasting-Models.md) for model details
+2. Check [Statistical Functions](Statistical-Functions.md) for analysis tools
+3. Explore [Clustering Functions](Clustering-Functions.md) for pattern detection
 
 **Contributors:**
-1. Read [Contributing](Contributing) guidelines
-2. Check [Troubleshooting](Troubleshooting) for common issues
+1. Read [Contributing](Contributing.md) guidelines
+2. Check [Troubleshooting](Troubleshooting.md) for common issues
 3. Review existing documentation structure
 
 ### By Task
 
 **Forecasting:**
-- [Forecasting Models](Forecasting-Models)
-- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
+- [Forecasting Models](Forecasting-Models.md)
+- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
 
 **Data Analysis:**
-- [Statistical Functions](Statistical-Functions)
-- [Clustering Functions](Clustering-Functions)
+- [Statistical Functions](Statistical-Functions.md)
+- [Clustering Functions](Clustering-Functions.md)
 
 **Visualization:**
-- [Visualization Functions](Visualization-Functions)
-- [Quick Start](Quick-Start)
+- [Visualization Functions](Visualization-Functions.md)
+- [Quick Start](Quick-Start.md)
 
 **Data Generation:**
-- [Data Generators](Data-Generators)
+- [Data Generators](Data-Generators.md)
 
 ## External Resources
 
@@ -140,8 +140,8 @@ This wiki is maintained by:
 ## Getting Help
 
 ### Within This Wiki
-- Check [FAQ](FAQ) for common questions
-- Review [Troubleshooting](Troubleshooting) for solutions
+- Check [FAQ](FAQ.md) for common questions
+- Review [Troubleshooting](Troubleshooting.md) for solutions
 - Use search to find specific topics
 
 ### External Help
