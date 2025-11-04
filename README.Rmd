@@ -27,6 +27,8 @@ knitr::opts_chunk$set(
 
 > **The Time Series Modeling Companion to healthyR**
 
+To view the full wiki, click here: [Full healthyR.ts Wiki](https://github.com/spsanderson/healthyR.ts/blob/master/wiki/Home.md)
+
 `healthyR.ts` is a comprehensive R package designed specifically for time series analysis and forecasting of hospital administrative and clinical data. Built on the powerful [tidymodels](https://www.tidymodels.org/) ecosystem, it provides a consistent, user-friendly framework that simplifies complex time series workflows.
 
 ## Why healthyR.ts?
