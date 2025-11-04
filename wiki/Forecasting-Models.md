@@ -630,7 +630,7 @@ ts_auto_prophet_reg(
 
 ## See Also
 
-- [Model Tuning and Selection](Model-Tuning-Selection)
-- [Automated Modeling Workflows](Automated-Modeling-Workflows)
-- [Quick Start](Quick-Start) - Basic examples
-- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting) - Real-world application
+- [Model Tuning and Selection](Model-Tuning-Selection.md)
+- [Automated Modeling Workflows](Automated-Modeling-Workflows.md)
+- [Quick Start](Quick-Start.md) - Basic examples
+- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md) - Real-world application

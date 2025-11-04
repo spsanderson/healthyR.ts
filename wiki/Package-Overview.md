@@ -332,7 +332,7 @@ Workflow Functions: ts_wfs_*()
 
 ## Next Steps
 
-- Learn about [Data Preparation](Data-Preparation)
-- Explore [Automated Modeling Workflows](Automated-Modeling-Workflows)
-- See [Function References](Function-References) for complete documentation
-- Read [Time Series Basics](Time-Series-Basics) for foundational concepts
+- Learn about [Data Preparation](Data-Preparation.md)
+- Explore [Automated Modeling Workflows](Automated-Modeling-Workflows.md)
+- See [Function References](Function-References.md) for complete documentation
+- Read [Time Series Basics](Time-Series-Basics.md) for foundational concepts

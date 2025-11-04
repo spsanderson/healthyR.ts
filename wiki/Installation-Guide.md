@@ -204,9 +204,9 @@ If you encounter issues not covered here:
 ## Next Steps
 
 Once installed, proceed to:
-- [Quick Start Guide](Quick-Start) - Get started with basic examples
-- [Package Overview](Package-Overview) - Learn about package structure
-- [Data Preparation](Data-Preparation) - Prepare your data for analysis
+- [Quick Start Guide](Quick-Start.md) - Get started with basic examples
+- [Package Overview](Package-Overview.md) - Learn about package structure
+- [Data Preparation](Data-Preparation.md) - Prepare your data for analysis
 
 ## Updating healthyR.ts
 

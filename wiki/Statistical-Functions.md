@@ -714,7 +714,7 @@ if (!result$stationary) {
 
 ## See Also
 
-- [Data Preparation](Data-Preparation) - Preparing data for analysis
-- [Forecasting Models](Forecasting-Models) - Models requiring stationary data
-- [Data Generators](Data-Generators) - Generate test data
-- [Visualization Functions](Visualization-Functions) - Visualize statistical properties
+- [Data Preparation](Data-Preparation.md) - Preparing data for analysis
+- [Forecasting Models](Forecasting-Models.md) - Models requiring stationary data
+- [Data Generators](Data-Generators.md) - Generate test data
+- [Visualization Functions](Visualization-Functions.md) - Visualize statistical properties

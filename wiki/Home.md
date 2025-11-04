@@ -7,49 +7,49 @@ Welcome to the **healthyR.ts** wiki! This comprehensive guide will help you mast
 ## 📚 Table of Contents
 
 ### Getting Started
-- [Installation Guide](Installation-Guide)
-- [Quick Start](Quick-Start)
-- [Package Overview](Package-Overview)
+- [Installation Guide](Installation-Guide.md)
+- [Quick Start](Quick-Start.md)
+- [Package Overview](Package-Overview.md)
 
 ### Core Concepts
-- [Time Series Basics](Time-Series-Basics)
-- [Data Preparation](Data-Preparation)
-- [Understanding Workflows](Understanding-Workflows)
+- [Time Series Basics](Time-Series-Basics.md)
+- [Data Preparation](Data-Preparation.md)
+- [Understanding Workflows](Understanding-Workflows.md)
 
 ### Function References
-- [Data Generators](Data-Generators)
-- [Visualization Functions](Visualization-Functions)
-- [Forecasting Models](Forecasting-Models)
-- [Statistical Functions](Statistical-Functions)
-- [Clustering Functions](Clustering-Functions)
-- [Utility Functions](Utility-Functions)
+- [Data Generators](Data-Generators.md)
+- [Visualization Functions](Visualization-Functions.md)
+- [Forecasting Models](Forecasting-Models.md)
+- [Statistical Functions](Statistical-Functions.md)
+- [Clustering Functions](Clustering-Functions.md)
+- [Utility Functions](Utility-Functions.md)
 
 ### Advanced Topics
-- [Automated Modeling Workflows](Automated-Modeling-Workflows)
-- [Model Tuning and Selection](Model-Tuning-Selection)
-- [Time Series Feature Engineering](Feature-Engineering)
-- [Custom Recipe Steps](Custom-Recipe-Steps)
-- [Performance Optimization](Performance-Optimization)
+- [Automated Modeling Workflows](Automated-Modeling-Workflows.md)
+- [Model Tuning and Selection](Model-Tuning-Selection.md)
+- [Time Series Feature Engineering](Feature-Engineering.md)
+- [Custom Recipe Steps](Custom-Recipe-Steps.md)
+- [Performance Optimization](Performance-Optimization.md)
 
 ### Practical Guides
-- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
-- [Length of Stay Analysis](Length-of-Stay-Analysis)
-- [Readmission Rate Monitoring](Readmission-Rate-Monitoring)
-- [Resource Planning](Resource-Planning)
-- [Seasonal Pattern Detection](Seasonal-Pattern-Detection)
+- [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
+- [Length of Stay Analysis](Length-of-Stay-Analysis.md)
+- [Readmission Rate Monitoring](Readmission-Rate-Monitoring.md)
+- [Resource Planning](Resource-Planning.md)
+- [Seasonal Pattern Detection](Seasonal-Pattern-Detection.md)
 
 ### Examples and Tutorials
-- [Random Walk Simulations](Random-Walk-Tutorial)
-- [Calendar Heatmaps](Calendar-Heatmap-Tutorial)
-- [Time Series Clustering](Clustering-Tutorial)
-- [Event Analysis](Event-Analysis-Tutorial)
-- [ARIMA Modeling](ARIMA-Tutorial)
+- [Random Walk Simulations](Random-Walk-Tutorial.md)
+- [Calendar Heatmaps](Calendar-Heatmap-Tutorial.md)
+- [Time Series Clustering](Clustering-Tutorial.md)
+- [Event Analysis](Event-Analysis-Tutorial.md)
+- [ARIMA Modeling](ARIMA-Tutorial.md)
 
 ### Reference
-- [FAQ](FAQ)
-- [Troubleshooting](Troubleshooting)
-- [Contributing Guide](Contributing)
-- [Changelog](Changelog)
+- [FAQ](FAQ.md)
+- [Troubleshooting](Troubleshooting.md)
+- [Contributing Guide](Contributing.md)
+- [Changelog](Changelog.md)
 
 ## 🎯 What is healthyR.ts?
 

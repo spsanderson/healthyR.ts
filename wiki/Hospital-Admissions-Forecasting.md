@@ -661,7 +661,7 @@ ensemble_forecast <- forecast_tbl %>%
 
 ## See Also
 
-- [Forecasting Models](Forecasting-Models) - All available models
-- [Model Tuning and Selection](Model-Tuning-Selection) - Optimization guide
-- [Statistical Functions](Statistical-Functions) - Data analysis tools
-- [Visualization Functions](Visualization-Functions) - Plotting guide
+- [Forecasting Models](Forecasting-Models.md) - All available models
+- [Model Tuning and Selection](Model-Tuning-Selection.md) - Optimization guide
+- [Statistical Functions](Statistical-Functions.md) - Data analysis tools
+- [Visualization Functions](Visualization-Functions.md) - Plotting guide

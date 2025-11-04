@@ -278,7 +278,7 @@ event_analysis %>%
 - `ts_auto_prophet_reg()` - Prophet model
 - `ts_auto_xgboost()` - XGBoost for time series
 - `ts_auto_nnetar()` - Neural network autoregression
-- And 11 more! See [Forecasting Models](Forecasting-Models)
+- And 11 more! See [Forecasting Models](Forecasting-Models.md)
 
 ## Tips for Success
 
@@ -325,10 +325,10 @@ model <- ts_auto_arima(
 
 Now that you've completed the quick start:
 
-1. **Explore More Examples**: Check out [Examples and Tutorials](Examples-Tutorials)
-2. **Learn About Functions**: Browse the [Function References](Function-References)
-3. **Dive Deeper**: Read about [Automated Modeling Workflows](Automated-Modeling-Workflows)
-4. **Real-World Cases**: See [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting)
+1. **Explore More Examples**: Check out [Examples and Tutorials](Examples-Tutorials.md)
+2. **Learn About Functions**: Browse the [Function References](Function-References.md)
+3. **Dive Deeper**: Read about [Automated Modeling Workflows](Automated-Modeling-Workflows.md)
+4. **Real-World Cases**: See [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
 
 ## Getting Help
 
