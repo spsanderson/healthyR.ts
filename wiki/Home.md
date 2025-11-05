@@ -21,10 +21,6 @@ Welcome to the **healthyR.ts** wiki! This comprehensive guide will help you mast
 
 ### Practical Guides
 - [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
-- [Length of Stay Analysis](Length-of-Stay-Analysis.md)
-- [Readmission Rate Monitoring](Readmission-Rate-Monitoring.md)
-- [Resource Planning](Resource-Planning.md)
-- [Seasonal Pattern Detection](Seasonal-Pattern-Detection.md)
 
 ### Examples and Tutorials
 - [Random Walk Simulations](Random-Walk-Tutorial.md)
