@@ -19,13 +19,6 @@ Welcome to the **healthyR.ts** wiki! This comprehensive guide will help you mast
 - [Clustering Functions](Clustering-Functions.md)
 - [Utility Functions](Utility-Functions.md)
 
-### Advanced Topics
-- [Automated Modeling Workflows](Automated-Modeling-Workflows.md)
-- [Model Tuning and Selection](Model-Tuning-Selection.md)
-- [Time Series Feature Engineering](Feature-Engineering.md)
-- [Custom Recipe Steps](Custom-Recipe-Steps.md)
-- [Performance Optimization](Performance-Optimization.md)
-
 ### Practical Guides
 - [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
 - [Length of Stay Analysis](Length-of-Stay-Analysis.md)
