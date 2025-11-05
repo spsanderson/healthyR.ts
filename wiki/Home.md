@@ -22,13 +22,6 @@ Welcome to the **healthyR.ts** wiki! This comprehensive guide will help you mast
 ### Practical Guides
 - [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
 
-### Examples and Tutorials
-- [Random Walk Simulations](Random-Walk-Tutorial.md)
-- [Calendar Heatmaps](Calendar-Heatmap-Tutorial.md)
-- [Time Series Clustering](Clustering-Tutorial.md)
-- [Event Analysis](Event-Analysis-Tutorial.md)
-- [ARIMA Modeling](ARIMA-Tutorial.md)
-
 ### Reference
 - [FAQ](FAQ.md)
 - [Troubleshooting](Troubleshooting.md)
