@@ -11,11 +11,6 @@ Welcome to the **healthyR.ts** wiki! This comprehensive guide will help you mast
 - [Quick Start](Quick-Start.md)
 - [Package Overview](Package-Overview.md)
 
-### Core Concepts
-- [Time Series Basics](Time-Series-Basics.md)
-- [Data Preparation](Data-Preparation.md)
-- [Understanding Workflows](Understanding-Workflows.md)
-
 ### Function References
 - [Data Generators](Data-Generators.md)
 - [Visualization Functions](Visualization-Functions.md)
