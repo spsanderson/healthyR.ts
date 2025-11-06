@@ -154,20 +154,20 @@ tuning grid.</p></dd>
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="https://parsnip.tidymodels.org/reference/mars.html" class="external-link">https://parsnip.tidymodels.org/reference/mars.html</a></p>
 <p>Other Boiler_Plate:
-<code><a href="ts_auto_arima.html">ts_auto_arima</a>()</code>,
-<code><a href="ts_auto_arima_xgboost.html">ts_auto_arima_xgboost</a>()</code>,
-<code><a href="ts_auto_croston.html">ts_auto_croston</a>()</code>,
-<code><a href="ts_auto_exp_smoothing.html">ts_auto_exp_smoothing</a>()</code>,
-<code><a href="ts_auto_glmnet.html">ts_auto_glmnet</a>()</code>,
-<code><a href="ts_auto_lm.html">ts_auto_lm</a>()</code>,
-<code><a href="ts_auto_nnetar.html">ts_auto_nnetar</a>()</code>,
-<code><a href="ts_auto_prophet_boost.html">ts_auto_prophet_boost</a>()</code>,
-<code><a href="ts_auto_prophet_reg.html">ts_auto_prophet_reg</a>()</code>,
-<code><a href="ts_auto_smooth_es.html">ts_auto_smooth_es</a>()</code>,
-<code><a href="ts_auto_svm_poly.html">ts_auto_svm_poly</a>()</code>,
-<code><a href="ts_auto_svm_rbf.html">ts_auto_svm_rbf</a>()</code>,
-<code><a href="ts_auto_theta.html">ts_auto_theta</a>()</code>,
-<code><a href="ts_auto_xgboost.html">ts_auto_xgboost</a>()</code></p></div>
+<code><a href="ts_auto_arima.html">ts_auto_arima()</a></code>,
+<code><a href="ts_auto_arima_xgboost.html">ts_auto_arima_xgboost()</a></code>,
+<code><a href="ts_auto_croston.html">ts_auto_croston()</a></code>,
+<code><a href="ts_auto_exp_smoothing.html">ts_auto_exp_smoothing()</a></code>,
+<code><a href="ts_auto_glmnet.html">ts_auto_glmnet()</a></code>,
+<code><a href="ts_auto_lm.html">ts_auto_lm()</a></code>,
+<code><a href="ts_auto_nnetar.html">ts_auto_nnetar()</a></code>,
+<code><a href="ts_auto_prophet_boost.html">ts_auto_prophet_boost()</a></code>,
+<code><a href="ts_auto_prophet_reg.html">ts_auto_prophet_reg()</a></code>,
+<code><a href="ts_auto_smooth_es.html">ts_auto_smooth_es()</a></code>,
+<code><a href="ts_auto_svm_poly.html">ts_auto_svm_poly()</a></code>,
+<code><a href="ts_auto_svm_rbf.html">ts_auto_svm_rbf()</a></code>,
+<code><a href="ts_auto_theta.html">ts_auto_theta()</a></code>,
+<code><a href="ts_auto_xgboost.html">ts_auto_xgboost()</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -181,9 +181,7 @@ tuning grid.</p></dd>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk" class="external-link">timetk</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/modeltime" class="external-link">modeltime</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.milbo.users.sonic.net/earth/" class="external-link">earth</a></span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: Formula</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: plotmo</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: plotrix</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in library(earth):</span> there is no package called 'earth'</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">AirPassengers</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="ts_to_tbl.html">ts_to_tbl</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
@@ -207,34 +205,10 @@ tuning grid.</p></dd>
 <span class="r-in"><span>  .grid_size <span class="op">=</span> <span class="fl">20</span>,</span></span>
 <span class="r-in"><span>  .tune <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in fit_xy(spec, x = mold$predictors, y = mold$outcomes, case_weights = case_weights,     control = control_parsnip):</span> Please install the <span style="color: #0000BB;">earth</span> package to use this engine.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ts_auto_mars</span><span class="op">$</span><span class="va">recipe_info</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_call</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> recipe(.data = data, .date_col = date_col, .value_col = value, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     .formula = value ~ ., .rsamp_obj = splits, .tune = FALSE, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     .grid_size = 20, .num_cores = 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_syntax</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ts_mars_recipe &lt;-"                                                                                                                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "\n  recipe(.data = data, .date_col = date_col, .value_col = value, .formula = value ~ \n    ., .rsamp_obj = splits, .tune = FALSE, .grid_size = 20, .num_cores = 2)"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $rec_obj</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">date_col</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Novel factor level assignment for: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variable mutation for: <span style="color: #0000BB;">tidyselect::vars_select_helpers$where(is.character)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal()</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Zero variance filter on: <span style="color: #0000BB;">recipes::all_predictors()</span> <span style="color: #0000BB;">-date_col_index.num</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">recipes::all_numeric_predictors()</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in ts_auto_mars$recipe_info:</span> object of type 'closure' is not subsettable</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
@@ -248,7 +222,7 @@ tuning grid.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
