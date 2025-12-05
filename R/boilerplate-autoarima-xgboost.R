@@ -153,7 +153,7 @@ ts_auto_arima_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp
 
     model_spec <- model_spec %>%
         parsnip::set_mode(mode = "regression") %>%
-        parsnip::set_engine("auto_arima_xgboost", objective = "reg:squarederror")
+        parsnip::set_engine("auto_arima_xgboost")
 
     # Workflow ----
     wflw <- workflows::workflow() %>%
