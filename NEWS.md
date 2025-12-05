@@ -1,5 +1,14 @@
 # healthyR.ts (development version)
 
+## Breaking Changes
+1. Require R >= 4.1 per CRAN request due to using the native pipe.
+
+## Minor Fixes and Improvements
+None
+
+## New Features
+None
+
 # healthyR.ts 0.3.1
 
 ## Breaking Changes
