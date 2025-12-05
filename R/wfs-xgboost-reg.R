@@ -115,7 +115,6 @@ ts_wfs_xgboost <- function(.model_type = "xgboost", .recipe_list,
     # * Models ----
     model_spec_xgboost <- parsnip::boost_tree(
         mode = "regression",
-        engine = "xgboost",
         tree_depth = tree_depth,
         trees = trees,
         learn_rate = learn_rate,
@@ -123,7 +122,8 @@ ts_wfs_xgboost <- function(.model_type = "xgboost", .recipe_list,
         loss_reduction = loss_reduction,
         sample_size = sample_size,
         stop_iter = stop_iter
-    )
+    ) %>%
+        parsnip::set_engine("xgboost", objective = "reg:squarederror")
 
     final_model_list <- if (model_type == "xgboost"){
         fml <- list(model_spec_xgboost)

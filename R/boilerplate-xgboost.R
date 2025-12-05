@@ -148,7 +148,7 @@ ts_auto_xgboost <- function(.data, .date_col, .value_col, .formula, .rsamp_obj,
 
     model_spec <- model_spec %>%
         parsnip::set_mode(mode = "regression") %>%
-        parsnip::set_engine("xgboost")
+        parsnip::set_engine("xgboost", objective = "reg:squarederror")
 
     # Workflow ----
     wflw <- workflows::workflow() %>%

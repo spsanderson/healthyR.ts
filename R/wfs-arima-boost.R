@@ -144,7 +144,7 @@ ts_wfs_arima_boost <- function(.model_type = "all_engines", .recipe_list,
         learn_rate               = learn_rate,
         stop_iter                = stop_iter
     ) %>%
-        parsnip::set_engine("arima_xgboost")
+        parsnip::set_engine("arima_xgboost", objective = "reg:squarederror")
 
     model_sepc_auto_arima_boost <- modeltime::arima_boost(
         mode = "regression",
@@ -156,7 +156,7 @@ ts_wfs_arima_boost <- function(.model_type = "all_engines", .recipe_list,
         learn_rate               = learn_rate,
         stop_iter                = stop_iter
     ) %>%
-        parsnip::set_engine("auto_arima_xgboost")
+        parsnip::set_engine("auto_arima_xgboost", objective = "reg:squarederror")
 
     final_model_list <- if (model_type == "arima_xgboost"){
         fml <- list(model_spec_arima_boost)
