@@ -149,7 +149,7 @@ ts_ma_plot <- function(.data,
     ) %>%
         timetk::tk_xts()
 
-    # tibbles for ggplot/cowplot
+    # tibbles for ggplot
     data_summary_tbl <- data_tbl %>%
         dplyr::mutate(date_col = as.Date(date_col)) %>%
         dplyr::mutate(
