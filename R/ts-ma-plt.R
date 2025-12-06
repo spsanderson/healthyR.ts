@@ -82,7 +82,7 @@ ts_ma_plot <- function(.data,
     }
 
     if (rlang::quo_is_missing(value_col_var_expr)) {
-        stop(call. = FALSE, "(.value_col) is mising, please supply.")
+        stop(call. = FALSE, "(.value_col) is missing, please supply.")
     }
 
     if (!is.data.frame(.data)) {
