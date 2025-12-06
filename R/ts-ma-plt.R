@@ -3,11 +3,10 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
-#' This function will produce two plots. Both of these are moving average plots.
-#' One of the plots is from [xts::plot.xts()] and the other a `ggplot2` plot with
-#' facet wrapping. This is done so that the user can choose which type is best for
-#' them. The ggplot2 plots are stacked using facet_wrap so each graph is on top of
-#' the other.
+#' This function will produce a `ggplot2` plot with facet wrapping. The plot
+#' contains three moving average panels stacked on top of each other using
+#' facet_wrap. The panels show the main time series with moving average, and
+#' two difference calculations.
 #'
 #' @details This function expects to take in a data.frame/tibble. It will return
 #' a list object so it is a good idea to save the output to a variable and extract
@@ -37,7 +36,6 @@
 #' )
 #'
 #' output$pgrid
-#' output$xts_plt
 #' output$data_summary_tbl %>% head()
 #'
 #' output <- ts_ma_plot(
@@ -48,11 +46,10 @@
 #' )
 #'
 #' output$pgrid
-#' output$xts_plt
 #' output$data_summary_tbl %>% head()
 #'
 #' @return
-#' A few time series data sets and two plots.
+#' A list containing the ggplot2 plot object and the summary data table.
 #' @name ts_ma_plot
 NULL
 
@@ -102,7 +99,7 @@ ts_ma_plot <- function(.data,
         purrr::set_names("date_col", "value")
 
     # * Manipulate ----
-    # Initial tables that get coerced to xts
+    # Initial tables for data transformation
     data_trans_tbl <- data_tbl %>%
         dplyr::mutate(
             ma12 = timetk::slidify_vec(
@@ -121,33 +118,6 @@ ts_ma_plot <- function(.data,
     data_diff_b <- data_trans_tbl %>%
         dplyr::mutate(diff_b = (value / dplyr::lag(value, ts_freq_for_calc) - 1) * 100) %>%
         dplyr::select(date_col, diff_b)
-
-    # Get start date for timetk::tk_ts() function
-    start_date <- min(data_trans_tbl$date_col)
-    start_yr <- lubridate::year(start_date)
-    start_mn <- lubridate::month(start_date)
-
-    # xts data
-    data_trans_xts <- timetk::tk_ts(
-        data_trans_tbl,
-        frequency = ts_freq_for_calc,
-        start = c(start_yr, start_mn)
-    ) %>%
-        timetk::tk_xts()
-
-    data_diff_xts_a <- timetk::tk_ts(
-        data_diff_a,
-        frequency = ts_freq_for_calc,
-        start = c(start_yr, start_mn)
-    ) %>%
-        timetk::tk_xts()
-
-    data_diff_xts_b <- timetk::tk_ts(
-        data_diff_b,
-        frequency = ts_freq_for_calc,
-        start = c(start_yr, start_mn)
-    ) %>%
-        timetk::tk_xts()
 
     # tibbles for ggplot
     data_summary_tbl <- data_tbl %>%
@@ -253,39 +223,10 @@ ts_ma_plot <- function(.data,
             axis.text.x = ggplot2::element_text(angle = 0)
         )
 
-    # xts plot?
-    #' @export
-    ts_xts_plt_internal <- function(){
-        xts::plot.xts(
-            data_trans_xts,
-            main = .main_title,
-            multi.panel = FALSE,
-            col = c("black","blue")
-        )
-        graphics::lines(
-            data_diff_xts_a,
-            col = "red",
-            type = "h",
-            on = NA,
-            main = .secondary_title
-        )
-        graphics::lines(
-            data_diff_xts_b,
-            col = "purple",
-            type = "h",
-            on = NA,
-            main = .tertiary_title
-        )
-    }
-
     # * Return ----
     output <- list(
-        data_trans_xts = data_trans_xts,
-        data_diff_xts_a = data_diff_xts_a,
-        data_diff_xts_b = data_diff_xts_b,
         data_summary_tbl = data_summary_tbl,
-        pgrid = pgrid,
-        xts_plt = ts_xts_plt_internal()
+        pgrid = pgrid
     )
 
     return(output)
