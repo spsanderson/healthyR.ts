@@ -4,9 +4,10 @@
 #'
 #' @description
 #' This function will produce two plots. Both of these are moving average plots.
-#' One of the plots is from [xts::plot.xts()] and the other a `ggplot2` plot. This
-#' is done so that the user can choose which type is best for them. The plots are
-#' stacked so each graph is on top of the other.
+#' One of the plots is from [xts::plot.xts()] and the other a `ggplot2` plot with
+#' facet wrapping. This is done so that the user can choose which type is best for
+#' them. The ggplot2 plots are stacked using facet_wrap so each graph is on top of
+#' the other.
 #'
 #' @details This function expects to take in a data.frame/tibble. It will return
 #' a list object so it is a good idea to save the output to a variable and extract
@@ -168,99 +169,81 @@ ts_ma_plot <- function(.data,
         )
 
     # * Visualize ----
-    # ggplot only here, plot.xts in the list object
-    p1 <- ggplot2::ggplot(
-        data = data_summary_tbl,
-        ggplot2::aes(
-            x = date_col,
-            y = value
+    # Prepare data for faceting
+    # Create long format data with panel indicator for faceting
+    data_for_facet <- data_summary_tbl %>%
+        dplyr::mutate(
+            panel = "Main",
+            panel_order = 1
+        ) %>%
+        dplyr::select(date_col, value, ma12, panel, panel_order) %>%
+        dplyr::bind_rows(
+            data_summary_tbl %>%
+                dplyr::mutate(
+                    panel = "Diff A",
+                    panel_order = 2,
+                    plot_value = diff_a,
+                    fill_color = ifelse(diff_a < 1, "red", "green")
+                ) %>%
+                dplyr::select(date_col, plot_value, fill_color, panel, panel_order)
+        ) %>%
+        dplyr::bind_rows(
+            data_summary_tbl %>%
+                dplyr::mutate(
+                    panel = "Diff B",
+                    panel_order = 3,
+                    plot_value = diff_b,
+                    fill_color = ifelse(diff_b < 1, "red", "green")
+                ) %>%
+                dplyr::select(date_col, plot_value, fill_color, panel, panel_order)
+        ) %>%
+        dplyr::mutate(
+            panel = factor(panel, levels = c("Main", "Diff A", "Diff B"))
         )
-    ) +
-        ggplot2::geom_line(linewidth = 1) +
+
+    # Create facet titles
+    panel_labels <- c(
+        "Main" = ifelse(is.null(.main_title), "Main Plot", .main_title),
+        "Diff A" = ifelse(is.null(.secondary_title), "Difference A", .secondary_title),
+        "Diff B" = ifelse(is.null(.tertiary_title), "Difference B", .tertiary_title)
+    )
+
+    # Create single plot with facet_wrap
+    pgrid <- ggplot2::ggplot() +
+        # Main panel: line plots
         ggplot2::geom_line(
-            ggplot2::aes(
-                x = date_col,
-                y = ma12
-            ),
+            data = data_for_facet %>% dplyr::filter(panel == "Main"),
+            ggplot2::aes(x = date_col, y = value),
+            linewidth = 1
+        ) +
+        ggplot2::geom_line(
+            data = data_for_facet %>% dplyr::filter(panel == "Main"),
+            ggplot2::aes(x = date_col, y = ma12),
             color = "blue",
             size = 1
         ) +
-        #ggplot2::scale_y_continuous(labels = scales::label_number_si()) +
-        ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
-        ggplot2::theme_minimal() +
-        ggplot2::labs(
-            title = .main_title,
-            x = "",
-            y = ""
+        # Diff A and Diff B panels: bar plots
+        ggplot2::geom_col(
+            data = data_for_facet %>% dplyr::filter(panel %in% c("Diff A", "Diff B")),
+            ggplot2::aes(x = date_col, y = plot_value, fill = fill_color)
         ) +
-        ggplot2::theme(
-            axis.title.x = ggplot2::element_blank(),
-            axis.text.x  = ggplot2::element_blank(),
-            axis.ticks.x = ggplot2::element_blank()
-        )
-
-    p2 <- ggplot2::ggplot(
-        data = data_summary_tbl,
-        ggplot2::aes(
-            x = date_col,
-            y = diff_a,
-            fill = ifelse(diff_a < 1, "red", "green")
-        )
-    ) +
-        ggplot2::geom_col() +
-        ggplot2::scale_y_continuous(
-            labels = scales::label_percent(scale = 1, accuracy = 0.1)
+        ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
+        ggplot2::facet_wrap(
+            ~ panel,
+            ncol = 1,
+            scales = "free_y",
+            labeller = ggplot2::labeller(panel = panel_labels)
         ) +
         ggplot2::theme_minimal() +
-        ggplot2::scale_fill_manual(values = c("red"="red","green"="green")) +
         ggplot2::labs(
-            title = .secondary_title,
             x = "",
             y = ""
         ) +
         ggplot2::theme(
             legend.position = "none",
-            axis.title.x = ggplot2::element_blank(),
-            axis.text.x = ggplot2::element_blank(),
-            axis.ticks.x = ggplot2::element_blank()
+            strip.text = ggplot2::element_text(hjust = 0, size = 11),
+            axis.text.x = ggplot2::element_text(angle = 0)
         )
-
-    p3 <- ggplot2::ggplot(
-        data = data_summary_tbl,
-        ggplot2::aes(
-            x = date_col,
-            y = diff_b,
-            fill = ifelse(diff_b < 1, "red", "green")
-        )
-    ) +
-        ggplot2::geom_col() +
-        ggplot2::scale_y_continuous(
-            labels = scales::label_percent(
-                scale = 1,
-                accuracy = 0.1
-            )
-        ) +
-        ggplot2::scale_x_date(
-            labels = scales::label_date("'%y"),
-            breaks = scales::breaks_width("2 years")
-        ) +
-        ggplot2::theme_minimal() +
-        ggplot2::scale_fill_manual(values = c("red"="red","green"="green")) +
-        ggplot2::labs(
-            title = .tertiary_title,
-            x = "",
-            y = ""
-        ) +
-        ggplot2::theme(
-            legend.position = "none"
-        )
-
-    pgrid <- cowplot::plot_grid(
-        # ggplots
-        p1, p2, p3,
-        ncol = 1,
-        rel_heights = c(8, 5, 5)
-    )
 
     # xts plot?
     #' @export
