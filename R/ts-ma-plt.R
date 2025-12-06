@@ -208,23 +208,27 @@ ts_ma_plot <- function(.data,
         "Diff B" = ifelse(is.null(.tertiary_title), "Difference B", .tertiary_title)
     )
 
+    # Pre-filter data for each panel to avoid redundant operations
+    main_panel_data <- data_for_facet %>% dplyr::filter(panel == "Main")
+    diff_panel_data <- data_for_facet %>% dplyr::filter(panel %in% c("Diff A", "Diff B"))
+
     # Create single plot with facet_wrap
     pgrid <- ggplot2::ggplot() +
         # Main panel: line plots
         ggplot2::geom_line(
-            data = data_for_facet %>% dplyr::filter(panel == "Main"),
+            data = main_panel_data,
             ggplot2::aes(x = date_col, y = value),
             linewidth = 1
         ) +
         ggplot2::geom_line(
-            data = data_for_facet %>% dplyr::filter(panel == "Main"),
+            data = main_panel_data,
             ggplot2::aes(x = date_col, y = ma12),
             color = "blue",
             linewidth = 1
         ) +
         # Diff A and Diff B panels: bar plots
         ggplot2::geom_col(
-            data = data_for_facet %>% dplyr::filter(panel %in% c("Diff A", "Diff B")),
+            data = diff_panel_data,
             ggplot2::aes(x = date_col, y = plot_value, fill = fill_color)
         ) +
         ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
