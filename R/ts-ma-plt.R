@@ -143,29 +143,26 @@ ts_ma_plot <- function(.data,
     # Create long format data with panel indicator for faceting
     data_for_facet <- data_summary_tbl %>%
         dplyr::mutate(
-            panel = "Main",
-            panel_order = 1
+            panel = "Main"
         ) %>%
-        dplyr::select(date_col, value, ma12, panel, panel_order) %>%
+        dplyr::select(date_col, value, ma12, panel) %>%
         dplyr::bind_rows(
             data_summary_tbl %>%
                 dplyr::mutate(
                     panel = "Diff A",
-                    panel_order = 2,
                     plot_value = diff_a,
-                    fill_color = ifelse(diff_a < 1, "red", "green")
+                    fill_color = ifelse(diff_a < 0, "red", "green")
                 ) %>%
-                dplyr::select(date_col, plot_value, fill_color, panel, panel_order)
+                dplyr::select(date_col, plot_value, fill_color, panel)
         ) %>%
         dplyr::bind_rows(
             data_summary_tbl %>%
                 dplyr::mutate(
                     panel = "Diff B",
-                    panel_order = 3,
                     plot_value = diff_b,
-                    fill_color = ifelse(diff_b < 1, "red", "green")
+                    fill_color = ifelse(diff_b < 0, "red", "green")
                 ) %>%
-                dplyr::select(date_col, plot_value, fill_color, panel, panel_order)
+                dplyr::select(date_col, plot_value, fill_color, panel)
         ) %>%
         dplyr::mutate(
             panel = factor(panel, levels = c("Main", "Diff A", "Diff B"))
@@ -202,6 +199,7 @@ ts_ma_plot <- function(.data,
             ggplot2::aes(x = date_col, y = plot_value, fill = fill_color)
         ) +
         ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
+        ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
         ggplot2::scale_x_date(
             labels = scales::label_date("'%y"),
             breaks = scales::breaks_width("2 years")
