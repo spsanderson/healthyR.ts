@@ -220,7 +220,7 @@ ts_ma_plot <- function(.data,
             data = data_for_facet %>% dplyr::filter(panel == "Main"),
             ggplot2::aes(x = date_col, y = ma12),
             color = "blue",
-            size = 1
+            linewidth = 1
         ) +
         # Diff A and Diff B panels: bar plots
         ggplot2::geom_col(
@@ -228,6 +228,10 @@ ts_ma_plot <- function(.data,
             ggplot2::aes(x = date_col, y = plot_value, fill = fill_color)
         ) +
         ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
+        ggplot2::scale_x_date(
+            labels = scales::label_date("'%y"),
+            breaks = scales::breaks_width("2 years")
+        ) +
         ggplot2::facet_wrap(
             ~ panel,
             ncol = 1,
