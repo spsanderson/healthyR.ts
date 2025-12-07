@@ -6,7 +6,7 @@
 #' This function will produce a `ggplot2` plot with facet wrapping. The plot
 #' contains three moving average panels stacked on top of each other using
 #' facet_wrap. The panels show the main time series with moving average, and
-#' two difference calculations.
+#' two difference calculations: Diff A shows sequential period-over-period percentage changes (e.g., month-over-month or week-over-week), and Diff B shows year-over-year percentage changes.
 #'
 #' @details This function expects to take in a data.frame/tibble. It will return
 #' a list object so it is a good idea to save the output to a variable and extract
