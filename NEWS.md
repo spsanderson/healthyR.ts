@@ -2,6 +2,12 @@
 
 ## Breaking Changes
 1. Require R >= 4.1 per CRAN request due to using the native pipe.
+2. Fix #542 - Refactor `ts_ma_plot()` to use `ggplot2::facet_wrap()` instead of 
+`cowplot::plot_grid()` for stacking plots. The function now returns only ggplot2 
+output and no longer includes xts plotting functionality. The return value has been 
+simplified from 6 items to 2 items: `pgrid` (ggplot2 facet_wrap plot object) and 
+`data_summary_tbl` (summary data table). Removed return values: `data_trans_xts`, 
+`data_diff_xts_a`, `data_diff_xts_b`, and `xts_plt`.
 
 ## Minor Fixes and Improvements
 None

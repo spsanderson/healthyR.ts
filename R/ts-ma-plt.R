@@ -3,10 +3,10 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description
-#' This function will produce two plots. Both of these are moving average plots.
-#' One of the plots is from [xts::plot.xts()] and the other a `ggplot2` plot. This
-#' is done so that the user can choose which type is best for them. The plots are
-#' stacked so each graph is on top of the other.
+#' This function will produce a `ggplot2` plot with facet wrapping. The plot
+#' contains three moving average panels stacked on top of each other using
+#' facet_wrap. The panels show the main time series with moving average, and
+#' two difference calculations: Diff A shows sequential period-over-period percentage changes (e.g., month-over-month or week-over-week), and Diff B shows year-over-year percentage changes.
 #'
 #' @details This function expects to take in a data.frame/tibble. It will return
 #' a list object so it is a good idea to save the output to a variable and extract
@@ -36,7 +36,6 @@
 #' )
 #'
 #' output$pgrid
-#' output$xts_plt
 #' output$data_summary_tbl %>% head()
 #'
 #' output <- ts_ma_plot(
@@ -47,11 +46,10 @@
 #' )
 #'
 #' output$pgrid
-#' output$xts_plt
 #' output$data_summary_tbl %>% head()
 #'
 #' @return
-#' A few time series data sets and two plots.
+#' A list containing the ggplot2 plot object and the summary data table.
 #' @name ts_ma_plot
 NULL
 
@@ -84,7 +82,7 @@ ts_ma_plot <- function(.data,
     }
 
     if (rlang::quo_is_missing(value_col_var_expr)) {
-        stop(call. = FALSE, "(.value_col) is mising, please supply.")
+        stop(call. = FALSE, "(.value_col) is missing, please supply.")
     }
 
     if (!is.data.frame(.data)) {
@@ -101,54 +99,7 @@ ts_ma_plot <- function(.data,
         purrr::set_names("date_col", "value")
 
     # * Manipulate ----
-    # Initial tables that get coerced to xts
-    data_trans_tbl <- data_tbl %>%
-        dplyr::mutate(
-            ma12 = timetk::slidify_vec(
-                .x = value,
-                .period = ts_freq_for_calc,
-                .f = mean,
-                .align = "right",
-                na.rm = TRUE
-            )
-        )
-
-    data_diff_a <- data_trans_tbl %>%
-        dplyr::mutate(diff_a = (value / dplyr::lag(value) - 1) * 100) %>%
-        dplyr::select(date_col, diff_a)
-
-    data_diff_b <- data_trans_tbl %>%
-        dplyr::mutate(diff_b = (value / dplyr::lag(value, ts_freq_for_calc) - 1) * 100) %>%
-        dplyr::select(date_col, diff_b)
-
-    # Get start date for timetk::tk_ts() function
-    start_date <- min(data_trans_tbl$date_col)
-    start_yr <- lubridate::year(start_date)
-    start_mn <- lubridate::month(start_date)
-
-    # xts data
-    data_trans_xts <- timetk::tk_ts(
-        data_trans_tbl,
-        frequency = ts_freq_for_calc,
-        start = c(start_yr, start_mn)
-    ) %>%
-        timetk::tk_xts()
-
-    data_diff_xts_a <- timetk::tk_ts(
-        data_diff_a,
-        frequency = ts_freq_for_calc,
-        start = c(start_yr, start_mn)
-    ) %>%
-        timetk::tk_xts()
-
-    data_diff_xts_b <- timetk::tk_ts(
-        data_diff_b,
-        frequency = ts_freq_for_calc,
-        start = c(start_yr, start_mn)
-    ) %>%
-        timetk::tk_xts()
-
-    # tibbles for ggplot/cowplot
+    # Create summary tibble for visualization
     data_summary_tbl <- data_tbl %>%
         dplyr::mutate(date_col = as.Date(date_col)) %>%
         dplyr::mutate(
@@ -168,133 +119,99 @@ ts_ma_plot <- function(.data,
         )
 
     # * Visualize ----
-    # ggplot only here, plot.xts in the list object
-    p1 <- ggplot2::ggplot(
-        data = data_summary_tbl,
-        ggplot2::aes(
-            x = date_col,
-            y = value
-        )
-    ) +
-        ggplot2::geom_line(linewidth = 1) +
-        ggplot2::geom_line(
-            ggplot2::aes(
-                x = date_col,
-                y = ma12
-            ),
-            color = "blue",
-            size = 1
-        ) +
-        #ggplot2::scale_y_continuous(labels = scales::label_number_si()) +
-        ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
-        ggplot2::theme_minimal() +
-        ggplot2::labs(
-            title = .main_title,
-            x = "",
-            y = ""
-        ) +
-        ggplot2::theme(
-            axis.title.x = ggplot2::element_blank(),
-            axis.text.x  = ggplot2::element_blank(),
-            axis.ticks.x = ggplot2::element_blank()
+    # Prepare data for faceting
+    # Create long format data with panel indicator for faceting
+    # Note: Mixed column structure is intentional - Main panel uses value/ma12 for line plots,
+    # while Diff panels use plot_value/fill_color for bar plots. Each geom only accesses
+    # its relevant columns, so NAs in unused columns don't affect rendering.
+    data_for_facet <- data_summary_tbl %>%
+        dplyr::mutate(
+            panel = "Main"
+        ) %>%
+        dplyr::select(date_col, value, ma12, panel) %>%
+        dplyr::bind_rows(
+            data_summary_tbl %>%
+                dplyr::mutate(
+                    panel = "Diff A",
+                    plot_value = diff_a,
+                    fill_color = ifelse(diff_a < 0, "red", "green")
+                ) %>%
+                dplyr::select(date_col, plot_value, fill_color, panel)
+        ) %>%
+        dplyr::bind_rows(
+            data_summary_tbl %>%
+                dplyr::mutate(
+                    panel = "Diff B",
+                    plot_value = diff_b,
+                    fill_color = ifelse(diff_b < 0, "red", "green")
+                ) %>%
+                dplyr::select(date_col, plot_value, fill_color, panel)
+        ) %>%
+        dplyr::mutate(
+            panel = factor(panel, levels = c("Main", "Diff A", "Diff B"))
         )
 
-    p2 <- ggplot2::ggplot(
-        data = data_summary_tbl,
-        ggplot2::aes(
-            x = date_col,
-            y = diff_a,
-            fill = ifelse(diff_a < 1, "red", "green")
-        )
-    ) +
-        ggplot2::geom_col() +
-        ggplot2::scale_y_continuous(
-            labels = scales::label_percent(scale = 1, accuracy = 0.1)
+    # Create facet titles
+    panel_labels <- c(
+        "Main" = if (is.null(.main_title)) "Main Plot" else .main_title,
+        "Diff A" = if (is.null(.secondary_title)) "Difference A" else .secondary_title,
+        "Diff B" = if (is.null(.tertiary_title)) "Difference B" else .tertiary_title
+    )
+
+    # Pre-filter data for each panel to avoid redundant operations
+    main_panel_data <- data_for_facet %>% dplyr::filter(panel == "Main")
+    diff_panel_data <- data_for_facet %>% dplyr::filter(panel %in% c("Diff A", "Diff B"))
+
+    # Create single plot with facet_wrap
+    pgrid <- ggplot2::ggplot() +
+        # Main panel: line plots
+        ggplot2::geom_line(
+            data = main_panel_data,
+            ggplot2::aes(x = date_col, y = value),
+            linewidth = 1
+        ) +
+        ggplot2::geom_line(
+            data = main_panel_data,
+            ggplot2::aes(x = date_col, y = ma12),
+            color = "blue",
+            linewidth = 1
+        ) +
+        # Diff A and Diff B panels: bar plots
+        ggplot2::geom_col(
+            data = diff_panel_data,
+            ggplot2::aes(x = date_col, y = plot_value, fill = fill_color)
+        ) +
+        ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
+        # Y-axis formatting: Using label_number_auto() for all panels because diff values
+        # are already in percentage units (multiplied by 100). With scales="free_y",
+        # each facet gets appropriate ranges. Per-facet formatting (e.g., percentage symbols
+        # for diff panels) would require additional dependencies like ggh4x.
+        ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
+        ggplot2::scale_x_date(
+            labels = scales::label_date("'%y"),
+            breaks = scales::breaks_width("2 years")
+        ) +
+        ggplot2::facet_wrap(
+            ~ panel,
+            ncol = 1,
+            scales = "free_y",
+            labeller = ggplot2::labeller(panel = panel_labels)
         ) +
         ggplot2::theme_minimal() +
-        ggplot2::scale_fill_manual(values = c("red"="red","green"="green")) +
         ggplot2::labs(
-            title = .secondary_title,
             x = "",
             y = ""
         ) +
         ggplot2::theme(
             legend.position = "none",
-            axis.title.x = ggplot2::element_blank(),
-            axis.text.x = ggplot2::element_blank(),
-            axis.ticks.x = ggplot2::element_blank()
+            strip.text = ggplot2::element_text(hjust = 0, size = 11),
+            axis.text.x = ggplot2::element_text(angle = 0)
         )
-
-    p3 <- ggplot2::ggplot(
-        data = data_summary_tbl,
-        ggplot2::aes(
-            x = date_col,
-            y = diff_b,
-            fill = ifelse(diff_b < 1, "red", "green")
-        )
-    ) +
-        ggplot2::geom_col() +
-        ggplot2::scale_y_continuous(
-            labels = scales::label_percent(
-                scale = 1,
-                accuracy = 0.1
-            )
-        ) +
-        ggplot2::scale_x_date(
-            labels = scales::label_date("'%y"),
-            breaks = scales::breaks_width("2 years")
-        ) +
-        ggplot2::theme_minimal() +
-        ggplot2::scale_fill_manual(values = c("red"="red","green"="green")) +
-        ggplot2::labs(
-            title = .tertiary_title,
-            x = "",
-            y = ""
-        ) +
-        ggplot2::theme(
-            legend.position = "none"
-        )
-
-    pgrid <- cowplot::plot_grid(
-        # ggplots
-        p1, p2, p3,
-        ncol = 1,
-        rel_heights = c(8, 5, 5)
-    )
-
-    # xts plot?
-    #' @export
-    ts_xts_plt_internal <- function(){
-        xts::plot.xts(
-            data_trans_xts,
-            main = .main_title,
-            multi.panel = FALSE,
-            col = c("black","blue")
-        )
-        graphics::lines(
-            data_diff_xts_a,
-            col = "red",
-            type = "h",
-            on = NA,
-            main = .secondary_title
-        )
-        graphics::lines(
-            data_diff_xts_b,
-            col = "purple",
-            type = "h",
-            on = NA,
-            main = .tertiary_title
-        )
-    }
 
     # * Return ----
     output <- list(
-        data_trans_xts = data_trans_xts,
-        data_diff_xts_a = data_diff_xts_a,
-        data_diff_xts_b = data_diff_xts_b,
         data_summary_tbl = data_summary_tbl,
-        pgrid = pgrid,
-        xts_plt = ts_xts_plt_internal()
+        pgrid = pgrid
     )
 
     return(output)

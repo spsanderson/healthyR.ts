@@ -11,11 +11,6 @@ Welcome to the **healthyR.ts** wiki! This comprehensive guide will help you mast
 - [Quick Start](Quick-Start.md)
 - [Package Overview](Package-Overview.md)
 
-### Core Concepts
-- [Time Series Basics](Time-Series-Basics.md)
-- [Data Preparation](Data-Preparation.md)
-- [Understanding Workflows](Understanding-Workflows.md)
-
 ### Function References
 - [Data Generators](Data-Generators.md)
 - [Visualization Functions](Visualization-Functions.md)
@@ -24,26 +19,8 @@ Welcome to the **healthyR.ts** wiki! This comprehensive guide will help you mast
 - [Clustering Functions](Clustering-Functions.md)
 - [Utility Functions](Utility-Functions.md)
 
-### Advanced Topics
-- [Automated Modeling Workflows](Automated-Modeling-Workflows.md)
-- [Model Tuning and Selection](Model-Tuning-Selection.md)
-- [Time Series Feature Engineering](Feature-Engineering.md)
-- [Custom Recipe Steps](Custom-Recipe-Steps.md)
-- [Performance Optimization](Performance-Optimization.md)
-
 ### Practical Guides
 - [Hospital Admissions Forecasting](Hospital-Admissions-Forecasting.md)
-- [Length of Stay Analysis](Length-of-Stay-Analysis.md)
-- [Readmission Rate Monitoring](Readmission-Rate-Monitoring.md)
-- [Resource Planning](Resource-Planning.md)
-- [Seasonal Pattern Detection](Seasonal-Pattern-Detection.md)
-
-### Examples and Tutorials
-- [Random Walk Simulations](Random-Walk-Tutorial.md)
-- [Calendar Heatmaps](Calendar-Heatmap-Tutorial.md)
-- [Time Series Clustering](Clustering-Tutorial.md)
-- [Event Analysis](Event-Analysis-Tutorial.md)
-- [ARIMA Modeling](ARIMA-Tutorial.md)
 
 ### Reference
 - [FAQ](FAQ.md)
