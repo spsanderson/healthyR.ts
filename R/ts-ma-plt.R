@@ -121,6 +121,9 @@ ts_ma_plot <- function(.data,
     # * Visualize ----
     # Prepare data for faceting
     # Create long format data with panel indicator for faceting
+    # Note: Mixed column structure is intentional - Main panel uses value/ma12 for line plots,
+    # while Diff panels use plot_value/fill_color for bar plots. Each geom only accesses
+    # its relevant columns, so NAs in unused columns don't affect rendering.
     data_for_facet <- data_summary_tbl %>%
         dplyr::mutate(
             panel = "Main"
@@ -179,6 +182,10 @@ ts_ma_plot <- function(.data,
             ggplot2::aes(x = date_col, y = plot_value, fill = fill_color)
         ) +
         ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
+        # Y-axis formatting: Using label_number_auto() for all panels because diff values
+        # are already in percentage units (multiplied by 100). With scales="free_y",
+        # each facet gets appropriate ranges. Per-facet formatting (e.g., percentage symbols
+        # for diff panels) would require additional dependencies like ggh4x.
         ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
         ggplot2::scale_x_date(
             labels = scales::label_date("'%y"),
