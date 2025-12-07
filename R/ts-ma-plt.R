@@ -36,17 +36,17 @@
 #' )
 #'
 #' output$pgrid
-#' output$data_summary_tbl %>% head()
+#' output$data_summary_tbl %>% tail()
 #'
 #' output <- ts_ma_plot(
 #'   .data = data_tbl,
 #'   .date_col = date_col,
 #'   .value_col = value,
-#'   .ts_frequency = "week"
+#'   .ts_frequency = "month"
 #' )
 #'
 #' output$pgrid
-#' output$data_summary_tbl %>% head()
+#' output$data_summary_tbl %>% tail()
 #'
 #' @return
 #' A list containing the ggplot2 plot object and the summary data table.
@@ -163,50 +163,36 @@ ts_ma_plot <- function(.data,
     diff_panel_data <- data_for_facet %>% dplyr::filter(panel %in% c("Diff A", "Diff B"))
 
     # Create single plot with facet_wrap
-    pgrid <- ggplot2::ggplot() +
-        # Main panel: line plots
-        ggplot2::geom_line(
+    p1 <- ggplot2::ggplot(
             data = main_panel_data,
-            ggplot2::aes(x = date_col, y = value),
-            linewidth = 1
+            ggplot2::aes(x = date_col)
         ) +
-        ggplot2::geom_line(
-            data = main_panel_data,
-            ggplot2::aes(x = date_col, y = ma12),
-            color = "blue",
-            linewidth = 1
-        ) +
-        # Diff A and Diff B panels: bar plots
-        ggplot2::geom_col(
-            data = diff_panel_data,
-            ggplot2::aes(x = date_col, y = plot_value, fill = fill_color)
-        ) +
-        ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
-        # Y-axis formatting: Using label_number_auto() for all panels because diff values
-        # are already in percentage units (multiplied by 100). With scales="free_y",
-        # each facet gets appropriate ranges. Per-facet formatting (e.g., percentage symbols
-        # for diff panels) would require additional dependencies like ggh4x.
+        ggplot2::geom_line(ggplot2::aes(y = value)) +
+        ggplot2::geom_line(ggplot2::aes(y = ma12), color = "blue", linewidth = 1 ) +
         ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
-        ggplot2::scale_x_date(
-            labels = scales::label_date("'%y"),
-            breaks = scales::breaks_width("2 years")
-        ) +
-        ggplot2::facet_wrap(
-            ~ panel,
-            ncol = 1,
-            scales = "free_y",
-            labeller = ggplot2::labeller(panel = panel_labels)
-        ) +
-        ggplot2::theme_minimal() +
         ggplot2::labs(
             x = "",
-            y = ""
+            title = panel_labels["Main"]
         ) +
-        ggplot2::theme(
-            legend.position = "none",
-            strip.text = ggplot2::element_text(hjust = 0, size = 11),
-            axis.text.x = ggplot2::element_text(angle = 0)
-        )
+        ggplot2::theme_minimal()
+
+    p2 <- ggplot2::ggplot(
+            data = diff_panel_data,
+            ggplot2::aes(x = date_col)
+        ) +
+        ggplot2::facet_wrap(~ panel, ncol = 1, scales = "free_y") +
+        ggplot2::geom_col(ggplot2::aes(y = plot_value, fill = fill_color)) +
+        ggplot2::scale_fill_manual(values = c("red" = "red", "green" = "green")) +
+        ggplot2::scale_y_continuous(labels = scales::label_number_auto()) +
+        ggplot2::theme_minimal() +
+        ggplot2::theme(legend.position = "none")
+
+    pgrid <- cowplot::plot_grid(
+        # ggplots
+        p1, p2,
+        ncol = 1,
+        rel_heights = c(5, 5, 5)
+    )
 
     # * Return ----
     output <- list(
