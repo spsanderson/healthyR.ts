@@ -99,26 +99,6 @@ ts_ma_plot <- function(.data,
         purrr::set_names("date_col", "value")
 
     # * Manipulate ----
-    # Initial tables for data transformation
-    data_trans_tbl <- data_tbl %>%
-        dplyr::mutate(
-            ma12 = timetk::slidify_vec(
-                .x = value,
-                .period = ts_freq_for_calc,
-                .f = mean,
-                .align = "right",
-                na.rm = TRUE
-            )
-        )
-
-    data_diff_a <- data_trans_tbl %>%
-        dplyr::mutate(diff_a = (value / dplyr::lag(value) - 1) * 100) %>%
-        dplyr::select(date_col, diff_a)
-
-    data_diff_b <- data_trans_tbl %>%
-        dplyr::mutate(diff_b = (value / dplyr::lag(value, ts_freq_for_calc) - 1) * 100) %>%
-        dplyr::select(date_col, diff_b)
-
     # Create summary tibble for visualization
     data_summary_tbl <- data_tbl %>%
         dplyr::mutate(date_col = as.Date(date_col)) %>%
