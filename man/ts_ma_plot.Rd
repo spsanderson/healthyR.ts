@@ -59,17 +59,17 @@ output <- ts_ma_plot(
 )
 
 output$pgrid
-output$data_summary_tbl \%>\% head()
+output$data_summary_tbl \%>\% tail()
 
 output <- ts_ma_plot(
   .data = data_tbl,
   .date_col = date_col,
   .value_col = value,
-  .ts_frequency = "week"
+  .ts_frequency = "month"
 )
 
 output$pgrid
-output$data_summary_tbl \%>\% head()
+output$data_summary_tbl \%>\% tail()
 
 }
 \author{
