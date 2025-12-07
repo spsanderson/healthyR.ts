@@ -160,7 +160,7 @@ ts_auto_prophet_boost <- function(.data, .date_col, .value_col, .formula, .rsamp
 
     model_spec <- model_spec %>%
         parsnip::set_mode(mode = "regression") %>%
-        parsnip::set_engine("prophet_xgboost")
+        parsnip::set_engine("prophet_xgboost", objective = "reg:squarederror")
 
     # Workflow ----
     wflw <- workflows::workflow() %>%

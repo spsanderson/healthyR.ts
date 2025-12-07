@@ -33,13 +33,13 @@ function be in either a weekly or monthly aggregation.}
 \item{.tertiary_title}{The title of the third plot.}
 }
 \value{
-A few time series data sets and two plots.
+A list containing the ggplot2 plot object and the summary data table.
 }
 \description{
-This function will produce two plots. Both of these are moving average plots.
-One of the plots is from \code{\link[xts:plot.xts]{xts::plot.xts()}} and the other a \code{ggplot2} plot. This
-is done so that the user can choose which type is best for them. The plots are
-stacked so each graph is on top of the other.
+This function will produce a \code{ggplot2} plot with facet wrapping. The plot
+contains three moving average panels stacked on top of each other using
+facet_wrap. The panels show the main time series with moving average, and
+two difference calculations: Diff A shows sequential period-over-period percentage changes (e.g., month-over-month or week-over-week), and Diff B shows year-over-year percentage changes.
 }
 \details{
 This function expects to take in a data.frame/tibble. It will return
@@ -59,7 +59,6 @@ output <- ts_ma_plot(
 )
 
 output$pgrid
-output$xts_plt
 output$data_summary_tbl \%>\% head()
 
 output <- ts_ma_plot(
@@ -70,7 +69,6 @@ output <- ts_ma_plot(
 )
 
 output$pgrid
-output$xts_plt
 output$data_summary_tbl \%>\% head()
 
 }

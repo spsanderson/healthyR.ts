@@ -193,7 +193,7 @@ ts_wfs_prophet_reg <- function(.model_type = "all_engines",
         , loss_reduction           = loss_reduction
         , stop_iter                = stop_iter
     ) %>%
-        parsnip::set_engine("prophet_xgboost")
+        parsnip::set_engine("prophet_xgboost", objective = "reg:squarederror")
 
     final_model_list <- if (model_type == "prophet"){
         fml <- list(model_spec_prophet)
