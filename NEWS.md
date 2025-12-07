@@ -1,5 +1,11 @@
 # healthyR.ts (development version)
 
+## Minor Fixes and Improvements
+None
+
+## New Features
+None
+
 ## Breaking Changes
 1. Require R >= 4.1 per CRAN request due to using the native pipe.
 2. Fix #542 - Refactor `ts_ma_plot()` to use `ggplot2::facet_wrap()` instead of 
