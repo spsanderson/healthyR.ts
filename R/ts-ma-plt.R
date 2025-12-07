@@ -119,7 +119,7 @@ ts_ma_plot <- function(.data,
         dplyr::mutate(diff_b = (value / dplyr::lag(value, ts_freq_for_calc) - 1) * 100) %>%
         dplyr::select(date_col, diff_b)
 
-    # tibbles for ggplot
+    # Create summary tibble for visualization
     data_summary_tbl <- data_tbl %>%
         dplyr::mutate(date_col = as.Date(date_col)) %>%
         dplyr::mutate(
