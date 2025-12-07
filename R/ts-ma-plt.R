@@ -170,9 +170,9 @@ ts_ma_plot <- function(.data,
 
     # Create facet titles
     panel_labels <- c(
-        "Main" = ifelse(is.null(.main_title), "Main Plot", .main_title),
-        "Diff A" = ifelse(is.null(.secondary_title), "Difference A", .secondary_title),
-        "Diff B" = ifelse(is.null(.tertiary_title), "Difference B", .tertiary_title)
+        "Main" = if (is.null(.main_title)) "Main Plot" else .main_title,
+        "Diff A" = if (is.null(.secondary_title)) "Difference A" else .secondary_title,
+        "Diff B" = if (is.null(.tertiary_title)) "Difference B" else .tertiary_title
     )
 
     # Pre-filter data for each panel to avoid redundant operations
