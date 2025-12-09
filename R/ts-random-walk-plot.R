@@ -5,11 +5,11 @@
 #' @author Steven P. Sanderson II, MPH
 #'
 #' @description Plot a random walk with side-by-side facets showing both the
-#' random variable and cumulative sum.
+#' random variable and cumulative product (random walk path).
 #'
 #' @details This function will take output from the `ts_random_walk()` function
 #' and create a side-by-side faceted plot. The left panel shows the random
-#' variable (y) over time, and the right panel shows the cumulative sum (cum_y)
+#' variable (y) over time, and the right panel shows the cumulative product (cum_y, i.e., the random walk path)
 #' over time. Each simulation run is shown as a separate line. The legend is set
 #' to "none" if the simulation count is higher than 9.
 #'
