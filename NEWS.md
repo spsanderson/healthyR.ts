@@ -5,7 +5,7 @@ None
 
 ## New Features
 1. Add function `ts_random_walk_plot()` - Creates a side-by-side faceted plot
-for random walk simulations showing both the random variable and cumulative sum.
+for random walk simulations showing both the random variable and the random walk path (cumulative product).
 
 ## Breaking Changes
 1. Require R >= 4.1 per CRAN request due to using the native pipe.
