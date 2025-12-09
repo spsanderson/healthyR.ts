@@ -44,6 +44,7 @@ interactive plot.
 Other Plot:
 [`ts_brownian_motion_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion_plot.md),
 [`ts_event_analysis_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_event_analysis_plot.md),
+[`ts_random_walk_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk_plot.md),
 [`ts_scedacity_scatter_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_scedacity_scatter_plot.md)
 
 Other Utility:

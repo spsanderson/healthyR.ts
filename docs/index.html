@@ -168,14 +168,14 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
-<span><span class="co">#&gt;     run     x        y cum_y</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1     1     1 -0.00559  994.</span></span>
-<span><span class="co">#&gt; 2     1     2  0.119   1112.</span></span>
-<span><span class="co">#&gt; 3     1     3  0.109   1233.</span></span>
-<span><span class="co">#&gt; 4     1     4  0.0255  1265.</span></span>
-<span><span class="co">#&gt; 5     1     5 -0.0320  1224.</span></span>
-<span><span class="co">#&gt; 6     1     6 -0.0397  1176.</span></span></code></pre></div>
+<span><span class="co">#&gt;     run     x       y cum_y</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1     1     1  0.0698 1070.</span></span>
+<span><span class="co">#&gt; 2     1     2  0.0626 1137.</span></span>
+<span><span class="co">#&gt; 3     1     3  0.124  1277.</span></span>
+<span><span class="co">#&gt; 4     1     4  0.0504 1342.</span></span>
+<span><span class="co">#&gt; 5     1     5  0.0143 1361.</span></span>
+<span><span class="co">#&gt; 6     1     6 -0.0639 1274.</span></span></code></pre></div>
 <p>Now that the data has been generated, lets take a look at it.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -313,38 +313,38 @@
 <span id="cb9-49"><a href="#cb9-49" tabindex="-1"></a><span class="co">#&gt; # A tibble: 12 × 9</span></span>
 <span id="cb9-50"><a href="#cb9-50" tabindex="-1"></a><span class="co">#&gt;    cluster group_id ts_x_acf1 ts_x_acf10 ts_diff1_acf1 ts_diff1_acf10</span></span>
 <span id="cb9-51"><a href="#cb9-51" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;</span></span>
-<span id="cb9-52"><a href="#cb9-52" tabindex="-1"></a><span class="co">#&gt;  1       1        1     0.741       1.55       -0.0995          0.474</span></span>
-<span id="cb9-53"><a href="#cb9-53" tabindex="-1"></a><span class="co">#&gt;  2       1        2     0.730       1.50       -0.0155          0.654</span></span>
-<span id="cb9-54"><a href="#cb9-54" tabindex="-1"></a><span class="co">#&gt;  3       2        3     0.766       1.62       -0.471           0.562</span></span>
-<span id="cb9-55"><a href="#cb9-55" tabindex="-1"></a><span class="co">#&gt;  4       2        4     0.715       1.46       -0.253           0.457</span></span>
-<span id="cb9-56"><a href="#cb9-56" tabindex="-1"></a><span class="co">#&gt;  5       2        5     0.730       1.48       -0.372           0.417</span></span>
-<span id="cb9-57"><a href="#cb9-57" tabindex="-1"></a><span class="co">#&gt;  6       1        6     0.751       1.61        0.122           0.646</span></span>
-<span id="cb9-58"><a href="#cb9-58" tabindex="-1"></a><span class="co">#&gt;  7       1        7     0.745       1.58        0.260           0.236</span></span>
-<span id="cb9-59"><a href="#cb9-59" tabindex="-1"></a><span class="co">#&gt;  8       1        8     0.761       1.60        0.319           0.419</span></span>
-<span id="cb9-60"><a href="#cb9-60" tabindex="-1"></a><span class="co">#&gt;  9       2        9     0.747       1.59       -0.235           0.191</span></span>
-<span id="cb9-61"><a href="#cb9-61" tabindex="-1"></a><span class="co">#&gt; 10       2       10     0.732       1.50       -0.0371          0.269</span></span>
-<span id="cb9-62"><a href="#cb9-62" tabindex="-1"></a><span class="co">#&gt; 11       2       11     0.746       1.54       -0.310           0.357</span></span>
-<span id="cb9-63"><a href="#cb9-63" tabindex="-1"></a><span class="co">#&gt; 12       2       12     0.735       1.51       -0.360           0.294</span></span>
+<span id="cb9-52"><a href="#cb9-52" tabindex="-1"></a><span class="co">#&gt;  1       2        1     0.741       1.55       -0.0995          0.474</span></span>
+<span id="cb9-53"><a href="#cb9-53" tabindex="-1"></a><span class="co">#&gt;  2       2        2     0.730       1.50       -0.0155          0.654</span></span>
+<span id="cb9-54"><a href="#cb9-54" tabindex="-1"></a><span class="co">#&gt;  3       1        3     0.766       1.62       -0.471           0.562</span></span>
+<span id="cb9-55"><a href="#cb9-55" tabindex="-1"></a><span class="co">#&gt;  4       1        4     0.715       1.46       -0.253           0.457</span></span>
+<span id="cb9-56"><a href="#cb9-56" tabindex="-1"></a><span class="co">#&gt;  5       1        5     0.730       1.48       -0.372           0.417</span></span>
+<span id="cb9-57"><a href="#cb9-57" tabindex="-1"></a><span class="co">#&gt;  6       2        6     0.751       1.61        0.122           0.646</span></span>
+<span id="cb9-58"><a href="#cb9-58" tabindex="-1"></a><span class="co">#&gt;  7       2        7     0.745       1.58        0.260           0.236</span></span>
+<span id="cb9-59"><a href="#cb9-59" tabindex="-1"></a><span class="co">#&gt;  8       2        8     0.761       1.60        0.319           0.419</span></span>
+<span id="cb9-60"><a href="#cb9-60" tabindex="-1"></a><span class="co">#&gt;  9       1        9     0.747       1.59       -0.235           0.191</span></span>
+<span id="cb9-61"><a href="#cb9-61" tabindex="-1"></a><span class="co">#&gt; 10       1       10     0.732       1.50       -0.0371          0.269</span></span>
+<span id="cb9-62"><a href="#cb9-62" tabindex="-1"></a><span class="co">#&gt; 11       1       11     0.746       1.54       -0.310           0.357</span></span>
+<span id="cb9-63"><a href="#cb9-63" tabindex="-1"></a><span class="co">#&gt; 12       1       12     0.735       1.51       -0.360           0.294</span></span>
 <span id="cb9-64"><a href="#cb9-64" tabindex="-1"></a><span class="co">#&gt; # ℹ 3 more variables: ts_diff2_acf1 &lt;dbl&gt;, ts_seas_acf1 &lt;dbl&gt;, ts_entropy &lt;dbl&gt;</span></span>
 <span id="cb9-65"><a href="#cb9-65" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb9-66"><a href="#cb9-66" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb9-67"><a href="#cb9-67" tabindex="-1"></a><span class="co">#&gt; $kmeans_object</span></span>
 <span id="cb9-68"><a href="#cb9-68" tabindex="-1"></a><span class="co">#&gt; $kmeans_object[[1]]</span></span>
-<span id="cb9-69"><a href="#cb9-69" tabindex="-1"></a><span class="co">#&gt; K-means clustering with 2 clusters of sizes 5, 7</span></span>
+<span id="cb9-69"><a href="#cb9-69" tabindex="-1"></a><span class="co">#&gt; K-means clustering with 2 clusters of sizes 7, 5</span></span>
 <span id="cb9-70"><a href="#cb9-70" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb9-71"><a href="#cb9-71" tabindex="-1"></a><span class="co">#&gt; Cluster means:</span></span>
 <span id="cb9-72"><a href="#cb9-72" tabindex="-1"></a><span class="co">#&gt;   ts_x_acf1 ts_x_acf10 ts_diff1_acf1 ts_diff1_acf10 ts_diff2_acf1 ts_seas_acf1</span></span>
-<span id="cb9-73"><a href="#cb9-73" tabindex="-1"></a><span class="co">#&gt; 1 0.7456468   1.568532     0.1172685      0.4858013    -0.1799728    0.2876449</span></span>
-<span id="cb9-74"><a href="#cb9-74" tabindex="-1"></a><span class="co">#&gt; 2 0.7387865   1.528308    -0.2909349      0.3638392    -0.5916245    0.2930543</span></span>
+<span id="cb9-73"><a href="#cb9-73" tabindex="-1"></a><span class="co">#&gt; 1 0.7387865   1.528308    -0.2909349      0.3638392    -0.5916245    0.2930543</span></span>
+<span id="cb9-74"><a href="#cb9-74" tabindex="-1"></a><span class="co">#&gt; 2 0.7456468   1.568532     0.1172685      0.4858013    -0.1799728    0.2876449</span></span>
 <span id="cb9-75"><a href="#cb9-75" tabindex="-1"></a><span class="co">#&gt;   ts_entropy</span></span>
-<span id="cb9-76"><a href="#cb9-76" tabindex="-1"></a><span class="co">#&gt; 1  0.4918321</span></span>
-<span id="cb9-77"><a href="#cb9-77" tabindex="-1"></a><span class="co">#&gt; 2  0.6438176</span></span>
+<span id="cb9-76"><a href="#cb9-76" tabindex="-1"></a><span class="co">#&gt; 1  0.6438176</span></span>
+<span id="cb9-77"><a href="#cb9-77" tabindex="-1"></a><span class="co">#&gt; 2  0.4918321</span></span>
 <span id="cb9-78"><a href="#cb9-78" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb9-79"><a href="#cb9-79" tabindex="-1"></a><span class="co">#&gt; Clustering vector:</span></span>
-<span id="cb9-80"><a href="#cb9-80" tabindex="-1"></a><span class="co">#&gt;  [1] 1 1 2 2 2 1 1 1 2 2 2 2</span></span>
+<span id="cb9-80"><a href="#cb9-80" tabindex="-1"></a><span class="co">#&gt;  [1] 2 2 1 1 1 2 2 2 1 1 1 1</span></span>
 <span id="cb9-81"><a href="#cb9-81" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb9-82"><a href="#cb9-82" tabindex="-1"></a><span class="co">#&gt; Within cluster sum of squares by cluster:</span></span>
-<span id="cb9-83"><a href="#cb9-83" tabindex="-1"></a><span class="co">#&gt; [1] 0.3704304 0.3660630</span></span>
+<span id="cb9-83"><a href="#cb9-83" tabindex="-1"></a><span class="co">#&gt; [1] 0.3660630 0.3704304</span></span>
 <span id="cb9-84"><a href="#cb9-84" tabindex="-1"></a><span class="co">#&gt;  (between_SS / total_SS =  59.8 %)</span></span>
 <span id="cb9-85"><a href="#cb9-85" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb9-86"><a href="#cb9-86" tabindex="-1"></a><span class="co">#&gt; Available components:</span></span>

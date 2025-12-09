@@ -57,6 +57,7 @@ one of the aggregate plots ("mean"/"median").
 Other Plot:
 [`ts_brownian_motion_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_brownian_motion_plot.md),
 [`ts_qq_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_qq_plot.md),
+[`ts_random_walk_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk_plot.md),
 [`ts_scedacity_scatter_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_scedacity_scatter_plot.md)
 
 ## Author

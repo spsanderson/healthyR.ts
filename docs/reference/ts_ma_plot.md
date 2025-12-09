@@ -1,11 +1,11 @@
 # Time Series Moving Average Plot
 
-This function will produce two plots. Both of these are moving average
-plots. One of the plots is from
-[`xts::plot.xts()`](https://rdrr.io/pkg/xts/man/plot.xts.html) and the
-other a `ggplot2` plot. This is done so that the user can choose which
-type is best for them. The plots are stacked so each graph is on top of
-the other.
+This function will produce a `ggplot2` plot with facet wrapping. The
+plot contains three moving average panels stacked on top of each other
+using facet_wrap. The panels show the main time series with moving
+average, and two difference calculations: Diff A shows sequential
+period-over-period percentage changes (e.g., month-over-month or
+week-over-week), and Diff B shows year-over-year percentage changes.
 
 ## Usage
 
@@ -56,7 +56,7 @@ ts_ma_plot(
 
 ## Value
 
-A few time series data sets and two plots.
+A list containing the ggplot2 plot object and the summary data table.
 
 ## Details
 
@@ -81,57 +81,41 @@ output <- ts_ma_plot(
   .date_col = date_col,
   .value_col = value
 )
-#> Warning: Non-numeric columns being dropped: date_col
-#> Warning: 'tzone' attributes are inconsistent
-#> Warning: Non-numeric columns being dropped: date_col
-#> Warning: 'tzone' attributes are inconsistent
-#> Warning: Non-numeric columns being dropped: date_col
-#> Warning: 'tzone' attributes are inconsistent
 #> Warning: Removed 11 rows containing missing values or values outside the scale range
 #> (`geom_line()`).
 
 output$pgrid
 
-output$xts_plt
-
-output$data_summary_tbl %>% head()
+output$data_summary_tbl %>% tail()
 #> # A tibble: 6 × 5
 #>   date_col   value  ma12 diff_a diff_b
 #>   <date>     <dbl> <dbl>  <dbl>  <dbl>
-#> 1 1949-01-01   112    NA   0         0
-#> 2 1949-02-01   118    NA   5.36      0
-#> 3 1949-03-01   132    NA  11.9       0
-#> 4 1949-04-01   129    NA  -2.27      0
-#> 5 1949-05-01   121    NA  -6.20      0
-#> 6 1949-06-01   135    NA  11.6       0
+#> 1 1960-07-01   622  459.  16.3   13.5 
+#> 2 1960-08-01   606  463.  -2.57   8.41
+#> 3 1960-09-01   508  467. -16.2    9.72
+#> 4 1960-10-01   461  472.  -9.25  13.3 
+#> 5 1960-11-01   390  474. -15.4    7.73
+#> 6 1960-12-01   432  476.  10.8    6.67
 
 output <- ts_ma_plot(
   .data = data_tbl,
   .date_col = date_col,
   .value_col = value,
-  .ts_frequency = "week"
+  .ts_frequency = "month"
 )
-#> Warning: Non-numeric columns being dropped: date_col
-#> Warning: 'tzone' attributes are inconsistent
-#> Warning: Non-numeric columns being dropped: date_col
-#> Warning: 'tzone' attributes are inconsistent
-#> Warning: Non-numeric columns being dropped: date_col
-#> Warning: 'tzone' attributes are inconsistent
 #> Warning: Removed 51 rows containing missing values or values outside the scale range
 #> (`geom_line()`).
 
 output$pgrid
 
-output$xts_plt
-
-output$data_summary_tbl %>% head()
+output$data_summary_tbl %>% tail()
 #> # A tibble: 6 × 5
 #>   date_col   value  ma12 diff_a diff_b
 #>   <date>     <dbl> <dbl>  <dbl>  <dbl>
-#> 1 1949-01-01   112    NA   0         0
-#> 2 1949-02-01   118    NA   5.36      0
-#> 3 1949-03-01   132    NA  11.9       0
-#> 4 1949-04-01   129    NA  -2.27      0
-#> 5 1949-05-01   121    NA  -6.20      0
-#> 6 1949-06-01   135    NA  11.6       0
+#> 1 1960-07-01   622  394.  16.3   96.2 
+#> 2 1960-08-01   606  400.  -2.57  93.6 
+#> 3 1960-09-01   508  404. -16.2   59.7 
+#> 4 1960-10-01   461  405.  -9.25  23.3 
+#> 5 1960-11-01   390  405. -15.4   -5.57
+#> 6 1960-12-01   432  405.  10.8    6.67
 ```

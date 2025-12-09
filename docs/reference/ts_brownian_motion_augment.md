@@ -98,15 +98,15 @@ ts_brownian_motion_augment(
 #> # A tibble: 1,041 × 3
 #>    sim_number  date_col     value
 #>    <fct>       <date>       <dbl>
-#>  1 actual_data 2022-01-01 -0.0521
-#>  2 actual_data 2022-01-02 -1.05  
-#>  3 actual_data 2022-01-03 -0.0223
-#>  4 actual_data 2022-01-04 -0.524 
-#>  5 actual_data 2022-01-05 -0.599 
-#>  6 actual_data 2022-01-06  0.0306
-#>  7 actual_data 2022-01-07 -0.809 
-#>  8 actual_data 2022-01-08 -0.305 
-#>  9 actual_data 2022-01-09 -0.616 
-#> 10 actual_data 2022-01-10 -0.435 
+#>  1 actual_data 2022-01-01 -1.11  
+#>  2 actual_data 2022-01-02  0.215 
+#>  3 actual_data 2022-01-03  0.793 
+#>  4 actual_data 2022-01-04 -0.976 
+#>  5 actual_data 2022-01-05 -0.276 
+#>  6 actual_data 2022-01-06  1.05  
+#>  7 actual_data 2022-01-07  1.88  
+#>  8 actual_data 2022-01-08  0.0864
+#>  9 actual_data 2022-01-09 -0.334 
+#> 10 actual_data 2022-01-10  0.305 
 #> # ℹ 1,031 more rows
 ```

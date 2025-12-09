@@ -2,6 +2,43 @@
 
 ## healthyR.ts (development version)
 
+### Minor Fixes and Improvements
+
+None
+
+### New Features
+
+1.  Add function
+    [`ts_random_walk_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk_plot.md) -
+    Creates a side-by-side faceted plot for random walk simulations
+    showing both the random variable and the random walk path
+    (cumulative product).
+
+### Breaking Changes
+
+1.  Require R \>= 4.1 per CRAN request due to using the native pipe.
+2.  Fix [\#542](https://github.com/spsanderson/healthyR.ts/issues/542) -
+    Refactor
+    [`ts_ma_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_ma_plot.md)
+    to use
+    [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
+    instead of
+    [`cowplot::plot_grid()`](https://wilkelab.org/cowplot/reference/plot_grid.html)
+    for stacking plots. The function now returns only ggplot2 output and
+    no longer includes xts plotting functionality. The return value has
+    been simplified from 6 items to 2 items: `pgrid` (ggplot2 facet_wrap
+    plot object) and `data_summary_tbl` (summary data table). Removed
+    return values: `data_trans_xts`, `data_diff_xts_a`,
+    `data_diff_xts_b`, and `xts_plt`.
+
+### Minor Fixes and Improvements
+
+None
+
+### New Features
+
+None
+
 ## healthyR.ts 0.3.1
 
 CRAN release: 2024-10-11

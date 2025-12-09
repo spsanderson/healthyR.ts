@@ -162,33 +162,9 @@ ts_auto_arima_xgboost <- ts_auto_arima_xgboost(
   .tune = FALSE
 )
 #> frequency = 12 observations per 1 year
+#> Error in switch(object$params$objective, `reg:linear` = , `reg:logistic` = ,     `binary:logistic` = res, `binary:logitraw` = stats::binomial()$linkinv(res),     `multi:softprob` = matrix(res, ncol = object$params$num_class,         byrow = TRUE), res): EXPR must be a length 1 vector
 
 ts_auto_arima_xgboost$recipe_info
-#> $recipe_call
-#> recipe(.data = data, .date_col = date_col, .value_col = value, 
-#>     .formula = value ~ ., .rsamp_obj = splits, .tune = FALSE, 
-#>     .grid_size = 5, .num_cores = 2, .cv_slice_limit = 2)
-#> 
-#> $recipe_syntax
-#> [1] "ts_arima_boost_recipe <-"                                                                                                                                                                     
-#> [2] "\n  recipe(.data = data, .date_col = date_col, .value_col = value, .formula = value ~ \n    ., .rsamp_obj = splits, .tune = FALSE, .grid_size = 5, .num_cores = 2, \n    .cv_slice_limit = 2)"
-#> 
-#> $rec_obj
-#> 
-#> ── Recipe ──────────────────────────────────────────────────────────────────────
-#> 
-#> ── Inputs 
-#> Number of variables by role
-#> outcome:   1
-#> predictor: 1
-#> 
-#> ── Operations 
-#> • Timeseries signature features from: date_col
-#> • Novel factor level assignment for: recipes::all_nominal_predictors()
-#> • Variable mutation for: tidyselect::vars_select_helpers$where(is.character)
-#> • Dummy variables from: recipes::all_nominal()
-#> • Zero variance filter on: recipes::all_predictors() -date_col_index.num
-#> • Centering and scaling for: recipes::all_numeric_predictors()
-#> 
+#> Error in ts_auto_arima_xgboost$recipe_info: object of type 'closure' is not subsettable
 # }
 ```

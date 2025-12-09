@@ -115,17 +115,17 @@ ts_geometric_brownian_motion_augment(
   .value_col = value
 )
 #> # A tibble: 291 × 3
-#>    sim_number  date_col     value
-#>    <fct>       <date>       <dbl>
-#>  1 actual_data 2022-01-01  0.675 
-#>  2 actual_data 2022-01-02 -0.0601
-#>  3 actual_data 2022-01-03  1.38  
-#>  4 actual_data 2022-01-04 -0.978 
-#>  5 actual_data 2022-01-05  0.175 
-#>  6 actual_data 2022-01-06 -0.135 
-#>  7 actual_data 2022-01-07 -0.373 
-#>  8 actual_data 2022-01-08 -0.675 
-#>  9 actual_data 2022-01-09  0.783 
-#> 10 actual_data 2022-01-10  0.615 
+#>    sim_number  date_col    value
+#>    <fct>       <date>      <dbl>
+#>  1 actual_data 2022-01-01 -0.897
+#>  2 actual_data 2022-01-02  0.446
+#>  3 actual_data 2022-01-03 -0.182
+#>  4 actual_data 2022-01-04  0.699
+#>  5 actual_data 2022-01-05 -0.557
+#>  6 actual_data 2022-01-06  0.364
+#>  7 actual_data 2022-01-07  0.946
+#>  8 actual_data 2022-01-08  0.292
+#>  9 actual_data 2022-01-09  1.43 
+#> 10 actual_data 2022-01-10 -0.502
 #> # ℹ 281 more rows
 ```

@@ -65,6 +65,9 @@ healthyR.ts plotting functions
 - [`ts_event_analysis_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_event_analysis_plot.md)
   : Time Series Event Analysis Plot
 
+- [`ts_random_walk_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk_plot.md)
+  : Auto-Plot a Random Walk
+
 ## Time Series Clustering
 
 Time Series Clustering Functions

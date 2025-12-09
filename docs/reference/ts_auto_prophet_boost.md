@@ -165,33 +165,9 @@ ts_prophet_boost <- ts_auto_prophet_boost(
 )
 #> Disabling weekly seasonality. Run prophet with weekly.seasonality=TRUE to override this.
 #> Disabling daily seasonality. Run prophet with daily.seasonality=TRUE to override this.
+#> Error in switch(object$params$objective, `reg:linear` = , `reg:logistic` = ,     `binary:logistic` = res, `binary:logitraw` = stats::binomial()$linkinv(res),     `multi:softprob` = matrix(res, ncol = object$params$num_class,         byrow = TRUE), res): EXPR must be a length 1 vector
 
 ts_prophet_boost$recipe_info
-#> $recipe_call
-#> recipe(.data = data, .date_col = date_col, .value_col = value, 
-#>     .formula = value ~ ., .rsamp_obj = splits, .tune = FALSE, 
-#>     .grid_size = 5, .num_cores = 2)
-#> 
-#> $recipe_syntax
-#> [1] "ts_prophet_boost_recipe <-"                                                                                                                                        
-#> [2] "\n  recipe(.data = data, .date_col = date_col, .value_col = value, .formula = value ~ \n    ., .rsamp_obj = splits, .tune = FALSE, .grid_size = 5, .num_cores = 2)"
-#> 
-#> $rec_obj
-#> 
-#> ── Recipe ──────────────────────────────────────────────────────────────────────
-#> 
-#> ── Inputs 
-#> Number of variables by role
-#> outcome:   1
-#> predictor: 1
-#> 
-#> ── Operations 
-#> • Timeseries signature features from: date_col
-#> • Novel factor level assignment for: recipes::all_nominal_predictors()
-#> • Variable mutation for: tidyselect::vars_select_helpers$where(is.character)
-#> • Dummy variables from: recipes::all_nominal()
-#> • Zero variance filter on: recipes::all_predictors() -date_col_index.num
-#> • Centering and scaling for: recipes::all_numeric_predictors()
-#> 
+#> Error: object 'ts_prophet_boost' not found
 # }
 ```
