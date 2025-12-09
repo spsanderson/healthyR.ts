@@ -64,6 +64,7 @@ ts_time_event_analysis_tbl(
 Other Plot: 
 \code{\link{ts_brownian_motion_plot}()},
 \code{\link{ts_qq_plot}()},
+\code{\link{ts_random_walk_plot}()},
 \code{\link{ts_scedacity_scatter_plot}()}
 }
 \author{

@@ -86,7 +86,8 @@ ts_scedacity_scatter_plot(calibration_tbl)
 Other Plot: 
 \code{\link{ts_brownian_motion_plot}()},
 \code{\link{ts_event_analysis_plot}()},
-\code{\link{ts_qq_plot}()}
+\code{\link{ts_qq_plot}()},
+\code{\link{ts_random_walk_plot}()}
 
 Other Utility: 
 \code{\link{auto_stationarize}()},
