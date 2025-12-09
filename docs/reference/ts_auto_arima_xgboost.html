@@ -205,34 +205,10 @@ tuning grid.</p></dd>
 <span class="r-in"><span>  .tune <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> frequency = 12 observations per 1 year</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in switch(object$params$objective, `reg:linear` = , `reg:logistic` = ,     `binary:logistic` = res, `binary:logitraw` = stats::binomial()$linkinv(res),     `multi:softprob` = matrix(res, ncol = object$params$num_class,         byrow = TRUE), res):</span> EXPR must be a length 1 vector</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ts_auto_arima_xgboost</span><span class="op">$</span><span class="va">recipe_info</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_call</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> recipe(.data = data, .date_col = date_col, .value_col = value, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     .formula = value ~ ., .rsamp_obj = splits, .tune = FALSE, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     .grid_size = 5, .num_cores = 2, .cv_slice_limit = 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $recipe_syntax</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ts_arima_boost_recipe &lt;-"                                                                                                                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "\n  recipe(.data = data, .date_col = date_col, .value_col = value, .formula = value ~ \n    ., .rsamp_obj = splits, .tune = FALSE, .grid_size = 5, .num_cores = 2, \n    .cv_slice_limit = 2)"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $rec_obj</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Recipe</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────────</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Inputs </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Number of variables by role</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> outcome:   1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> predictor: 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Operations </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Timeseries signature features from: <span style="color: #0000BB;">date_col</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Novel factor level assignment for: <span style="color: #0000BB;">recipes::all_nominal_predictors()</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Variable mutation for: <span style="color: #0000BB;">tidyselect::vars_select_helpers$where(is.character)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Dummy variables from: <span style="color: #0000BB;">recipes::all_nominal()</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Zero variance filter on: <span style="color: #0000BB;">recipes::all_predictors()</span> <span style="color: #0000BB;">-date_col_index.num</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Centering and scaling for: <span style="color: #0000BB;">recipes::all_numeric_predictors()</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in ts_auto_arima_xgboost$recipe_info:</span> object of type 'closure' is not subsettable</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

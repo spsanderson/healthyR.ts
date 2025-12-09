@@ -44,6 +44,7 @@ count is higher than 9.
 Other Plot:
 [`ts_event_analysis_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_event_analysis_plot.md),
 [`ts_qq_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_qq_plot.md),
+[`ts_random_walk_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_random_walk_plot.md),
 [`ts_scedacity_scatter_plot()`](https://www.spsanderson.com/healthyR.ts/reference/ts_scedacity_scatter_plot.md)
 
 ## Author
