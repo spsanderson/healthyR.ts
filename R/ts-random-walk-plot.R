@@ -84,10 +84,10 @@ ts_random_walk_plot <- function(.data, .interactive = FALSE) {
         dplyr::mutate(
             variable = dplyr::case_when(
                 variable == "y" ~ "Random Variable (y)",
-                variable == "cum_y" ~ "Cumulative Sum (cum_y)",
+                variable == "cum_y" ~ "Cumulative Product (cum_y)",
                 TRUE ~ variable
             ),
-            variable = factor(variable, levels = c("Random Variable (y)", "Cumulative Sum (cum_y)"))
+            variable = factor(variable, levels = c("Random Variable (y)", "Cumulative Product (cum_y)"))
         )
 
     # Graph ---
