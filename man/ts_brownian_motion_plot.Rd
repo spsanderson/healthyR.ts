@@ -47,6 +47,7 @@ augmented_data <- df \%>\%
 Other Plot: 
 \code{\link{ts_event_analysis_plot}()},
 \code{\link{ts_qq_plot}()},
+\code{\link{ts_random_walk_plot}()},
 \code{\link{ts_scedacity_scatter_plot}()}
 }
 \author{
