@@ -18,7 +18,6 @@
 #' plotly plot.
 #'
 #' @examples
-#' library(dplyr)
 #'
 #' df <- ts_random_walk(
 #'   .mean = 0,
