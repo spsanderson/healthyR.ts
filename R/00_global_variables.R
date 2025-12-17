@@ -13,6 +13,6 @@ globalVariables(
         "lagged_value","mean_event_change","median_event_change","numeric_group_number",
         "original_value","pct_chg_mark","relative_change","relative_change_raw",
         ".best_metric",".cv_assess",".cv_skip",".cv_slice_limit",".grid_size",".tune",
-        "month","sim_number"
+        "month","sim_number","panel","plot_value","fill_color","cum_y","variable"
     )
 )
