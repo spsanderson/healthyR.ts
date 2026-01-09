@@ -123,12 +123,12 @@ head(df)
 #> # A tibble: 6 × 4
 #>     run     x       y cum_y
 #>   <dbl> <dbl>   <dbl> <dbl>
-#> 1     1     1  0.0698 1070.
-#> 2     1     2  0.0626 1137.
-#> 3     1     3  0.124  1277.
-#> 4     1     4  0.0504 1342.
-#> 5     1     5  0.0143 1361.
-#> 6     1     6 -0.0639 1274.
+#> 1     1     1  0.113  1113.
+#> 2     1     2  0.119  1245.
+#> 3     1     3 -0.0178 1223.
+#> 4     1     4  0.141  1396.
+#> 5     1     5 -0.163  1169.
+#> 6     1     6 -0.0485 1112.
 ```
 
 Now that the data has been generated, lets take a look at it.
@@ -147,7 +147,7 @@ df %>%
     ts_random_walk_ggplot_layers(df)
 ```
 
-<img src="man/figures/README-ts_random_walk_ggplot_layers-1.png" width="100%" />
+<img src="man/figures/README-ts_random_walk_ggplot_layers-1.png" alt="" width="100%" />
 
 That is still pretty noisy, so lets see this in a different way. Lets
 clear this up a bit to make it easier to see the full range of the
@@ -172,7 +172,7 @@ df %>%
     ts_random_walk_ggplot_layers(df)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />
 
 ### Calendar Heatmap Visualization
 
@@ -198,7 +198,7 @@ ts_calendar_heatmap_plot(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" alt="" width="100%" />
 
 ### Time Series Clustering
 
@@ -229,12 +229,12 @@ ts_feature_cluster_plot(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" alt="" width="100%" />
 
     #> $plot
     #> $plot$static_plot
 
-<img src="man/figures/README-unnamed-chunk-4-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-2.png" alt="" width="100%" />
 
     #> 
     #> $plot$plotly_plot
@@ -345,7 +345,7 @@ ts_time_event_analysis_tbl(
   ts_event_analysis_plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" alt="" width="100%" />
 
 ``` r
 
@@ -360,7 +360,7 @@ ts_time_event_analysis_tbl(
   ts_event_analysis_plot(.plot_type = "individual")
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-2.png" alt="" width="100%" />
 
 ### ARIMA Simulation
 
@@ -371,7 +371,7 @@ output <- ts_arima_simulator()
 output$plots$static_plot
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" alt="" width="100%" />
 
 ## Available Models
 
@@ -487,10 +487,6 @@ citation("healthyR.ts")
 - 🐦 **Issues**: [GitHub Issue
   Tracker](https://github.com/spsanderson/healthyR.ts/issues)
 - 🌐 **Website**: <https://www.spsanderson.com/healthyR.ts/>
-
-## License
-
-MIT License - see [LICENSE](LICENSE.md) for details
 
 ------------------------------------------------------------------------
 
