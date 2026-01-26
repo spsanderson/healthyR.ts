@@ -338,10 +338,6 @@ citation("healthyR.ts")
 - 🐦 **Issues**: [GitHub Issue Tracker](https://github.com/spsanderson/healthyR.ts/issues)
 - 🌐 **Website**: https://www.spsanderson.com/healthyR.ts/
 
-## License
-
-MIT License - see [LICENSE](LICENSE.md) for details
-
 ---
 
 **Author**: Steven P. Sanderson II, MPH  
