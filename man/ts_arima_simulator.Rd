@@ -77,8 +77,6 @@ output$plots$static_plot
 
 }
 \seealso{
-\url{https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/}
-
 Other Simulator: 
 \code{\link{ts_forecast_simulator}()}
 }

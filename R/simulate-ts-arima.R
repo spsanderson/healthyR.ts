@@ -7,8 +7,6 @@
 #' @details This function takes in a user specified arima model. The specification
 #' is passed to [stats::arima.sim()]
 #'
-#' @seealso \url{https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/}
-#'
 #' @description Returns a list output of any `n` simulations of a user specified
 #' ARIMA model. The function returns a list object with two sections:
 #' -  data
